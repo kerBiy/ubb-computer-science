@@ -8,13 +8,13 @@ def addExpense(
 
 
 def modifyExpenseAtApartment(
-    expenses: list[dict], apartment: int, val: float, type: str, date: str
+    expenses: list[dict], id: int, apartment: int, val: float, type: str, date: str
 ) -> None:
-    for expense in expenses:
-        if expense["apartment"] == apartment:
-            expense["val"] = val
-            expense["type"] = type
-            expense["date"] = date
+    id -= 1
+    expenses[id]["apartment"] = apartment
+    expenses[id]["val"] = val
+    expenses[id]["type"] = type
+    expenses[id]["date"] = date
 
 
 # /----- Deleting -----/
