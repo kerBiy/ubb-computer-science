@@ -153,7 +153,7 @@ def main():
     while True:
         mainMenu()
         user_input = input("\nEnter an option: ")
-        system("clear")
+        clear_screen()
 
         if user_input == "q":
             print("Exiting the program...")
