@@ -1,3 +1,4 @@
+import csv
 from os import system
 
 
@@ -19,6 +20,14 @@ def get_input(expenses: list[dict], options: dict) -> None:
     user_input = int(user_input)
     clear_screen()
     options[user_input](expenses)
+
+
+def read_from_csv(expenses: list[dict]) -> None:
+    expenses = [*csv.DictReader(open("dataBase.csv"))]
+
+    for i in range(len(expenses)):
+        expenses[i]["apartment"] = int(expenses[i]["apartment"])
+        expenses[i]["val"] = float(expenses[i]["val"])
 
 
 def printExpenses(expenses: list[dict]) -> None:
@@ -83,6 +92,14 @@ def modifyExpenseAtApartment(
     expenses[id]["date"] = date
 
 
+def testAddExpense():
+    pass
+
+
+def testModifyExpense():
+    pass
+
+
 # /----- Deleting -----/
 
 
@@ -99,24 +116,6 @@ def deleteMenu(expenses: list[dict]) -> None:
     }
 
     get_input(expenses, options)
-
-
-def deleteAllExpensesFrom(expenses: list[dict], apartment: int) -> None:
-    expenses[:] = [expense for expense in expenses if expense["apartment"] != apartment]
-
-
-def deleteConsecutiveExpensesFrom(
-    expenses: list[dict], apartment_start: int, apartment_end: int
-) -> None:
-    expenses[:] = [
-        expense
-        for expense in expenses
-        if not apartment_start <= expense["apartment"] <= apartment_end
-    ]
-
-
-def deleteExpensesOfType(expenses: list[dict], type: str) -> None:
-    expenses[:] = [expense for expense in expenses if expense["type"] != type]
 
 
 def delete_expenses_apartment(expenses: list[dict]) -> None:
@@ -138,6 +137,36 @@ def delete_expenses_type(expenses: list[dict]) -> None:
     deleteExpensesOfType(expenses, type)
 
 
+def deleteAllExpensesFrom(expenses: list[dict], apartment: int) -> None:
+    expenses[:] = [expense for expense in expenses if expense["apartment"] != apartment]
+
+
+def deleteConsecutiveExpensesFrom(
+    expenses: list[dict], apartment_start: int, apartment_end: int
+) -> None:
+    expenses[:] = [
+        expense
+        for expense in expenses
+        if not apartment_start <= expense["apartment"] <= apartment_end
+    ]
+
+
+def deleteExpensesOfType(expenses: list[dict], type: str) -> None:
+    expenses[:] = [expense for expense in expenses if expense["type"] != type]
+
+
+def testDeleteExpenseApartment():
+    pass
+
+
+def testDeleteConsecutive():
+    pass
+
+
+def testDeleteExpenseType():
+    pass
+
+
 # /----- Main -----/
 
 
@@ -147,6 +176,14 @@ def mainMenu() -> None:
     print("Enter 1 for add menu")
     print("Enter 2 for delete menu")
     print("Enter q for Exiting the program")
+
+
+def testFunction() -> None:
+    testAddExpense()
+    testModifyExpense()
+    testDeleteExpenseApartment()
+    testDeleteConsecutive()
+    testDeleteExpenseType()
 
 
 def main():
@@ -176,4 +213,5 @@ def main():
 
 
 if __name__ == "__main__":
+    testFunction()
     main()
