@@ -56,7 +56,7 @@ def modify_expense(expenses: list[dict]) -> None:
 
     id = int(input("\nPlease enter the id of the expense you want to modify: "))
 
-    while id > len(expenses):
+    while id > len(expenses) or id <= 0:
         id = int(input("Please enter a valid id: "))
 
     apartment = int(input("\nEnter the expense apartment: "))
