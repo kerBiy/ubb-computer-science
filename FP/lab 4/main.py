@@ -92,11 +92,20 @@ def modifyExpenseAtApartment(
     expenses[id]["date"] = date
 
 
-def testAddExpense():
-    pass
+def testAddExpense(expenses: list[dict]) -> None:
+    new_expenses = expenses.copy()
+    correct_expenses = expenses.copy()
+    correct_expenses.append(
+        {"apartment": 211, "val": 230.59, "type": "gas", "date": "2019/02/08"}
+    )
+
+    addExpense(new_expenses, 211, 230.59, "gas", "2019/02/08")
+
+    assert new_expenses == correct_expenses
+    print("JMK")
 
 
-def testModifyExpense():
+def testModifyExpense(expenses: list[dict]) -> None:
     pass
 
 
@@ -155,15 +164,15 @@ def deleteExpensesOfType(expenses: list[dict], type: str) -> None:
     expenses[:] = [expense for expense in expenses if expense["type"] != type]
 
 
-def testDeleteExpenseApartment():
+def testDeleteExpenseApartment(expenses: list[dict]) -> None:
     pass
 
 
-def testDeleteConsecutive():
+def testDeleteConsecutive(expenses: list[dict]) -> None:
     pass
 
 
-def testDeleteExpenseType():
+def testDeleteExpenseType(expenses: list[dict]) -> None:
     pass
 
 
@@ -179,11 +188,14 @@ def mainMenu() -> None:
 
 
 def testFunction() -> None:
-    testAddExpense()
-    testModifyExpense()
-    testDeleteExpenseApartment()
-    testDeleteConsecutive()
-    testDeleteExpenseType()
+    expenses = []
+    read_from_csv(expenses)
+
+    testAddExpense(expenses)
+    testModifyExpense(expenses)
+    testDeleteExpenseApartment(expenses)
+    testDeleteConsecutive(expenses)
+    testDeleteExpenseType(expenses)
 
 
 def main():
