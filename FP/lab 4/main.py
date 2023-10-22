@@ -41,22 +41,6 @@ def addMenu(expenses: list[dict]) -> None:
     get_input(expenses, options)
 
 
-def addExpense(
-    expenses: list[dict], apartment: int, val: float, type: str, date: str
-) -> None:
-    expenses.append({"apartment": apartment, "val": val, "type": type, "date": date})
-
-
-def modifyExpenseAtApartment(
-    expenses: list[dict], apartment: int, val: float, type: str, date: str
-) -> None:
-    for expense in expenses:
-        if expense["apartment"] == apartment:
-            expense["val"] = val
-            expense["type"] = type
-            expense["date"] = date
-
-
 def add_expense(expenses: list[dict]) -> None:
     print("Adding an expense:\n")
     apartment = int(input("Enter the apartment number: "))
@@ -68,12 +52,35 @@ def add_expense(expenses: list[dict]) -> None:
 
 
 def modify_expense(expenses: list[dict]) -> None:
-    apartment = int(input("Enter the apartment number you want to modify: "))
-    value = float(input("\nEnter the expense value: "))
+    printExpenses(expenses)
+
+    id = int(input("\nPlease enter the id of the expense you want to modify: "))
+
+    while id > len(expenses):
+        id = int(input("Please enter a valid id: "))
+
+    apartment = int(input("\nEnter the expense apartment: "))
+    value = float(input("Enter the expense value: "))
     type = input("Enter the expense type: ")
     date = input("Enter the expense date(yyyy/mm/dd): ")
 
-    modifyExpenseAtApartment(expenses, apartment, value, type, date)
+    modifyExpenseAtApartment(expenses, id, apartment, value, type, date)
+
+
+def addExpense(
+    expenses: list[dict], apartment: int, val: float, type: str, date: str
+) -> None:
+    expenses.append({"apartment": apartment, "val": val, "type": type, "date": date})
+
+
+def modifyExpenseAtApartment(
+    expenses: list[dict], id: int, apartment: int, val: float, type: str, date: str
+) -> None:
+    id -= 1
+    expenses[id]["apartment"] = apartment
+    expenses[id]["val"] = val
+    expenses[id]["type"] = type
+    expenses[id]["date"] = date
 
 
 # /----- Deleting -----/
