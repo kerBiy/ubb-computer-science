@@ -22,7 +22,6 @@ def input_number(prompt: str, function):
             assert user_input >= 0
             return user_input
         except Exception:
-            clear_screen()
             print("\nPlease enter a valid number.")
 
 
@@ -33,8 +32,17 @@ def input_date(prompt: str) -> str:
             assert valid_date(user_input)
             return user_input
         except Exception:
-            clear_screen()
             print("\nPlease enter a valid date.")
+
+
+def input_id(prompt: str, expenses: list[dict]) -> int:
+    while True:
+        try:
+            user_input = input(prompt)
+            user_input = int(user_input)
+            assert 1 <= user_input <= len(expenses)
+        except Exception:
+            print("\nPlease enter a valid id: ")
 
 
 def get_input_for_submenu(expenses: list[dict], options: dict) -> None:
@@ -45,11 +53,8 @@ def get_input_for_submenu(expenses: list[dict], options: dict) -> None:
     if user_input == "b":
         return
 
-    try:
-        user_input = int(user_input)
-        options[user_input](expenses)
-    except KeyError:
-        print("This option is not yet implemented.")
+    user_input = int(user_input)
+    options[user_input](expenses)
 
 
 def print_expenses(expenses: list[dict]) -> None:
@@ -85,15 +90,11 @@ def ui_add_expense(expenses: list[dict]) -> None:
 def ui_modify_expense(expenses: list[dict]) -> None:
     print_expenses(expenses)
 
-    id = int(input("\nPlease enter the id of the expense you want to modify: "))
-
-    while id > len(expenses) or id <= 0:
-        id = int(input("Please enter a valid id: "))
-
-    apartment = int(input("\nEnter the expense apartment: "))
-    value = float(input("Enter the expense value: "))
+    id = input_id("\nPlease enter the id of the expense you want to modify: ", expenses)
+    apartment = input_number("\nEnter the expense apartment: ", int)
+    value = input_number("Enter the expense value: ", float)
     type = input("Enter the expense type: ")
-    date = input("Enter the expense date(yyyy/mm/dd): ")
+    date = input_date("Enter the expense date(yyyy/mm/dd): ")
 
     modify_expense(expenses, id, apartment, value, type, date)
 
@@ -115,11 +116,28 @@ def modify_expense(
 
 
 def test_add_expense() -> None:
-    pass
+    new_expense = []
+    correct_expense = [
+        {"apartment": 112, "val": 350.99, "type": "gas", "date": "2020/05/22"}
+    ]
+
+    add_expense(new_expense, 112, 350.99, "gas", "2020/05/22")
+
+    assert correct_expense == new_expense
 
 
 def test_modify_expense() -> None:
-    pass
+    new_expense = [
+        {"apartment": 113, "val": 50.98, "type": "gas", "date": "2020/05/20"}
+    ]
+    correct_expense = [
+        {"apartment": 112, "val": 350.99, "type": "gas", "date": "2020/05/22"}
+    ]
+
+    id_expense = 1
+    modify_expense(new_expense, id_expense, 112, 350.99, "gas", "2020/05/22")
+
+    assert correct_expense == new_expense
 
 
 # /----- Deleting -----/
@@ -141,15 +159,16 @@ def deleteMenu(expenses: list[dict]) -> None:
 
 
 def ui_delete_all_expenses_from_apartment(expenses: list[dict]) -> None:
-    apartment = int(
-        input("Enter the apartment number you want to delete all the expenses from: ")
+    apartment = input_number(
+        "Enter the apartment number you want to delete all the expenses from: ", int
     )
+
     delete_all_expenses_from_apartment(expenses, apartment)
 
 
 def ui_delete_consecutive_expenses(expenses: list[dict]) -> None:
-    first_apartment = int(input("Enter the first apartment number: "))
-    second_apartment = int(input("Enter the second apartment number: "))
+    first_apartment = input_number("Enter the first apartment number: ", int)
+    second_apartment = input_number("Enter the second apartment number: ", int)
 
     delete_consecutive_expenses(expenses, first_apartment, second_apartment)
 
@@ -178,15 +197,53 @@ def delete_all_expenses_of_the_same_type(expenses: list[dict], type: str) -> Non
 
 
 def test_delete_all_expenses_from_apartment() -> None:
-    pass
+    new_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+    correct_expenses = [
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+
+    delete_all_expenses_from_apartment(new_expenses, 112)
+
+    assert correct_expenses == new_expenses
 
 
 def test_delete_consecutive_expenses() -> None:
-    pass
+    new_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+    correct_expenses = [
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"}
+    ]
+
+    delete_consecutive_expenses(new_expenses, 105, 115)
+
+    assert correct_expenses == new_expenses
 
 
 def test_delete_all_expenses_of_the_same_type() -> None:
-    pass
+    new_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+    correct_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+    ]
+
+    delete_all_expenses_of_the_same_type(new_expenses, "gas")
+
+    assert correct_expenses == new_expenses
 
 
 # /----- Main -----/
@@ -206,9 +263,10 @@ def test_functions() -> None:
     test_delete_all_expenses_from_apartment()
     test_delete_consecutive_expenses()
     test_delete_all_expenses_of_the_same_type()
+    print("All tests passed!")
 
 
-def main():
+def console_application():
     expenses = []
     options = {
         0: print_expenses,
@@ -236,4 +294,4 @@ def main():
 
 if __name__ == "__main__":
     test_functions()
-    main()
+    console_application()
