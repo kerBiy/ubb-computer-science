@@ -1,5 +1,5 @@
 from os import system
-from datetime import strptime
+from datetime import datetime
 
 
 def clear_screen() -> None:
@@ -8,7 +8,7 @@ def clear_screen() -> None:
 
 def valid_date(date: str) -> bool:
     format = "%Y/%m/%d"
-    return strptime(date, format)
+    return datetime.strptime(date, format)
 
 
 def input_number(prompt: str, function):
