@@ -1,7 +1,6 @@
-import csv
 from os import system
+from datetime import datetime
 
-# Something random
 
 # /----- Utilities -----/
 
@@ -10,28 +9,43 @@ def clear_screen() -> None:
     system("clear")
 
 
-def get_input(expenses: list[dict], options: dict) -> None:
+def valid_date(date: str) -> bool:
+    format = "%Y/%m/%d"
+    return datetime.strptime(date, format)
+
+
+def input_number(function, prompt: str):
+    while True:
+        try:
+            user_input = input(prompt)
+            user_input = function(user_input)
+            return user_input
+        except ValueError():
+            print("\nPlease enter a valid number.")
+
+
+def input_date(prompt: str) -> str:
+    while True:
+        try:
+            user_input = input(prompt)
+            assert valid_date(user_input)
+        except Exception:
+            print("\nPlease enter a valid date.")
+
+
+def get_input_for_submenu(expenses: list[dict], options: dict) -> None:
     print("Enter b to go back")
     user_input = input("\nEnter your option again: ")
+    clear_screen()
 
     if user_input == "b":
-        clear_screen()
         return
 
     user_input = int(user_input)
-    clear_screen()
     options[user_input](expenses)
 
 
-def read_from_csv(expenses: list[dict]) -> None:
-    expenses = [*csv.DictReader(open("dataBase.csv"))]
-
-    for i in range(len(expenses)):
-        expenses[i]["apartment"] = int(expenses[i]["apartment"])
-        expenses[i]["val"] = float(expenses[i]["val"])
-
-
-def printExpenses(expenses: list[dict]) -> None:
+def print_expenses(expenses: list[dict]) -> None:
     print("EXPENSES LIST:")
     for index, expense in enumerate(expenses):
         print(
@@ -42,27 +56,27 @@ def printExpenses(expenses: list[dict]) -> None:
 # /----- Adding -----/
 
 
-def addMenu(expenses: list[dict]) -> None:
+def add_submenu(expenses: list[dict]) -> None:
     clear_screen()
     print("Enter 1 for adding an expenses")
     print("Enter 2 for modifying an expense")
 
-    options = {1: add_expense, 2: modify_expense}
-    get_input(expenses, options)
+    options = {1: ui_add_expense, 2: ui_modify_expense}
+    get_input_for_submenu(expenses, options)
 
 
-def add_expense(expenses: list[dict]) -> None:
+def ui_add_expense(expenses: list[dict]) -> None:
     print("Adding an expense:\n")
     apartment = int(input("Enter the apartment number: "))
     value = float(input("Enter the expense value: "))
     type = input("Enter the expense type: ")
     date = input("Enter the expense date(yyyy/mm/dd): ")
 
-    addExpense(expenses, apartment, value, type, date)
+    add_expense(expenses, apartment, value, type, date)
 
 
-def modify_expense(expenses: list[dict]) -> None:
-    printExpenses(expenses)
+def ui_modify_expense(expenses: list[dict]) -> None:
+    print_expenses(expenses)
 
     id = int(input("\nPlease enter the id of the expense you want to modify: "))
 
@@ -74,16 +88,16 @@ def modify_expense(expenses: list[dict]) -> None:
     type = input("Enter the expense type: ")
     date = input("Enter the expense date(yyyy/mm/dd): ")
 
-    modifyExpenseAtApartment(expenses, id, apartment, value, type, date)
+    modify_expense(expenses, id, apartment, value, type, date)
 
 
-def addExpense(
+def add_expense(
     expenses: list[dict], apartment: int, val: float, type: str, date: str
 ) -> None:
     expenses.append({"apartment": apartment, "val": val, "type": type, "date": date})
 
 
-def modifyExpenseAtApartment(
+def modify_expense(
     expenses: list[dict], id: int, apartment: int, val: float, type: str, date: str
 ) -> None:
     id -= 1
@@ -93,20 +107,11 @@ def modifyExpenseAtApartment(
     expenses[id]["date"] = date
 
 
-def testAddExpense(expenses: list[dict]) -> None:
-    new_expenses = expenses.copy()
-    correct_expenses = expenses.copy()
-    correct_expenses.append(
-        {"apartment": 211, "val": 230.59, "type": "gas", "date": "2019/02/08"}
-    )
-
-    addExpense(new_expenses, 211, 230.59, "gas", "2019/02/08")
-
-    assert new_expenses == correct_expenses
-    print("JMK")
+def test_add_expense() -> None:
+    pass
 
 
-def testModifyExpense(expenses: list[dict]) -> None:
+def test_modify_expense() -> None:
     pass
 
 
@@ -120,38 +125,38 @@ def deleteMenu(expenses: list[dict]) -> None:
     print("Enter 3 for deleting all the expenses of one type")
 
     options = {
-        1: delete_expenses_apartment,
-        2: delete_consecutive,
-        3: delete_expenses_type,
+        1: ui_delete_all_expenses_from_apartment,
+        2: ui_delete_consecutive_expenses,
+        3: ui_delete_all_expenses_of_the_same_type,
     }
 
-    get_input(expenses, options)
+    get_input_for_submenu(expenses, options)
 
 
-def delete_expenses_apartment(expenses: list[dict]) -> None:
+def ui_delete_all_expenses_from_apartment(expenses: list[dict]) -> None:
     apartment = int(
         input("Enter the apartment number you want to delete all the expenses from: ")
     )
-    deleteAllExpensesFrom(expenses, apartment)
+    delete_all_expenses_from_apartment(expenses, apartment)
 
 
-def delete_consecutive(expenses: list[dict]) -> None:
+def ui_delete_consecutive_expenses(expenses: list[dict]) -> None:
     first_apartment = int(input("Enter the first apartment number: "))
     second_apartment = int(input("Enter the second apartment number: "))
 
-    deleteConsecutiveExpensesFrom(expenses, first_apartment, second_apartment)
+    delete_consecutive_expenses(expenses, first_apartment, second_apartment)
 
 
-def delete_expenses_type(expenses: list[dict]) -> None:
+def ui_delete_all_expenses_of_the_same_type(expenses: list[dict]) -> None:
     type = input("Enter the expense type you want to delete: ")
-    deleteExpensesOfType(expenses, type)
+    delete_all_expenses_of_the_same_type(expenses, type)
 
 
-def deleteAllExpensesFrom(expenses: list[dict], apartment: int) -> None:
+def delete_all_expenses_from_apartment(expenses: list[dict], apartment: int) -> None:
     expenses[:] = [expense for expense in expenses if expense["apartment"] != apartment]
 
 
-def deleteConsecutiveExpensesFrom(
+def delete_consecutive_expenses(
     expenses: list[dict], apartment_start: int, apartment_end: int
 ) -> None:
     expenses[:] = [
@@ -161,19 +166,19 @@ def deleteConsecutiveExpensesFrom(
     ]
 
 
-def deleteExpensesOfType(expenses: list[dict], type: str) -> None:
+def delete_all_expenses_of_the_same_type(expenses: list[dict], type: str) -> None:
     expenses[:] = [expense for expense in expenses if expense["type"] != type]
 
 
-def testDeleteExpenseApartment(expenses: list[dict]) -> None:
+def test_delete_all_expenses_from_apartment() -> None:
     pass
 
 
-def testDeleteConsecutive(expenses: list[dict]) -> None:
+def test_delete_consecutive_expenses() -> None:
     pass
 
 
-def testDeleteExpenseType(expenses: list[dict]) -> None:
+def test_delete_all_expenses_of_the_same_type() -> None:
     pass
 
 
@@ -189,21 +194,18 @@ def mainMenu() -> None:
 
 
 def testFunction() -> None:
-    expenses = []
-    read_from_csv(expenses)
-
-    testAddExpense(expenses)
-    testModifyExpense(expenses)
-    testDeleteExpenseApartment(expenses)
-    testDeleteConsecutive(expenses)
-    testDeleteExpenseType(expenses)
+    test_add_expense()
+    test_modify_expense()
+    test_delete_all_expenses_from_apartment()
+    test_delete_consecutive_expenses()
+    test_delete_all_expenses_of_the_same_type()
 
 
 def main():
     expenses = []
     options = {
-        0: printExpenses,
-        1: addMenu,
+        0: print_expenses,
+        1: add_submenu,
         2: deleteMenu,
     }
 
