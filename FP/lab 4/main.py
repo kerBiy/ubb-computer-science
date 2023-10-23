@@ -1,5 +1,5 @@
 from os import system
-from datetime import datetime
+from datetime import strptime
 
 
 # /----- Utilities -----/
@@ -11,7 +11,7 @@ def clear_screen() -> None:
 
 def valid_date(date: str) -> bool:
     format = "%Y/%m/%d"
-    return datetime.strptime(date, format)
+    return strptime(date, format)
 
 
 def input_number(prompt: str, function):
@@ -143,7 +143,7 @@ def test_modify_expense() -> None:
 # /----- Deleting -----/
 
 
-def deleteMenu(expenses: list[dict]) -> None:
+def delete_submenu(expenses: list[dict]) -> None:
     clear_screen()
     print("Enter 1 for deleting all the expenses of one apartment")
     print("Enter 2 for deleting all the consecutive apartments expenses")
@@ -271,7 +271,7 @@ def console_application():
     options = {
         0: print_expenses,
         1: add_submenu,
-        2: deleteMenu,
+        2: delete_submenu,
     }
 
     while True:

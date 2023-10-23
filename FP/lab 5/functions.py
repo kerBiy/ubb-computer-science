@@ -1,13 +1,13 @@
 # /----- Adding -----/
 
 
-def addExpense(
+def add_expense(
     expenses: list[dict], apartment: int, val: float, type: str, date: str
 ) -> None:
     expenses.append({"apartment": apartment, "val": val, "type": type, "date": date})
 
 
-def modifyExpenseAtApartment(
+def modify_expense(
     expenses: list[dict], id: int, apartment: int, val: float, type: str, date: str
 ) -> None:
     id -= 1
@@ -20,11 +20,11 @@ def modifyExpenseAtApartment(
 # /----- Deleting -----/
 
 
-def deleteAllExpensesFrom(expenses: list[dict], apartment: int) -> None:
+def delete_all_expenses_from_apartment(expenses: list[dict], apartment: int) -> None:
     expenses[:] = [expense for expense in expenses if expense["apartment"] != apartment]
 
 
-def deleteConsecutiveExpensesFrom(
+def delete_consecutive_expenses(
     expenses: list[dict], apartment_start: int, apartment_end: int
 ) -> None:
     expenses[:] = [
@@ -34,7 +34,7 @@ def deleteConsecutiveExpensesFrom(
     ]
 
 
-def deleteExpensesOfType(expenses: list[dict], type: str) -> None:
+def delete_all_expenses_of_the_same_type(expenses: list[dict], type: str) -> None:
     expenses[:] = [expense for expense in expenses if expense["type"] != type]
 
 

@@ -1,13 +1,14 @@
 from os import system
-from utils import printExpenses
-from options.adding import addMenu
-from options.deleting import deleteMenu
-from options.searching import searchMenu
-from options.printing import printMenu
-from options.filtering import filterMenu
+from utils import print_expenses
+from tests import test_functions
+from ui.adding import add_submenu
+from ui.deleting import delete_submenu
+from ui.searching import search_submenu
+from ui.printing import print_submenu
+from ui.filtering import filter_submenu
 
 
-def mainMenu() -> None:
+def main_menu() -> None:
     print("\n\nOPTION MENU:")
     print("Enter 0 for showing the expenses list")
     print("Enter 1 for add menu")
@@ -19,22 +20,19 @@ def mainMenu() -> None:
     print("Enter q for Exiting the program")
 
 
-# WOOOW
-
-
-def main():
+def console_application() -> None:
     expenses = []
     options = {
-        0: printExpenses,
-        1: addMenu,
-        2: deleteMenu,
-        3: searchMenu,
-        4: printMenu,
-        5: filterMenu,
+        0: print_expenses,
+        1: add_submenu,
+        2: delete_submenu,
+        3: search_submenu,
+        4: print_submenu,
+        5: filter_submenu,
     }
 
     while True:
-        mainMenu()
+        main_menu()
         user_input = input("\nEnter an option: ")
         system("clear")
 
@@ -52,4 +50,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    test_functions()
+    console_application()
