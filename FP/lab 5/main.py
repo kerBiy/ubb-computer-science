@@ -5,7 +5,6 @@ from ui.adding import add_submenu
 from ui.deleting import delete_submenu
 from ui.searching import search_submenu
 from ui.printing import print_submenu
-from ui.filtering import filter_submenu
 
 
 def main_menu() -> None:
@@ -15,8 +14,6 @@ def main_menu() -> None:
     print("Enter 2 for delete menu")
     print("Enter 3 for search menu")
     print("Enter 4 for print menu")
-    print("Enter 5 for filter menu")
-    print("Enter z for Undo")
     print("Enter q for Exiting the program")
 
 
@@ -28,7 +25,6 @@ def console_application() -> None:
         2: delete_submenu,
         3: search_submenu,
         4: print_submenu,
-        5: filter_submenu,
     }
 
     while True:
