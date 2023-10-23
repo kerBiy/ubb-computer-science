@@ -7,7 +7,7 @@ from ui.searching import search_submenu
 from ui.printing import print_submenu
 
 
-def main_menu() -> None:
+def option_menu() -> None:
     print("\n\nOPTION MENU:")
     print("Enter 0 for showing the expenses list")
     print("Enter 1 for add menu")
@@ -28,7 +28,7 @@ def console_application() -> None:
     }
 
     while True:
-        main_menu()
+        option_menu()
         user_input = input("\nEnter an option: ")
         system("clear")
 

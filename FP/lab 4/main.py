@@ -249,7 +249,7 @@ def test_delete_all_expenses_of_the_same_type() -> None:
 # /----- Main -----/
 
 
-def main_menu() -> None:
+def option_menu() -> None:
     print("\n\nOPTION MENU:")
     print("Enter 0 for showing the expenses list")
     print("Enter 1 for add menu")
@@ -275,7 +275,7 @@ def console_application():
     }
 
     while True:
-        main_menu()
+        option_menu()
         user_input = input("\nEnter an option: ")
         clear_screen()
 
