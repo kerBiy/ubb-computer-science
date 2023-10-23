@@ -14,13 +14,15 @@ def valid_date(date: str) -> bool:
     return datetime.strptime(date, format)
 
 
-def input_number(function, prompt: str):
+def input_number(prompt: str, function):
     while True:
         try:
             user_input = input(prompt)
             user_input = function(user_input)
+            assert user_input >= 0
             return user_input
-        except ValueError():
+        except Exception:
+            clear_screen()
             print("\nPlease enter a valid number.")
 
 
@@ -29,7 +31,9 @@ def input_date(prompt: str) -> str:
         try:
             user_input = input(prompt)
             assert valid_date(user_input)
+            return user_input
         except Exception:
+            clear_screen()
             print("\nPlease enter a valid date.")
 
 
@@ -41,8 +45,11 @@ def get_input_for_submenu(expenses: list[dict], options: dict) -> None:
     if user_input == "b":
         return
 
-    user_input = int(user_input)
-    options[user_input](expenses)
+    try:
+        user_input = int(user_input)
+        options[user_input](expenses)
+    except KeyError:
+        print("This option is not yet implemented.")
 
 
 def print_expenses(expenses: list[dict]) -> None:
@@ -67,10 +74,10 @@ def add_submenu(expenses: list[dict]) -> None:
 
 def ui_add_expense(expenses: list[dict]) -> None:
     print("Adding an expense:\n")
-    apartment = int(input("Enter the apartment number: "))
-    value = float(input("Enter the expense value: "))
+    apartment = input_number("Enter the apartment number: ", int)
+    value = input_number("Enter the expense value: ", float)
     type = input("Enter the expense type: ")
-    date = input("Enter the expense date(yyyy/mm/dd): ")
+    date = input_date("Enter the expense date(yyyy/mm/dd): ")
 
     add_expense(expenses, apartment, value, type, date)
 
@@ -185,7 +192,7 @@ def test_delete_all_expenses_of_the_same_type() -> None:
 # /----- Main -----/
 
 
-def mainMenu() -> None:
+def main_menu() -> None:
     print("\n\nOPTION MENU:")
     print("Enter 0 for showing the expenses list")
     print("Enter 1 for add menu")
@@ -193,7 +200,7 @@ def mainMenu() -> None:
     print("Enter q for Exiting the program")
 
 
-def testFunction() -> None:
+def test_functions() -> None:
     test_add_expense()
     test_modify_expense()
     test_delete_all_expenses_from_apartment()
@@ -210,7 +217,7 @@ def main():
     }
 
     while True:
-        mainMenu()
+        main_menu()
         user_input = input("\nEnter an option: ")
         clear_screen()
 
@@ -228,5 +235,5 @@ def main():
 
 
 if __name__ == "__main__":
-    testFunction()
+    test_functions()
     main()
