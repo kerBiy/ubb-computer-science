@@ -13,7 +13,7 @@ from functions import (
 
 def search_submenu(expenses: list[dict]) -> None:
     clear_screen()
-    print("Enter 1 to search the expenses higher than a value")
+    print("Enter 1 to search all apartments with expenses higher than a val")
     print("Enter 2 to search all expenses of a single type")
     print("Enter 3 to search all the expenses before date")
 
