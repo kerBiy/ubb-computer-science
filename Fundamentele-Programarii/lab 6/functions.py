@@ -41,10 +41,12 @@ def delete_all_expenses_of_the_same_type(expenses: list[dict], type: str) -> Non
 # /----- Searching -----/
 
 
+# TODO this fucking function
 def search_all_apartments_with_expenses_higher_than(
     expenses: list[dict], val: float
 ) -> list[int]:
-    return [expense["apartment"] for expense in expenses if expense["val"] >= val]
+    # return [expense["apartment"] for expense in expenses if expense["val"] >= val]
+    pass
 
 
 def search_all_expenses_of_type(expenses: list[dict], type: str) -> list[dict]:
@@ -68,6 +70,7 @@ def print_total_sum_expenses_of_type(expenses: list[dict], type: str) -> float:
     return sum(expense["val"] for expense in expenses if expense["type"] == type)
 
 
+# TODO this fucking function
 def print_sorted_apartments_by_type(expenses: list[dict], type: str) -> list[int]:
     # val_map = {}
 
