@@ -38,6 +38,7 @@ def input_id(prompt: str, expenses: list[dict]) -> int:
             user_input = input(prompt)
             user_input = int(user_input)
             assert 1 <= user_input <= len(expenses)
+            return user_input
         except Exception:
             print("\nPlease enter a valid id: ")
 

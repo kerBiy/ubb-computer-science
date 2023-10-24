@@ -29,12 +29,18 @@ def ui_add_expense(expenses: list[dict]) -> None:
 
 
 def ui_modify_expense(expenses: list[dict]) -> None:
-    print_expenses(expenses)
+    if expenses:
+        print_expenses(expenses)
 
-    id = input_id("\nPlease enter the id of the expense you want to modify: ", expenses)
-    apartment = input_number("\nEnter the expense apartment: ", int)
-    value = input_number("Enter the expense value: ", float)
-    type = input("Enter the expense type: ")
-    date = input_date("Enter the expense date(yyyy/mm/dd): ")
+        id = input_id(
+            "\nPlease enter the id of the expense you want to modify: ", expenses
+        )
+        apartment = input_number("\nEnter the expense apartment: ", int)
+        value = input_number("Enter the expense value: ", float)
+        type = input("Enter the expense type: ")
+        date = input_date("Enter the expense date(yyyy/mm/dd): ")
 
-    modify_expense(expenses, id, apartment, value, type, date)
+        modify_expense(expenses, id, apartment, value, type, date)
+
+    else:
+        print("There are no expenses to modify.")
