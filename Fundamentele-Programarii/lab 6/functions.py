@@ -75,18 +75,16 @@ def print_total_sum_expenses_of_type(expenses: list[dict], type: str) -> float:
     return sum(expense["val"] for expense in expenses if expense["type"] == type)
 
 
-# TODO this fucking function
 def print_sorted_apartments_by_type(expenses: list[dict], type: str) -> list[int]:
-    # val_map = {}
+    val_map = {}
 
-    # for expense in expenses:
-    #     if expense["type"] == type:
-    #         val_map[expense["apartment"]] = (
-    #             val_map.get(expense["apartment"], 0) + expense["val"]
-    #         )
+    for expense in expenses:
+        if expense["type"] == type:
+            val_map[expense["apartment"]] = (
+                val_map.get(expense["apartment"], 0) + expense["val"]
+            )
 
-    # return sorted(val_map)
-    pass
+    return sorted(val_map, key=lambda x, y: x["val"] > y["val"])
 
 
 def print_total_sum_expenses_of_the_apartment(
@@ -106,3 +104,12 @@ def eliminate_all_expenses_of_same_type(expenses: list[dict], type: str) -> None
 
 def eliminate_all_expenses_lower_than(expenses: list[dict], val: float) -> None:
     expenses[:] = [expense for expense in expenses if expense["val"] > val]
+
+
+# /----- Undoing -----/
+
+
+def undo_command(expenses: list[dict], history: list[list[dict]]) -> None:
+    if len(history) > 1:
+        history.pop()
+        expenses[:] = history[-1]

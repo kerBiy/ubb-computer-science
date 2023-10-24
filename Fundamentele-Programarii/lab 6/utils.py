@@ -60,3 +60,8 @@ def print_expenses(expenses: list[dict]) -> None:
         print(
             f"{index + 1}. Apartment: {expense['apartment']}, Value: {expense['val']}, Type: {expense['type']}, Date: {expense['date']}"
         )
+
+
+def update_history(expenses: list[dict], history: list[list[dict]]) -> None:
+    if expenses != history[-1]:
+        history.append(expenses[:])
