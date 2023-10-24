@@ -1,7 +1,5 @@
-from os import system
-
 from tests import test_functions
-from utils import print_expenses, update_history
+from utils import print_expenses, update_history, clear_screen
 
 from ui.adding import add_submenu
 from ui.deleting import delete_submenu
@@ -24,8 +22,8 @@ def option_menu() -> None:
 
 
 def console_application() -> None:
-    history = [[]]
     expenses = []
+    history = [[]]
 
     options = {
         0: print_expenses,
@@ -39,7 +37,7 @@ def console_application() -> None:
     while True:
         option_menu()
         user_input = input("\nEnter an option: ")
-        system("clear")
+        clear_screen()
 
         if user_input == "q":
             print("Exiting the program...")
