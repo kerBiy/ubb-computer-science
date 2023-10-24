@@ -40,7 +40,6 @@ def input_id(prompt: str, expenses: list[dict]) -> int:
         try:
             user_input = input(prompt)
             user_input = int(user_input)
-            assert 1 <= user_input <= len(expenses)
         except Exception:
             print("\nPlease enter a valid id: ")
 
@@ -246,6 +245,125 @@ def test_delete_all_expenses_of_the_same_type() -> None:
     assert correct_expenses == new_expenses
 
 
+# /----- Searching -----/
+
+
+def search_submenu(expenses: list[dict]) -> None:
+    clear_screen()
+    print("Enter 2 to search all expenses of a single type")
+
+    options = {
+        2: ui_search_all_expenses_of_type,
+    }
+
+    get_input_for_submenu(expenses, options)
+
+
+def ui_search_all_expenses_of_type(expenses: list[dict]) -> None:
+    type = input("Enter the expense type: ")
+    expenses_list = search_all_expenses_of_type(expenses, type)
+
+    print(f"\nAll expenses of type: {type} are:\n {expenses_list}")
+
+
+def search_all_expenses_of_type(expenses: list[dict], type: str) -> list[dict]:
+    return [expense for expense in expenses if expense["type"] == type]
+
+
+def test_search_all_expenses_of_type() -> None:
+    new_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+    correct_result = [
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+
+    search_result = search_all_expenses_of_type(new_expenses, "gas")
+
+    assert correct_result == search_result
+
+
+# /----- Printing -----/
+
+
+def print_submenu(expenses: list[dict]) -> None:
+    clear_screen()
+    print("Enter 1 to print the sum of all the expenses of the same type")
+
+    options = {
+        1: ui_print_total_sum_expenses_of_type,
+    }
+
+    get_input_for_submenu(expenses, options)
+
+
+def ui_print_total_sum_expenses_of_type(expenses: list[dict]) -> None:
+    type = input("Enter the type to know the total expense: ")
+    total_expense = print_total_sum_expenses_of_type(expenses, type)
+
+    print(f"\nThe total sum of expenses that are the type: {type} is: {total_expense}")
+
+
+def print_total_sum_expenses_of_type(expenses: list[dict], type: str) -> float:
+    return sum(expense["val"] for expense in expenses if expense["type"] == type)
+
+
+def test_print_total_sum_expenses_of_type() -> None:
+    new_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+    correct_result = 2371.49
+
+    my_result = print_total_sum_expenses_of_type(new_expenses, "gas")
+
+    assert my_result == correct_result
+
+
+# /----- Filtering -----/
+
+
+def filter_submenu(expenses: list[dict]) -> None:
+    clear_screen()
+    print("Enter 2 to eliminate all expenses lower than a value")
+
+    options = {2: ui_eliminate_all_expenses_lower_than}
+
+    get_input_for_submenu(expenses, options)
+
+
+def ui_eliminate_all_expenses_lower_than(expenses: list[dict]) -> None:
+    val = input_number("Enter the value to cut all the smaller elements: ", float)
+    eliminate_all_expenses_lower_than(expenses, val)
+
+
+def eliminate_all_expenses_lower_than(expenses: list[dict], val: float) -> None:
+    expenses[:] = [expense for expense in expenses if expense["val"] > val]
+
+
+def test_eliminate_all_expenses_lower_than() -> None:
+    new_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 102, "val": 99.99, "type": "light", "date": "2022/05/22"},
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+        {"apartment": 113, "val": 350.99, "type": "gas", "date": "2020/05/22"},
+    ]
+    correct_expenses = [
+        {"apartment": 112, "val": 950.99, "type": "trash", "date": "2021/10/22"},
+        {"apartment": 112, "val": 2020.50, "type": "gas", "date": "2020/05/27"},
+    ]
+
+    eliminate_all_expenses_lower_than(new_expenses, 800)
+
+    assert correct_expenses == new_expenses
+
+
 # /----- Main -----/
 
 
@@ -254,6 +372,9 @@ def option_menu() -> None:
     print("Enter 0 for showing the expenses list")
     print("Enter 1 for add menu")
     print("Enter 2 for delete menu")
+    print("Enter 3 for search menu")
+    print("Enter 4 for print menu")
+    print("Enter 5 for filter menu")
     print("Enter q for Exiting the program")
 
 
@@ -263,6 +384,7 @@ def test_functions() -> None:
     test_delete_all_expenses_from_apartment()
     test_delete_consecutive_expenses()
     test_delete_all_expenses_of_the_same_type()
+    test_eliminate_all_expenses_lower_than()
     print("All tests passed!")
 
 
@@ -272,6 +394,9 @@ def console_application():
         0: print_expenses,
         1: add_submenu,
         2: delete_submenu,
+        3: search_submenu,
+        4: print_submenu,
+        5: filter_submenu,
     }
 
     while True:
