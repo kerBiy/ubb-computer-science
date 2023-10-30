@@ -1,4 +1,1 @@
- except ValueError():
-            print("\nPlease enter a valid number.")
-        except TypeError():
-            print("\nPlease enter a valid number.")
+return sum(expense["val"] for expense in expenses if expense["type"] == type)

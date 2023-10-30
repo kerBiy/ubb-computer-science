@@ -4,6 +4,7 @@ from ui.expenses import ui_print_expenses
 from ui.adding import ui_add_expense, ui_modify_expense
 from ui.deleting import ui_delete_command
 from ui.searching import ui_search_command
+from ui.printing import ui_print_command
 
 
 def console_application() -> None:
@@ -15,6 +16,7 @@ def console_application() -> None:
         "modify": ui_modify_expense,
         "delete": ui_delete_command,
         "search": ui_search_command,
+        "print": ui_print_command,
     }
 
     while True:
@@ -29,7 +31,7 @@ def console_application() -> None:
             print(help_menu())
 
         try:
-            assert first_command in options.keys(), "Invalid input"
+            assert first_command in options.keys(), "Invalid input."
             options[first_command](expenses, cmd)
         except ValueError as ve:
             print(ve)

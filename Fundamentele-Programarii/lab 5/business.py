@@ -65,3 +65,14 @@ def manager_search_all_expenses_of_type(expenses: list[dict], type: str) -> dict
     validate_type(type)
     final_expenses = search_all_expenses_of_type(expenses, type)
     print_dict(final_expenses)
+
+
+# /----- Printing -----/
+
+
+def manager_print_total_sum_expenses_of_type(
+    expenses: list[dict], type: str
+) -> dict[dict]:
+    validate_type(type)
+    sum_of_expenses = print_total_sum_expenses_of_type(expenses, type)
+    print(f"The sum of all expenses of type {type} is: {sum_of_expenses}")

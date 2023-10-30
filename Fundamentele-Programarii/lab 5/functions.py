@@ -50,3 +50,10 @@ def search_all_expenses_of_type(expenses: list[dict], type: str) -> dict[dict]:
             output[itr] = expense
 
     return output
+
+
+# /----- Printing -----/
+
+
+def print_total_sum_expenses_of_type(expenses: list[dict], type: str) -> float:
+    return sum(get_value(expense) for expense in expenses if get_type(expense) == type)

@@ -18,6 +18,7 @@ def ui_delete_command(expenses: list[dict], cmd: list[str]) -> None:
         "-t": ui_delete_all_expenses_of_same_type,
     }
 
+    assert specific_command in options.keys(), "Invalid specific command."
     options[specific_command](expenses, cmd)
 
 
