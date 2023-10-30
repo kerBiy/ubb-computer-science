@@ -66,7 +66,7 @@ def eliminate_all_expenses_lower_than(expenses: list[dict], value: float) -> dic
     output = {}
 
     for itr, expense in enumerate(expenses):
-        if get_value(expense) <= value:
+        if get_value(expense) >= value:
             output[itr] = expense
 
     return output
