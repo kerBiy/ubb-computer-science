@@ -26,7 +26,14 @@ def help_menu() -> str:
         -search -* ...
             -t type
                 Searches all expenses of this type
-        
+        -print -* ...
+            -ts type
+                Prints out the sum of all expenses of this type
+        -filter -* ...
+            -lv value
+                Filters all expenses that have a lower value
+        -undo
+            Reverts the expenses to before the last operation
             """
 
 
