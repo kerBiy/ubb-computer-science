@@ -17,11 +17,11 @@ def help_menu() -> str:
         -modify id apartment value type date
             Modify the expense at the id given
         -delete -* ...
-            -ap apartment
+            -a apartment
                 Deletes all expenses from this apartment
             -c first_apartment second_apartment
                 Deletes all consecutive expenses
-            -ty type
+            -t type
                 Deletes all expenses of this type
         
             """

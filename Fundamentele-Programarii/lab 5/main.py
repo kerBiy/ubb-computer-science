@@ -1,6 +1,8 @@
 from tests import test_functions
 from utils import get_command, help_menu
-from ui import *
+from ui.expenses import ui_print_expenses
+from ui.adding import ui_add_expense, ui_modify_expense
+from ui.deleting import ui_delete_command
 
 
 def console_application() -> None:

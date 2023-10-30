@@ -1,11 +1,21 @@
 from domain import create_expense
-from validator import validate_expense, validate_id
+from validator import (
+    validate_expense,
+    validate_id,
+    validate_apartment,
+    validate_value,
+    validate_type,
+    validate_date,
+)
 from utils import print_expenses
 from functions import *
 
 
 def manager_print_expenses(expenses: list[dict]) -> None:
     print_expenses(expenses) if expenses else print("Expenses list is empty")
+
+
+# /----- Adding -----/
 
 
 def manager_add_expense(
@@ -25,17 +35,24 @@ def manager_modify_expense(
     modify_expense(expenses, id, new_expense)
 
 
+# /----- Deleting -----/
+
+
 def manager_delete_all_expenses_from_apartment(
     expenses: list[dict], apartment: int
 ) -> None:
-    pass
+    validate_apartment(apartment)
+    delete_all_expenses_from_apartment(expenses, apartment)
 
 
 def manager_delete_all_consecutive_expenses(
     expenses: list[dict], first_apartment: int, second_apartment: int
 ) -> None:
-    pass
+    validate_apartment(first_apartment)
+    validate_apartment(second_apartment)
+    delete_all_consecutive_expenses(expenses, first_apartment, second_apartment)
 
 
 def manager_delete_all_expenses_of_same_type(expenses: list[dict], type: str) -> None:
-    pass
+    validate_type(type)
+    delete_all_expenses_of_same_type(expenses, type)
