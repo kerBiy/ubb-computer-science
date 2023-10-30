@@ -76,3 +76,14 @@ def manager_print_total_sum_expenses_of_type(
     validate_type(type)
     sum_of_expenses = print_total_sum_expenses_of_type(expenses, type)
     print(f"The sum of all expenses of type {type} is: {sum_of_expenses}")
+
+
+# /----- Filtering -----/
+
+
+def manager_eliminate_all_expenses_lower_than(
+    expenses: list[dict], value: float
+) -> None:
+    validate_value(value)
+    filtered_list = eliminate_all_expenses_lower_than(expenses, value)
+    print_dict(filtered_list)

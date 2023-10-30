@@ -5,6 +5,7 @@ from ui.adding import ui_add_expense, ui_modify_expense
 from ui.deleting import ui_delete_command
 from ui.searching import ui_search_command
 from ui.printing import ui_print_command
+from ui.filtering import ui_filter_command
 
 
 def console_application() -> None:
@@ -17,6 +18,7 @@ def console_application() -> None:
         "delete": ui_delete_command,
         "search": ui_search_command,
         "print": ui_print_command,
+        "filter": ui_filter_command,
     }
 
     while True:

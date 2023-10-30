@@ -57,3 +57,16 @@ def search_all_expenses_of_type(expenses: list[dict], type: str) -> dict[dict]:
 
 def print_total_sum_expenses_of_type(expenses: list[dict], type: str) -> float:
     return sum(get_value(expense) for expense in expenses if get_type(expense) == type)
+
+
+# /----- Filtering -----/
+
+
+def eliminate_all_expenses_lower_than(expenses: list[dict], value: float) -> dict[dict]:
+    output = {}
+
+    for itr, expense in enumerate(expenses):
+        if get_value(expense) <= value:
+            output[itr] = expense
+
+    return output
