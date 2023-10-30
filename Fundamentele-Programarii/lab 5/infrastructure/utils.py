@@ -44,3 +44,8 @@ def print_dict(expenses: dict) -> None:
         print(
             f"{key + 1}. Apartment: {get_apartment(expense)}, Value: {get_value(expense)}, Type: {get_type(expense)}, Date: {get_date(expense)}"
         )
+
+
+def update_history(expenses: list[dict], history: list[list[dict]]) -> None:
+    if expenses != history[-1]:
+        history.append(expenses[:])

@@ -70,3 +70,15 @@ def eliminate_all_expenses_lower_than(expenses: list[dict], value: float) -> dic
             output[itr] = expense
 
     return output
+
+
+# /----- Undoing -----/
+
+
+def can_undo(history: list[list[dict]]) -> bool:
+    return len(history) > 1
+
+
+def undo_command(expenses: list[dict], history: list[list[dict]]) -> bool:
+    history.pop()
+    expenses[:] = history[-1]

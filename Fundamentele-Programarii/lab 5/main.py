@@ -1,15 +1,17 @@
 from validate.tests import test_functions
-from infrastructure.utils import get_command, help_menu
+from infrastructure.utils import get_command, help_menu, update_history
 from ui.expenses import ui_print_expenses
 from ui.adding import ui_add_expense, ui_modify_expense
 from ui.deleting import ui_delete_command
 from ui.searching import ui_search_command
 from ui.printing import ui_print_command
 from ui.filtering import ui_filter_command
+from ui.undoing import undo
 
 
 def console_application() -> None:
     expenses = []
+    history = [[]]
 
     options = {
         "list": ui_print_expenses,
@@ -31,14 +33,17 @@ def console_application() -> None:
             return
         if first_command == "help":
             print(help_menu())
-
-        try:
-            assert first_command in options.keys(), "Invalid input."
-            options[first_command](expenses, cmd)
-        except ValueError as ve:
-            print(ve)
-        except Exception as ex:
-            print(ex)
+        elif first_command == "undo":
+            undo(expenses, history)
+        else:
+            try:
+                assert first_command in options.keys(), "Invalid input."
+                options[first_command](expenses, cmd)
+                update_history(expenses, history)
+            except ValueError as ve:
+                print(ve)
+            except Exception as ex:
+                print(ex)
 
 
 if __name__ == "__main__":
