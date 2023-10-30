@@ -23,13 +23,24 @@ def help_menu() -> str:
                 Deletes all consecutive expenses
             -t type
                 Deletes all expenses of this type
+        -search -* ...
+            -t type
+                Searches all expenses of this type
         
             """
 
 
-def print_expenses(expenses: dict) -> None:
+def print_expenses(expenses) -> None:
     print("EXPENSES LIST:")
     for index, expense in enumerate(expenses):
         print(
             f"{index + 1}. Apartment: {get_apartment(expense)}, Value: {get_value(expense)}, Type: {get_type(expense)}, Date: {get_date(expense)}"
+        )
+
+
+def print_dict(expenses: dict) -> None:
+    print("EXPENSES LIST:")
+    for key, expense in expenses.items():
+        print(
+            f"{key + 1}. Apartment: {get_apartment(expense)}, Value: {get_value(expense)}, Type: {get_type(expense)}, Date: {get_date(expense)}"
         )

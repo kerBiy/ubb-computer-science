@@ -3,6 +3,7 @@ from utils import get_command, help_menu
 from ui.expenses import ui_print_expenses
 from ui.adding import ui_add_expense, ui_modify_expense
 from ui.deleting import ui_delete_command
+from ui.searching import ui_search_command
 
 
 def console_application() -> None:
@@ -13,6 +14,7 @@ def console_application() -> None:
         "add": ui_add_expense,
         "modify": ui_modify_expense,
         "delete": ui_delete_command,
+        "search": ui_search_command,
     }
 
     while True:

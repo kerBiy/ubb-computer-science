@@ -37,3 +37,16 @@ def delete_all_consecutive_expenses(
 
 def delete_all_expenses_of_same_type(expenses: list[dict], type: str) -> None:
     expenses[:] = [expense for expense in expenses if get_type(expense) != type]
+
+
+# /----- Searching -----/
+
+
+def search_all_expenses_of_type(expenses: list[dict], type: str) -> dict[dict]:
+    output = {}
+
+    for itr, expense in enumerate(expenses):
+        if get_type(expense) == type:
+            output[itr] = expense
+
+    return output

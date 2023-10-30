@@ -7,7 +7,7 @@ from validator import (
     validate_type,
     validate_date,
 )
-from utils import print_expenses
+from utils import print_expenses, print_dict
 from functions import *
 
 
@@ -56,3 +56,12 @@ def manager_delete_all_consecutive_expenses(
 def manager_delete_all_expenses_of_same_type(expenses: list[dict], type: str) -> None:
     validate_type(type)
     delete_all_expenses_of_same_type(expenses, type)
+
+
+# /----- Searching -----/
+
+
+def manager_search_all_expenses_of_type(expenses: list[dict], type: str) -> dict[dict]:
+    validate_type(type)
+    final_expenses = search_all_expenses_of_type(expenses, type)
+    print_dict(final_expenses)

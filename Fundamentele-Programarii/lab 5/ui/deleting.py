@@ -28,6 +28,7 @@ def ui_delete_all_expenses_from_apartment(expenses: list[dict], cmd: list[str]) 
     apartment = int(cmd[0])
 
     manager_delete_all_expenses_from_apartment(expenses, apartment)
+    print(f"Deleting all expenses from {apartment} apartment.")
 
 
 def ui_delete_all_consecutive_expenses(expenses: list[dict], cmd: list[str]) -> None:
@@ -38,6 +39,9 @@ def ui_delete_all_consecutive_expenses(expenses: list[dict], cmd: list[str]) -> 
     second_apartment = int(cmd[1])
 
     manager_delete_all_consecutive_expenses(expenses, first_apartment, second_apartment)
+    print(
+        f"Deleting all expenses from {first_apartment} apartment to {second_apartment} apartment."
+    )
 
 
 def ui_delete_all_expenses_of_same_type(expenses: list[dict], cmd: list[str]) -> None:
@@ -47,3 +51,4 @@ def ui_delete_all_expenses_of_same_type(expenses: list[dict], cmd: list[str]) ->
     type = cmd[0]
 
     manager_delete_all_expenses_of_same_type(expenses, type)
+    print(f"Deleting all expenses of type {type}.")
