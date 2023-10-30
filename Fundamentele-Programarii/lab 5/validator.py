@@ -12,10 +12,14 @@ def validate_expense(expense: dict) -> None:
     if not validate_type(get_type(expense)):
         error += "Invalid expense type.\n"
     if not validate_date(get_date(expense)):
-        error += "Invalid expense date"
+        error += "Invalid expense date.\n"
 
     if error:
-        raise ValueError(error)
+        raise ValueError(error[: len(error) - 2])
+
+
+def validate_id(expenses: list[dict], id: int) -> bool:
+    return 1 <= id <= len(expenses)
 
 
 def validate_apartment(apartment: int) -> bool:

@@ -1,28 +1,36 @@
 from tests import test_functions
-from utils import get_command
-from ui import ui_add_expense
+from utils import get_command, help_menu
+from ui import *
 
 
 def console_application() -> None:
     expenses = []
 
+    options = {
+        "list": ui_print_expenses,
+        "add": ui_add_expense,
+        "modify": ui_modify_expense,
+        "delete": ui_delete_command,
+    }
+
     while True:
         cmd = get_command("\n>>> ")
-        first_command = cmd[0].strip()
+        first_command = cmd[0].strip() if cmd else ""
         cmd = cmd[1:]
 
         if first_command == "exit":
             print("Exiting the program...")
             return
-        elif first_command == "add":
-            try:
-                ui_add_expense(expenses, cmd)
-            except ValueError as ve:
-                print(ve)
-            except Exception as ex:
-                print(ex)
-        else:
-            print("Invalid command.")
+        if first_command == "help":
+            print(help_menu())
+
+        try:
+            assert first_command in options.keys(), "Invalid input"
+            options[first_command](expenses, cmd)
+        except ValueError as ve:
+            print(ve)
+        except Exception as ex:
+            print(ex)
 
 
 if __name__ == "__main__":
