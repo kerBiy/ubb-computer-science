@@ -1,4 +1,4 @@
-from business import manager_print_expenses
+from business.manager import manager_print_expenses
 
 
 def ui_print_expenses(expenses: list[dict], cmd: list[str]) -> None:

@@ -1,4 +1,4 @@
-from business import manager_add_expense, manager_modify_expense
+from business.manager import manager_add_expense, manager_modify_expense
 
 
 def ui_add_expense(expenses: list[dict], cmd: list[str]) -> None:

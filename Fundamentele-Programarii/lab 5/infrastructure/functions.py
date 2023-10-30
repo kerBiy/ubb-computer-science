@@ -1,5 +1,5 @@
-from validator import already_exists
-from domain import get_apartment, get_value, get_type, get_date
+from validate.validator import already_exists
+from infrastructure.domain import get_apartment, get_value, get_type, get_date
 
 
 # /----- Adding -----/

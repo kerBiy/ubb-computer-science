@@ -1,4 +1,4 @@
-from domain import get_apartment, get_value, get_type, get_date
+from infrastructure.domain import get_apartment, get_value, get_type, get_date
 
 
 def get_command(prompt: str) -> list[str]:

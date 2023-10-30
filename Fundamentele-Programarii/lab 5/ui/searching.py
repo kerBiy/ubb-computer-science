@@ -1,4 +1,4 @@
-from business import manager_search_all_expenses_of_type
+from business.manager import manager_search_all_expenses_of_type
 
 
 def ui_search_command(expenses: list[dict], cmd: list[str]) -> None:

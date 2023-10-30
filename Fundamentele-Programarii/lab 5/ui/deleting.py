@@ -1,4 +1,4 @@
-from business import (
+from business.manager import (
     manager_delete_all_expenses_from_apartment,
     manager_delete_all_consecutive_expenses,
     manager_delete_all_expenses_of_same_type,

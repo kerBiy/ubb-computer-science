@@ -1,5 +1,5 @@
-from tests import test_functions
-from utils import get_command, help_menu
+from validate.tests import test_functions
+from infrastructure.utils import get_command, help_menu
 from ui.expenses import ui_print_expenses
 from ui.adding import ui_add_expense, ui_modify_expense
 from ui.deleting import ui_delete_command

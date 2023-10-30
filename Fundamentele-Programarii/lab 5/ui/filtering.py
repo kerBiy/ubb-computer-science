@@ -1,4 +1,4 @@
-from business import manager_eliminate_all_expenses_lower_than
+from business.manager import manager_eliminate_all_expenses_lower_than
 
 
 def ui_filter_command(expenses: list[dict], cmd: list[str]) -> None:

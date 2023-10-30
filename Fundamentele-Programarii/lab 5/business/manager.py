@@ -1,5 +1,4 @@
-from domain import create_expense
-from validator import (
+from validate.validator import (
     validate_expense,
     validate_id,
     validate_apartment,
@@ -7,8 +6,9 @@ from validator import (
     validate_type,
     validate_date,
 )
-from utils import print_expenses, print_dict
-from functions import *
+from infrastructure.domain import create_expense
+from infrastructure.utils import print_expenses, print_dict
+from infrastructure.functions import *
 
 
 def manager_print_expenses(expenses: list[dict]) -> None:

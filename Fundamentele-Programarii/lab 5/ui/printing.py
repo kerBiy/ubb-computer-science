@@ -1,4 +1,4 @@
-from business import manager_print_total_sum_expenses_of_type
+from business.manager import manager_print_total_sum_expenses_of_type
 
 
 def ui_print_command(expenses: list[dict], cmd: list[str]) -> None:

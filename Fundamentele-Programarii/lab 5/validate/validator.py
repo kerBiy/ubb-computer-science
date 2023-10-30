@@ -1,5 +1,11 @@
 from datetime import datetime
-from domain import is_equal, get_apartment, get_value, get_type, get_date
+from infrastructure.domain import (
+    is_equal,
+    get_apartment,
+    get_value,
+    get_type,
+    get_date,
+)
 
 
 def validate_expense(expense: dict) -> None:
