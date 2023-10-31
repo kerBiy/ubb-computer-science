@@ -24,12 +24,22 @@ def help_menu() -> str:
             -t type
                 Deletes all expenses of this type
         -search -* ...
+            -hv value
+                Searches all apartments with expenses higher than value
             -t type
                 Searches all expenses of this type
+            -bd date value
+                Searches all the expenses before date and higher than val
         -print -* ...
             -ts type
                 Prints out the sum of all expenses of this type
+            -st type
+                Prints out sorted apartments numbers by the exp of this type
+            -as apartment
+                Prints out the sum of all expenses at the apartment
         -filter -* ...
+            -t type
+                Filters all expenses that are this type
             -lv value
                 Filters all expenses that have a lower value
         -undo
@@ -51,6 +61,10 @@ def print_dict(expenses: dict) -> None:
         print(
             f"{key + 1}. Apartment: {get_apartment(expense)}, Value: {get_value(expense)}, Type: {get_type(expense)}, Date: {get_date(expense)}"
         )
+
+
+def list_to_str(nums: list) -> str:
+    return ", ".join(map(str, nums))
 
 
 def update_history(expenses: list[list], history: list[list[list]]) -> None:
