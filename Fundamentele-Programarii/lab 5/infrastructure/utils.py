@@ -53,6 +53,6 @@ def print_dict(expenses: dict) -> None:
         )
 
 
-def update_history(expenses: list[dict], history: list[list[dict]]) -> None:
+def update_history(expenses: list[list], history: list[list[list]]) -> None:
     if expenses != history[-1]:
         history.append(expenses[:])

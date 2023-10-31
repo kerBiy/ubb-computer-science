@@ -5,28 +5,28 @@ from infrastructure.domain import get_apartment, get_value, get_type, get_date
 # /----- Adding -----/
 
 
-def add_expense(expenses: list[dict], expense: dict) -> None:
+def add_expense(expenses: list[list], expense: dict) -> None:
     if already_exists(expenses, expense):
         raise Exception("Already exists in the list.")
 
     expenses.append(expense)
 
 
-def modify_expense(expenses: list[dict], id: int, expense: dict) -> None:
+def modify_expense(expenses: list[list], id: int, expense: dict) -> None:
     expenses[id - 1] = expense.copy()
 
 
 # /----- Deleting -----/
 
 
-def delete_all_expenses_from_apartment(expenses: list[dict], apartment: int) -> None:
+def delete_all_expenses_from_apartment(expenses: list[list], apartment: int) -> None:
     expenses[:] = [
         expense for expense in expenses if get_apartment(expense) != apartment
     ]
 
 
 def delete_all_consecutive_expenses(
-    expenses: list[dict], first_apartment: int, second_apartment: int
+    expenses: list[list], first_apartment: int, second_apartment: int
 ) -> None:
     expenses[:] = [
         expense
@@ -35,14 +35,14 @@ def delete_all_consecutive_expenses(
     ]
 
 
-def delete_all_expenses_of_same_type(expenses: list[dict], type: str) -> None:
+def delete_all_expenses_of_same_type(expenses: list[list], type: str) -> None:
     expenses[:] = [expense for expense in expenses if get_type(expense) != type]
 
 
 # /----- Searching -----/
 
 
-def search_all_expenses_of_type(expenses: list[dict], type: str) -> dict[dict]:
+def search_all_expenses_of_type(expenses: list[list], type: str) -> dict[dict]:
     output = {}
 
     for itr, expense in enumerate(expenses):
@@ -55,14 +55,14 @@ def search_all_expenses_of_type(expenses: list[dict], type: str) -> dict[dict]:
 # /----- Printing -----/
 
 
-def print_total_sum_expenses_of_type(expenses: list[dict], type: str) -> float:
+def print_total_sum_expenses_of_type(expenses: list[list], type: str) -> float:
     return sum(get_value(expense) for expense in expenses if get_type(expense) == type)
 
 
 # /----- Filtering -----/
 
 
-def eliminate_all_expenses_lower_than(expenses: list[dict], value: float) -> dict[dict]:
+def eliminate_all_expenses_lower_than(expenses: list[list], value: float) -> dict[dict]:
     output = {}
 
     for itr, expense in enumerate(expenses):
@@ -75,10 +75,10 @@ def eliminate_all_expenses_lower_than(expenses: list[dict], value: float) -> dic
 # /----- Undoing -----/
 
 
-def can_undo(history: list[list[dict]]) -> bool:
+def can_undo(history: list[list[list]]) -> bool:
     return len(history) > 1
 
 
-def undo_command(expenses: list[dict], history: list[list[dict]]) -> bool:
+def undo_command(expenses: list[list], history: list[list[list]]) -> bool:
     history.pop()
     expenses[:] = history[-1]

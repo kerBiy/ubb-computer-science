@@ -11,7 +11,7 @@ from infrastructure.utils import print_expenses, print_dict
 from infrastructure.functions import *
 
 
-def manager_print_expenses(expenses: list[dict]) -> None:
+def manager_print_expenses(expenses: list[list]) -> None:
     print_expenses(expenses) if expenses else print("Expenses list is empty")
 
 
@@ -19,7 +19,7 @@ def manager_print_expenses(expenses: list[dict]) -> None:
 
 
 def manager_add_expense(
-    expenses: list[dict], apartment: int, value: float, type: str, date: str
+    expenses: list[list], apartment: int, value: float, type: str, date: str
 ) -> None:
     new_expense = create_expense(apartment, value, type, date)
     validate_expense(new_expense)
@@ -27,7 +27,7 @@ def manager_add_expense(
 
 
 def manager_modify_expense(
-    expenses: list[dict], id: int, apartment: int, value: float, type: str, date: str
+    expenses: list[list], id: int, apartment: int, value: float, type: str, date: str
 ) -> None:
     new_expense = create_expense(apartment, value, type, date)
     validate_expense(new_expense)
@@ -39,21 +39,21 @@ def manager_modify_expense(
 
 
 def manager_delete_all_expenses_from_apartment(
-    expenses: list[dict], apartment: int
+    expenses: list[list], apartment: int
 ) -> None:
     validate_apartment(apartment)
     delete_all_expenses_from_apartment(expenses, apartment)
 
 
 def manager_delete_all_consecutive_expenses(
-    expenses: list[dict], first_apartment: int, second_apartment: int
+    expenses: list[list], first_apartment: int, second_apartment: int
 ) -> None:
     validate_apartment(first_apartment)
     validate_apartment(second_apartment)
     delete_all_consecutive_expenses(expenses, first_apartment, second_apartment)
 
 
-def manager_delete_all_expenses_of_same_type(expenses: list[dict], type: str) -> None:
+def manager_delete_all_expenses_of_same_type(expenses: list[list], type: str) -> None:
     validate_type(type)
     delete_all_expenses_of_same_type(expenses, type)
 
@@ -61,7 +61,7 @@ def manager_delete_all_expenses_of_same_type(expenses: list[dict], type: str) ->
 # /----- Searching -----/
 
 
-def manager_search_all_expenses_of_type(expenses: list[dict], type: str) -> dict[dict]:
+def manager_search_all_expenses_of_type(expenses: list[list], type: str) -> dict[dict]:
     validate_type(type)
     final_expenses = search_all_expenses_of_type(expenses, type)
     print_dict(final_expenses)
@@ -71,7 +71,7 @@ def manager_search_all_expenses_of_type(expenses: list[dict], type: str) -> dict
 
 
 def manager_print_total_sum_expenses_of_type(
-    expenses: list[dict], type: str
+    expenses: list[list], type: str
 ) -> dict[dict]:
     validate_type(type)
     sum_of_expenses = print_total_sum_expenses_of_type(expenses, type)
@@ -82,7 +82,7 @@ def manager_print_total_sum_expenses_of_type(
 
 
 def manager_eliminate_all_expenses_lower_than(
-    expenses: list[dict], value: float
+    expenses: list[list], value: float
 ) -> None:
     validate_value(value)
     filtered_list = eliminate_all_expenses_lower_than(expenses, value)

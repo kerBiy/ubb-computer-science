@@ -1,22 +1,23 @@
-def create_expense(apartment: int, value: float, type: str, date: str) -> dict:
-    return {"apartment": apartment, "value": value, "type": type, "date": date}
+def create_expense(apartment: int, value: float, type: str, date: str) -> list:
+    # return {"apartment": apartment, "value": value, "type": type, "date": date}
+    return [apartment, value, type, date]
 
 
-def get_apartment(expense: dict) -> int:
-    return expense["apartment"]
+def get_apartment(expense: list) -> int:
+    return expense[0]
 
 
-def get_value(expense: dict) -> float:
-    return expense["value"]
+def get_value(expense: list) -> float:
+    return expense[1]
 
 
-def get_type(expense: dict) -> str:
-    return expense["type"]
+def get_type(expense: list) -> str:
+    return expense[2]
 
 
-def get_date(expense: dict) -> str:
-    return expense["date"]
+def get_date(expense: list) -> str:
+    return expense[3]
 
 
-def is_equal(first_expense: dict, second_expense: dict) -> bool:
+def is_equal(first_expense: list, second_expense: list) -> bool:
     return first_expense == second_expense

@@ -8,7 +8,7 @@ from infrastructure.domain import (
 )
 
 
-def validate_expense(expense: dict) -> None:
+def validate_expense(expense: list) -> None:
     error = ""
 
     if not validate_apartment(get_apartment(expense)):
@@ -24,7 +24,7 @@ def validate_expense(expense: dict) -> None:
         raise ValueError(error[: len(error) - 2])
 
 
-def validate_id(expenses: list[dict], id: int) -> bool:
+def validate_id(expenses: list[list], id: int) -> bool:
     return 1 <= id <= len(expenses)
 
 
@@ -59,7 +59,7 @@ def validate_date(date: str) -> bool:
     return True
 
 
-def already_exists(expenses: list[dict], new_expense: dict) -> bool:
+def already_exists(expenses: list[list], new_expense: dict) -> bool:
     for expense in expenses:
         if is_equal(expense, new_expense):
             return True

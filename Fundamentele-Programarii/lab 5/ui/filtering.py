@@ -1,7 +1,7 @@
 from business.manager import manager_eliminate_all_expenses_lower_than
 
 
-def ui_filter_command(expenses: list[dict], cmd: list[str]) -> None:
+def ui_filter_command(expenses: list[list], cmd: list[str]) -> None:
     if not cmd:
         raise Exception("Invalid command parameters.")
 
@@ -14,7 +14,7 @@ def ui_filter_command(expenses: list[dict], cmd: list[str]) -> None:
     options[specific_command](expenses, cmd)
 
 
-def ui_eliminate_all_expenses_lower_than(expenses: list[dict], cmd: list[str]) -> None:
+def ui_eliminate_all_expenses_lower_than(expenses: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command parameters.")
 

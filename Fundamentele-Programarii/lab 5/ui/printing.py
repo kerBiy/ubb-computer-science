@@ -1,7 +1,7 @@
 from business.manager import manager_print_total_sum_expenses_of_type
 
 
-def ui_print_command(expenses: list[dict], cmd: list[str]) -> None:
+def ui_print_command(expenses: list[list], cmd: list[str]) -> None:
     if not cmd:
         raise Exception("Invalid command parameters.")
 
@@ -14,7 +14,7 @@ def ui_print_command(expenses: list[dict], cmd: list[str]) -> None:
     options[specific_command](expenses, cmd)
 
 
-def ui_print_total_sum_expenses_of_type(expenses: list[dict], cmd: list[str]) -> None:
+def ui_print_total_sum_expenses_of_type(expenses: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command parameters.")
 

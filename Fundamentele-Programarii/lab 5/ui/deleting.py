@@ -5,7 +5,7 @@ from business.manager import (
 )
 
 
-def ui_delete_command(expenses: list[dict], cmd: list[str]) -> None:
+def ui_delete_command(expenses: list[list], cmd: list[str]) -> None:
     if not cmd:
         raise Exception("Invalid command parameters.")
 
@@ -22,7 +22,7 @@ def ui_delete_command(expenses: list[dict], cmd: list[str]) -> None:
     options[specific_command](expenses, cmd)
 
 
-def ui_delete_all_expenses_from_apartment(expenses: list[dict], cmd: list[str]) -> None:
+def ui_delete_all_expenses_from_apartment(expenses: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command parameters.")
 
@@ -32,7 +32,7 @@ def ui_delete_all_expenses_from_apartment(expenses: list[dict], cmd: list[str]) 
     print(f"Deleting all expenses from {apartment} apartment.")
 
 
-def ui_delete_all_consecutive_expenses(expenses: list[dict], cmd: list[str]) -> None:
+def ui_delete_all_consecutive_expenses(expenses: list[list], cmd: list[str]) -> None:
     if len(cmd) != 2:
         raise Exception("Invalid command parameters.")
 
@@ -45,7 +45,7 @@ def ui_delete_all_consecutive_expenses(expenses: list[dict], cmd: list[str]) -> 
     )
 
 
-def ui_delete_all_expenses_of_same_type(expenses: list[dict], cmd: list[str]) -> None:
+def ui_delete_all_expenses_of_same_type(expenses: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command parameters.")
 

@@ -1,7 +1,7 @@
 from business.manager import manager_add_expense, manager_modify_expense
 
 
-def ui_add_expense(expenses: list[dict], cmd: list[str]) -> None:
+def ui_add_expense(expenses: list[list], cmd: list[str]) -> None:
     if len(cmd) != 4:
         raise Exception("Invalid command parameters.")
 
@@ -14,7 +14,7 @@ def ui_add_expense(expenses: list[dict], cmd: list[str]) -> None:
     print("Expense added in the list.")
 
 
-def ui_modify_expense(expenses: list[dict], cmd: list[str]) -> None:
+def ui_modify_expense(expenses: list[list], cmd: list[str]) -> None:
     if len(cmd) != 5:
         raise Exception("Invalid command parameters.")
 
