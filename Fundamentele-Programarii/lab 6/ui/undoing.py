@@ -1,11 +1,9 @@
-from functions import undo_command, can_undo
-from utils import print_expenses
+from infrastructure.functions import undo_command, can_undo
 
 
-def undo(expenses: list[dict], history: list[list[dict]]) -> None:
+def undo(expenses: list[list], history: list[list[list]]) -> None:
     if can_undo(history):
         print("Undoing last operation...")
         undo_command(expenses, history)
-        print_expenses(expenses)
     else:
         print("You cannot undo any further.")

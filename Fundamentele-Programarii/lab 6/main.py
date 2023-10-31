@@ -1,24 +1,12 @@
-from tests import test_functions
-from utils import print_expenses, update_history, clear_screen
-
-from ui.adding import add_submenu
-from ui.deleting import delete_submenu
-from ui.searching import search_submenu
-from ui.printing import print_submenu
-from ui.filtering import filter_submenu
+from validate.tests import test_functions
+from infrastructure.utils import get_command, help_menu, update_history
+from ui.expenses import ui_print_expenses
+from ui.adding import ui_add_expense, ui_modify_expense
+from ui.deleting import ui_delete_command
+from ui.searching import ui_search_command
+from ui.printing import ui_print_command
+from ui.filtering import ui_filter_command
 from ui.undoing import undo
-
-
-def option_menu() -> None:
-    print("\n\nOPTION MENU:")
-    print("Enter 0 for showing the expenses list")
-    print("Enter 1 for add menu")
-    print("Enter 2 for delete menu")
-    print("Enter 3 for search menu")
-    print("Enter 4 for print menu")
-    print("Enter 5 for filter menu")
-    print("Enter z for Undo")
-    print("Enter q for Exiting the program")
 
 
 def console_application() -> None:
@@ -26,36 +14,36 @@ def console_application() -> None:
     history = [[]]
 
     options = {
-        0: print_expenses,
-        1: add_submenu,
-        2: delete_submenu,
-        3: search_submenu,
-        4: print_submenu,
-        5: filter_submenu,
+        "list": ui_print_expenses,
+        "add": ui_add_expense,
+        "modify": ui_modify_expense,
+        "delete": ui_delete_command,
+        "search": ui_search_command,
+        "print": ui_print_command,
+        "filter": ui_filter_command,
     }
 
     while True:
-        option_menu()
-        user_input = input("\nEnter an option: ")
-        clear_screen()
+        cmd = get_command("\n>>> ")
+        first_command = cmd[0].strip() if cmd else ""
+        cmd = cmd[1:]
 
-        if user_input == "q":
+        if first_command == "exit":
             print("Exiting the program...")
-            break
-
-        if user_input == "z":
+            return
+        if first_command == "help":
+            print(help_menu())
+        elif first_command == "undo":
             undo(expenses, history)
-
         else:
             try:
-                user_input = int(user_input)
-                options[user_input](expenses)
+                assert first_command in options.keys(), "Invalid input."
+                options[first_command](expenses, cmd)
                 update_history(expenses, history)
-
-            except ValueError:
-                print("Invalid input.")
-            except KeyError:
-                print("This option is not yet implemented.")
+            except ValueError as ve:
+                print(ve)
+            except Exception as ex:
+                print(ex)
 
 
 if __name__ == "__main__":

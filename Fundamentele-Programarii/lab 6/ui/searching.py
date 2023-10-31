@@ -1,52 +1,23 @@
-from utils import (
-    get_input_for_submenu,
-    clear_screen,
-    input_number,
-    input_date,
-)
-from functions import (
-    search_all_apartments_with_expenses_higher_than,
-    search_all_expenses_of_type,
-    search_all_expenses_before_date_bigger_than_value,
-)
+from business.manager import manager_search_all_expenses_of_type
 
 
-def search_submenu(expenses: list[dict]) -> None:
-    clear_screen()
-    print("Enter 1 to search all apartments with expenses higher than a val")
-    print("Enter 2 to search all expenses of a single type")
-    print("Enter 3 to search all the expenses before date")
+def ui_search_command(expenses: list[list], cmd: list[str]) -> None:
+    if not cmd:
+        raise Exception("Invalid command parameters.")
 
-    options = {
-        1: ui_search_all_apartments_with_expenses_higher_than,
-        2: ui_search_all_expenses_of_type,
-        3: ui_search_all_expenses_before_date_bigger_than_value,
-    }
+    specific_command = cmd[0]
+    cmd = cmd[1:]
 
-    get_input_for_submenu(expenses, options)
+    options = {"-t": ui_search_all_expenses_of_type}
+
+    assert specific_command in options.keys(), "Invalid specific command."
+    options[specific_command](expenses, cmd)
 
 
-def ui_search_all_apartments_with_expenses_higher_than(expenses: list[dict]) -> None:
-    val = input_number("Enter the expense value: ", float)
-    apartments_list = search_all_apartments_with_expenses_higher_than(expenses, val)
+def ui_search_all_expenses_of_type(expenses: list[list], cmd: list[str]) -> None:
+    if len(cmd) != 1:
+        raise Exception("Invalid command parameters.")
 
-    print(
-        f"\nAll apartments that have expenses higher than {val} are:\n {apartments_list}"
-    )
+    type = cmd[0]
 
-
-def ui_search_all_expenses_of_type(expenses: list[dict]) -> None:
-    type = input("Enter the expense type: ")
-    expenses_list = search_all_expenses_of_type(expenses, type)
-
-    print(f"\nAll expenses of type: {type} are:\n {expenses_list}")
-
-
-def ui_search_all_expenses_before_date_bigger_than_value(expenses: list[dict]) -> None:
-    date = input_date("Enter the expense date(yyyy/mm/dd): ")
-    val = input_number("Enter the expense value: ", float)
-    expenses_list = search_all_expenses_before_date_bigger_than_value(
-        expenses, date, val
-    )
-
-    print(f"\nAll expenses of type: {type} are:\n {expenses_list}")
+    manager_search_all_expenses_of_type(expenses, type)

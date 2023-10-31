@@ -1,45 +1,55 @@
-from utils import (
-    get_input_for_submenu,
-    clear_screen,
-    input_number,
-)
-from functions import (
-    delete_all_expenses_from_apartment,
-    delete_consecutive_expenses,
-    delete_all_expenses_of_the_same_type,
+from business.manager import (
+    manager_delete_all_expenses_from_apartment,
+    manager_delete_all_consecutive_expenses,
+    manager_delete_all_expenses_of_same_type,
 )
 
 
-def delete_submenu(expenses: list[dict]) -> None:
-    clear_screen()
-    print("Enter 1 for deleting all the expenses of one apartment")
-    print("Enter 2 for deleting all the consecutive apartments expenses")
-    print("Enter 3 for deleting all the expenses of one type")
+def ui_delete_command(expenses: list[list], cmd: list[str]) -> None:
+    if not cmd:
+        raise Exception("Invalid command parameters.")
+
+    specific_command = cmd[0]
+    cmd = cmd[1:]
 
     options = {
-        1: ui_delete_all_expenses_from_apartment,
-        2: ui_delete_consecutive_expenses,
-        3: ui_delete_all_expenses_of_the_same_type,
+        "-a": ui_delete_all_expenses_from_apartment,
+        "-c": ui_delete_all_consecutive_expenses,
+        "-t": ui_delete_all_expenses_of_same_type,
     }
 
-    get_input_for_submenu(expenses, options)
+    assert specific_command in options.keys(), "Invalid specific command."
+    options[specific_command](expenses, cmd)
 
 
-def ui_delete_all_expenses_from_apartment(expenses: list[dict]) -> None:
-    apartment = input_number(
-        "Enter the apartment number you want to delete all the expenses from: ", int
+def ui_delete_all_expenses_from_apartment(expenses: list[list], cmd: list[str]) -> None:
+    if len(cmd) != 1:
+        raise Exception("Invalid command parameters.")
+
+    apartment = int(cmd[0])
+
+    manager_delete_all_expenses_from_apartment(expenses, apartment)
+    print(f"Deleting all expenses from {apartment} apartment.")
+
+
+def ui_delete_all_consecutive_expenses(expenses: list[list], cmd: list[str]) -> None:
+    if len(cmd) != 2:
+        raise Exception("Invalid command parameters.")
+
+    first_apartment = int(cmd[0])
+    second_apartment = int(cmd[1])
+
+    manager_delete_all_consecutive_expenses(expenses, first_apartment, second_apartment)
+    print(
+        f"Deleting all expenses from {first_apartment} apartment to {second_apartment} apartment."
     )
 
-    delete_all_expenses_from_apartment(expenses, apartment)
 
+def ui_delete_all_expenses_of_same_type(expenses: list[list], cmd: list[str]) -> None:
+    if len(cmd) != 1:
+        raise Exception("Invalid command parameters.")
 
-def ui_delete_consecutive_expenses(expenses: list[dict]) -> None:
-    first_apartment = input_number("Enter the first apartment number: ", int)
-    second_apartment = input_number("Enter the second apartment number: ", int)
+    type = cmd[0]
 
-    delete_consecutive_expenses(expenses, first_apartment, second_apartment)
-
-
-def ui_delete_all_expenses_of_the_same_type(expenses: list[dict]) -> None:
-    type = input("Enter the expense type you want to delete: ")
-    delete_all_expenses_of_the_same_type(expenses, type)
+    manager_delete_all_expenses_of_same_type(expenses, type)
+    print(f"Deleting all expenses of type {type}.")

@@ -1,31 +1,23 @@
-from utils import (
-    get_input_for_submenu,
-    clear_screen,
-    input_number,
-)
-from functions import (
-    eliminate_all_expenses_lower_than,
-    eliminate_all_expenses_of_same_type,
-)
+from business.manager import manager_eliminate_all_expenses_lower_than
 
 
-def filter_submenu(expenses: list[dict]) -> None:
-    clear_screen()
-    print("Enter 2 to eliminate all expenses lower than a value")
+def ui_filter_command(expenses: list[list], cmd: list[str]) -> None:
+    if not cmd:
+        raise Exception("Invalid command parameters.")
 
-    options = {
-        1: ui_eliminate_all_expenses_of_same_type,
-        2: ui_eliminate_all_expenses_lower_than,
-    }
+    specific_command = cmd[0]
+    cmd = cmd[1:]
 
-    get_input_for_submenu(expenses, options)
+    options = {"-lv": ui_eliminate_all_expenses_lower_than}
 
-
-def ui_eliminate_all_expenses_of_same_type(expenses: list[dict]) -> None:
-    type = input("Enter the type you want to eliminate: ")
-    eliminate_all_expenses_of_same_type(expenses, type)
+    assert specific_command in options.keys(), "Invalid specific command."
+    options[specific_command](expenses, cmd)
 
 
-def ui_eliminate_all_expenses_lower_than(expenses: list[dict]) -> None:
-    val = input_number("Enter the value to cut all the smaller elements: ", float)
-    eliminate_all_expenses_lower_than(expenses, val)
+def ui_eliminate_all_expenses_lower_than(expenses: list[list], cmd: list[str]) -> None:
+    if len(cmd) != 1:
+        raise Exception("Invalid command parameters.")
+
+    value = float(cmd[0])
+
+    manager_eliminate_all_expenses_lower_than(expenses, value)
