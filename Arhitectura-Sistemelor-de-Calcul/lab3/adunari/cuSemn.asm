@@ -10,7 +10,7 @@ segment data use32 class=data
 	b dw 2
 	c dd 5
 	d dq 10
-	; exp = ?
+	; exp = 0
 
 segment code use32 class=code 
 start: 

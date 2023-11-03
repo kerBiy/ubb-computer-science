@@ -6,11 +6,11 @@ import  exit msvcrt.dll
 
 ; (a + b) / (2 - b*b + b/c) - x
 segment data use32 class=data 
-    a dd 1
-	b db 2
-	c db 5
-	x dq 10
-	; exp = ?
+    a dd 12
+	b db 1
+	c db 1
+	x dq 5
+	; exp = 1
 
 segment code use32 class=code 
 start: 

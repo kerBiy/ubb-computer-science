@@ -10,7 +10,7 @@ segment data use32 class=data
 	b db 2
 	c db 5
 	x dq 10
-	; exp = ?
+	; exp = -11
 
 segment code use32 class=code 
 start: 

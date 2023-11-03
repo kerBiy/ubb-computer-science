@@ -10,18 +10,13 @@ segment data use32 class=data
 	b dw 2
 	c dd 5
 	d dq 10
-	; exp = ?
+	; exp = 0
 
 segment code use32 class=code 
 start: 
 	; ecx:ebx <- d - c
-	mov eax, [d]
-	mov edx, [d + 4]
-
-	push edx
-	push eax
-	pop ebx
-	pop ecx
+	mov ecx, [d]
+	mov ebx, [d + 4]
 
 	mov eax, [c]
 	mov edx, 0
