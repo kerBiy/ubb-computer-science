@@ -25,14 +25,14 @@ start:
 
 	; b * b
 	mov bl, [b]
-	mul bl
+	imul bl
 	mov bx, ax
 
 	; b / c
 	mov al, [b]
 	cbw
 	mov cl, [c]
-	div cl
+	idiv cl
 	add ax, 2
 
 	; (2 - b*b + b/c)
@@ -43,7 +43,7 @@ start:
 	pop ax
 
 	; (a + b) / (2 - b*b + b/c)
-	div bx
+	idiv bx
 	cwde
 	cdq
 
