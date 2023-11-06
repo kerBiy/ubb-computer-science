@@ -1,6 +1,5 @@
 from datetime import datetime
 from infrastructure.domain import (
-    is_equal,
     get_apartment,
     get_value,
     get_type,
@@ -62,6 +61,6 @@ def validate_date(date: str) -> bool:
 
 def already_exists(expenses: list[list], new_expense: dict) -> bool:
     for expense in expenses:
-        if is_equal(expense, new_expense):
+        if expense == new_expense:
             return True
     return False

@@ -47,7 +47,7 @@ def help_menu() -> str:
             """
 
 
-def print_expenses(expenses) -> None:
+def print_expenses(expenses: list[list]) -> None:
     print("EXPENSES LIST:")
     for index, expense in enumerate(expenses):
         print(
@@ -55,9 +55,9 @@ def print_expenses(expenses) -> None:
         )
 
 
-def print_dict(expenses: dict) -> None:
+def print_dict(dictionary: dict) -> None:
     print("EXPENSES LIST:")
-    for key, expense in expenses.items():
+    for key, expense in dictionary.items():
         print(
             f"{key + 1}. Apartment: {get_apartment(expense)}, Value: {get_value(expense)}, Type: {get_type(expense)}, Date: {get_date(expense)}"
         )

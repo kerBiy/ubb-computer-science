@@ -17,7 +17,3 @@ def get_type(expense: list) -> str:
 
 def get_date(expense: list) -> str:
     return expense[3]
-
-
-def is_equal(first_expense: list, second_expense: list) -> bool:
-    return first_expense == second_expense
