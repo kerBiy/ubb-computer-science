@@ -1,4 +1,4 @@
-from validate.tests import test_functions 
+from validate.tests import test_functions
 from infrastructure.utils import (
     get_command,
     print_help_menu,
