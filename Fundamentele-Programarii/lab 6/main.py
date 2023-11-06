@@ -1,6 +1,5 @@
 from validate.tests import test_functions
-from infrastructure.utils import get_command, help_menu, update_history
-from ui.list import ui_print_expenses
+from infrastructure.utils import get_command, help_menu, update_history, print_expenses
 from ui.adding import ui_add_expense, ui_modify_expense
 from ui.deleting import ui_delete_command
 from ui.searching import ui_search_command
@@ -14,7 +13,6 @@ def console_application() -> None:
     history = [[]]
 
     options = {
-        "list": ui_print_expenses,
         "add": ui_add_expense,
         "modify": ui_modify_expense,
         "delete": ui_delete_command,
@@ -26,19 +24,24 @@ def console_application() -> None:
     while True:
         cmd = get_command("\n>>> ")
         first_command = cmd[0].strip() if cmd else ""
-        cmd = cmd[1:]
+        cmd_parameters = cmd[1:]
 
-        if first_command == "exit":
-            print("Exiting the program...")
-            return
-        if first_command == "help":
-            print(help_menu())
-        elif first_command == "undo":
-            undo(expenses, history)
+        if not cmd_parameters:
+            if first_command == "exit":
+                print("Exiting the program...")
+                return
+
+            if first_command == "help":
+                print(help_menu())
+            elif first_command == "undo":
+                undo(expenses, history)
+            elif first_command == "list":
+                print_expenses(expenses)
+
         else:
             try:
                 assert first_command in options.keys(), "Invalid input."
-                options[first_command](expenses, cmd)
+                options[first_command](expenses, cmd_parameters)
                 update_history(expenses, history)
             except ValueError as ve:
                 print(ve)

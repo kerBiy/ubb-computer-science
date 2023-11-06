@@ -11,10 +11,6 @@ from infrastructure.utils import print_expenses, print_dict, list_to_str
 from infrastructure.functions import *
 
 
-def manager_print_expenses(expenses: list[list]) -> None:
-    print_expenses(expenses) if expenses else print("Expenses list is empty")
-
-
 # /----- Adding -----/
 
 
@@ -122,7 +118,7 @@ def manager_eliminate_all_expenses_of_same_type(
     expenses: list[list], type: str
 ) -> None:
     validate_type(type)
-    filtered_list = eliminate_all_expenses_of_same_type(expenses, type)
+    filtered_list = eliminate_all_expenses_of_type(expenses, type)
     print(f"The filtrated expenses without the type {type} are:")
     print_dict(filtered_list)
 

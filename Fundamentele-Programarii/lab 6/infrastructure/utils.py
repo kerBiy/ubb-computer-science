@@ -48,11 +48,14 @@ def help_menu() -> str:
 
 
 def print_expenses(expenses: list[list]) -> None:
-    print("EXPENSES LIST:")
-    for index, expense in enumerate(expenses):
-        print(
-            f"{index + 1}. Apartment: {get_apartment(expense)}, Value: {get_value(expense)}, Type: {get_type(expense)}, Date: {get_date(expense)}"
-        )
+    if expenses:
+        print("EXPENSES LIST:")
+        for index, expense in enumerate(expenses):
+            print(
+                f"{index + 1}. Apartment: {get_apartment(expense)}, Value: {get_value(expense)}, Type: {get_type(expense)}, Date: {get_date(expense)}"
+            )
+    else:
+        print("Expenses list is empty")
 
 
 def print_dict(dictionary: dict) -> None:
