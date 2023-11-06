@@ -11,6 +11,8 @@ def print_help_menu() -> None:
         """ 
         COMMANDS LIST:
         --------------
+        -help
+            Shows this menu
         -list 
             Prints the expenses list
         -add apartment value type date
@@ -45,6 +47,8 @@ def print_help_menu() -> None:
                 Filters all expenses that have a lower value
         -undo
             Reverts the expenses to before the last operation
+        -exit
+            Exits the program
             """
     )
 
