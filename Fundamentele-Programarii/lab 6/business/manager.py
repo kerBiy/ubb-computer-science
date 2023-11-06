@@ -114,7 +114,7 @@ def manager_print_total_sum_expenses_of_the_apartment(
 # /----- Filtering -----/
 
 
-def manager_eliminate_all_expenses_of_same_type(
+def manager_eliminate_all_expenses_of_type(
     expenses: list[list], type: str
 ) -> None:
     validate_type(type)
