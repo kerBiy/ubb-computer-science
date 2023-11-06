@@ -5,14 +5,14 @@ from infrastructure.domain import get_apartment, get_value, get_type, get_date
 # /----- Adding -----/
 
 
-def add_expense(expenses: list[list], expense: dict) -> None:
+def add_expense(expenses: list[list], expense: list) -> None:
     if already_exists(expenses, expense):
         raise Exception("Already exists in the list.")
 
     expenses.append(expense)
 
 
-def modify_expense(expenses: list[list], id: int, expense: dict) -> None:
+def modify_expense(expenses: list[list], id: int, expense: list) -> None:
     expenses[id - 1] = expense.copy()
 
 
@@ -52,7 +52,9 @@ def search_all_apartments_with_expenses_higher_than(
             get_apartment(expense), 0
         ) + get_value(expense)
 
-    return [key for key in apartments_expenses if apartments_expenses[key] >= value]
+    return sorted(
+        [key for key in apartments_expenses if apartments_expenses[key] >= value]
+    )
 
 
 def search_all_expenses_of_type(expenses: list[list], type: str) -> dict[list]:
@@ -109,7 +111,7 @@ def print_total_sum_expenses_of_the_apartment(
 # /----- Filtering -----/
 
 
-def eliminate_all_expenses_of_same_type(expenses: list[list], type: str) -> dict[list]:
+def eliminate_all_expenses_of_type(expenses: list[list], type: str) -> dict[list]:
     output = {}
 
     for itr, expense in enumerate(expenses):

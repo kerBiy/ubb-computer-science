@@ -45,6 +45,7 @@ def validate_type(type: str) -> bool:
         "electricity",
         "water",
         "renovation",
+        "light",
     ]
 
 
