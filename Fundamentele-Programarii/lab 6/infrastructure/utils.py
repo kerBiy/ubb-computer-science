@@ -6,8 +6,9 @@ def get_command(prompt: str) -> list[str]:
     return user_input.strip().split()
 
 
-def help_menu() -> str:
-    return """ 
+def print_help_menu() -> None:
+    print(
+        """ 
         COMMANDS LIST:
         --------------
         -list 
@@ -45,6 +46,7 @@ def help_menu() -> str:
         -undo
             Reverts the expenses to before the last operation
             """
+    )
 
 
 def print_expenses(expenses: list[list]) -> None:

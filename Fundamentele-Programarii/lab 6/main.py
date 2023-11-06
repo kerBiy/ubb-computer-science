@@ -1,5 +1,10 @@
-from validate.tests import test_functions
-from infrastructure.utils import get_command, help_menu, update_history, print_expenses
+from validate.tests import test_functions 
+from infrastructure.utils import (
+    get_command,
+    print_help_menu,
+    update_history,
+    print_expenses,
+)
 from ui.adding import ui_add_expense, ui_modify_expense
 from ui.deleting import ui_delete_command
 from ui.searching import ui_search_command
@@ -32,7 +37,7 @@ def console_application() -> None:
                 return
 
             if first_command == "help":
-                print(help_menu())
+                print_help_menu()
             elif first_command == "undo":
                 undo(expenses, history)
             elif first_command == "list":
