@@ -1,3 +1,4 @@
+from os import system
 from validate.tests import test_functions
 from infrastructure.utils import (
     get_command,
@@ -42,6 +43,10 @@ def console_application() -> None:
                 undo(expenses, history)
             elif first_command == "list":
                 print_expenses(expenses)
+            elif first_command == "clear":
+                system("clear")
+            else:
+                print("Invalid input.")
 
         else:
             try:
