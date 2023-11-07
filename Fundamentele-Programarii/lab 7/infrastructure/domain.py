@@ -28,7 +28,7 @@ def set_student_name(student: list, new_name: str) -> None:
 # /----- Subject -----/
 
 
-def create_subject(subjects: list[list], _id: int, _name: str, _prof: str) -> list:
+def create_subject(_id: int, _name: str, _prof: str) -> list:
     return [_id, _name, _prof]
 
 

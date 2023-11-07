@@ -30,6 +30,8 @@ def validate_student_name(_name: str) -> bool:
             return False
         if not name[1:].isalpha():
             return False
+        if not name[1:].islower():
+            return False
 
     return True
 
@@ -54,6 +56,8 @@ def validate_subject(subject: list) -> None:
         error += "Invalid subject id number.\n"
     if not validate_subject_name(get_subject_name(subject)):
         error += "Invalid subject name.\n"
+    if not validate_subject_prof(get_subject_prof(subject)):
+        error += "Invalid subject professor.\n"
 
     if error:
         raise ValueError(error[:-2])
