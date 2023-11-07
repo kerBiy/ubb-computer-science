@@ -3,7 +3,7 @@ from infrastructure.domain import get_apartment, get_value, get_type, get_date
 
 def get_command(prompt: str) -> list[str]:
     user_input = input(prompt)
-    return user_input.strip().split()
+    return user_input.strip().split(";")
 
 
 def print_help_menu() -> None:

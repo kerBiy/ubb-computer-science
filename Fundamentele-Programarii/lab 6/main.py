@@ -17,6 +17,7 @@ from ui.undoing import undo
 def console_application() -> None:
     expenses = []
     history = [[]]
+    commands = []
 
     options = {
         "add": ui_add_expense,
@@ -28,7 +29,10 @@ def console_application() -> None:
     }
 
     while True:
-        cmd = get_command("\n>>> ")
+        if not commands:
+            commands = get_command("\n>>> ")
+
+        cmd = commands.pop(0).split()
         first_command = cmd[0].strip() if cmd else ""
         cmd_parameters = cmd[1:]
 
@@ -57,6 +61,8 @@ def console_application() -> None:
                 print(ve)
             except Exception as ex:
                 print(ex)
+
+        print()
 
 
 if __name__ == "__main__":
