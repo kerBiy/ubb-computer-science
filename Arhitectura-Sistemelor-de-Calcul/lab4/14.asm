@@ -11,9 +11,9 @@ import  exit msvcrt.dll
 segment data use32 class=data 
     a dd 10100010_11111001_00110100_10111110b ; A2F9_34BEh
     c db 0
-    ; n = 0010b = 2
-    ; b = 10001011_11100100_11010010_11111010b
-    ; c <- 00010101b
+    ; n = 0100b = 4
+    ; b = 00101111_10010011_01001011_11101010b
+    ; c <- 01110101b = 75h
 
 segment code use32 class=code 
     start: 

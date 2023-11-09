@@ -10,7 +10,7 @@ segment data use32 class=data
     a db 10111011b
     b dw 1001010110101100b
     c db 0
-    ; c <- 11100110b
+    ; c <- 01101110b
 
 segment code use32 class=code 
     start: 
@@ -26,10 +26,11 @@ segment code use32 class=code
         ; izolam bitii 6-9 ai lui b
         mov ax, [b]
         and ax, 0000001111000000b
+        mov cl, 2
         ror ax, cl ; rotim 2 pozitii spre dreapta
         or bl, al ; punem bitii in rezultat
 
-        mov [c], bl
+        mov [c], bl ; punem rezultatul in variabile c
 
         push dword 0
         call [exit] 
