@@ -17,7 +17,7 @@ segment data use32 class=data
     ; d = 01101 + 11110 = 101011b = 2Bh = 43
     ; e = 01101b = Dh
     f db 0
-    ; f = d - f = 2Bh - Dh = ?h
+    ; f = d - f = 2Bh - Dh = 1Eh
 
 segment code use32 class=code 
     start: 
