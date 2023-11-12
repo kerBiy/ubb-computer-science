@@ -5,8 +5,8 @@ from infrastructure.functions import *
 
 
 def manager_add_student(students: list[list], student_id: int, name: str) -> None:
-    new_student = create_student(students, student_id, name)
-    validate_student(new_student, students)
+    new_student = create_student(student_id, name)
+    validate_student(new_student)
     add_student(students, new_student)
 
 

@@ -1,7 +1,7 @@
 # /----- Student -----/
 
 
-def create_student(students: list[list], _id: int, _name: str, _grades={}) -> list:
+def create_student(_id: int, _name: str, _grades={}) -> list:
     return [_id, _name, _grades]
 
 
