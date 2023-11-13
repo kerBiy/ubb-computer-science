@@ -49,13 +49,6 @@ def search_student_by_id(students: list[list], student_id: int) -> list:
     return None
 
 
-def search_student_by_name(students: list[list], name: str) -> list:
-    for ind, student in enumerate(students):
-        if get_student_name(student) == name:
-            return student
-    return None
-
-
 def search_subject_by_id(subjects: list[list], subject_id: int) -> list:
     for ind, subject in enumerate(subjects):
         if get_subject_id(subject) == subject_id:
@@ -63,11 +56,34 @@ def search_subject_by_id(subjects: list[list], subject_id: int) -> list:
     return None
 
 
-def search_subject_by_name(subjects: list[list], name: str) -> list:
+def search_student_by_name(students: list[list], student_name: str) -> list[list]:
+    output = []
+
+    for ind, student in enumerate(students):
+        if student_name in get_student_name(student):
+            output.append(student)
+
+    return output
+
+
+def search_subject_by_name(subjects: list[list], subject_name: str) -> list[list]:
+    output = []
+
     for ind, subject in enumerate(subjects):
-        if get_subject_name(subject) == name:
-            return subject
-    return None
+        if subject_name in get_subject_name(subject):
+            output.append(subject)
+
+    return output
+
+
+def search_subject_by_prof(subjects: list[list], prof: str) -> list[list]:
+    output = []
+
+    for ind, subject in enumerate(subjects):
+        if prof in get_subject_prof(subject):
+            output.append(subject)
+
+    return output
 
 
 # /----- Add Grade -----/

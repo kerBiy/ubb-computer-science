@@ -1,8 +1,14 @@
-from ui.print import ui_print
+from ui.printing import ui_print
 from ui.add import ui_add_student, ui_add_subject
 from ui.delete import ui_delete_student, ui_delete_subject
 from ui.modify import ui_modify_student, ui_modify_subject
-from ui.search import ui_search_student_by_id, ui_search_subject_by_id
+from ui.search import (
+    ui_search_student_by_id,
+    ui_search_subject_by_id,
+    ui_search_student_by_name,
+    ui_search_subject_by_name,
+    ui_search_subject_by_prof,
+)
 
 
 def get_first_command(command: str) -> str:
@@ -28,6 +34,9 @@ def run_console_application() -> None:
         "mod_sub": ui_modify_subject,
         "search_stud_id": ui_search_student_by_id,
         "search_sub_id": ui_search_subject_by_id,
+        "search_stud_name": ui_search_student_by_name,
+        "search_sub_name": ui_search_subject_by_name,
+        "search_sub_prof": ui_search_subject_by_prof,
     }
 
     while True:

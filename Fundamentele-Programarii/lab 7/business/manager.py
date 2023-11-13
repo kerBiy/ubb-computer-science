@@ -73,10 +73,6 @@ def manager_search_student_by_id(students: list[list], student_id: int) -> str:
     return get_student_name(student)
 
 
-def manager_search_student_by_name(students: list[list], name: str) -> None:
-    pass
-
-
 def manager_search_subject_by_id(subjects: list[list], subject_id: int) -> tuple:
     subject = search_subject_by_id(subjects, subject_id)
 
@@ -86,5 +82,28 @@ def manager_search_subject_by_id(subjects: list[list], subject_id: int) -> tuple
     return get_subject_name(subject), get_subject_prof(subject)
 
 
-def manager_search_subject_by_name(subjects: list[list], name: str) -> None:
-    pass
+def manager_search_student_by_name(students: list[list], student_name: str) -> None:
+    student_list = search_student_by_name(students, student_name)
+
+    if not student_list:
+        raise Exception(f"Student '{student_name}' does not exist!")
+
+    return student_list
+
+
+def manager_search_subject_by_name(subjects: list[list], subject_name: str) -> None:
+    subject_list = search_subject_by_name(subjects, subject_name)
+
+    if not subject_list:
+        raise Exception(f"Subject '{subject_name}' does not exist!")
+
+    return subject_list
+
+
+def manager_search_subject_by_prof(subjects: list[list], prof: str) -> None:
+    subject_list = search_subject_by_prof(subjects, prof)
+
+    if not subject_list:
+        raise Exception(f"Professor '{prof}' does not exist!")
+
+    return subject_list
