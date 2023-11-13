@@ -2,6 +2,7 @@ from ui.print import ui_print
 from ui.add import ui_add_student, ui_add_subject
 from ui.delete import ui_delete_student, ui_delete_subject
 from ui.modify import ui_modify_student, ui_modify_subject
+from ui.search import ui_search_student_by_id, ui_search_subject_by_id
 
 
 def get_first_command(command: str) -> str:
@@ -19,12 +20,14 @@ def run_console_application() -> None:
 
     options = {
         "print": ui_print,
-        "addstud": ui_add_student,
-        "addsub": ui_add_subject,
-        "delstud": ui_delete_student,
-        "delsub": ui_delete_subject,
-        "modstud": ui_modify_student,
-        "modsub": ui_modify_subject,
+        "add_stud": ui_add_student,
+        "add_sub": ui_add_subject,
+        "del_stud": ui_delete_student,
+        "del_sub": ui_delete_subject,
+        "mod_stud": ui_modify_student,
+        "mod_sub": ui_modify_subject,
+        "search_stud_id": ui_search_student_by_id,
+        "search_sub_id": ui_search_subject_by_id,
     }
 
     while True:

@@ -64,16 +64,26 @@ def manager_modify_subject(
 # /----- Searching -----/
 
 
-def manager_search_student_by_id(students: list[list], student_id: int) -> None:
-    pass
+def manager_search_student_by_id(students: list[list], student_id: int) -> str:
+    student = search_student_by_id(students, student_id)
+
+    if not student:
+        raise Exception(f"Student {student_id} does not exist!")
+
+    return get_student_name(student)
 
 
 def manager_search_student_by_name(students: list[list], name: str) -> None:
     pass
 
 
-def manager_search_subject_by_id(subjects: list[list], subject_id: int) -> None:
-    pass
+def manager_search_subject_by_id(subjects: list[list], subject_id: int) -> tuple:
+    subject = search_subject_by_id(subjects, subject_id)
+
+    if not subject:
+        raise Exception(f"Subject {subject_id} does not exist!")
+
+    return get_subject_name(subject), get_subject_prof(subject)
 
 
 def manager_search_subject_by_name(subjects: list[list], name: str) -> None:
