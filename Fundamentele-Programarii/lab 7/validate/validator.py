@@ -4,12 +4,12 @@ from infrastructure.domain import *
 def validate_name(name: str) -> bool:
     name_list = name.split()
 
-    # if not 2 <= len(name_list) <= 5:
-    #     return False
+    if not 2 <= len(name_list) <= 5:
+        return False
 
-    # for name in name_list:
-    #     if not (name[0].isupper() and name[1:].isalpha()):
-    #         return False
+    for name in name_list:
+        if not (name[0].isupper() and name[1:].isalpha()):
+            return False
 
     return True
 
@@ -56,8 +56,8 @@ def validate_subject(subject: list) -> None:
         error += "Invalid subject id number.\n"
     if not validate_subject_name(get_subject_name(subject)):
         error += "Invalid subject name.\n"
-    if not validate_subject_prof(get_subject_prof(subject)):
-        error += "Invalid subject professor.\n"
+    # if not validate_subject_prof(get_subject_prof(subject)):
+    #     error += "Invalid subject professor.\n"
 
     if error:
         raise ValueError(error[:-2])
@@ -68,12 +68,10 @@ def validate_subject_id(subject_id: int) -> bool:
 
 
 def validate_subject_name(subject_name: str) -> bool:
-    name_list = subject_name.split()
-
-    if not 1 <= len(name_list) <= 8:
+    if not (1 <= len(subject_name.split()) <= 8):
         return False
 
-    return subject_name[0].isupper() and subject_name[1:].isalnum()
+    return subject_name[0].isupper()
 
 
 def validate_subject_prof(professor: str) -> bool:
