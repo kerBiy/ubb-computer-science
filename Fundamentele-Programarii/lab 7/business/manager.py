@@ -22,11 +22,19 @@ def manager_add_subject(
 
 
 def manager_delete_student(students: list[list], student_id: int) -> None:
-    pass
+    if not search_student_by_id(students, student_id):
+        raise Exception(f"The student {student_id} does not exist!")
+
+    validate_student_id(student_id)
+    delete_student(students, student_id)
 
 
 def manager_delete_subject(subjects: list[list], subject_id: int) -> None:
-    pass
+    if not search_subject_by_id(subjects, subject_id):
+        raise Exception(f"The subject {subject_id} does not exist!")
+
+    validate_subject_id(subject_id)
+    delete_subject(subjects, subject_id)
 
 
 # /----- Modify -----/

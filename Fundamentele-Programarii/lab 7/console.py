@@ -1,5 +1,6 @@
 from ui.print import ui_print
 from ui.add import ui_add_student, ui_add_subject
+from ui.delete import ui_delete_student, ui_delete_subject
 from ui.modify import ui_modify_student, ui_modify_subject
 
 
@@ -20,6 +21,8 @@ def run_console_application() -> None:
         "print": ui_print,
         "addstud": ui_add_student,
         "addsub": ui_add_subject,
+        "delstud": ui_delete_student,
+        "delsub": ui_delete_subject,
         "modstud": ui_modify_student,
         "modsub": ui_modify_subject,
     }
