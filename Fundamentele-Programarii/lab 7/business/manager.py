@@ -1,4 +1,4 @@
-from validate.validator import validate_student, validate_subject
+from validate.validator import *
 from infrastructure.functions import *
 
 # /----- Add -----/
@@ -35,13 +35,22 @@ def manager_delete_subject(subjects: list[list], subject_id: int) -> None:
 def manager_modify_student(
     students: list[list], student_id: int, new_name: str
 ) -> None:
-    pass
+    if not search_student_by_id(students, student_id):
+        raise Exception(f"The student {student_id} does not exist!")
+
+    validate_student_name(new_name)
+    modify_student(students, student_id, new_name)
 
 
 def manager_modify_subject(
     subjects: list[list], subject_id: int, new_name: str, new_professor: str
 ) -> None:
-    pass
+    if not search_subject_by_id(subjects, subject_id):
+        raise Exception(f"The subject {subject_id} does not exist!")
+
+    validate_subject_name(new_name)
+    validate_subject_prof(new_professor)
+    modify_subject(subjects, subject_id, new_name, new_professor)
 
 
 # /----- Searching -----/

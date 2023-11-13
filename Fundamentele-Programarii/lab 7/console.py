@@ -1,5 +1,6 @@
 from ui.print import ui_print
 from ui.add import ui_add_student, ui_add_subject
+from ui.modify import ui_modify_student, ui_modify_subject
 
 
 def get_first_command(command: str) -> str:
@@ -17,8 +18,10 @@ def run_console_application() -> None:
 
     options = {
         "print": ui_print,
-        "add_stud": ui_add_student,
-        "add_sub": ui_add_subject,
+        "addstud": ui_add_student,
+        "addsub": ui_add_subject,
+        "modstud": ui_modify_student,
+        "modsub": ui_modify_subject,
     }
 
     while True:
