@@ -1,8 +1,38 @@
 from infrastructure.domain import *
 
+# /----- Print -----/
+
+
+def print_students(students: list[list]) -> str:
+    output = ""
+
+    for student in students:
+        output += f"{get_student_id(student)}. {get_student_name(student)}\n"
+
+    return output[:-1]
+
+
+def print_subjects(subjects: list[list]) -> None:
+    output = ""
+
+    for subject in subjects:
+        output += f"{get_subject_id(subject)}. {get_subject_name(subject)} (professor: {get_subject_prof(subject)})\n"
+
+    return output[:-1]
+
+
+# /----- Add -----/
+
 
 def add_student(students: list[list], new_student: list) -> None:
     students.append(new_student)
+
+
+def add_subject(subjects: list[list], new_subject: list) -> None:
+    subjects.append(new_subject)
+
+
+# /----- Delete -----/
 
 
 def delete_student(students: list[list], student_id: int) -> None:
@@ -11,23 +41,19 @@ def delete_student(students: list[list], student_id: int) -> None:
             students.pop(ind)
 
 
-def modify_student(students: list[list], student_id: int, new_name: str) -> None:
-    for ind, student in enumerate(students):
-        if get_student_id(student) == student_id:
-            set_student_name(students[ind], new_name)
-
-
-# /----- Subject -----/
-
-
-def add_subject(subjects: list[list], new_subject: list) -> None:
-    subjects.append(new_subject)
-
-
 def delete_subject(subjects: list[list], subject_id: int) -> None:
     for ind, subject in enumerate(subjects):
         if get_subject_id(subject) == subject_id:
             subjects.pop(ind)
+
+
+# /----- Modify -----/
+
+
+def modify_student(students: list[list], student_id: int, new_name: str) -> None:
+    for ind, student in enumerate(students):
+        if get_student_id(student) == student_id:
+            set_student_name(students[ind], new_name)
 
 
 def modify_subject(

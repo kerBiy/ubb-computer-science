@@ -1,5 +1,6 @@
-from ui.printing import print_students, print_subjects
 from business.manager import (
+    manager_print_students,
+    manager_print_subjects,
     manager_search_student_by_id,
     manager_search_subject_by_id,
     manager_search_student_by_name,
@@ -43,7 +44,7 @@ def ui_search_student_by_name(
     student_list = manager_search_student_by_name(students, student_name)
 
     print(f"\nThe students that have the name '{student_name}' are:")
-    print_students(student_list)
+    print(manager_print_students(student_list))
 
 
 def ui_search_subject_by_name(
@@ -57,7 +58,7 @@ def ui_search_subject_by_name(
     subject_list = manager_search_subject_by_name(subjects, subject_name)
 
     print(f"\nThe subjects that have the name '{subject_name}' are:")
-    print_subjects(subject_list)
+    print(manager_print_subjects(subject_list))
 
 
 def ui_search_subject_by_prof(
@@ -71,4 +72,4 @@ def ui_search_subject_by_prof(
     subject_list = manager_search_subject_by_prof(subjects, professor)
 
     print(f"\nThe subjects that have the professor '{professor}' are:")
-    print_subjects(subject_list)
+    print(manager_print_subjects(subject_list))

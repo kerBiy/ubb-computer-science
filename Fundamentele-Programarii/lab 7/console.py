@@ -1,4 +1,4 @@
-from ui.printing import ui_print
+from ui.printing import ui_print_subjects, ui_print_students
 from ui.add import ui_add_student, ui_add_subject
 from ui.delete import ui_delete_student, ui_delete_subject
 from ui.modify import ui_modify_student, ui_modify_subject
@@ -25,7 +25,8 @@ def run_console_application() -> None:
     subjects = []
 
     options = {
-        "print": ui_print,
+        "print_stud": ui_print_students,
+        "print_sub": ui_print_subjects,
         "add_stud": ui_add_student,
         "add_sub": ui_add_subject,
         "del_stud": ui_delete_student,
@@ -36,7 +37,7 @@ def run_console_application() -> None:
         "search_sub_id": ui_search_subject_by_id,
         "search_stud_name": ui_search_student_by_name,
         "search_sub_name": ui_search_subject_by_name,
-        "search_sub_prof": ui_search_subject_by_prof,
+        "search_prof": ui_search_subject_by_prof,
     }
 
     while True:

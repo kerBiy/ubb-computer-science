@@ -1,6 +1,18 @@
 from validate.validator import *
 from infrastructure.functions import *
 
+
+# /----- Print -----/
+
+
+def manager_print_students(students: list[list]) -> str:
+    return print_students(students)
+
+
+def manager_print_subjects(subjects: list[list]) -> str:
+    return print_subjects(subjects)
+
+
 # /----- Add -----/
 
 

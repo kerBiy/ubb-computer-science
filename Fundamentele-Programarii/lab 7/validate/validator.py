@@ -25,7 +25,7 @@ def validate_student(student: list) -> None:
         error += "Invalid student grades.\n"
 
     if error:
-        raise ValueError(error[:-2])
+        raise ValueError(error[:-1])
 
 
 def validate_student_id(student_id: int) -> bool:
@@ -58,7 +58,7 @@ def validate_subject(subject: list) -> None:
         error += "Invalid subject professor.\n"
 
     if error:
-        raise ValueError(error[:-2])
+        raise ValueError(error[:-1])
 
 
 def validate_subject_id(subject_id: int) -> bool:
