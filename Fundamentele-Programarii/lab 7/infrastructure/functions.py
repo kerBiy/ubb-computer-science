@@ -1,5 +1,6 @@
 from infrastructure.domain import *
 
+
 # /----- Print -----/
 
 
@@ -65,18 +66,18 @@ def modify_subject(
             set_subject_prof(subjects[ind], new_professor)
 
 
-# /----- Searching -----/
+# /----- Search -----/
 
 
 def search_student_by_id(students: list[list], student_id: int) -> list:
-    for ind, student in enumerate(students):
+    for student in students:
         if get_student_id(student) == student_id:
             return student
     return None
 
 
 def search_subject_by_id(subjects: list[list], subject_id: int) -> list:
-    for ind, subject in enumerate(subjects):
+    for subject in subjects:
         if get_subject_id(subject) == subject_id:
             return subject
     return None
