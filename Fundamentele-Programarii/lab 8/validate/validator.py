@@ -41,7 +41,7 @@ class ValidatorSubject(ValidatorObject):
     def __init__(self) -> None:
         super().__init__()
 
-    def validate_subject(self, subject: Subject) -> None:
+    def validate(self, subject: Subject) -> None:
         error = ""
 
         if not self.validate_id(subject.get_id()):

@@ -1,36 +1,36 @@
-from ui.printing import ui_print_subjects, ui_print_students
-from ui.add import ui_add_student, ui_add_subject
-from ui.delete import ui_delete_student, ui_delete_subject
-from ui.modify import ui_modify_student, ui_modify_subject
-from ui.search import (
-    ui_search_student_by_id,
-    ui_search_subject_by_id,
-    ui_search_student_by_name,
-    ui_search_subject_by_name,
-    ui_search_subject_by_prof,
-)
+from business.manager import ManagerStudent, ManagerSubject
+
+from ui.print import PrintUI
+from ui.add import AddUI
+from ui.delete import DeleteUI
+from ui.modify import ModifyUI
 
 
 class Console:
-    def __init__(self, manager) -> None:
-        self.__manager = manager
-        self.__options = {
-            "print_stud": ui_print_students,
-            "print_sub": ui_print_subjects,
-            "add_stud": ui_add_student,
-            "add_sub": ui_add_subject,
-            "del_stud": ui_delete_student,
-            "del_sub": ui_delete_subject,
-            "mod_stud": ui_modify_student,
-            "mod_sub": ui_modify_subject,
-            "search_stud_id": ui_search_student_by_id,
-            "search_sub_id": ui_search_subject_by_id,
-            "search_stud_name": ui_search_student_by_name,
-            "search_sub_name": ui_search_subject_by_name,
-            "search_prof": ui_search_subject_by_prof,
+    def __init__(self) -> None:
+        self.student_manager = ManagerStudent()
+        self.subject_manager = ManagerSubject()
+
+        self.print_ui = PrintUI(self.student_manager, self.subject_manager)
+        self.add_ui = AddUI(self.student_manager, self.subject_manager)
+        self.delete_ui = DeleteUI(self.student_manager, self.subject_manager)
+        self.modify_ui = ModifyUI(self.student_manager, self.subject_manager)
+
+        self.options = {
+            "print_stud": self.print_ui.print_students,
+            "print_sub": self.print_ui.print_subjects,
+            "add_stud": self.add_ui.add_student,
+            "add_sub": self.add_ui.add_subject,
+            "del_stud": self.delete_ui.delete_student,
+            "del_sub": self.delete_ui.delete_subject,
+            "mod_stud": self.modify_ui.modify_student,
+            "mod_sub": self.modify_ui.modify_subject,
+            # "search_stud_id": ui_search_by_id,
+            # "search_sub_id": ui_search_subject_by_id,
+            # "search_stud_name": ui_search_by_name,
+            # "search_sub_name": ui_search_subject_by_name,
+            # "search_prof": ui_search_subject_by_prof,
         }
-        self.__students = []
-        self.__subjects = []
 
     def get_first_command(self, command: str) -> str:
         command = command.split()
@@ -40,7 +40,7 @@ class Console:
 
         return first_command, cmd_arguments
 
-    def run_console_application(self) -> None:
+    def run_application(self) -> None:
         while True:
             command = input("\n>>> ")
             first_command, cmd_arguments = self.get_first_command(command)
@@ -50,10 +50,8 @@ class Console:
                 return
 
             try:
-                assert first_command in self.__options.keys(), "Invalid first command."
-                self.__options[first_command](
-                    self.__students, self.__subjects, cmd_arguments
-                )
+                assert first_command in self.options.keys(), "Invalid first command."
+                self.options[first_command](cmd_arguments)
             except ValueError as ve:
                 print(ve)
             except Exception as e:
