@@ -4,7 +4,7 @@ class Object:
         self._name = name
 
     def __str__(self) -> str:
-        return f"{self._id}. {self._name}\n"
+        return f"{self._id}. {self._name}"
 
     @property
     def id(self) -> int:
@@ -43,7 +43,7 @@ class Subject(Object):
         self._prof = prof
 
     def __str__(self) -> str:
-        return f"{self.id}. {self.name} (professor: {self.prof})\n"
+        return f"{self.id}. {self.name} (professor: {self.prof})"
 
     @property
     def prof(self) -> str:

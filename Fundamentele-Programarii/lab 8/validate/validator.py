@@ -1,10 +1,4 @@
-from infrastructure.domain import *
-
-
 class ValidatorObject:
-    def __init__(self) -> None:
-        pass
-
     def validate_id(self, id: int) -> bool:
         return 1 <= id <= 999999
 
@@ -22,10 +16,7 @@ class ValidatorObject:
 
 
 class ValidatorStudent(ValidatorObject):
-    def __init__(self) -> None:
-        super().__init__()
-
-    def validate(self, student: Student) -> None:
+    def validate(self, student) -> None:
         error = ""
 
         if not self.validate_id(student.id):
@@ -38,10 +29,7 @@ class ValidatorStudent(ValidatorObject):
 
 
 class ValidatorSubject(ValidatorObject):
-    def __init__(self) -> None:
-        super().__init__()
-
-    def validate(self, subject: Subject) -> None:
+    def validate(self, subject) -> None:
         error = ""
 
         if not self.validate_id(subject.id):

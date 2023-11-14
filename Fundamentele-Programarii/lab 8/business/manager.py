@@ -1,5 +1,6 @@
-from validate.validator import *
-from infrastructure.repository import *
+from validate.validator import ValidatorStudent, ValidatorSubject
+from infrastructure.domain import Student, Subject
+from infrastructure.repository import RepoStudent, RepoSubject
 
 
 class ManagerStudent:
@@ -8,7 +9,7 @@ class ManagerStudent:
         self.validator = ValidatorStudent()
 
     def print(self) -> str:
-        return str(self.students)
+        return self.students
 
     def add(self, student_id: int, name: str) -> None:
         if self.students.search_id(student_id):
@@ -54,11 +55,11 @@ class ManagerStudent:
 
 class ManagerSubject:
     def __init__(self) -> None:
-        self.subjects = RepoStudent()
+        self.subjects = RepoSubject()
         self.validator = ValidatorSubject()
 
     def print(self) -> str:
-        return str(self.subjects)
+        return self.subjects
 
     def add(self, subject_id: int, name: str, professor: str) -> None:
         if self.subjects.search_id(subject_id):
