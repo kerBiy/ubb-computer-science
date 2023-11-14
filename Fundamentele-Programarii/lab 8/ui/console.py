@@ -4,6 +4,7 @@ from ui.print import PrintUI
 from ui.add import AddUI
 from ui.delete import DeleteUI
 from ui.modify import ModifyUI
+from ui.search import SearchUI
 
 
 class Console:
@@ -15,6 +16,7 @@ class Console:
         self.add_ui = AddUI(self.student_manager, self.subject_manager)
         self.delete_ui = DeleteUI(self.student_manager, self.subject_manager)
         self.modify_ui = ModifyUI(self.student_manager, self.subject_manager)
+        self.search_ui = SearchUI(self.student_manager, self.subject_manager)
 
         self.options = {
             "print_stud": self.print_ui.print_students,
@@ -25,11 +27,11 @@ class Console:
             "del_sub": self.delete_ui.delete_subject,
             "mod_stud": self.modify_ui.modify_student,
             "mod_sub": self.modify_ui.modify_subject,
-            # "search_stud_id": ui_search_id,
-            # "search_sub_id": ui_search_subject_by_id,
-            # "search_stud_name": ui_search_name,
-            # "search_sub_name": ui_search_subject_by_name,
-            # "search_prof": ui_search_subject_by_prof,
+            "search_stud_id": self.search_ui.search_student_id,
+            "search_sub_id": self.search_ui.search_subject_id,
+            "search_stud_name": self.search_ui.search_student_name,
+            "search_sub_name": self.search_ui.search_subject_name,
+            "search_prof": self.search_ui.search_prof,
         }
 
     def get_first_command(self, command: str) -> str:

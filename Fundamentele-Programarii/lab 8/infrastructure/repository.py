@@ -22,13 +22,7 @@ class RepoObject:
         return self._list.get(obj_id, None)
 
     def search_name(self, obj_name: str) -> list:
-        output = []
-
-        for obj in self._list.values():
-            if obj_name in obj.name:
-                output.append(obj)
-
-        return output
+        return [obj for obj in self._list.values() if obj_name in obj.name]
 
 
 class RepoStudent(RepoObject):
@@ -47,10 +41,4 @@ class RepoSubject(RepoObject):
         self._list[subject_id] = Subject(subject_id, new_name, new_prof)
 
     def search_prof(self, professor: str) -> list:
-        output = []
-
-        for subject in self._list.values():
-            if professor in subject.prof:
-                output.append(subject)
-
-        return output
+        return [subject for subject in self._list.values() if professor in subject.prof]

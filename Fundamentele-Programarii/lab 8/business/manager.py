@@ -39,7 +39,7 @@ class ManagerStudent:
         if not student:
             raise Exception(f"Student {student_id} does not exist!")
 
-        return student.name
+        return student
 
     def search_name(self, student_name: str) -> None:
         student_list = self.students.search_name(student_name)
@@ -90,7 +90,7 @@ class ManagerSubject:
         if not subject:
             raise Exception(f"Subject {subject_id} does not exist!")
 
-        return subject.name, subject.prof
+        return subject
 
     def search_name(self, subject_name: str) -> None:
         subject_list = self.subjects.search_name(subject_name)

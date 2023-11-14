@@ -1,65 +1,55 @@
-# class SearchUI:
-#     def ui_search_id(
-#         students: list, subjects: list[list], cmd: list[str]
-#     ) -> None:
-#         if len(cmd) != 1:
-#             raise Exception("Invalid command arguments.")
+class SearchUI:
+    def __init__(self, manager_student, manager_subject) -> None:
+        self.student_manager = manager_student
+        self.subject_manager = manager_subject
 
-#         student_id = int(cmd[0])
+    def search_student_id(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
 
-#         student_name = manager_search_id(students, student_id)
-#         print(f"{student_id}. {student_name}")
+        student_id = int(cmd[0])
 
+        student = self.student_manager.search_id(student_id)
+        print(student)
 
-#     def ui_search_subject_by_id(
-#         students: list, subjects: list[list], cmd: list[str]
-#     ) -> None:
-#         if len(cmd) != 1:
-#             raise Exception("Invalid command parameters.")
+    def search_subject_id(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command parameters.")
 
-#         subject_id = int(cmd[0])
+        subject_id = int(cmd[0])
 
-#         subject_name, professor = manager_search_subject_by_id(subjects, subject_id)
-#         print(f"{subject_id}. {subject_name} (professor: {professor})")
+        subject = self.subject_manager.search_id(subject_id)
+        print(subject)
 
+    def search_student_name(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
 
-#     def ui_search_name(
-#         students: list, subjects: list[list], cmd: list[str]
-#     ) -> None:
-#         if len(cmd) != 1:
-#             raise Exception("Invalid command arguments.")
+        student_name = cmd[0].strip()
 
-#         student_name = cmd[0].strip()
+        student_list = self.student_manager.search_name(student_name)
 
-#         student_list = manager_search_name(students, student_name)
+        print(f"\nThe students that have the name '{student_name}' are:")
+        print(student_list)
 
-#         print(f"\nThe students that have the name '{student_name}' are:")
-#         print(manager_print_students(student_list))
+    def search_subject_name(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
 
+        subject_name = cmd[0].strip()
 
-#     def ui_search_subject_by_name(
-#         students: list, subjects: list[list], cmd: list[str]
-#     ) -> None:
-#         if len(cmd) != 1:
-#             raise Exception("Invalid command arguments.")
+        subject_list = self.subject_manager.search_name(subject_name)
 
-#         subject_name = cmd[0].strip()
+        print(f"\nThe subjects that have the name '{subject_name}' are:")
+        print(subject_list)
 
-#         subject_list = manager_search_subject_by_name(subjects, subject_name)
+    def search_prof(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
 
-#         print(f"\nThe subjects that have the name '{subject_name}' are:")
-#         print(manager_print_subjects(subject_list))
+        professor = cmd[0].strip()
 
+        subject_list = self.subject_manager.search_prof(professor)
 
-#     def ui_search_subject_by_prof(
-#         students: list, subjects: list[list], cmd: list[str]
-#     ) -> None:
-#         if len(cmd) != 1:
-#             raise Exception("Invalid command arguments.")
-
-#         professor = cmd[0].strip()
-
-#         subject_list = manager_search_subject_by_prof(subjects, professor)
-
-#         print(f"\nThe subjects that have the professor '{professor}' are:")
-#         print(manager_print_subjects(subject_list))
+        print(f"\nThe subjects that have the professor '{professor}' are:")
+        print(subject_list)
