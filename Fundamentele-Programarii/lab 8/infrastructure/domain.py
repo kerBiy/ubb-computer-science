@@ -1,51 +1,54 @@
-class Student:
-    def __init__(self, id: int, name: str, grades={}) -> None:
+class Object:
+    def __init__(self, id: int, name: str) -> None:
         self._id = id
         self._name = name
-        self._grades = grades
 
     def __str__(self) -> str:
-        return f"{self.get_id()}. {self.get_name()}\n"
+        return f"{self.id}. {self.name}\n"
 
-    def get_id(self) -> int:
+    @property
+    def id(self) -> int:
         return self._id
 
-    def get_name(self) -> str:
+    @property
+    def name(self) -> str:
         return self._name
 
-    def get_grades(self) -> dict:
-        return self._grades
-
-    def set_id(self, new_id: int) -> None:
+    @id.setter
+    def id(self, new_id: int) -> None:
         self._id = new_id
 
-    def set_name(self, new_name: str) -> None:
+    @name.setter
+    def name(self, new_name: str) -> None:
         self._name = new_name
 
 
-class Subject:
+class Student(Object):
+    def __init__(self, id: int, name: str, grades={}) -> None:
+        super().__init__(id, name)
+        self._grades = grades
+
+    @property
+    def grades(self):
+        return self._grades
+
+    @grades.setter
+    def grades(self, new_grades) -> None:
+        self._grades = new_grades
+
+
+class Subject(Object):
     def __init__(self, id: int, name: str, prof: str) -> None:
-        self._id = id
-        self._name = name
+        super().__init__(id, name)
         self._prof = prof
 
     def __str__(self) -> str:
-        return f"{self.get_id()}. {self.get_name()} (professor: {self.get_prof()})\n"
+        return f"{self.id}. {self.name} (professor: {self.prof})\n"
 
-    def get_id(self) -> int:
-        return self._id
-
-    def get_name(self) -> str:
-        return self._name
-
-    def get_prof(self) -> dict:
+    @property
+    def prof(self) -> str:
         return self._prof
 
-    def set_id(self, new_id: int) -> None:
-        self._id = new_id
-
-    def set_name(self, new_name: str) -> None:
-        self._name = new_name
-
-    def set_prof(self, new_prof: str) -> None:
+    @prof.setter
+    def prof(self, new_prof: str) -> None:
         self._prof = new_prof

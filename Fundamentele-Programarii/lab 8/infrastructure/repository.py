@@ -18,17 +18,17 @@ class RepoStudent:
 
     def delete(self, student_id: int) -> None:
         for ind, student in enumerate(self._student_list):
-            if student.get_id() == student_id:
+            if student.id == student_id:
                 self._student_list.pop(ind)
 
     def modify(self, student_id: int, new_name: str) -> None:
         for ind, student in enumerate(self._student_list):
-            if student.get_id() == student_id:
+            if student.id == student_id:
                 self._student_list[ind].set_name(new_name)
 
     def search_by_id(self, student_id: int):
         for student in self._student_list:
-            if student.get_id() == student_id:
+            if student.id == student_id:
                 return student
         return None
 
@@ -36,7 +36,7 @@ class RepoStudent:
         output = []
 
         for student in self._student_list:
-            if student_name in student.get_name():
+            if student_name in student.name:
                 output.append(student)
 
         return output
@@ -62,18 +62,18 @@ class RepoSubject:
 
     def delete(self, subject_id: int) -> None:
         for ind, subject in enumerate(self._subject_list):
-            if subject.get_id() == subject_id:
+            if subject.id == subject_id:
                 self._subject_list.pop(ind)
 
     def modify(self, subject_id: int, new_name: str, new_prof: str) -> None:
         for ind, subject in enumerate(self._subject_list):
-            if subject.get_id() == subject_id:
+            if subject.id == subject_id:
                 self._subject_list[ind].set_name(new_name)
                 self._subject_list[ind].set_prof(new_prof)
 
     def search_by_id(self, subject_id: int):
         for subject in self._subject_list:
-            if subject.get_id() == subject_id:
+            if subject.id == subject_id:
                 return subject
         return None
 
@@ -81,7 +81,7 @@ class RepoSubject:
         output = []
 
         for subject in self._subject_list:
-            if subject_name in subject.get_name():
+            if subject_name in subject.name:
                 output.append(subject)
 
         return output
@@ -90,7 +90,7 @@ class RepoSubject:
         output = []
 
         for subject in self._subject_list:
-            if professor in subject.get_prof():
+            if professor in subject.prof:
                 output.append(subject)
 
         return output

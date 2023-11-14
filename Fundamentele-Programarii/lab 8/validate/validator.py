@@ -28,9 +28,9 @@ class ValidatorStudent(ValidatorObject):
     def validate(self, student: Student) -> None:
         error = ""
 
-        if not self.validate_id(student.get_id()):
+        if not self.validate_id(student.id):
             error += "Invalid student id number.\n"
-        if not self.validate_name(student.get_name()):
+        if not self.validate_name(student.name):
             error += "Invalid student name.\n"
 
         if error:
@@ -44,11 +44,11 @@ class ValidatorSubject(ValidatorObject):
     def validate(self, subject: Subject) -> None:
         error = ""
 
-        if not self.validate_id(subject.get_id()):
+        if not self.validate_id(subject.id):
             error += "Invalid subject id number.\n"
-        if not self.validate_name(subject.get_name()):
+        if not self.validate_name(subject.name):
             error += "Invalid subject name.\n"
-        if not self.validate_prof(subject.get_prof()):
+        if not self.validate_prof(subject.prof):
             error += "Invalid subject professor.\n"
 
         if error:
