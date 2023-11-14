@@ -1,4 +1,4 @@
-from console import run_console_application
+from ui.console import Console
 from validate.test import test_functions
 
 

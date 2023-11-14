@@ -1,76 +1,64 @@
 from infrastructure.domain import *
 
 
-def validate_name(name: str) -> bool:
-    name_list = name.split()
+class ValidatorObject:
+    def __init__(self) -> None:
+        pass
 
-    if not (2 <= len(name_list) <= 5):
-        return False
+    def validate_id(self, id: int) -> bool:
+        return 1 <= id <= 999999
 
-    for name in name_list:
-        if not (name[0].isupper() and name[1:].isalpha() and name[1:].islower()):
+    def validate_name(self, name: str) -> bool:
+        name_list = name.split()
+
+        if not (2 <= len(name_list) <= 5):
             return False
 
-    return True
+        for name in name_list:
+            if not (name[0].isupper() and name[1:].isalpha() and name[1:].islower()):
+                return False
+
+        return True
 
 
-def validate_student(student: list) -> None:
-    error = ""
+class ValidatorStudent(ValidatorObject):
+    def __init__(self) -> None:
+        super().__init__()
 
-    if not validate_student_id(student.get_id()):
-        error += "Invalid student id number.\n"
-    if not validate_student_name(student.get_name()):
-        error += "Invalid student name.\n"
-    # if not validate_student_grades(student):
-    #     error += "Invalid student grades.\n"
+    def validate(self, student: Student) -> None:
+        error = ""
 
-    if error:
-        raise ValueError(error[:-1])
+        if not self.validate_id(student.get_id()):
+            error += "Invalid student id number.\n"
+        if not self.validate_name(student.get_name()):
+            error += "Invalid student name.\n"
 
-
-def validate_student_id(student_id: int) -> bool:
-    return 1 <= student_id <= 9999
+        if error:
+            raise ValueError(error[:-1])
 
 
-def validate_student_name(student_name: str) -> bool:
-    return validate_name(student_name)
+class ValidatorSubject(ValidatorObject):
+    def __init__(self) -> None:
+        super().__init__()
 
+    def validate_subject(self, subject: Subject) -> None:
+        error = ""
 
-def validate_student_grades(grades: dict) -> bool:
-    for grade in grades.values():
-        if not (1 <= grade <= 10):
+        if not self.validate_id(subject.get_id()):
+            error += "Invalid subject id number.\n"
+        if not self.validate_name(subject.get_name()):
+            error += "Invalid subject name.\n"
+        if not self.validate_prof(subject.get_prof()):
+            error += "Invalid subject professor.\n"
+
+        if error:
+            raise ValueError(error[:-1])
+
+    def validate_name(self, name: str) -> bool:
+        if not (1 <= len(name.split()) <= 8):
             return False
 
-    return True
+        return name[0].isupper()
 
-
-# /----- Subjects -----/
-
-
-def validate_subject(subject: list) -> None:
-    error = ""
-
-    if not validate_subject_id(get_subject_id(subject)):
-        error += "Invalid subject id number.\n"
-    if not validate_subject_name(get_subject_name(subject)):
-        error += "Invalid subject name.\n"
-    if not validate_subject_prof(get_subject_prof(subject)):
-        error += "Invalid subject professor.\n"
-
-    if error:
-        raise ValueError(error[:-1])
-
-
-def validate_subject_id(subject_id: int) -> bool:
-    return 1 <= subject_id <= 99999
-
-
-def validate_subject_name(subject_name: str) -> bool:
-    if not (1 <= len(subject_name.split()) <= 8):
-        return False
-
-    return subject_name[0].isupper()
-
-
-def validate_subject_prof(professor: str) -> bool:
-    return validate_name(professor)
+    def validate_prof(self, professor: str) -> bool:
+        return self.validate_name(professor)
