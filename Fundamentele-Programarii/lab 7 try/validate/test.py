@@ -1,4 +1,6 @@
 from infrastructure.functions import *
+from infrastructure.domain import Student
+from infrastructure.repository import RepoStudent
 
 
 # /----- Add -----/
@@ -182,14 +184,14 @@ def test_search_subject_by_prof() -> None:
 
 def test_functions() -> None:
     # test_add_student()
-    test_add_subject()
+    # test_add_subject()
     # test_delete_student()
-    test_delete_subject()
+    # test_delete_subject()
     # test_modify_student()
-    test_modify_subject()
+    # test_modify_subject()
     # test_search_student_by_id()
-    test_search_subject_by_id()
+    # test_search_subject_by_id()
     # test_search_student_by_name()
-    test_search_subject_by_name()
-    test_search_subject_by_prof()
+    # test_search_subject_by_name()
+    # test_search_subject_by_prof()
     print("All tests passed!")

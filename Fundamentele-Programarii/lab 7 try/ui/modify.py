@@ -1,7 +1,7 @@
 from business.manager import manager_modify_student, manager_modify_subject
 
 
-def ui_modify_student(students: list, subjects: list[list], cmd: list[str]) -> None:
+def ui_modify_student(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 2:
         raise Exception("Invalid command arguments.")
 
@@ -12,7 +12,7 @@ def ui_modify_student(students: list, subjects: list[list], cmd: list[str]) -> N
     print(f"Student {student_id} name has been changed to '{new_student_name}'.")
 
 
-def ui_modify_subject(students: list, subjects: list[list], cmd: list[str]) -> None:
+def ui_modify_subject(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 3:
         raise Exception("Invalid command parameters.")
 

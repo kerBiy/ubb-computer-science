@@ -1,7 +1,7 @@
 from business.manager import manager_add_student, manager_add_subject
 
 
-def ui_add_student(students: list, subjects: list[list], cmd: list[str]) -> None:
+def ui_add_student(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 2:
         raise Exception("Invalid command arguments.")
 
@@ -12,7 +12,7 @@ def ui_add_student(students: list, subjects: list[list], cmd: list[str]) -> None
     print("Student added in the list.")
 
 
-def ui_add_subject(students: list, subjects: list[list], cmd: list[str]) -> None:
+def ui_add_subject(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 3:
         raise Exception("Invalid command parameters.")
 

@@ -1,18 +1,17 @@
-from business.manager import manager_print_students, manager_print_subjects
+from business.manager import manager_print_subjects
 
 
-def ui_print_students(students: list, subjects: list[list], cmd: list[str]) -> None:
+def ui_print_students(students, subjects: list[list], cmd: list[str]) -> None:
     if not cmd == [""]:
         raise Exception("Invalid command parameters.")
-    if not students:
+    if students.get_len() == 0:
         raise Exception("Student list is empty.")
 
-    student_list = manager_print_students(students)
     print("\nSTUDENTS LIST:")
-    print(student_list)
+    print(students.print_students())
 
 
-def ui_print_subjects(students: list, subjects: list[list], cmd: list[str]) -> None:
+def ui_print_subjects(students, subjects: list[list], cmd: list[str]) -> None:
     if not cmd == [""]:
         raise Exception("Invalid command parameters.")
     if not subjects:

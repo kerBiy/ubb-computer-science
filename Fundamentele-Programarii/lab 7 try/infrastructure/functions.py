@@ -4,13 +4,13 @@ from infrastructure.domain import *
 # /----- Print -----/
 
 
-def print_students(students: list[list]) -> str:
-    output = ""
+# def print_students(students: list[list]) -> str:
+#     output = ""
 
-    for student in students:
-        output += f"{student.get_id()}. {student.get_name()}\n"
+#     for student in students:
+#         output += f"{get_student_id(student)}. {get_student_name(student)}\n"
 
-    return output[:-1]
+#     return output[:-1]
 
 
 def print_subjects(subjects: list[list]) -> None:
@@ -25,8 +25,8 @@ def print_subjects(subjects: list[list]) -> None:
 # /----- Add -----/
 
 
-def add_student(students: list[list], new_student: list) -> None:
-    students.append(new_student)
+# def add_student(students: list[list], new_student: list) -> None:
+#     students.append(new_student)
 
 
 def add_subject(subjects: list[list], new_subject: list) -> None:
@@ -36,10 +36,10 @@ def add_subject(subjects: list[list], new_subject: list) -> None:
 # /----- Delete -----/
 
 
-def delete_student(students: list[list], student_id: int) -> None:
-    for ind, student in enumerate(students):
-        if student.get_id() == student_id:
-            students.pop(ind)
+# def delete_student(students: list[list], student_id: int) -> None:
+#     for ind, student in enumerate(students):
+#         if get_student_id(student) == student_id:
+#             students.pop(ind)
 
 
 def delete_subject(subjects: list[list], subject_id: int) -> None:
@@ -51,10 +51,10 @@ def delete_subject(subjects: list[list], subject_id: int) -> None:
 # /----- Modify -----/
 
 
-def modify_student(students: list[list], student_id: int, new_name: str) -> None:
-    for ind, student in enumerate(students):
-        if student.get_id() == student_id:
-            students[ind].set_name(new_name)
+# def modify_student(students: list[list], student_id: int, new_name: str) -> None:
+#     for ind, student in enumerate(students):
+#         if get_student_id(student) == student_id:
+#             set_student_name(students[ind], new_name)
 
 
 def modify_subject(
@@ -69,11 +69,11 @@ def modify_subject(
 # /----- Search -----/
 
 
-def search_student_by_id(students: list[list], student_id: int) -> list:
-    for student in students:
-        if student.get_id() == student_id:
-            return student
-    return None
+# def search_student_by_id(students: list[list], student_id: int) -> list:
+#     for student in students:
+#         if get_student_id(student) == student_id:
+#             return student
+#     return None
 
 
 def search_subject_by_id(subjects: list[list], subject_id: int) -> list:
@@ -83,14 +83,14 @@ def search_subject_by_id(subjects: list[list], subject_id: int) -> list:
     return None
 
 
-def search_student_by_name(students: list[list], student_name: str) -> list[list]:
-    output = []
+# def search_student_by_name(students: list[list], student_name: str) -> list[list]:
+#     output = []
 
-    for ind, student in enumerate(students):
-        if student_name in student.get_name():
-            output.append(student)
+#     for ind, student in enumerate(students):
+#         if student_name in get_student_name(student):
+#             output.append(student)
 
-    return output
+#     return output
 
 
 def search_subject_by_name(subjects: list[list], subject_name: str) -> list[list]:

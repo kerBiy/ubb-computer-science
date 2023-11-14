@@ -14,15 +14,15 @@ def validate_name(name: str) -> bool:
     return True
 
 
-def validate_student(student: list) -> None:
+def validate_student(student) -> None:
     error = ""
 
     if not validate_student_id(student.get_id()):
         error += "Invalid student id number.\n"
     if not validate_student_name(student.get_name()):
         error += "Invalid student name.\n"
-    # if not validate_student_grades(student):
-    #     error += "Invalid student grades.\n"
+    if not validate_student_grades(student.get_grades()):
+        error += "Invalid student grades.\n"
 
     if error:
         raise ValueError(error[:-1])

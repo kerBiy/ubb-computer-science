@@ -1,9 +1,7 @@
 from business.manager import manager_delete_student, manager_delete_subject
 
 
-def ui_delete_student(
-    students: list, subjects: list[list], cmd: list[str]
-) -> None:
+def ui_delete_student(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command arguments.")
 
@@ -13,9 +11,7 @@ def ui_delete_student(
     print(f"Student {student_id} has been removed")
 
 
-def ui_delete_subject(
-    students: list, subjects: list[list], cmd: list[str]
-) -> None:
+def ui_delete_subject(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command parameters.")
 

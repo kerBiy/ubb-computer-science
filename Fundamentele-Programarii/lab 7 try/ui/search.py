@@ -1,5 +1,4 @@
 from business.manager import (
-    manager_print_students,
     manager_print_subjects,
     manager_search_student_by_id,
     manager_search_subject_by_id,
@@ -9,9 +8,7 @@ from business.manager import (
 )
 
 
-def ui_search_student_by_id(
-    students: list, subjects: list[list], cmd: list[str]
-) -> None:
+def ui_search_student_by_id(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command arguments.")
 
@@ -21,9 +18,7 @@ def ui_search_student_by_id(
     print(f"{student_id}. {student_name}")
 
 
-def ui_search_subject_by_id(
-    students: list, subjects: list[list], cmd: list[str]
-) -> None:
+def ui_search_subject_by_id(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command parameters.")
 
@@ -33,9 +28,7 @@ def ui_search_subject_by_id(
     print(f"{subject_id}. {subject_name} (professor: {professor})")
 
 
-def ui_search_student_by_name(
-    students: list, subjects: list[list], cmd: list[str]
-) -> None:
+def ui_search_student_by_name(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command arguments.")
 
@@ -44,12 +37,10 @@ def ui_search_student_by_name(
     student_list = manager_search_student_by_name(students, student_name)
 
     print(f"\nThe students that have the name '{student_name}' are:")
-    print(manager_print_students(student_list))
+    print(student_list)
 
 
-def ui_search_subject_by_name(
-    students: list, subjects: list[list], cmd: list[str]
-) -> None:
+def ui_search_subject_by_name(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command arguments.")
 
@@ -61,9 +52,7 @@ def ui_search_subject_by_name(
     print(manager_print_subjects(subject_list))
 
 
-def ui_search_subject_by_prof(
-    students: list, subjects: list[list], cmd: list[str]
-) -> None:
+def ui_search_subject_by_prof(students, subjects: list[list], cmd: list[str]) -> None:
     if len(cmd) != 1:
         raise Exception("Invalid command arguments.")
 
