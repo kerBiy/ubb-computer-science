@@ -25,9 +25,9 @@ class Console:
             "del_sub": self.delete_ui.delete_subject,
             "mod_stud": self.modify_ui.modify_student,
             "mod_sub": self.modify_ui.modify_subject,
-            # "search_stud_id": ui_search_by_id,
+            # "search_stud_id": ui_search_id,
             # "search_sub_id": ui_search_subject_by_id,
-            # "search_stud_name": ui_search_by_name,
+            # "search_stud_name": ui_search_name,
             # "search_sub_name": ui_search_subject_by_name,
             # "search_prof": ui_search_subject_by_prof,
         }

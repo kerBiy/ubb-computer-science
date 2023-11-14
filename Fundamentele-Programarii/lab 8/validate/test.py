@@ -96,7 +96,7 @@
 # # /----- Search -----/
 
 
-# def test_search_by_id() -> None:
+# def test_search_id() -> None:
 #     student_list = [
 #         [111, "Sergio Ramos"],
 #         [112, "James Bond"],
@@ -106,7 +106,7 @@
 #     correct_student = [113, "Jack The Ripper"]
 
 #     student_id = 113
-#     answer = search_by_id(student_list, student_id)
+#     answer = search_id(student_list, student_id)
 
 #     assert answer == correct_student
 
@@ -126,7 +126,7 @@
 #     assert answer == correct_subject
 
 
-# def test_search_by_name() -> None:
+# def test_search_name() -> None:
 #     student_list = [
 #         [111, "Sergio John"],
 #         [112, "James Bond"],
@@ -139,7 +139,7 @@
 #     ]
 
 #     student_name = "John"
-#     answer = search_by_name(student_list, student_name)
+#     answer = search_name(student_list, student_name)
 
 #     assert answer == correct_student_list
 
@@ -187,9 +187,9 @@ def test_functions() -> None:
     # test_delete_subject()
     # test_modify_student()
     # test_modify_subject()
-    # test_search_by_id()
+    # test_search_id()
     # test_search_subject_by_id()
-    # test_search_by_name()
+    # test_search_name()
     # test_search_subject_by_name()
     # test_search_subject_by_prof()
     print("All tests passed!")

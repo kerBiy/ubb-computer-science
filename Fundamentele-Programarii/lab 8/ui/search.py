@@ -1,5 +1,5 @@
 # class SearchUI:
-#     def ui_search_by_id(
+#     def ui_search_id(
 #         students: list, subjects: list[list], cmd: list[str]
 #     ) -> None:
 #         if len(cmd) != 1:
@@ -7,7 +7,7 @@
 
 #         student_id = int(cmd[0])
 
-#         student_name = manager_search_by_id(students, student_id)
+#         student_name = manager_search_id(students, student_id)
 #         print(f"{student_id}. {student_name}")
 
 
@@ -23,7 +23,7 @@
 #         print(f"{subject_id}. {subject_name} (professor: {professor})")
 
 
-#     def ui_search_by_name(
+#     def ui_search_name(
 #         students: list, subjects: list[list], cmd: list[str]
 #     ) -> None:
 #         if len(cmd) != 1:
@@ -31,7 +31,7 @@
 
 #         student_name = cmd[0].strip()
 
-#         student_list = manager_search_by_name(students, student_name)
+#         student_list = manager_search_name(students, student_name)
 
 #         print(f"\nThe students that have the name '{student_name}' are:")
 #         print(manager_print_students(student_list))

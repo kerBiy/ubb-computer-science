@@ -4,7 +4,7 @@ class Object:
         self._name = name
 
     def __str__(self) -> str:
-        return f"{self.id}. {self.name}\n"
+        return f"{self._id}. {self._name}\n"
 
     @property
     def id(self) -> int:
