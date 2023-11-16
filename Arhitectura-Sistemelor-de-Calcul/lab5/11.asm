@@ -7,7 +7,7 @@ import  exit msvcrt.dll
 ; Se da un sir de octeti S. Sa se obtina sirul D1 ce contine toate numerele pare din S si sirul D2 ce contine toate numerele impare din S.
 segment data use32 class=data 
     s db 1, 5, 3, 8, 2, 9
-    len equ $-s
+    len equ $ - s
     d1 times len db 0
     d2 times len db 0
 segment code use32 class=code 
