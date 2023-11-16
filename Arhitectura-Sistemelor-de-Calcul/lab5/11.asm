@@ -12,38 +12,40 @@ segment data use32 class=data
     d2 times len db 0
 segment code use32 class=code 
     start: 
-        mov ecx, len // punem lungimea in ecx
-        mov esi, 0 // initializam iteratorul pe s
-        mov ebx, 0 // initializam iteratorul pe d1
-        mov edx, 0 // initializam iteratorul pe d2
+        mov ecx, len ; punem lungimea in ecx
+        mov esi, 0 ; initializam iteratorul pe s
+        mov edi, 0 ; initializam iteratorul pe d1
+        mov edx, 0 ; initializam iteratorul pe d2
 
-        jecxz Sfarsit // metoda anti-prost
+        jecxz Sfarsit ; metoda anti-prost
 
         Repeta:
-            mov al, [s+esi] // punem s[esi] in al
-            mov ah, 0 // ax <- al
+            mov al, [s + esi] ; punem s[esi] in al
+            mov ah, 0 ; ax <- al
 
-            push ax // il retinem pe stiva pt a il folosi mai incolo
+            push ax ; il retinem pe stiva pt a il folosi mai incolo
 
             mov bl, 2
-            div bl // impartim numarul la 2
+            div bl ; impartim numarul la 2
 
-            cmp ah, 0 // verificam restul impartirii
-            je par: // daca e zero tratam cazul par
+            cmp ah, 0 ; verificam restul impartirii
+            je par ; daca e zero tratam cazul par
 
-            // daca numarul este impar
-            pop byte [d2 + edx]
+            ; daca numarul este impar
+            pop ax ; il reluam de pe stiva
+            mov [d2 + edx], al ; punem in al doilea sir elementul impar
             inc edx
             
-            jmp final
+            jmp continua
 
         par:
-            // daca numarul este par
-            pop byte [d1 + ebx]
-            inc ebx
+            ; daca numarul este par
+            pop ax ; il reluam de pe stiva
+            mov [d1 + edi], al ; punem in primul sir elementul par
+            inc edi
 
-        final:
-            inc esi
+        continua:
+            inc esi ; incrementam pentru a trece la uramtorul element
 
         loop Repeta
 
