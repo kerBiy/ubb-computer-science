@@ -42,3 +42,7 @@ class RepoSubject(RepoObject):
 
     def search_prof(self, professor: str) -> list:
         return [subject for subject in self._list.values() if professor in subject.prof]
+
+
+class GradeBook(RepoObject):
+    pass

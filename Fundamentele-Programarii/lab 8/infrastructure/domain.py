@@ -24,7 +24,7 @@ class Object:
 
 
 class Student(Object):
-    def __init__(self, id: int, name: str, grades={}) -> None:
+    def __init__(self, id: int, name: str, grades) -> None:
         super().__init__(id, name)
         self._grades = grades
 
@@ -52,3 +52,17 @@ class Subject(Object):
     @prof.setter
     def prof(self, new_prof: str) -> None:
         self._prof = new_prof
+
+
+class Grade(Object):
+    def __init__(self, subject_id: int, subject_name: str, value: float) -> None:
+        super().__init__(subject_id, subject_name)
+        self._value = value
+
+    @property
+    def value(self) -> str:
+        return self._value
+
+    @value.setter
+    def value(self, new_value: str) -> None:
+        self._value = new_value

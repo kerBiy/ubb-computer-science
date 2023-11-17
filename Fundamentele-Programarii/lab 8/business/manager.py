@@ -6,7 +6,6 @@ from infrastructure.repository import RepoStudent, RepoSubject
 class ManagerStudent:
     def __init__(self) -> None:
         self.students = RepoStudent()
-        self.validator = ValidatorStudent()
 
     def print(self) -> str:
         return self.students
@@ -16,21 +15,21 @@ class ManagerStudent:
             raise Exception(f"The student {student_id} already exists!")
 
         new_student = Student(student_id, name)
-        self.validator.validate(new_student)
+        ValidatorStudent.validate(new_student)
         self.students.add(new_student)
 
     def delete(self, student_id: int) -> None:
         if not self.students.search_id(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
-        self.validator.validate_id(student_id)
+        ValidatorStudent.validate_id(student_id)
         self.students.delete(student_id)
 
     def modify(self, student_id: int, new_name: str) -> None:
         if not self.students.search_id(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
-        self.validator.validate_name(new_name)
+        ValidatorStudent.validate_name(new_name)
         self.students.modify(student_id, new_name)
 
     def search_id(self, student_id: int) -> str:
@@ -56,7 +55,6 @@ class ManagerStudent:
 class ManagerSubject:
     def __init__(self) -> None:
         self.subjects = RepoSubject()
-        self.validator = ValidatorSubject()
 
     def print(self) -> str:
         return self.subjects
@@ -66,22 +64,22 @@ class ManagerSubject:
             raise Exception(f"The subject {subject_id} already exists!")
 
         new_subject = Subject(subject_id, name, professor)
-        self.validator.validate(new_subject)
+        ValidatorSubject.validate(new_subject)
         self.subjects.add(new_subject)
 
     def delete(self, subject_id: int) -> None:
         if not self.subjects.search_id(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
-        self.validator.validate_id(subject_id)
+        ValidatorSubject.validate_id(subject_id)
         self.subjects.delete(subject_id)
 
     def modify(self, subject_id: int, new_name: str, new_professor: str) -> None:
         if not self.subjects.search_id(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
-        self.validator.validate_name(new_name)
-        self.validator.validate_prof(new_professor)
+        ValidatorSubject.validate_name(new_name)
+        ValidatorSubject.validate_prof(new_professor)
         self.subjects.modify(subject_id, new_name, new_professor)
 
     def search_id(self, subject_id: int) -> tuple:

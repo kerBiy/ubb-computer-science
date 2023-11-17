@@ -30,7 +30,8 @@ class SearchUI:
         student_list = self.student_manager.search_name(student_name)
 
         print(f"\nThe students that have the name '{student_name}' are:")
-        print(student_list)
+        for student in student_list:
+            print(student)
 
     def search_subject_name(self, cmd: list[str]) -> None:
         if len(cmd) != 1:
@@ -41,7 +42,8 @@ class SearchUI:
         subject_list = self.subject_manager.search_name(subject_name)
 
         print(f"\nThe subjects that have the name '{subject_name}' are:")
-        print(subject_list)
+        for subject in subject_list:
+            print(subject)
 
     def search_prof(self, cmd: list[str]) -> None:
         if len(cmd) != 1:
@@ -52,4 +54,5 @@ class SearchUI:
         subject_list = self.subject_manager.search_prof(professor)
 
         print(f"\nThe subjects that have the professor '{professor}' are:")
-        print(subject_list)
+        for subject in subject_list:
+            print(subject)
