@@ -1,68 +1,90 @@
-# from infrastructure.functions import *
+from infrastructure.repository import *
 
 
-# # /----- Add -----/
+# /----- Add -----/
 
 
-# def test_add_student() -> None:
-#     new_student_list = []
-#     correct_student_list = [[112, "James Bond"]]
-#     new_student = [112, "James Bond"]
+def test_add_student() -> None:
+    new_student_repo = RepoStudent()
+    correct_student_repo = RepoStudent({112: Student(112, "James Bond")})
+    new_student = Student(112, "James Bond")
 
-#     add_student(new_student_list, new_student)
+    new_student_repo.add(new_student)
 
-#     assert new_student_list == correct_student_list
-
-
-# def test_add_subject() -> None:
-#     new_subject_list = []
-#     correct_subject_list = [[112, "Calculus", "James Bond"]]
-#     new_subject = [112, "Calculus", "James Bond"]
-
-#     add_subject(new_subject_list, new_subject)
-
-#     assert new_subject_list == correct_subject_list
+    assert new_student_repo == correct_student_repo
 
 
-# # /----- Delete -----/
+def test_add_subject() -> None:
+    new_subject_repo = RepoSubject()
+    correct_subject_repo = RepoSubject(
+        {112: Subject(112, "Advanced Calculus", "James Bond")}
+    )
+    new_subject = Subject(112, "Advanced Calculus", "James Bond")
+
+    new_subject_repo.add(new_subject)
+
+    assert new_subject_repo == correct_subject_repo
 
 
-# def test_delete_student() -> None:
-#     new_student_list = [
-#         [111, "Sergio Ramos"],
-#         [112, "James Bond"],
-#         [113, "Jack The Ripper"],
-#         [212, "John Wick"],
-#     ]
-#     correct_student_list = [
-#         [111, "Sergio Ramos"],
-#         [113, "Jack The Ripper"],
-#         [212, "John Wick"],
-#     ]
-#     student_id = 112
+def test_add_grade() -> None:
+    new_grade_repo = GradeBook()
+    correct_grade_repo = GradeBook({112: Grade(112, 234, 345, 7.5)})
+    new_grade = Grade(112, 234, 345, 7.5)
 
-#     delete_student(new_student_list, student_id)
+    new_grade_repo.add(new_grade)
 
-#     assert new_student_list == correct_student_list
+    assert new_grade_repo == correct_grade_repo
 
 
-# def test_delete_subject() -> None:
-#     new_subject_list = [
-#         [111, "Special Maths", "Sergio Ramos"],
-#         [112, "Calculus", "James Bond"],
-#         [113, "Algebra", "Jack The Ripper"],
-#         [212, "Geometry", "John Wick"],
-#     ]
-#     correct_subject_list = [
-#         [111, "Special Maths", "Sergio Ramos"],
-#         [113, "Algebra", "Jack The Ripper"],
-#         [212, "Geometry", "John Wick"],
-#     ]
-#     subject_id = 112
+# /----- Delete -----/
 
-#     delete_subject(new_subject_list, subject_id)
 
-#     assert new_subject_list == correct_subject_list
+def test_delete_student() -> None:
+    new_student_repo = RepoStudent(
+        {
+            111: Student(111, "Sergio Ramos"),
+            112: Student(112, "James Bond"),
+            113: Student(113, "Jack The Ripper"),
+            212: Student(212, "John Wick"),
+        }
+    )
+
+    correct_student_repo = RepoStudent(
+        {
+            111: Student(111, "Sergio Ramos"),
+            113: Student(113, "Jack The Ripper"),
+            212: Student(212, "John Wick"),
+        }
+    )
+    student_id = 112
+
+    new_student_repo.delete(student_id)
+
+    assert new_student_repo == correct_student_repo
+
+
+def test_delete_subject() -> None:
+    new_subject_repo = RepoSubject(
+        {
+            111: Subject(111, "Special Maths", "Sergio Ramos"),
+            112: Subject(112, "Calculus", "James Bond"),
+            113: Subject(113, "Algebra", "Jack The Ripper"),
+            212: Subject(212, "Geometry", "John Wick"),
+        }
+    )
+
+    correct_subject_repo = RepoSubject(
+        {
+            111: Subject(111, "Special Maths", "Sergio Ramos"),
+            113: Subject(113, "Algebra", "Jack The Ripper"),
+            212: Subject(212, "Geometry", "John Wick"),
+        }
+    )
+    subject_id = 112
+
+    new_subject_repo.delete(subject_id)
+
+    assert new_subject_repo == correct_subject_repo
 
 
 # # /----- Modify -----/
@@ -181,10 +203,12 @@
 
 
 def test_functions() -> None:
-    # test_add_student()
-    # test_add_subject()
-    # test_delete_student()
-    # test_delete_subject()
+    test_add_student()
+    test_add_subject()
+    test_add_grade()
+    test_delete_student()
+    test_delete_subject()
+    # test_delete_grade()
     # test_modify_student()
     # test_modify_subject()
     # test_search_id()

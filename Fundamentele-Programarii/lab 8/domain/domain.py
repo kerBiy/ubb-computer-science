@@ -6,6 +6,9 @@ class Object:
     def __str__(self) -> str:
         return f"{self._id}. {self._name}"
 
+    def __eq__(self, another_object: object) -> bool:
+        return self.id == another_object.id and self.name == another_object.name
+
     @property
     def id(self) -> int:
         return self._id
@@ -36,6 +39,9 @@ class Subject(Object):
     def __str__(self) -> str:
         return f"{self.id}. {self.name} (professor: {self.prof})"
 
+    def __eq__(self, another_subject: object) -> bool:
+        return super().__eq__(another_subject) and self.prof == another_subject.prof
+
     @property
     def prof(self) -> str:
         return self._prof
@@ -56,6 +62,14 @@ class Grade:
 
     def __str__(self) -> str:
         return f"{self.id}: Student {self.student_id} has an {self.value} at Subject {self.subject_id}"
+
+    def __eq__(self, another_grade: object) -> bool:
+        return (
+            self.id == another_grade.id
+            and self.student_id == another_grade.student_id
+            and self.subject_id == another_grade.subject_id
+            and self.value == another_grade.value
+        )
 
     @property
     def id(self) -> int:

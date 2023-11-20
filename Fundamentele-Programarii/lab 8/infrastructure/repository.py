@@ -12,6 +12,9 @@ class RepoObject:
         if self._list:
             return "\n".join([str(obj) for obj in self._list.values()])
 
+    def __eq__(self, another_repo: object) -> bool:
+        return self._list == another_repo._list
+
     def add(self, new_obj) -> None:
         self._list[new_obj.id] = new_obj
 
