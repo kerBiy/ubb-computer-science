@@ -1,5 +1,3 @@
-from business.manager import ManagerStudent, ManagerSubject
-
 from ui.print import PrintUI
 from ui.add import AddUI
 from ui.delete import DeleteUI
@@ -8,9 +6,10 @@ from ui.search import SearchUI
 
 
 class Console:
-    def __init__(self) -> None:
-        self.student_manager = ManagerStudent()
-        self.subject_manager = ManagerSubject()
+    def __init__(self, student_manager, subject_manager, grade_manager) -> None:
+        self.student_manager = student_manager
+        self.subject_manager = subject_manager
+        self.grade_manager = grade_manager
 
         self.print_ui = PrintUI(self.student_manager, self.subject_manager)
         self.add_ui = AddUI(self.student_manager, self.subject_manager)

@@ -1,9 +1,9 @@
-from infrastructure.domain import Student, Subject
+from domain.domain import Student, Subject, Grade
 
 
 class RepoObject:
-    def __init__(self):
-        self._list = {}
+    def __init__(self, object_list={}):
+        self._list = object_list
 
     def __len__(self):
         return len(self._list)
@@ -45,4 +45,16 @@ class RepoSubject(RepoObject):
 
 
 class GradeBook(RepoObject):
-    pass
+    def __init__(self) -> None:
+        super().__init__()
+
+    def modify(
+        self,
+        grade_id: int,
+        new_subject_id: int,
+        new_student_id: int,
+        new_value: float,
+    ) -> None:
+        self._list[grade_id] = Grade(
+            grade_id, new_subject_id, new_student_id, new_value
+        )

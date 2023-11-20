@@ -1,13 +1,13 @@
 class PrintUI:
     def __init__(self, manager_student, manager_subject) -> None:
-        self.manager_student = manager_student
-        self.manager_subject = manager_subject
+        self.manager_students = manager_student
+        self.manager_subjects = manager_subject
 
     def print_students(self, cmd: list[str]) -> None:
         if not cmd == [""]:
             raise Exception("Invalid command parameters.")
 
-        student_list = self.manager_student.print()
+        student_list = self.manager_students.print()
 
         if student_list:
             print("\nSTUDENTS LIST:")
