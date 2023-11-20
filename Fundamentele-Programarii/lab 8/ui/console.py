@@ -46,10 +46,10 @@ class Console:
                 print("Exiting the program...")
                 return
 
-            try:
-                assert first_command in self.options, "Invalid first command."
-                self.options[first_command](cmd_arguments)
-            except ValueError as ve:
-                print(ve)
-            except Exception as e:
-                print(e)
+            # try:
+            assert first_command in self.options, "Invalid first command."
+            self.options[first_command](cmd_arguments)
+            # except ValueError as ve:
+            #     print(ve)
+            # except Exception as e:
+            #     print(e)

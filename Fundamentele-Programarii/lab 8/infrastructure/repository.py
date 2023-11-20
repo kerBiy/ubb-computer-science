@@ -2,7 +2,7 @@ from domain.domain import Student, Subject, Grade
 
 
 class RepoObject:
-    def __init__(self, object_list={}):
+    def __init__(self, object_list):
         self._list = object_list
 
     def __len__(self):
@@ -26,16 +26,16 @@ class RepoObject:
 
 
 class RepoStudent(RepoObject):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, student_list={}) -> None:
+        super().__init__(student_list)
 
     def modify(self, obj_id: int, new_name: str) -> None:
         self._list[obj_id] = Student(obj_id, new_name)
 
 
 class RepoSubject(RepoObject):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, subject_list={}) -> None:
+        super().__init__(subject_list)
 
     def modify(self, subject_id: int, new_name: str, new_prof: str) -> None:
         self._list[subject_id] = Subject(subject_id, new_name, new_prof)
@@ -45,8 +45,8 @@ class RepoSubject(RepoObject):
 
 
 class GradeBook(RepoObject):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, grade_list={}) -> None:
+        super().__init__(grade_list)
 
     def modify(
         self,

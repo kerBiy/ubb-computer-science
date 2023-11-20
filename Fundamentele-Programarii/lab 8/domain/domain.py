@@ -67,11 +67,11 @@ class Grade:
 
     @property
     def student_id(self) -> int:
-        return self.student_id
+        return self._student_id
 
     @student_id.setter
     def student_id(self, student_id: int) -> None:
-        self.student_id = student_id
+        self._student_id = student_id
 
     @property
     def subject_id(self) -> int:
