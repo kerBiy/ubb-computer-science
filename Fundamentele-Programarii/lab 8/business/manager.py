@@ -154,3 +154,11 @@ class ManagerGrade:
 
         ValidatorGrade.validate_value(new_value)
         self.grades.modify(grade_id, new_student_id, new_subject_id, new_value)
+
+    def search_id(self, grade_id: int) -> str:
+        grade = self.grades.search_id(grade_id)
+
+        if not grade:
+            raise Exception(f"Grade {grade_id} does not exist!")
+
+        return grade

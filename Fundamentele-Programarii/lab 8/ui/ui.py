@@ -144,3 +144,68 @@ class Ui:
         print(
             f"Grade {grade_id} student has been changed to '{new_subject_id}', the subject to '{new_subject_id}' and the value to {new_value}."
         )
+
+    # /----- Search -----/
+
+    def search_student_id(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
+
+        student_id = int(cmd[0])
+
+        student = self.student_manager.search_id(student_id)
+        print(student)
+
+    def search_subject_id(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command parameters.")
+
+        subject_id = int(cmd[0])
+
+        subject = self.subject_manager.search_id(subject_id)
+        print(subject)
+
+    def search_grade_id(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command parameters.")
+
+        grade_id = int(cmd[0])
+
+        grade = self.grade_manager.search_id(grade_id)
+        print(grade)
+
+    def search_student_name(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
+
+        student_name = cmd[0].strip()
+
+        student_list = self.student_manager.search_name(student_name)
+
+        print(f"\nThe students that have the name '{student_name}' are:")
+        for student in student_list:
+            print(student)
+
+    def search_subject_name(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
+
+        subject_name = cmd[0].strip()
+
+        subject_list = self.subject_manager.search_name(subject_name)
+
+        print(f"\nThe subjects that have the name '{subject_name}' are:")
+        for subject in subject_list:
+            print(subject)
+
+    def search_prof(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
+
+        professor = cmd[0].strip()
+
+        subject_list = self.subject_manager.search_prof(professor)
+
+        print(f"\nThe subjects that have the professor '{professor}' are:")
+        for subject in subject_list:
+            print(subject)

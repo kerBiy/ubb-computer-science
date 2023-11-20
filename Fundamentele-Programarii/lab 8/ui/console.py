@@ -22,11 +22,12 @@ class Console:
             "mod_stud": self.ui.modify_student,
             "mod_sub": self.ui.modify_subject,
             "mod_grade": self.ui.modify_grade,
-            # "search_stud_id": self.search_ui.search_student_id,
-            # "search_sub_id": self.search_ui.search_subject_id,
-            # "search_stud_name": self.search_ui.search_student_name,
-            # "search_sub_name": self.search_ui.search_subject_name,
-            # "search_prof": self.search_ui.search_prof,
+            "search_stud_id": self.ui.search_student_id,
+            "search_sub_id": self.ui.search_subject_id,
+            "search_grade_id": self.ui.search_grade_id,
+            "search_stud_name": self.ui.search_student_name,
+            "search_sub_name": self.ui.search_subject_name,
+            "search_prof": self.ui.search_prof,
         }
 
     def get_first_command(self, command: str) -> str:
@@ -46,10 +47,10 @@ class Console:
                 print("Exiting the program...")
                 return
 
-            # try:
-            assert first_command in self.options, "Invalid first command."
-            self.options[first_command](cmd_arguments)
-            # except ValueError as ve:
-            #     print(ve)
-            # except Exception as e:
-            #     print(e)
+            try:
+                assert first_command in self.options, "Invalid first command."
+                self.options[first_command](cmd_arguments)
+            except ValueError as ve:
+                print(ve)
+            except Exception as e:
+                print(e)
