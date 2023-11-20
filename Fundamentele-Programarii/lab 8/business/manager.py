@@ -130,7 +130,7 @@ class ManagerGrade:
         if not self.students.search_id(student_id):
             raise Exception(f"The student {student_id} does not exists!")
         if not self.subjects.search_id(subject_id):
-            raise Exception(f"The grade {subject_id} does not exists!")
+            raise Exception(f"The subject {subject_id} does not exists!")
 
         new_grade = Grade(grade_id, student_id, subject_id, value)
         ValidatorGrade.validate(new_grade)
@@ -150,7 +150,7 @@ class ManagerGrade:
         if not self.students.search_id(new_student_id):
             raise Exception(f"The student {new_student_id} does not exists!")
         if not self.subjects.search_id(new_subject_id):
-            raise Exception(f"The grade {new_subject_id} does not exists!")
+            raise Exception(f"The subject {new_subject_id} does not exists!")
 
         ValidatorGrade.validate_value(new_value)
         self.grades.modify(grade_id, new_student_id, new_subject_id, new_value)

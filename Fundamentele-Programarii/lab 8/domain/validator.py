@@ -56,3 +56,25 @@ class ValidatorSubject(ValidatorObject):
     @classmethod
     def validate_prof(cls, professor: str) -> bool:
         return super().validate_name(professor)
+
+
+class ValidatorGrade(ValidatorObject):
+    @classmethod
+    def validate(cls, grade) -> None:
+        error = ""
+
+        if not cls.validate_id(grade.id):
+            error += "Invalid grade id number.\n"
+        if not cls.validate_id(grade.student_id):
+            error += "Invalid student id number.\n"
+        if not cls.validate_id(grade.subject_id):
+            error += "Invalid subject id number.\n"
+        if not cls.validate_value(grade.value):
+            error += "Invalid grade value number.\n"
+
+        if error:
+            raise ValueError(error[:-1])
+
+    @staticmethod
+    def validate_value(value: float) -> bool:
+        return 1 <= value <= 10

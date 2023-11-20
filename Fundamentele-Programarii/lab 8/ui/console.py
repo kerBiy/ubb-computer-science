@@ -1,8 +1,4 @@
-from ui.print import PrintUI
-from ui.add import AddUI
-from ui.delete import DeleteUI
-from ui.modify import ModifyUI
-from ui.search import SearchUI
+from ui.ui import Ui
 
 
 class Console:
@@ -11,26 +7,26 @@ class Console:
         self.subject_manager = subject_manager
         self.grade_manager = grade_manager
 
-        self.print_ui = PrintUI(self.student_manager, self.subject_manager)
-        self.add_ui = AddUI(self.student_manager, self.subject_manager)
-        self.delete_ui = DeleteUI(self.student_manager, self.subject_manager)
-        self.modify_ui = ModifyUI(self.student_manager, self.subject_manager)
-        self.search_ui = SearchUI(self.student_manager, self.subject_manager)
+        self.ui = Ui(self.student_manager, self.subject_manager, self.grade_manager)
 
         self.options = {
-            "print_stud": self.print_ui.print_students,
-            "print_sub": self.print_ui.print_subjects,
-            "add_stud": self.add_ui.add_student,
-            "add_sub": self.add_ui.add_subject,
-            "del_stud": self.delete_ui.delete_student,
-            "del_sub": self.delete_ui.delete_subject,
-            "mod_stud": self.modify_ui.modify_student,
-            "mod_sub": self.modify_ui.modify_subject,
-            "search_stud_id": self.search_ui.search_student_id,
-            "search_sub_id": self.search_ui.search_subject_id,
-            "search_stud_name": self.search_ui.search_student_name,
-            "search_sub_name": self.search_ui.search_subject_name,
-            "search_prof": self.search_ui.search_prof,
+            "print_stud": self.ui.print_students,
+            "print_sub": self.ui.print_subjects,
+            "print_grade": self.ui.print_grades,
+            "add_stud": self.ui.add_student,
+            "add_sub": self.ui.add_subject,
+            "add_grade": self.ui.add_grade,
+            "del_stud": self.ui.delete_student,
+            "del_sub": self.ui.delete_subject,
+            "del_grade": self.ui.delete_grade,
+            "mod_stud": self.ui.modify_student,
+            "mod_sub": self.ui.modify_subject,
+            "mod_grade": self.ui.modify_grade,
+            # "search_stud_id": self.search_ui.search_student_id,
+            # "search_sub_id": self.search_ui.search_subject_id,
+            # "search_stud_name": self.search_ui.search_student_name,
+            # "search_sub_name": self.search_ui.search_subject_name,
+            # "search_prof": self.search_ui.search_prof,
         }
 
     def get_first_command(self, command: str) -> str:
