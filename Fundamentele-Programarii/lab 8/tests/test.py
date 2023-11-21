@@ -119,18 +119,19 @@ def test_delete_subject() -> None:
 
 
 # def test_search_id() -> None:
-#     student_list = [
-#         [111, "Sergio Ramos"],
-#         [112, "James Bond"],
-#         [113, "Jack The Ripper"],
-#         [212, "John Wick"],
-#     ]
-#     correct_student = [113, "Jack The Ripper"]
+#     student_list = {
+#         111: Student(111, "Sergio Ramos"),
+#         112: Student(112, "James Bond"),
+#         113: Student(113, "Jack The Ripper"),
+#         212: Student(212, "John Wick"),
+#     }
+
+#     correct_student = Student(113, "Jack The Ripper")
 
 #     student_id = 113
-#     answer = search_id(student_list, student_id)
+#     student_list.search_id(student_id)
 
-#     assert answer == correct_student
+#     assert student_list == correct_student
 
 
 # def test_search_subject_by_id() -> None:
