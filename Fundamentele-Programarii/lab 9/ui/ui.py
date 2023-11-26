@@ -209,3 +209,19 @@ class Ui:
         print(f"\nThe subjects that have the professor '{professor}' are:")
         for subject in subject_list:
             print(subject)
+
+    # /----- Stats -----/
+
+    def stats(self, cmd: list[str]) -> None:
+        if len(cmd) != 1:
+            raise Exception("Invalid command arguments.")
+
+        subject_id = int(cmd[0])
+
+        student_list = self.grade_manager.stats(subject_id)
+        print(f"\nThe grades at {subject_id} are: ")
+        for student in student_list:
+            print(student)
+
+    def stats_sorted(self, cmd: list[str]) -> None:
+        pass

@@ -7,9 +7,7 @@ class Random:
     def students(cls) -> dict:
         output = {}
 
-        random_number = random.randint(1, 22)
-
-        for i in range(random_number):
+        for i in range(3):
             random_student = cls.get_student()
             output[random_student.id] = random_student
 
@@ -23,8 +21,12 @@ class Random:
             "Maria Ioana",
             "David Aneci",
             "Balan Darius",
+            "Iustin Timu",
+            "Nechiforeasa Andrei",
+            "Timu Andrei",
+            "Balta Claudiu",
         ]
-        
+
         random.shuffle(names)
         name = names[0]
 
@@ -36,9 +38,7 @@ class Random:
     def subjects(cls) -> dict:
         output = {}
 
-        random_number = random.randint(1, 22)
-
-        for i in range(random_number):
+        for i in range(3):
             random_subject = cls.get_subject()
             output[random_subject.id] = random_subject
 
@@ -47,11 +47,12 @@ class Random:
     @classmethod
     def get_subject(cls) -> Subject:
         profs = [
-            "Alex Balta",
-            "Darie Cirpian",
-            "Maria Ioana",
-            "David Aneci",
-            "Balan Darius",
+            "Diri Diriga",
+            "Doamana Diriginta",
+            "Taran Luminita",
+            "Mariuc Izabela",
+            "Chizblua Istava",
+            "Gabi Mircea",
         ]
         subjects = [
             "Mate matica",

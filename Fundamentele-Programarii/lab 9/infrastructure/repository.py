@@ -50,14 +50,3 @@ class RepoSubject(RepoObject):
 class GradeBook(RepoObject):
     def __init__(self, grade_list={}) -> None:
         super().__init__(grade_list)
-
-    def modify(
-        self,
-        grade_id: int,
-        new_subject_id: int,
-        new_student_id: int,
-        new_value: float,
-    ) -> None:
-        self._list[grade_id] = Grade(
-            grade_id, new_subject_id, new_student_id, new_value
-        )

@@ -6,12 +6,13 @@ from tests.random import Random
 
 
 def main() -> None:
-    random_students = Random.students()
-    random_subjects = Random.subjects()
+    students_list = Random.students()
+    subjects_list = Random.subjects()
+    grades_list = {}
 
-    student_repository = RepoStudent(random_students)
-    subject_repository = RepoSubject(random_subjects)
-    grade_book = GradeBook()
+    student_repository = RepoStudent(students_list)
+    subject_repository = RepoSubject(subjects_list)
+    grade_book = GradeBook(grades_list)
 
     student_manager = ManagerStudent(student_repository)
     subject_manager = ManagerSubject(subject_repository)

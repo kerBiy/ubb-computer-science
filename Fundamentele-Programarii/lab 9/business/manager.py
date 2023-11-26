@@ -162,3 +162,6 @@ class ManagerGrade:
             raise Exception(f"Grade {grade_id} does not exist!")
 
         return grade
+
+    def stats(self, subject_id: int) -> str:
+        pass
