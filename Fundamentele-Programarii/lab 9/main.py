@@ -1,5 +1,5 @@
 from ui.console import Console
-from business.manager import ManagerStudent, ManagerSubject, ManagerGrade
+from business.manager import ManagerStudent, ManagerSubject, ManagerGrade, ManagerStats
 from infrastructure.repository import RepoStudent, RepoSubject, GradeBook
 from tests.test import test_functions
 from tests.random import Random
@@ -17,8 +17,9 @@ def main() -> None:
     student_manager = ManagerStudent(student_repository)
     subject_manager = ManagerSubject(subject_repository)
     grade_manager = ManagerGrade(grade_book, student_repository, subject_repository)
+    stats_manager = ManagerStats(student_repository, subject_repository, grade_book)
 
-    console = Console(student_manager, subject_manager, grade_manager)
+    console = Console(student_manager, subject_manager, grade_manager, stats_manager)
     console.run_application()
 
 

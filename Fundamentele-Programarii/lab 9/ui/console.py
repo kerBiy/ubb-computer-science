@@ -2,12 +2,20 @@ from ui.ui import Ui
 
 
 class Console:
-    def __init__(self, student_manager, subject_manager, grade_manager) -> None:
+    def __init__(
+        self, student_manager, subject_manager, grade_manager, stats_manager
+    ) -> None:
         self.student_manager = student_manager
         self.subject_manager = subject_manager
         self.grade_manager = grade_manager
+        self.stats_manager = stats_manager
 
-        self.ui = Ui(self.student_manager, self.subject_manager, self.grade_manager)
+        self.ui = Ui(
+            self.student_manager,
+            self.subject_manager,
+            self.grade_manager,
+            self.stats_manager,
+        )
 
         self.options = {
             "print_stud": self.ui.print_students,

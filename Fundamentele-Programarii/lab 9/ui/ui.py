@@ -1,8 +1,11 @@
 class Ui:
-    def __init__(self, student_manager, subject_manager, grade_manager) -> None:
+    def __init__(
+        self, student_manager, subject_manager, grade_manager, stats_manager
+    ) -> None:
         self.student_manager = student_manager
         self.subject_manager = subject_manager
         self.grade_manager = grade_manager
+        self.stats_manager = stats_manager
 
     # /----- Print -----/
 
@@ -218,8 +221,8 @@ class Ui:
 
         subject_id = int(cmd[0])
 
-        student_list = self.grade_manager.stats(subject_id)
-        print(student_list)
+        output = self.stats_manager.stats(subject_id)
+        print(output)
 
     def stats_ordered(self, cmd: list[str]) -> None:
         if cmd == [""] or len(cmd) > 1:
@@ -227,12 +230,12 @@ class Ui:
 
         subject_id = int(cmd[0])
 
-        student_list = self.grade_manager.stats_ordered(subject_id)
-        print(student_list)
+        output = self.stats_manager.stats_ordered(subject_id)
+        print(output)
 
     def top20(self, cmd: list[str]) -> None:
         if not cmd == [""]:
             raise Exception("Invalid command parameters.")
 
-        student_list = self.grade_manager.top20()
-        print(student_list)
+        output = self.stats_manager.top20()
+        print(output)

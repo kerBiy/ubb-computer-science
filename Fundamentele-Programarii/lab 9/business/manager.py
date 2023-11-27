@@ -163,6 +163,18 @@ class ManagerGrade:
 
         return grade
 
+
+class ManagerStats:
+    def __init__(
+        self,
+        student_repository: RepoStudent,
+        subject_repository: RepoSubject,
+        grade_book: GradeBook,
+    ) -> None:
+        self.students = student_repository
+        self.subjects = subject_repository
+        self.grades = grade_book
+
     def stats(self, subject_id: int) -> str:
         if not self.subjects.search_id(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
