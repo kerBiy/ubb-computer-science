@@ -34,6 +34,7 @@ class Random:
             4: Grade(4, 114, 115, 9.5),
             5: Grade(5, 115, 115, 7),
             6: Grade(6, 116, 115, 7.69),
+            7: Grade(7, 114, 112, 2),
         }
 
     @classmethod

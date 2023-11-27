@@ -205,3 +205,32 @@ class ManagerGrade:
         )
 
         return output_str
+
+    def top20(self) -> str:
+        average = {}
+        grade_list = self.grades.get_list().values()
+
+        for grade in grade_list:
+            student_id = self.students.search_id(grade.student_id).id
+            average[student_id] = average.get(student_id, 0) + grade.value
+
+        for key in average.keys():
+            counter = 0
+            for grade in grade_list:
+                if grade.student_id == key:
+                    counter += 1
+
+            average[key] /= counter
+
+        sorted_students = dict(
+            sorted(average.items(), key=lambda x: x[1], reverse=True)
+        )
+
+        student_list = []
+        for key in sorted_students.keys():
+            student_list.append(self.students.search_id(key))
+
+        output_str = f"\nThe top 20% of students are:\n"
+        output_str += "\n".join(str(student) for student in student_list)
+
+        return output_str

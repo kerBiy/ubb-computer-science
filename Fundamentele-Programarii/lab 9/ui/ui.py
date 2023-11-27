@@ -229,3 +229,10 @@ class Ui:
 
         student_list = self.grade_manager.stats_ordered(subject_id)
         print(student_list)
+
+    def top20(self, cmd: list[str]) -> None:
+        if not cmd == [""]:
+            raise Exception("Invalid command parameters.")
+
+        student_list = self.grade_manager.top20()
+        print(student_list)
