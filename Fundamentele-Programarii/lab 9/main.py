@@ -6,9 +6,9 @@ from tests.random import Random
 
 
 def main() -> None:
-    students_list = Random.students()
-    subjects_list = Random.subjects()
-    grades_list = {}
+    students_list = Random.set_students()
+    subjects_list = Random.set_subjects()
+    grades_list = Random.set_grades()
 
     student_repository = RepoStudent(students_list)
     subject_repository = RepoSubject(subjects_list)

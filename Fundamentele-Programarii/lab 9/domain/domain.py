@@ -1,4 +1,4 @@
-class Object:
+class Student:
     def __init__(self, id: int, name: str) -> None:
         self._id = id
         self._name = name
@@ -6,8 +6,8 @@ class Object:
     def __str__(self) -> str:
         return f"{self._id}. {self._name}"
 
-    def __eq__(self, another_object: object) -> bool:
-        return self.id == another_object.id and self.name == another_object.name
+    def __eq__(self, another_student) -> bool:
+        return self.id == another_student.id and self.name == another_student.name
 
     @property
     def id(self) -> int:
@@ -26,14 +26,10 @@ class Object:
         self._name = new_name
 
 
-class Student(Object):
-    def __init__(self, id: int, name: str) -> None:
-        super().__init__(id, name)
-
-
-class Subject(Object):
+class Subject:
     def __init__(self, id: int, name: str, prof: str) -> None:
-        super().__init__(id, name)
+        self._id = id
+        self._name = name
         self._prof = prof
 
     def __str__(self) -> str:
@@ -41,6 +37,22 @@ class Subject(Object):
 
     def __eq__(self, another_subject: object) -> bool:
         return super().__eq__(another_subject) and self.prof == another_subject.prof
+
+    @property
+    def id(self) -> int:
+        return self._id
+
+    @id.setter
+    def id(self, new_id: int) -> None:
+        self._id = new_id
+
+    @property
+    def name(self) -> str:
+        return self._name
+
+    @name.setter
+    def name(self, new_name: str) -> None:
+        self._name = new_name
 
     @property
     def prof(self) -> str:

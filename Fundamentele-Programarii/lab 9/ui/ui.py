@@ -80,7 +80,7 @@ class Ui:
     # /----- Delete -----/
 
     def delete_student(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         student_id = int(cmd[0])
@@ -89,7 +89,7 @@ class Ui:
         print(f"Student {student_id} has been removed")
 
     def delete_subject(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command parameters.")
 
         subject_id = int(cmd[0])
@@ -98,7 +98,7 @@ class Ui:
         print(f"Subject {subject_id} has been removed.")
 
     def delete_grade(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command parameters.")
 
         grade_id = int(cmd[0])
@@ -148,7 +148,7 @@ class Ui:
     # /----- Search -----/
 
     def search_student_id(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         student_id = int(cmd[0])
@@ -157,7 +157,7 @@ class Ui:
         print(student)
 
     def search_subject_id(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command parameters.")
 
         subject_id = int(cmd[0])
@@ -166,7 +166,7 @@ class Ui:
         print(subject)
 
     def search_grade_id(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command parameters.")
 
         grade_id = int(cmd[0])
@@ -175,7 +175,7 @@ class Ui:
         print(grade)
 
     def search_student_name(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         student_name = cmd[0].strip()
@@ -187,7 +187,7 @@ class Ui:
             print(student)
 
     def search_subject_name(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         subject_name = cmd[0].strip()
@@ -199,7 +199,7 @@ class Ui:
             print(subject)
 
     def search_prof(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         professor = cmd[0].strip()
@@ -213,15 +213,19 @@ class Ui:
     # /----- Stats -----/
 
     def stats(self, cmd: list[str]) -> None:
-        if len(cmd) != 1:
+        if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         subject_id = int(cmd[0])
 
         student_list = self.grade_manager.stats(subject_id)
-        print(f"\nThe grades at {subject_id} are: ")
-        for student in student_list:
-            print(student)
+        print(student_list)
 
-    def stats_sorted(self, cmd: list[str]) -> None:
-        pass
+    def stats_ordered(self, cmd: list[str]) -> None:
+        if cmd == [""] or len(cmd) > 1:
+            raise Exception("Invalid command arguments.")
+
+        subject_id = int(cmd[0])
+
+        student_list = self.grade_manager.stats_ordered(subject_id)
+        print(student_list)

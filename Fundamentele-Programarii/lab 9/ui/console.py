@@ -24,10 +24,12 @@ class Console:
             "mod_grade": self.ui.modify_grade,
             "search_stud_id": self.ui.search_student_id,
             "search_sub_id": self.ui.search_subject_id,
-            "search_grade_id": self.ui.search_grade_id, 
+            "search_grade_id": self.ui.search_grade_id,
             "search_stud_name": self.ui.search_student_name,
             "search_sub_name": self.ui.search_subject_name,
             "search_prof": self.ui.search_prof,
+            "stats": self.ui.stats,
+            "stats_ordered": self.ui.stats_ordered,
         }
 
     def get_first_command(self, command: str) -> str:

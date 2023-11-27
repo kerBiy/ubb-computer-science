@@ -164,4 +164,44 @@ class ManagerGrade:
         return grade
 
     def stats(self, subject_id: int) -> str:
-        pass
+        if not self.subjects.search_id(subject_id):
+            raise Exception(f"The subject {subject_id} does not exists!")
+
+        student_dict = {}
+
+        grade_list = self.grades.get_list().values()
+        for grade in grade_list:
+            if grade.subject_id == subject_id:
+                student_dict[self.students.search_id(grade.student_id).name] = grade
+
+        sorted_grades = dict(sorted(student_dict.items())).values()
+
+        output_str = f"\nThe grades in alphabetical order at {self.subjects.search_id(subject_id).name} are:\n"
+        output_str += "\n".join(
+            [
+                f"{self.students.search_id(grade.student_id).name} has an {grade.value}"
+                for grade in sorted_grades
+            ]
+        )
+
+        return output_str
+
+    def stats_ordered(self, subject_id: int) -> str:
+        if not self.subjects.search_id(subject_id):
+            raise Exception(f"The subject {subject_id} does not exists!")
+
+        grade_list = self.grades.get_list().values()
+        sorted_grades = [
+            grade for grade in grade_list if grade.subject_id == subject_id
+        ]
+        sorted_grades = sorted(sorted_grades, key=lambda x: x.value, reverse=True)
+
+        output_str = f"\nThe grades in decreasing order at {self.subjects.search_id(subject_id).name} are:\n"
+        output_str += "\n".join(
+            [
+                f"{self.students.search_id(grade.student_id).name} has an {grade.value}"
+                for grade in sorted_grades
+            ]
+        )
+
+        return output_str

@@ -1,8 +1,41 @@
-from domain.domain import Student, Subject
+from domain.domain import Student, Subject, Grade
 import random
 
 
 class Random:
+    @classmethod
+    def set_students(cls) -> dict:
+        return {
+            111: Student(111, "Balta Alex"),
+            112: Student(112, "Timu Iustin"),
+            113: Student(113, "Nigger Marius"),
+            114: Student(114, "Daniel Petrica"),
+            115: Student(115, "Darie Ciprian"),
+            116: Student(116, "David Aneci"),
+        }
+
+    @classmethod
+    def set_subjects(cls) -> dict:
+        return {
+            111: Subject(111, "Geografie", "Balta Alex"),
+            112: Subject(112, "Termometru", "Timu Iustin"),
+            113: Subject(113, "Geometrie", "Nigger Marius"),
+            114: Subject(114, "Nigger", "Daniel Petrica"),
+            115: Subject(115, "Calculus", "Darie Ciprian"),
+            116: Subject(116, "Mate", "David Aneci"),
+        }
+
+    @classmethod
+    def set_grades(cls) -> dict:
+        return {
+            1: Grade(1, 111, 115, 7.5),
+            2: Grade(2, 112, 115, 8.5),
+            3: Grade(3, 113, 115, 2.5),
+            4: Grade(4, 114, 115, 9.5),
+            5: Grade(5, 115, 115, 7),
+            6: Grade(6, 116, 115, 7.69),
+        }
+
     @classmethod
     def students(cls) -> dict:
         output = {}
