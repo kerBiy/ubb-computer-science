@@ -239,3 +239,10 @@ class Ui:
 
         output = self.stats_manager.top20()
         print(output)
+
+    def failing(self, cmd: list[str]) -> None:
+        if not cmd == [""]:
+            raise Exception("Invalid command parameters.")
+
+        output = self.stats_manager.failing()
+        print(output)

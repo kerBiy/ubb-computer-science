@@ -242,7 +242,33 @@ class ManagerStats:
         for key in sorted_students.keys():
             student_list.append(self.students.search_id(key))
 
+        output_list = []
+        for ind in range(len(student_list) // 5):
+            output_list.append(student_list[ind])
+
         output_str = f"\nThe top 20% of students are:\n"
-        output_str += "\n".join(str(student) for student in student_list)
+        output_str += "\n".join(str(student) for student in output_list)
+
+        return output_str
+
+    def failing(self) -> str:
+        grade_list = self.grades.get_list().values()
+        student_list = {}
+
+        for grade in grade_list:
+            student = self.students.search_id(grade.student_id)
+
+            if grade.value < 5 and grade.value < student_list.get(student, 5):
+                student_list[student] = grade.value
+
+        sorted_students = dict(
+            sorted(
+                student_list.items(),
+                key=lambda item: (-item[1], item[0].name),
+            )
+        )
+
+        output_str = f"\nThe students that are failing are:\n"
+        output_str += "\n".join(str(student) for student in sorted_students.keys())
 
         return output_str

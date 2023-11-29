@@ -209,7 +209,7 @@ def test_stats() -> None:
         {
             111: Student(111, "Balta Alex"),
             112: Student(112, "Timu Iustin"),
-            113: Student(113, "Nigger Marius"),
+            113: Student(113, "Daniel Marius"),
             114: Student(114, "Daniel Petrica"),
             115: Student(115, "Darie Ciprian"),
             116: Student(116, "David Aneci"),
@@ -219,8 +219,8 @@ def test_stats() -> None:
         {
             111: Subject(111, "Geografie", "Balta Alex"),
             112: Subject(112, "Termometru", "Timu Iustin"),
-            113: Subject(113, "Geometrie", "Nigger Marius"),
-            114: Subject(114, "Nigger", "Daniel Petrica"),
+            113: Subject(113, "Geometrie", "Daniel Marius"),
+            114: Subject(114, "Daniel", "Daniel Petrica"),
             115: Subject(115, "Calculus", "Darie Ciprian"),
             116: Subject(116, "Mate", "David Aneci"),
         }
@@ -239,7 +239,7 @@ def test_stats() -> None:
 
     manager = ManagerStats(student_repo, subject_repo, grade_book)
 
-    correct = "\nThe grades in alphabetical order at Calculus are:\nBalta Alex has an 7.5\nDaniel Petrica has an 9.5\nDarie Ciprian has an 7\nDavid Aneci has an 7.69\nNigger Marius has an 2.5\nTimu Iustin has an 8.5"
+    correct = "\nThe grades in alphabetical order at Calculus are:\nBalta Alex has an 7.5\nDaniel Marius has an 2.5\nDaniel Petrica has an 9.5\nDarie Ciprian has an 7\nDavid Aneci has an 7.69\nTimu Iustin has an 8.5"
 
     assert manager.stats(115) == correct
 
@@ -249,7 +249,7 @@ def test_stats_ordered() -> None:
         {
             111: Student(111, "Balta Alex"),
             112: Student(112, "Timu Iustin"),
-            113: Student(113, "Nigger Marius"),
+            113: Student(113, "Daniel Marius"),
             114: Student(114, "Daniel Petrica"),
             115: Student(115, "Darie Ciprian"),
             116: Student(116, "David Aneci"),
@@ -259,8 +259,8 @@ def test_stats_ordered() -> None:
         {
             111: Subject(111, "Geografie", "Balta Alex"),
             112: Subject(112, "Termometru", "Timu Iustin"),
-            113: Subject(113, "Geometrie", "Nigger Marius"),
-            114: Subject(114, "Nigger", "Daniel Petrica"),
+            113: Subject(113, "Geometrie", "Daniel Marius"),
+            114: Subject(114, "Daniel", "Daniel Petrica"),
             115: Subject(115, "Calculus", "Darie Ciprian"),
             116: Subject(116, "Mate", "David Aneci"),
         }
@@ -279,7 +279,7 @@ def test_stats_ordered() -> None:
 
     manager = ManagerStats(student_repo, subject_repo, grade_book)
 
-    correct = "\nThe grades in decreasing order at Calculus are:\nDaniel Petrica has an 9.5\nTimu Iustin has an 8.5\nDavid Aneci has an 7.69\nBalta Alex has an 7.5\nDarie Ciprian has an 7\nNigger Marius has an 2.5"
+    correct = "\nThe grades in decreasing order at Calculus are:\nDaniel Petrica has an 9.5\nTimu Iustin has an 8.5\nDavid Aneci has an 7.69\nBalta Alex has an 7.5\nDarie Ciprian has an 7\nDaniel Marius has an 2.5"
 
     assert manager.stats_ordered(115) == correct
 
@@ -289,7 +289,7 @@ def test_top20() -> None:
         {
             111: Student(111, "Balta Alex"),
             112: Student(112, "Timu Iustin"),
-            113: Student(113, "Nigger Marius"),
+            113: Student(113, "Daniel Marius"),
             114: Student(114, "Daniel Petrica"),
             115: Student(115, "Darie Ciprian"),
             116: Student(116, "David Aneci"),
@@ -299,8 +299,8 @@ def test_top20() -> None:
         {
             111: Subject(111, "Geografie", "Balta Alex"),
             112: Subject(112, "Termometru", "Timu Iustin"),
-            113: Subject(113, "Geometrie", "Nigger Marius"),
-            114: Subject(114, "Nigger", "Daniel Petrica"),
+            113: Subject(113, "Geometrie", "Daniel Marius"),
+            114: Subject(114, "Daniel", "Daniel Petrica"),
             115: Subject(115, "Calculus", "Darie Ciprian"),
             116: Subject(116, "Mate", "David Aneci"),
         }
@@ -319,7 +319,7 @@ def test_top20() -> None:
 
     manager = ManagerStats(student_repo, subject_repo, grade_book)
 
-    correct = "\nThe top 20% of students are:\n112. Timu Iustin\n116. David Aneci\n111. Balta Alex\n115. Darie Ciprian\n114. Daniel Petrica\n113. Nigger Marius"
+    correct = "\nThe top 20% of students are:\n112. Timu Iustin"
 
     assert manager.top20() == correct
 

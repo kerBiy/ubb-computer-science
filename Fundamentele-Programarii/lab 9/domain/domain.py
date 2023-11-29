@@ -6,8 +6,15 @@ class Student:
     def __str__(self) -> str:
         return f"{self._id}. {self._name}"
 
+    def __hash__(self):
+        return hash(id(self))
+
     def __eq__(self, another_student) -> bool:
-        return self.id == another_student.id and self.name == another_student.name
+        return (
+            isinstance(another_student, Student)
+            and self.id == another_student.id
+            and self.name == another_student.name
+        )
 
     @property
     def id(self) -> int:

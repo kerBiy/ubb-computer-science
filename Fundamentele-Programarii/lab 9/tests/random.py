@@ -8,7 +8,7 @@ class Random:
         return {
             111: Student(111, "Balta Alex"),
             112: Student(112, "Timu Iustin"),
-            113: Student(113, "Nigger Marius"),
+            113: Student(113, "Daniel Marius"),
             114: Student(114, "Daniel Petrica"),
             115: Student(115, "Darie Ciprian"),
             116: Student(116, "David Aneci"),
@@ -19,8 +19,8 @@ class Random:
         return {
             111: Subject(111, "Geografie", "Balta Alex"),
             112: Subject(112, "Termometru", "Timu Iustin"),
-            113: Subject(113, "Geometrie", "Nigger Marius"),
-            114: Subject(114, "Nigger", "Daniel Petrica"),
+            113: Subject(113, "Geometrie", "Daniel Marius"),
+            114: Subject(114, "Daniel", "Daniel Petrica"),
             115: Subject(115, "Calculus", "Darie Ciprian"),
             116: Subject(116, "Mate", "David Aneci"),
         }
@@ -35,6 +35,8 @@ class Random:
             5: Grade(5, 115, 115, 7),
             6: Grade(6, 116, 115, 7.69),
             7: Grade(7, 114, 112, 2),
+            8: Grade(8, 111, 111, 2.5),
+            9: Grade(9, 111, 113, 2),
         }
 
     @classmethod
