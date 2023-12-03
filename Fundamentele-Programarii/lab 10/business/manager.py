@@ -181,7 +181,7 @@ class ManagerStats:
 
         student_dict = {}
 
-        grade_list = self.grades.get_list().values()
+        grade_list = self.grades.list.values()
         for grade in grade_list:
             if grade.subject_id == subject_id:
                 student_dict[self.students.search_id(grade.student_id).name] = grade
@@ -202,7 +202,7 @@ class ManagerStats:
         if not self.subjects.search_id(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
-        grade_list = self.grades.get_list().values()
+        grade_list = self.grades.list.values()
         sorted_grades = [
             grade for grade in grade_list if grade.subject_id == subject_id
         ]
@@ -220,7 +220,7 @@ class ManagerStats:
 
     def top20(self) -> str:
         average = {}
-        grade_list = self.grades.get_list().values()
+        grade_list = self.grades.list.values()
 
         for grade in grade_list:
             student_id = self.students.search_id(grade.student_id).id
@@ -252,7 +252,7 @@ class ManagerStats:
         return output_str
 
     def failing(self) -> str:
-        grade_list = self.grades.get_list().values()
+        grade_list = self.grades.list.values()
         student_list = {}
 
         for grade in grade_list:

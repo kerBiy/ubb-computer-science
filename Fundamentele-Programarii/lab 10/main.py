@@ -1,14 +1,13 @@
-from ui.console import Console
-from business.manager import ManagerStudent, ManagerSubject, ManagerGrade, ManagerStats
 from infrastructure.repository import RepoStudent, RepoSubject, GradeBook
+from business.manager import ManagerStudent, ManagerSubject, ManagerGrade, ManagerStats
+from ui.console import Console
 from tests.test import test_functions
-from tests.random import Random
 
 
 def main() -> None:
-    students_list = Random.set_students()
-    subjects_list = Random.set_subjects()
-    grades_list = Random.set_grades()
+    students_list = {}
+    subjects_list = {}
+    grades_list = {}
 
     student_repository = RepoStudent(students_list)
     subject_repository = RepoSubject(subjects_list)

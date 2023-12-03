@@ -14,6 +14,14 @@ class RepoStudent:
     def __eq__(self, another_repo) -> bool:
         return self._list == another_repo._list
 
+    @property
+    def list(self) -> dict:
+        return self._list
+
+    @list.setter
+    def list(self, another_list) -> None:
+        self._list = another_list
+
     def add(self, new_student: Student) -> None:
         self._list[new_student.id] = new_student
 
@@ -45,6 +53,14 @@ class RepoSubject:
 
     def __eq__(self, another_repo) -> bool:
         return self._list == another_repo._list
+
+    @property
+    def list(self) -> dict:
+        return self._list
+
+    @list.setter
+    def list(self, another_list) -> None:
+        self._list = another_list
 
     def add(self, new_subject: Subject) -> None:
         self._list[new_subject.id] = new_subject
@@ -81,8 +97,13 @@ class GradeBook:
     def __eq__(self, another_repo) -> bool:
         return self._list == another_repo._list
 
-    def get_list(self) -> dict:
+    @property
+    def list(self) -> dict:
         return self._list
+
+    @list.setter
+    def list(self, another_list) -> None:
+        self._list = another_list
 
     def add(self, new_grade: Grade) -> None:
         self._list[new_grade.id] = new_grade
