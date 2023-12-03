@@ -1,0 +1,6 @@
+111, Geografie, Balta Alex
+112, Termometru, Timu Iustin
+113, Geometrie, Daniel Marius
+114, Daniel, Daniel Petrica
+115, Calculus, Darie Ciprian
+116, Mate, David Aneci
