@@ -1,10 +1,14 @@
 from domain.validator import ValidatorStudent, ValidatorSubject, ValidatorGrade
-from infrastructure.repository import RepoStudent, RepoSubject, GradeBook
+from infrastructure.fileRepository import (
+    StudentFileRepository,
+    SubjectFileRepository,
+    GradeFileRepository,
+)
 from domain.entity import Student, Subject, Grade
 
 
 class ManagerStudent:
-    def __init__(self, student_repository: RepoStudent) -> None:
+    def __init__(self, student_repository: StudentFileRepository) -> None:
         self.students = student_repository
 
     def print(self) -> str:
@@ -52,7 +56,7 @@ class ManagerStudent:
 
 
 class ManagerSubject:
-    def __init__(self, subject_repository: RepoSubject) -> None:
+    def __init__(self, subject_repository: SubjectFileRepository) -> None:
         self.subjects = subject_repository
 
     def print(self) -> str:
@@ -111,9 +115,9 @@ class ManagerSubject:
 class ManagerGrade:
     def __init__(
         self,
-        grade_book: GradeBook,
-        student_repository: RepoStudent,
-        subject_repository: RepoSubject,
+        grade_book: GradeFileRepository,
+        student_repository: StudentFileRepository,
+        subject_repository: SubjectFileRepository,
     ) -> None:
         self.grades = grade_book
         self.students = student_repository
@@ -167,9 +171,9 @@ class ManagerGrade:
 class ManagerStats:
     def __init__(
         self,
-        student_repository: RepoStudent,
-        subject_repository: RepoSubject,
-        grade_book: GradeBook,
+        student_repository: StudentFileRepository,
+        subject_repository: SubjectFileRepository,
+        grade_book: GradeFileRepository,
     ) -> None:
         self.students = student_repository
         self.subjects = subject_repository

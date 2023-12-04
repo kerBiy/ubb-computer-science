@@ -1,17 +1,21 @@
-from infrastructure.repository import RepoStudent, RepoSubject, GradeBook
+from infrastructure.fileRepository import (
+    StudentFileRepository,
+    SubjectFileRepository,
+    GradeFileRepository,
+)
 from business.manager import ManagerStudent, ManagerSubject, ManagerGrade, ManagerStats
 from ui.console import Console
 from tests.test import test_functions
 
 
 def main() -> None:
-    student_repository = RepoStudent()
+    student_repository = StudentFileRepository("database/studentsDB.txt")
     student_manager = ManagerStudent(student_repository)
 
-    subject_repository = RepoSubject()
+    subject_repository = SubjectFileRepository("database/subjectsDB.txt")
     subject_manager = ManagerSubject(subject_repository)
 
-    grade_book = GradeBook()
+    grade_book = GradeFileRepository("database/gradesDB.txt")
     grade_manager = ManagerGrade(grade_book, student_repository, subject_repository)
 
     stats_manager = ManagerStats(student_repository, subject_repository, grade_book)
