@@ -2,8 +2,11 @@ from domain.entity import Student, Subject, Grade
 
 
 class RepoStudent:
-    def __init__(self, student_list={}):
-        self._list = student_list
+    def __init__(self, student_list=None):
+        if not student_list:
+            self._list = {}
+        else:
+            self._list = student_list
 
     def __len__(self):
         return len(self._list)
@@ -41,8 +44,11 @@ class RepoStudent:
 
 
 class RepoSubject:
-    def __init__(self, subject_list={}):
-        self._list = subject_list
+    def __init__(self, subject_list=None):
+        if not subject_list:
+            self._list = {}
+        else:
+            self._list = subject_list
 
     def __len__(self):
         return len(self._list)
@@ -84,8 +90,11 @@ class RepoSubject:
 
 
 class GradeBook:
-    def __init__(self, grade_list={}):
-        self._list = grade_list
+    def __init__(self, grade_list=None):
+        if not grade_list:
+            self._list = {}
+        else:
+            self._list = grade_list
 
     def __len__(self):
         return len(self._list)

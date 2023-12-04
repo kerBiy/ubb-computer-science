@@ -1,12 +1,12 @@
 class Student:
     def __init__(self, id: int, name: str) -> None:
-        self._id = id
-        self._name = name
+        self.__id = id
+        self.__name = name
 
     def __str__(self) -> str:
-        return f"{self._id}. {self._name}"
+        return f"{self.id}. {self.name}"
 
-    def __hash__(self):
+    def __hash__(self) -> int:
         return hash(id(self))
 
     def __eq__(self, another_student) -> bool:
@@ -18,26 +18,22 @@ class Student:
 
     @property
     def id(self) -> int:
-        return self._id
-
-    @id.setter
-    def id(self, new_id: int) -> None:
-        self._id = new_id
+        return self.__id
 
     @property
     def name(self) -> str:
-        return self._name
+        return self.__name
 
     @name.setter
     def name(self, new_name: str) -> None:
-        self._name = new_name
+        self.__name = new_name
 
 
 class Subject:
     def __init__(self, id: int, name: str, prof: str) -> None:
-        self._id = id
-        self._name = name
-        self._prof = prof
+        self.__id = id
+        self.__name = name
+        self.__prof = prof
 
     def __str__(self) -> str:
         return f"{self.id}. {self.name} (professor: {self.prof})"
@@ -52,37 +48,33 @@ class Subject:
 
     @property
     def id(self) -> int:
-        return self._id
-
-    @id.setter
-    def id(self, new_id: int) -> None:
-        self._id = new_id
+        return self.__id
 
     @property
     def name(self) -> str:
-        return self._name
+        return self.__name
 
     @name.setter
     def name(self, new_name: str) -> None:
-        self._name = new_name
+        self.__name = new_name
 
     @property
     def prof(self) -> str:
-        return self._prof
+        return self.__prof
 
     @prof.setter
     def prof(self, new_prof: str) -> None:
-        self._prof = new_prof
+        self.__prof = new_prof
 
 
 class Grade:
     def __init__(
         self, grade_id: int, student_id: int, subject_id: int, value: float
     ) -> None:
-        self._id = grade_id
-        self._student_id = student_id
-        self._subject_id = subject_id
-        self._value = value
+        self.__id = grade_id
+        self.__student_id = student_id
+        self.__subject_id = subject_id
+        self.__value = value
 
     def __str__(self) -> str:
         return f"{self.id}: Student {self.student_id} has an {self.value} at Subject {self.subject_id}"
@@ -98,32 +90,20 @@ class Grade:
 
     @property
     def id(self) -> int:
-        return self._id
-
-    @id.setter
-    def id(self, new_id: int) -> None:
-        self._id = new_id
+        return self.__id
 
     @property
     def student_id(self) -> int:
-        return self._student_id
-
-    @student_id.setter
-    def student_id(self, student_id: int) -> None:
-        self._student_id = student_id
+        return self.__student_id
 
     @property
     def subject_id(self) -> int:
-        return self._subject_id
-
-    @subject_id.setter
-    def subject_id(self, new_subject_id: int) -> None:
-        self._subject_id = new_subject_id
+        return self.__subject_id
 
     @property
     def value(self) -> float:
-        return self._value
+        return self.__value
 
     @value.setter
     def value(self, new_value: float) -> None:
-        self._value = new_value
+        self.__value = new_value
