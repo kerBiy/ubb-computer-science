@@ -2,14 +2,11 @@ from ui.ui import Ui
 
 
 class Console:
-    def __init__(
-        self, student_manager, subject_manager, grade_manager, stats_manager
-    ) -> None:
+    def __init__(self, student_manager, subject_manager, grade_manager) -> None:
         self.ui = Ui(
             student_manager,
             subject_manager,
             grade_manager,
-            stats_manager,
         )
 
         self.options = {
@@ -28,13 +25,11 @@ class Console:
             "search_stud_id": self.ui.search_student_id,
             "search_sub_id": self.ui.search_subject_id,
             "search_grade_id": self.ui.search_grade_id,
-            "search_stud_name": self.ui.search_student_name,
-            "search_sub_name": self.ui.search_subject_name,
-            "search_prof": self.ui.search_prof,
             "stats": self.ui.stats,
             "stats_ordered": self.ui.stats_ordered,
             "top20": self.ui.top20,
             "failing": self.ui.failing,
+            "load": self.ui.load,
         }
 
     def get_first_command(self, command: str) -> str:

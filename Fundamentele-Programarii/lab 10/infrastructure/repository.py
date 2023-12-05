@@ -5,6 +5,9 @@ class Repository:
         else:
             self.__items = items_list
 
+    def __str__(self) -> str:
+        return "\n".join(str(item) for item in self.items)
+
     def __len__(self) -> int:
         return len(self.__items)
 
@@ -12,7 +15,7 @@ class Repository:
         return self.__items == another_repo.__items
 
     @property
-    def get_all(self) -> list:
+    def items(self) -> list:
         return list(self.__items.values())
 
     def add(self, new_item) -> None:

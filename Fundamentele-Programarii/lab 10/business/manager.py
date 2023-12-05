@@ -11,6 +11,12 @@ class ManagerStudent:
     def __init__(self, student_repository: StudentFileRepository) -> None:
         self.students = student_repository
 
+    def load(self) -> None:
+        self.students.load_students()
+
+    def save(self) -> None:
+        self.students.save_students()
+
     def print(self) -> str:
         return self.students
 
@@ -43,14 +49,6 @@ class ManagerStudent:
 
         return student
 
-    def search_name(self, student_name: str) -> None:
-        student_list = self.students.search_name(student_name)
-
-        if not student_list:
-            raise Exception(f"Student '{student_name}' does not exist!")
-
-        return student_list
-
 
 # /----- Subject -----/
 
@@ -58,6 +56,12 @@ class ManagerStudent:
 class ManagerSubject:
     def __init__(self, subject_repository: SubjectFileRepository) -> None:
         self.subjects = subject_repository
+
+    def load(self) -> None:
+        self.subjects.load_subjects()
+
+    def save(self) -> None:
+        self.subjects.save_subjects()
 
     def print(self) -> str:
         return self.subjects
@@ -92,22 +96,6 @@ class ManagerSubject:
 
         return subject
 
-    def search_name(self, subject_name: str) -> None:
-        subject_list = self.subjects.search_name(subject_name)
-
-        if not subject_list:
-            raise Exception(f"Subject '{subject_name}' does not exist!")
-
-        return subject_list
-
-    def search_prof(self, professor: str) -> None:
-        subject_list = self.subjects.search_prof(professor)
-
-        if not subject_list:
-            raise Exception(f"Professor '{professor}' does not exist!")
-
-        return subject_list
-
 
 # /----- Grade Book -----/
 
@@ -122,6 +110,12 @@ class ManagerGrade:
         self.grades = grade_book
         self.students = student_repository
         self.subjects = subject_repository
+
+    def load(self) -> None:
+        self.grades.load_grades()
+
+    def save(self) -> None:
+        self.grades.save_grades()
 
     def print(self) -> str:
         return self.grades
@@ -167,25 +161,13 @@ class ManagerGrade:
 
         return grade
 
-
-class ManagerStats:
-    def __init__(
-        self,
-        student_repository: StudentFileRepository,
-        subject_repository: SubjectFileRepository,
-        grade_book: GradeFileRepository,
-    ) -> None:
-        self.students = student_repository
-        self.subjects = subject_repository
-        self.grades = grade_book
-
     def stats(self, subject_id: int) -> str:
         if not self.subjects.search_id(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         student_dict = {}
 
-        grade_list = self.grades.list.values()
+        grade_list = self.grades.items
         for grade in grade_list:
             if grade.subject_id == subject_id:
                 student_dict[self.students.search_id(grade.student_id).name] = grade
@@ -206,7 +188,7 @@ class ManagerStats:
         if not self.subjects.search_id(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
-        grade_list = self.grades.list.values()
+        grade_list = self.grades.items
         sorted_grades = [
             grade for grade in grade_list if grade.subject_id == subject_id
         ]
@@ -224,7 +206,7 @@ class ManagerStats:
 
     def top20(self) -> str:
         average = {}
-        grade_list = self.grades.list.values()
+        grade_list = self.grades.items
 
         for grade in grade_list:
             student_id = self.students.search_id(grade.student_id).id
@@ -256,7 +238,7 @@ class ManagerStats:
         return output_str
 
     def failing(self) -> str:
-        grade_list = self.grades.list.values()
+        grade_list = self.grades.items
         student_list = {}
 
         for grade in grade_list:

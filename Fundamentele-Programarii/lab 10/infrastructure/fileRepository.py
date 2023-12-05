@@ -6,11 +6,7 @@ class StudentFileRepository(Repository):
     def __init__(self, file_name: str, student_list: dict = None):
         super().__init__(student_list)
         self.__file_name = file_name
-        self.load_students()
-
-    def save(self, item):
-        self.add(item)
-        self.save_student(item)
+        # self.load_students()
 
     def load_students(self):
         try:
@@ -23,11 +19,12 @@ class StudentFileRepository(Repository):
         except Exception as ex:
             print(ex)
 
-    def save_student(self, student: Student):
+    def save_students(self):
         try:
-            with open(self.__file_name, "a") as file:
-                new_line = f"{student.id},{student.name}\n"
-                file.write(new_line)
+            with open(self.__file_name, "w") as file:
+                for student in self.items:
+                    new_line = f"{student.id},{student.name}\n"
+                    file.write(new_line)
         except Exception as ex:
             raise Exception(ex)
 
@@ -36,11 +33,7 @@ class SubjectFileRepository(Repository):
     def __init__(self, file_name: str, subject_list: dict = None):
         super().__init__(subject_list)
         self.__file_name = file_name
-        self.load_subjects()
-
-    def save(self, item):
-        self.add_item(item)
-        self.save_subject(item)
+        # self.load_subjects()
 
     def load_subjects(self):
         try:
@@ -53,11 +46,12 @@ class SubjectFileRepository(Repository):
         except Exception as ex:
             print(ex)
 
-    def save_subject(self, subject: Subject):
+    def save_subjects(self):
         try:
-            with open(self.__file_name, "a") as file:
-                new_line = f"{subject.id},{subject.name},{subject.prof}\n"
-                file.write(new_line)
+            with open(self.__file_name, "w") as file:
+                for subject in self.items:
+                    new_line = f"{subject.id},{subject.name},{subject.prof}\n"
+                    file.write(new_line)
         except Exception as ex:
             raise Exception(ex)
 
@@ -66,11 +60,7 @@ class GradeFileRepository(Repository):
     def __init__(self, file_name: str, grade_list: dict = None):
         super().__init__(grade_list)
         self.__file_name = file_name
-        self.load_grades()
-
-    def save(self, item):
-        self.add_item(item)
-        self.save_grade(item)
+        # self.load_grades()
 
     def load_grades(self):
         try:
@@ -85,12 +75,11 @@ class GradeFileRepository(Repository):
         except Exception as ex:
             print(ex)
 
-    def save_grade(self, grade):
+    def save_grades(self):
         try:
-            with open(self.__file_name, "a") as file:
-                new_line = (
-                    f"{grade.id},{grade.student_id},{grade.subject_id},{grade.value}\n"
-                )
-                file.write(new_line)
+            with open(self.__file_name, "w") as file:
+                for grade in self.items:
+                    new_line = f"{grade.id},{grade.student_id},{grade.subject_id},{grade.value}\n"
+                    file.write(new_line)
         except Exception as ex:
             raise Exception(ex)

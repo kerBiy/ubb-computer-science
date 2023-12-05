@@ -3,7 +3,7 @@ from infrastructure.fileRepository import (
     SubjectFileRepository,
     GradeFileRepository,
 )
-from business.manager import ManagerStudent, ManagerSubject, ManagerGrade, ManagerStats
+from business.manager import ManagerStudent, ManagerSubject, ManagerGrade
 from ui.console import Console
 from tests.test import test_functions
 
@@ -18,9 +18,7 @@ def main() -> None:
     grade_book = GradeFileRepository("database/gradesDB.txt")
     grade_manager = ManagerGrade(grade_book, student_repository, subject_repository)
 
-    stats_manager = ManagerStats(student_repository, subject_repository, grade_book)
-
-    console = Console(student_manager, subject_manager, grade_manager, stats_manager)
+    console = Console(student_manager, subject_manager, grade_manager)
     console.run_application()
 
 
