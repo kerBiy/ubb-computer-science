@@ -12,6 +12,7 @@ segment data use32 class=data
     nume_fisier db "output.txt", 0
     mod_acces db "a", 0                    
     descriptor_fisier dd -1    
+    
 segment code use32 class=code
     start:
         ; apelam fopen pentru a crea fisierul
