@@ -8,6 +8,12 @@ class Repository:
         self.__items = {}
         self.__load()
 
+    def get_all(self) -> list:
+        return self.__items.values()
+
+    def search_code(self, code: str) -> Furniture:
+        return self.__items.get(code, None)
+
     def __load(self) -> None:
         try:
             with open(self.__file_name, "r") as file:
@@ -20,7 +26,7 @@ class Repository:
                         int(record[3]),
                         float(record[4]),
                     )
-                    self.__add(new_furniture)
+                    self.__items[new_furniture.code] = new_furniture
 
         except Exception as ex:
             print(ex)
@@ -34,9 +40,6 @@ class Repository:
         except Exception as ex:
             raise Exception(ex)
 
-    def __add(self, new_element: Furniture) -> None:
-        self.__items[new_element.code] = new_element
-
     def search(self, object_type: int) -> list:
         output = []
 
@@ -46,6 +49,6 @@ class Repository:
 
         return output
 
-    def update(self, code: int, count: int) -> None:
+    def update(self, code: str, count: int) -> None:
         self.__items[code].update_stock(count)
         self.__save()
