@@ -1,0 +1,7 @@
+11,str xyz nr 16,Cluj-Napoca,500.0,350.0
+12,str xyz nr 1,Cluj,300.0,200.0
+13,str xyz nr 15,Salaj,200.0,350.0
+14,str xyz nr 13,Cluj-Napoca,600.0,200.0
+15,str xyz nr 6,Cluj-Napoca,150.0,350.0
+16,str xyz nr 5,Bacau,300.0,350.0
+17,str xyz nr 7,Suceava,300.0,350.0
