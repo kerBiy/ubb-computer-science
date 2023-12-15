@@ -107,3 +107,32 @@ class Grade:
     @value.setter
     def value(self, new_value: float) -> None:
         self.__value = new_value
+
+
+class GradeDTO:
+    def __init__(
+        self, grade_id: int, student: Student, subject: Subject, value: float
+    ) -> None:
+        self.__id = grade_id
+        self.__student = student
+        self.__subject = subject
+        self.__value = value
+
+    def __str__(self) -> str:
+        return f"{self.id}: Student {self.student.name} has an {self.value} at Subject {self.subject.name}"
+
+    @property
+    def id(self) -> int:
+        return self.__id
+
+    @property
+    def student(self) -> Student:
+        return self.__student
+
+    @property
+    def subject(self) -> Subject:
+        return self.__subject
+
+    @property
+    def value(self) -> float:
+        return self.__value

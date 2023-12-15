@@ -324,23 +324,25 @@
 #     assert manager.top20() == correct
 
 
-def test_functions() -> None:
-    # test_add_student()
-    # test_add_subject()
-    # test_add_grade()
-    # test_delete_student()
-    # test_delete_subject()
-    # test_delete_grade()
-    # test_modify_student()
-    # test_modify_subject()
-    # test_search_id()
-    # test_search_subject_by_id()
-    # test_search_name()
-    # test_search_subject_by_name()
-    # test_search_subject_by_prof()
+class Test:
+    @staticmethod
+    def run_tests() -> None:
+        # test_add_student()
+        # test_add_subject()
+        # test_add_grade()
+        # test_delete_student()
+        # test_delete_subject()
+        # test_delete_grade()
+        # test_modify_student()
+        # test_modify_subject()
+        # test_search_id()
+        # test_search_subject_by_id()
+        # test_search_name()
+        # test_search_subject_by_name()
+        # test_search_subject_by_prof()
 
-    # test_stats()
-    # test_stats_ordered()
-    # test_top20()
+        # test_stats()
+        # test_stats_ordered()
+        # test_top20()
 
-    print("All tests passed!")
+        print("All tests passed!")
