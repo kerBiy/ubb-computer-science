@@ -14,6 +14,7 @@ class Ui:
         self.grade_manager.load()
 
         self.work_with_files = True
+        print("The values are loaded from the database.")
 
     # /----- Print -----/
 
