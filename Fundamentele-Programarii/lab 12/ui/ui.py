@@ -42,18 +42,6 @@ class Ui:
         else:
             print("The subjects list is empty.")
 
-    def print_grades(self, cmd: list[str]) -> None:
-        if not cmd == [""]:
-            raise Exception("Invalid command parameters.")
-
-        grade_list = self.grade_manager.print()
-
-        if len(grade_list):
-            print("\nGRADES LIST:")
-            print(grade_list)
-        else:
-            print("The grades list is empty.")
-
     # /----- Add -----/
 
     def add_student(self, cmd: list[str]) -> None:
@@ -81,21 +69,6 @@ class Ui:
             self.subject_manager.save()
         print("Subject added in the list.")
 
-    def add_grade(self, cmd: list[str]) -> None:
-        if len(cmd) != 4:
-            raise Exception("Invalid command parameters.")
-
-        grade_id = int(cmd[0])
-        student_id = int(cmd[1])
-        subject_id = int(cmd[2])
-        value = float(cmd[3])
-
-        self.grade_manager.add(grade_id, student_id, subject_id, value)
-        if self.work_with_files:
-            self.grade_manager.save()
-
-        print("Grade added in the list.")
-
     # /----- Delete -----/
 
     def delete_student(self, cmd: list[str]) -> None:
@@ -120,18 +93,6 @@ class Ui:
             self.subject_manager.save()
 
         print(f"Subject {subject_id} has been removed.")
-
-    def delete_grade(self, cmd: list[str]) -> None:
-        if cmd == [""] or len(cmd) > 1:
-            raise Exception("Invalid command parameters.")
-
-        grade_id = int(cmd[0])
-
-        self.grade_manager.delete(grade_id)
-        if self.work_with_files:
-            self.grade_manager.save()
-
-        print(f"Grade {grade_id} has been removed.")
 
     # /----- Modify -----/
 
@@ -164,7 +125,56 @@ class Ui:
             f"Subject {subject_id} name has been changed to '{new_name}' and the professor to '{new_professor}'."
         )
 
-    def modify_grade(self, cmd: list[str]) -> None:
+    # /----- Search -----/
+
+    def search_student(self, cmd: list[str]) -> None:
+        if cmd == [""] or len(cmd) > 1:
+            raise Exception("Invalid command arguments.")
+
+        student_id = int(cmd[0])
+
+        student = self.student_manager.search(student_id)
+        print(student)
+
+    def search_subject(self, cmd: list[str]) -> None:
+        if cmd == [""] or len(cmd) > 1:
+            raise Exception("Invalid command parameters.")
+
+        subject_id = int(cmd[0])
+
+        subject = self.subject_manager.search(subject_id)
+        print(subject)
+
+    # /----- Grades -----/
+
+    def print_grades(self, cmd: list[str]) -> None:
+        if not cmd == [""]:
+            raise Exception("Invalid command parameters.")
+
+        grade_list = self.grade_manager.print()
+
+        if len(grade_list):
+            print("\nGRADES LIST:")
+            print(grade_list)
+        else:
+            print("The grades list is empty.")
+
+    def assign_grade(self, cmd: list[str]) -> None:
+        if len(cmd) != 4:
+            raise Exception("Invalid command parameters.")
+
+        grade_id = int(cmd[0])
+        student_id = int(cmd[1])
+        subject_id = int(cmd[2])
+        value = float(cmd[3])
+
+        self.grade_manager.add(grade_id, student_id, subject_id, value)
+        if self.work_with_files:
+            self.grade_manager.save()
+
+        print("Grade added in the list.")
+
+    def change_grade(self, cmd: list[str]) -> None:
         if len(cmd) != 4:
             raise Exception("Invalid command parameters.")
 
@@ -181,65 +191,64 @@ class Ui:
             f"Grade {grade_id} student has been changed to '{new_subject_id}', the subject to '{new_subject_id}' and the value to {new_value}."
         )
 
-    # /----- Search -----/
-
-    def search_student_id(self, cmd: list[str]) -> None:
-        if cmd == [""] or len(cmd) > 1:
-            raise Exception("Invalid command arguments.")
-
-        student_id = int(cmd[0])
-
-        student = self.student_manager.search_id(student_id)
-        print(student)
-
-    def search_subject_id(self, cmd: list[str]) -> None:
-        if cmd == [""] or len(cmd) > 1:
-            raise Exception("Invalid command parameters.")
-
-        subject_id = int(cmd[0])
-
-        subject = self.subject_manager.search_id(subject_id)
-        print(subject)
-
-    def search_grade_id(self, cmd: list[str]) -> None:
-        if cmd == [""] or len(cmd) > 1:
-            raise Exception("Invalid command parameters.")
-
-        grade_id = int(cmd[0])
-
-        grade = self.grade_manager.search_id(grade_id)
-        print(grade)
-
     # /----- Stats -----/
 
-    def stats(self, cmd: list[str]) -> None:
+    def stats_by_name(self, cmd: list[str]) -> None:
         if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         subject_id = int(cmd[0])
 
-        output = self.grade_manager.stats(subject_id)
-        print(output)
+        student_list = self.grade_manager.stats_by_name(subject_id)
 
-    def stats_ordered(self, cmd: list[str]) -> None:
+        if not student_list:
+            print("Nigger")
+            return
+
+        print(f"\nThe grades in alphabetical order at Subject {subject_id} are:")
+        for student in student_list:
+            print(student)
+
+    def stats_by_value(self, cmd: list[str]) -> None:
         if cmd == [""] or len(cmd) > 1:
             raise Exception("Invalid command arguments.")
 
         subject_id = int(cmd[0])
 
-        output = self.grade_manager.stats_ordered(subject_id)
-        print(output)
+        student_list = self.grade_manager.stats_by_value(subject_id)
+
+        if not student_list:
+            print("Nigger")
+            return
+
+        print(f"\nThe grades in decreasing order at Subject {subject_id} are:")
+        for student in student_list:
+            print(student)
 
     def top20(self, cmd: list[str]) -> None:
         if not cmd == [""]:
             raise Exception("Invalid command parameters.")
 
-        output = self.grade_manager.top20()
-        print(output)
+        student_list = self.grade_manager.top20()
+
+        if not student_list:
+            print("Nigger")
+            return
+
+        print(f"\nThe top 20% of students are:")
+        for student in student_list:
+            print(student)
 
     def failing(self, cmd: list[str]) -> None:
         if not cmd == [""]:
             raise Exception("Invalid command parameters.")
 
-        output = self.grade_manager.failing()
-        print(output)
+        student_list = self.grade_manager.failing()
+
+        if not student_list:
+            print("Nigger")
+            return
+
+        print(f"\nThe students that are failing are:")
+        for student in student_list:
+            print(student)

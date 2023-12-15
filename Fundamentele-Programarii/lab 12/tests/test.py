@@ -1,5 +1,5 @@
 # from infrastructure.repository import *
-# from business.manager import ManagerStats
+# from business.manager import Managerstats_by_name
 
 
 # # /----- Add -----/
@@ -27,7 +27,7 @@
 #     assert new_subject_repo == correct_subject_repo
 
 
-# def test_add_grade() -> None:
+# def test_assign_grade() -> None:
 #     new_grade_repo = GradeFileRepository()
 #     correct_grade_repo = GradeFileRepository({112: Grade(112, 234, 345, 7.5)})
 #     new_grade = Grade(112, 234, 345, 7.5)
@@ -119,7 +119,7 @@
 # # # /----- Search -----/
 
 
-# # def test_search_id() -> None:
+# # def test_search() -> None:
 # #     student_list = {
 # #         111: Student(111, "Sergio Ramos"),
 # #         112: Student(112, "James Bond"),
@@ -130,7 +130,7 @@
 # #     correct_student = Student(113, "Jack The Ripper")
 
 # #     student_id = 113
-# #     student_list.search_id(student_id)
+# #     student_list.search(student_id)
 
 # #     assert student_list == correct_student
 
@@ -204,7 +204,7 @@
 # #     assert answer == correct_subject_list
 
 
-# def test_stats() -> None:
+# def test_stats_by_name() -> None:
 #     student_repo = StudentFileRepository(
 #         {
 #             111: Student(111, "Balta Alex"),
@@ -237,14 +237,14 @@
 #         }
 #     )
 
-#     manager = ManagerStats(student_repo, subject_repo, grade_book)
+#     manager = Managerstats_by_name(student_repo, subject_repo, grade_book)
 
 #     correct = "\nThe grades in alphabetical order at Calculus are:\nBalta Alex has an 7.5\nDaniel Marius has an 2.5\nDaniel Petrica has an 9.5\nDarie Ciprian has an 7\nDavid Aneci has an 7.69\nTimu Iustin has an 8.5"
 
-#     assert manager.stats(115) == correct
+#     assert manager.stats_by_name(115) == correct
 
 
-# def test_stats_ordered() -> None:
+# def test_stats_by_value() -> None:
 #     student_repo = StudentFileRepository(
 #         {
 #             111: Student(111, "Balta Alex"),
@@ -277,11 +277,11 @@
 #         }
 #     )
 
-#     manager = ManagerStats(student_repo, subject_repo, grade_book)
+#     manager = Managerstats_by_name(student_repo, subject_repo, grade_book)
 
 #     correct = "\nThe grades in decreasing order at Calculus are:\nDaniel Petrica has an 9.5\nTimu Iustin has an 8.5\nDavid Aneci has an 7.69\nBalta Alex has an 7.5\nDarie Ciprian has an 7\nDaniel Marius has an 2.5"
 
-#     assert manager.stats_ordered(115) == correct
+#     assert manager.stats_by_value(115) == correct
 
 
 # def test_top20() -> None:
@@ -317,7 +317,7 @@
 #         }
 #     )
 
-#     manager = ManagerStats(student_repo, subject_repo, grade_book)
+#     manager = Managerstats_by_name(student_repo, subject_repo, grade_book)
 
 #     correct = "\nThe top 20% of students are:\n112. Timu Iustin"
 
@@ -329,20 +329,20 @@ class Test:
     def run_tests() -> None:
         # test_add_student()
         # test_add_subject()
-        # test_add_grade()
+        # test_assign_grade()
         # test_delete_student()
         # test_delete_subject()
         # test_delete_grade()
         # test_modify_student()
         # test_modify_subject()
-        # test_search_id()
+        # test_search()
         # test_search_subject_by_id()
         # test_search_name()
         # test_search_subject_by_name()
         # test_search_subject_by_prof()
 
-        # test_stats()
-        # test_stats_ordered()
+        # test_stats_by_name()
+        # test_stats_by_value()
         # test_top20()
 
         print("All tests passed!")

@@ -21,7 +21,7 @@ class ManagerStudent:
         return self.students
 
     def add(self, student_id: int, name: str) -> None:
-        if self.students.search_id(student_id):
+        if self.students.search(student_id):
             raise Exception(f"The student {student_id} already exists!")
 
         new_student = Student(student_id, name)
@@ -29,20 +29,20 @@ class ManagerStudent:
         self.students.add(new_student)
 
     def delete(self, student_id: int) -> None:
-        if not self.students.search_id(student_id):
+        if not self.students.search(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
         self.students.delete(student_id)
 
     def modify(self, student_id: int, new_name: str) -> None:
-        if not self.students.search_id(student_id):
+        if not self.students.search(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
         ValidatorStudent.validate_name(new_name)
         self.students.modify(student_id, new_name)
 
-    def search_id(self, student_id: int) -> str:
-        student = self.students.search_id(student_id)
+    def search(self, student_id: int) -> str:
+        student = self.students.search(student_id)
 
         if not student:
             raise Exception(f"Student {student_id} does not exist!")
@@ -67,7 +67,7 @@ class ManagerSubject:
         return self.subjects
 
     def add(self, subject_id: int, name: str, professor: str) -> None:
-        if self.subjects.search_id(subject_id):
+        if self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} already exists!")
 
         new_subject = Subject(subject_id, name, professor)
@@ -75,21 +75,21 @@ class ManagerSubject:
         self.subjects.add(new_subject)
 
     def delete(self, subject_id: int) -> None:
-        if not self.subjects.search_id(subject_id):
+        if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
         self.subjects.delete(subject_id)
 
     def modify(self, subject_id: int, new_name: str, new_professor: str) -> None:
-        if not self.subjects.search_id(subject_id):
+        if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
         ValidatorSubject.validate_name(new_name)
         ValidatorSubject.validate_prof(new_professor)
         self.subjects.modify(subject_id, new_name, new_professor)
 
-    def search_id(self, subject_id: int) -> tuple:
-        subject = self.subjects.search_id(subject_id)
+    def search(self, subject_id: int) -> tuple:
+        subject = self.subjects.search(subject_id)
 
         if not subject:
             raise Exception(f"Subject {subject_id} does not exist!")
@@ -123,11 +123,11 @@ class ManagerGrade:
     def add(
         self, grade_id: int, student_id: int, subject_id: int, value: float
     ) -> None:
-        if self.grades.search_id(grade_id):
+        if self.grades.search(grade_id):
             raise Exception(f"The grade {grade_id} already exists!")
-        if not self.students.search_id(student_id):
+        if not self.students.search(student_id):
             raise Exception(f"The student {student_id} does not exists!")
-        if not self.subjects.search_id(subject_id):
+        if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         new_grade = Grade(grade_id, student_id, subject_id, value)
@@ -135,7 +135,7 @@ class ManagerGrade:
         self.grades.add(new_grade)
 
     def delete(self, grade_id: int) -> None:
-        if not self.grades.search_id(grade_id):
+        if not self.grades.search(grade_id):
             raise Exception(f"The grade {grade_id} does not exist!")
 
         self.grades.delete(grade_id)
@@ -143,26 +143,26 @@ class ManagerGrade:
     def modify(
         self, grade_id: int, new_student_id: int, new_subject_id: int, new_value: float
     ) -> None:
-        if not self.grades.search_id(grade_id):
+        if not self.grades.search(grade_id):
             raise Exception(f"The grade {grade_id} does not exist!")
-        if not self.students.search_id(new_student_id):
+        if not self.students.search(new_student_id):
             raise Exception(f"The student {new_student_id} does not exists!")
-        if not self.subjects.search_id(new_subject_id):
+        if not self.subjects.search(new_subject_id):
             raise Exception(f"The subject {new_subject_id} does not exists!")
 
         ValidatorGrade.validate_value(new_value)
         self.grades.modify(grade_id, new_student_id, new_subject_id, new_value)
 
-    def search_id(self, grade_id: int) -> str:
-        grade = self.grades.search_id(grade_id)
+    def search(self, grade_id: int) -> str:
+        grade = self.grades.search(grade_id)
 
         if not grade:
             raise Exception(f"Grade {grade_id} does not exist!")
 
         return grade
 
-    def stats(self, subject_id: int) -> str:
-        if not self.subjects.search_id(subject_id):
+    def stats_by_name(self, subject_id: int) -> str:
+        if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         student_dict = {}
@@ -170,22 +170,22 @@ class ManagerGrade:
         grade_list = self.grades.items
         for grade in grade_list:
             if grade.subject_id == subject_id:
-                student_dict[self.students.search_id(grade.student_id).name] = grade
+                student_dict[self.students.search(grade.student_id).name] = grade
 
         sorted_grades = dict(sorted(student_dict.items())).values()
 
-        output_str = f"\nThe grades in alphabetical order at {self.subjects.search_id(subject_id).name} are:\n"
+        output_str = f"\nThe grades in alphabetical order at {self.subjects.search(subject_id).name} are:\n"
         output_str += "\n".join(
             [
-                f"{self.students.search_id(grade.student_id).name} has an {grade.value}"
+                f"{self.students.search(grade.student_id).name} has an {grade.value}"
                 for grade in sorted_grades
             ]
         )
 
         return output_str
 
-    def stats_ordered(self, subject_id: int) -> str:
-        if not self.subjects.search_id(subject_id):
+    def stats_by_value(self, subject_id: int) -> str:
+        if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         grade_list = self.grades.items
@@ -194,10 +194,10 @@ class ManagerGrade:
         ]
         sorted_grades = sorted(sorted_grades, key=lambda x: x.value, reverse=True)
 
-        output_str = f"\nThe grades in decreasing order at {self.subjects.search_id(subject_id).name} are:\n"
+        output_str = f"\nThe grades in decreasing order at {self.subjects.search(subject_id).name} are:\n"
         output_str += "\n".join(
             [
-                f"{self.students.search_id(grade.student_id).name} has an {grade.value}"
+                f"{self.students.search(grade.student_id).name} has an {grade.value}"
                 for grade in sorted_grades
             ]
         )
@@ -209,7 +209,7 @@ class ManagerGrade:
         grade_list = self.grades.items
 
         for grade in grade_list:
-            student_id = self.students.search_id(grade.student_id).id
+            student_id = self.students.search(grade.student_id).id
             average[student_id] = average.get(student_id, 0) + grade.value
 
         for key in average.keys():
@@ -226,7 +226,7 @@ class ManagerGrade:
 
         student_list = []
         for key in sorted_students.keys():
-            student_list.append(self.students.search_id(key))
+            student_list.append(self.students.search(key))
 
         output_list = []
         for ind in range(len(student_list) // 5):
@@ -242,7 +242,7 @@ class ManagerGrade:
         student_list = {}
 
         for grade in grade_list:
-            student = self.students.search_id(grade.student_id)
+            student = self.students.search(grade.student_id)
 
             if grade.value < 5 and grade.value < student_list.get(student, 5):
                 student_list[student] = grade.value

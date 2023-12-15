@@ -12,21 +12,19 @@ class Console:
         self.options = {
             "print_stud": self.ui.print_students,
             "print_sub": self.ui.print_subjects,
-            "print_grade": self.ui.print_grades,
             "add_stud": self.ui.add_student,
             "add_sub": self.ui.add_subject,
-            "add_grade": self.ui.add_grade,
             "del_stud": self.ui.delete_student,
             "del_sub": self.ui.delete_subject,
-            "del_grade": self.ui.delete_grade,
             "mod_stud": self.ui.modify_student,
             "mod_sub": self.ui.modify_subject,
-            "mod_grade": self.ui.modify_grade,
-            "search_stud_id": self.ui.search_student_id,
-            "search_sub_id": self.ui.search_subject_id,
-            "search_grade_id": self.ui.search_grade_id,
-            "stats": self.ui.stats,
-            "stats_ordered": self.ui.stats_ordered,
+            "search_stud": self.ui.search_student,
+            "search_sub": self.ui.search_subject,
+            "print_grade": self.ui.print_grades,
+            "assign_grade": self.ui.assign_grade,
+            "change_grade": self.ui.change_grade,
+            "stats_by_name": self.ui.stats_by_name,
+            "stats_by_value": self.ui.stats_by_value,
             "top20": self.ui.top20,
             "failing": self.ui.failing,
             "load": self.ui.load,
@@ -52,7 +50,5 @@ class Console:
             try:
                 assert first_command in self.options, "Invalid first command."
                 self.options[first_command](cmd_arguments)
-            except ValueError as ve:
-                print(ve)
             except Exception as e:
                 print(e)
