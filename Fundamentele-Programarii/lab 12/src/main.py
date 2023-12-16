@@ -11,13 +11,13 @@ from tests.test import Test
 class App:
     @staticmethod
     def main() -> None:
-        student_repository = StudentFileRepository("database/studentsDB.txt")
+        student_repository = StudentFileRepository("../database/studentsDB.txt")
         student_manager = ManagerStudent(student_repository)
 
-        subject_repository = SubjectFileRepository("database/subjectsDB.txt")
+        subject_repository = SubjectFileRepository("../database/subjectsDB.txt")
         subject_manager = ManagerSubject(subject_repository)
 
-        grade_book = GradeFileRepository("database/gradesDB.txt")
+        grade_book = GradeFileRepository("../database/gradesDB.txt")
         grade_manager = ManagerGrade(grade_book, student_repository, subject_repository)
 
         console = Console(student_manager, subject_manager, grade_manager)

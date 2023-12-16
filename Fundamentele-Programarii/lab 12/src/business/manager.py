@@ -6,6 +6,8 @@ from infrastructure.fileRepository import (
 )
 from domain.entity import Student, Subject, Grade
 from domain.dto import GradeDTO, StudentDTO
+from sorting.sorting import Sorting
+from sorting.algorithms.algorithm import Algorithm
 
 
 class ManagerStudent:
@@ -193,35 +195,61 @@ class ManagerGrade:
             raise Exception(f"The subject {subject_id} does not exists!")
 
         dto_list = self.get_grades_dto_list()
-        list_one_subject = filter(lambda x: x.subject.id == subject_id, dto_list)
-        sorted_list = sorted(list_one_subject, key=lambda x: x.student.name)
+        list_one_subject = list(filter(lambda x: x.subject.id == subject_id, dto_list))
 
-        return sorted_list
+        # sorted_list = sorted(list_one_subject, key=lambda x: x.student.name)
+        Sorting.sort(
+            list_one_subject,
+            key=lambda x: x.student.name,
+            algorithm=Algorithm.SELECTION_SORT,
+        )
+
+        return list_one_subject
 
     def stats_by_value(self, subject_id: int) -> list[GradeDTO]:
         if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         dto_list = self.get_grades_dto_list()
-        list_one_subject = filter(lambda x: x.subject.id == subject_id, dto_list)
-        sorted_list = sorted(list_one_subject, key=lambda x: x.value, reverse=True)
+        list_one_subject = list(filter(lambda x: x.subject.id == subject_id, dto_list))
 
-        return sorted_list
+        # sorted_list = sorted(list_one_subject, key=lambda x: x.value, reverse=True)
+        Sorting.sort(
+            list_one_subject,
+            key=lambda x: x.value,
+            reverse=True,
+            algorithm=Algorithm.SHAKE_SORT,
+        )
+
+        return list_one_subject
 
     def top20(self) -> list[StudentDTO]:
         dto_list = self.get_students_dto_list()
-        sorted_list = sorted(dto_list, key=lambda x: x.average, reverse=True)
+
+        # sorted_list = sorted(dto_list, key=lambda x: x.average, reverse=True)
+        Sorting.sort(
+            dto_list,
+            key=lambda x: x.average,
+            reverse=True,
+            algorithm=Algorithm.SELECTION_SORT,
+        )
 
         top_list = []
-        for i in range(len(sorted_list) // 5):
-            top_list.append(sorted_list[i])
+        for i in range(len(dto_list) // 5):
+            top_list.append(dto_list[i])
 
         return top_list
 
     def failing(self) -> list[StudentDTO]:
         dto_list = self.get_students_dto_list()
 
-        failing_students = filter(lambda x: x.lowest_grade < 5, dto_list)
-        sorted_list = sorted(failing_students, key=lambda x: (-x.lowest_grade, x.name))
+        failing_students = list(filter(lambda x: x.lowest_grade < 5, dto_list))
 
-        return sorted_list
+        # sorted_list = sorted(failing_students, key=lambda x: (-x.lowest_grade, x.name))
+        Sorting.sort(
+            failing_students,
+            key=lambda x: (-x.lowest_grade, x.name),
+            algorithm=Algorithm.SHAKE_SORT,
+        )
+
+        return failing_students

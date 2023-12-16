@@ -165,11 +165,7 @@ class Ui:
             raise Exception("Invalid command arguments.")
 
         subject_id = int(cmd[0])
-
         student_list = self.grade_manager.stats_by_name(subject_id)
-
-        if not student_list:
-            raise Exception("There are no elements that fit this description")
 
         print(f"\nThe grades in alphabetical order at Subject {subject_id} are:")
         for student in student_list:
@@ -180,11 +176,7 @@ class Ui:
             raise Exception("Invalid command arguments.")
 
         subject_id = int(cmd[0])
-
         student_list = self.grade_manager.stats_by_value(subject_id)
-
-        if not student_list:
-            raise Exception("There are no elements that fit this description")
 
         print(f"\nThe grades in decreasing order at Subject {subject_id} are:")
         for student in student_list:
