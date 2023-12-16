@@ -29,7 +29,7 @@ class Console:
             "failing": self.ui.failing,
         }
 
-    def get_first_command(self, command: str) -> str:
+    def get_command(self, command: str) -> str:
         command = command.split()
         first_command = command[0].strip() if command else ""
         cmd_arguments = " ".join(command[1:])
@@ -40,14 +40,14 @@ class Console:
     def run_application(self) -> None:
         while True:
             command = input("\n>>> ")
-            first_command, cmd_arguments = self.get_first_command(command)
+            first_command, cmd_arguments = self.get_command(command)
 
             if first_command == "exit":
                 print("Exiting the program...")
                 return
 
-                # try:
-            assert first_command in self.options, "Invalid first command."
-            self.options[first_command](cmd_arguments)
-            # except Exception as e:
-            #     print(e)
+            try:
+                assert first_command in self.options, "Invalid first command."
+                self.options[first_command](cmd_arguments)
+            except Exception as e:
+                print(e)
