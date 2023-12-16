@@ -8,6 +8,7 @@ from domain.entity import Student, Subject, Grade
 from domain.dto import GradeDTO, StudentDTO
 from sorting.sorting import Sorting
 from sorting.algorithms.algorithm import Algorithm
+from domain.recursive import Recursive
 
 
 class ManagerStudent:
@@ -222,13 +223,6 @@ class ManagerGrade:
 
         return list_one_subject
 
-    def get_20_percent(self, items: list, initial_len: int) -> None:
-        if len(items) <= initial_len // 5:
-            return
-
-        items.pop()
-        self.get_20_percent(items, initial_len)
-
     def top20(self) -> list[StudentDTO]:
         dto_list = self.get_students_dto_list()
 
@@ -238,7 +232,7 @@ class ManagerGrade:
             algorithm=Algorithm.SELECTION_SORT,
         )
 
-        self.get_20_percent(dto_list, len(dto_list))
+        Recursive.get_20_percent(dto_list, len(dto_list))
         return dto_list
 
     def failing(self) -> list[StudentDTO]:
