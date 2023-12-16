@@ -15,9 +15,6 @@ class ManagerStudent:
         self.students = student_repository
         self.students.load_students()
 
-    def get_all(self) -> list[Student]:
-        return self.students.items
-
     def print(self) -> str:
         return self.students
 
@@ -41,8 +38,10 @@ class ManagerStudent:
         if not self.students.search(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
-        ValidatorStudent.validate_name(new_name)
-        self.students.modify(student_id, new_name)
+        new_student = Student(student_id, new_name)
+        ValidatorStudent.validate(new_student)
+
+        self.students.modify(student_id, new_student)
         self.students.save_students()
 
     def search(self, student_id: int) -> str:
@@ -61,9 +60,6 @@ class ManagerSubject:
     def __init__(self, subject_repository: SubjectFileRepository) -> None:
         self.subjects = subject_repository
         self.subjects.load_subjects()
-
-    def get_all(self) -> list[Subject]:
-        return self.subjects.items
 
     def print(self) -> str:
         return self.subjects
@@ -88,9 +84,10 @@ class ManagerSubject:
         if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
-        ValidatorSubject.validate_name(new_name)
-        ValidatorSubject.validate_prof(new_professor)
-        self.subjects.modify(subject_id, new_name, new_professor)
+        new_subject = Subject(subject_id, new_name, new_professor)
+        ValidatorSubject.validate(new_subject)
+
+        self.subjects.modify(subject_id, new_subject)
         self.subjects.save_subjects()
 
     def search(self, subject_id: int) -> tuple:
@@ -132,6 +129,7 @@ class ManagerGrade:
 
         new_grade = Grade(grade_id, student_id, subject_id, value)
         ValidatorGrade.validate(new_grade)
+
         self.grades.add(new_grade)
         self.grades.save_grades()
 
@@ -145,8 +143,10 @@ class ManagerGrade:
         if not self.subjects.search(new_subject_id):
             raise Exception(f"The subject {new_subject_id} does not exists!")
 
-        ValidatorGrade.validate_value(new_value)
-        self.grades.modify(grade_id, new_student_id, new_subject_id, new_value)
+        new_grade = Grade(grade_id, new_student_id, new_subject_id, new_value)
+        ValidatorGrade.validate(new_grade)
+
+        self.grades.modify(grade_id, new_grade)
         self.grades.save_grades()
 
     def search(self, grade_id: int) -> str:
@@ -172,7 +172,7 @@ class ManagerGrade:
 
         return output_list
 
-    def get_students_dto_list(self) -> list[GradeDTO]:
+    def get_students_dto_list(self) -> list[StudentDTO]:
         student_list = self.students.items
         output_list = []
 
