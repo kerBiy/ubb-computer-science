@@ -116,10 +116,10 @@
 # #     assert new_subject_list == correct_subject_list
 
 
-# # # /----- Search -----/
+# # # /----- find -----/
 
 
-# # def test_search() -> None:
+# # def test_find() -> None:
 # #     student_list = {
 # #         111: Student(111, "Sergio Ramos"),
 # #         112: Student(112, "James Bond"),
@@ -130,12 +130,12 @@
 # #     correct_student = Student(113, "Jack The Ripper")
 
 # #     student_id = 113
-# #     student_list.search(student_id)
+# #     student_list.find(student_id)
 
 # #     assert student_list == correct_student
 
 
-# # def test_search_subject_by_id() -> None:
+# # def test_find_subject_by_id() -> None:
 # #     subject_list = [
 # #         [111, "Special Maths", "Sergio Ramos"],
 # #         [112, "Calculus", "James Bond"],
@@ -145,12 +145,12 @@
 # #     correct_subject = [113, "Algebra", "Jack The Ripper"]
 
 # #     subject_id = 113
-# #     answer = search_subject_by_id(subject_list, subject_id)
+# #     answer = find_subject_by_id(subject_list, subject_id)
 
 # #     assert answer == correct_subject
 
 
-# # def test_search_name() -> None:
+# # def test_find_name() -> None:
 # #     student_list = [
 # #         [111, "Sergio John"],
 # #         [112, "James Bond"],
@@ -163,12 +163,12 @@
 # #     ]
 
 # #     student_name = "John"
-# #     answer = search_name(student_list, student_name)
+# #     answer = find_name(student_list, student_name)
 
 # #     assert answer == correct_student_list
 
 
-# # def test_search_subject_by_name() -> None:
+# # def test_find_subject_by_name() -> None:
 # #     subject_list = [
 # #         [111, "Special Maths", "Sergio Ramos"],
 # #         [112, "Calculus", "James Bond"],
@@ -181,12 +181,12 @@
 # #     ]
 
 # #     subject_name = "Math"
-# #     answer = search_subject_by_name(subject_list, subject_name)
+# #     answer = find_subject_by_name(subject_list, subject_name)
 
 # #     assert answer == correct_subject_list
 
 
-# # def test_search_subject_by_prof() -> None:
+# # def test_find_subject_by_prof() -> None:
 # #     subject_list = [
 # #         [111, "Special Maths", "Sergio Jack"],
 # #         [112, "Calculus", "James Bond"],
@@ -199,7 +199,7 @@
 # #     ]
 
 # #     subject_prof = "Jack"
-# #     answer = search_subject_by_prof(subject_list, subject_prof)
+# #     answer = find_subject_by_prof(subject_list, subject_prof)
 
 # #     assert answer == correct_subject_list
 
@@ -335,11 +335,11 @@ class Test:
         # test_delete_grade()
         # test_modify_student()
         # test_modify_subject()
-        # test_search()
-        # test_search_subject_by_id()
-        # test_search_name()
-        # test_search_subject_by_name()
-        # test_search_subject_by_prof()
+        # test_find()
+        # test_find_subject_by_id()
+        # test_find_name()
+        # test_find_subject_by_name()
+        # test_find_subject_by_prof()
 
         # test_stats_by_name()
         # test_stats_by_value()

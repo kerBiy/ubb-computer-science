@@ -18,8 +18,8 @@ class Console:
             "del_sub": self.ui.delete_subject,
             "mod_stud": self.ui.modify_student,
             "mod_sub": self.ui.modify_subject,
-            "search_stud": self.ui.search_student,
-            "search_sub": self.ui.search_subject,
+            "find_stud": self.ui.find_student,
+            "find_sub": self.ui.find_subject,
             "print_grade": self.ui.print_grades,
             "assign_grade": self.ui.assign_grade,
             "change_grade": self.ui.change_grade,
@@ -38,16 +38,17 @@ class Console:
         return first_command, cmd_arguments
 
     def run_application(self) -> None:
-        while True:
-            command = input("\n>>> ")
-            first_command, cmd_arguments = self.get_command(command)
+        command = input("\n>>> ")
+        first_command, cmd_arguments = self.get_command(command)
 
-            if first_command == "exit":
-                print("Exiting the program...")
-                return
+        if first_command == "exit":
+            print("Exiting the program...")
+            return
 
-            try:
-                assert first_command in self.options, "Invalid first command."
-                self.options[first_command](cmd_arguments)
-            except Exception as e:
-                print(e)
+        try:
+            assert first_command in self.options, "Invalid first command."
+            self.options[first_command](cmd_arguments)
+        except Exception as e:
+            print(e)
+
+        self.run_application()

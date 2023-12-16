@@ -19,23 +19,24 @@ class ManagerStudent:
         return self.students
 
     def add(self, student_id: int, name: str) -> None:
-        if self.students.search(student_id):
+        if self.students.find(student_id):
             raise Exception(f"The student {student_id} already exists!")
 
         new_student = Student(student_id, name)
         ValidatorStudent.validate(new_student)
+
         self.students.add(new_student)
         self.students.save_students()
 
     def delete(self, student_id: int) -> None:
-        if not self.students.search(student_id):
+        if not self.students.find(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
         self.students.delete(student_id)
         self.students.save_students()
 
     def modify(self, student_id: int, new_name: str) -> None:
-        if not self.students.search(student_id):
+        if not self.students.find(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
         new_student = Student(student_id, new_name)
@@ -44,8 +45,8 @@ class ManagerStudent:
         self.students.modify(student_id, new_student)
         self.students.save_students()
 
-    def search(self, student_id: int) -> str:
-        student = self.students.search(student_id)
+    def find(self, student_id: int) -> str:
+        student = self.students.find(student_id)
 
         if not student:
             raise Exception(f"Student {student_id} does not exist!")
@@ -65,7 +66,7 @@ class ManagerSubject:
         return self.subjects
 
     def add(self, subject_id: int, name: str, professor: str) -> None:
-        if self.subjects.search(subject_id):
+        if self.subjects.find(subject_id):
             raise Exception(f"The subject {subject_id} already exists!")
 
         new_subject = Subject(subject_id, name, professor)
@@ -74,14 +75,14 @@ class ManagerSubject:
         self.subjects.save_subjects()
 
     def delete(self, subject_id: int) -> None:
-        if not self.subjects.search(subject_id):
+        if not self.subjects.find(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
         self.subjects.delete(subject_id)
         self.subjects.save_subjects()
 
     def modify(self, subject_id: int, new_name: str, new_professor: str) -> None:
-        if not self.subjects.search(subject_id):
+        if not self.subjects.find(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
         new_subject = Subject(subject_id, new_name, new_professor)
@@ -90,8 +91,8 @@ class ManagerSubject:
         self.subjects.modify(subject_id, new_subject)
         self.subjects.save_subjects()
 
-    def search(self, subject_id: int) -> tuple:
-        subject = self.subjects.search(subject_id)
+    def find(self, subject_id: int) -> tuple:
+        subject = self.subjects.find(subject_id)
 
         if not subject:
             raise Exception(f"Subject {subject_id} does not exist!")
@@ -120,11 +121,11 @@ class ManagerGrade:
     def assign(
         self, grade_id: int, student_id: int, subject_id: int, value: float
     ) -> None:
-        if self.grades.search(grade_id):
+        if self.grades.find(grade_id):
             raise Exception(f"The grade {grade_id} already exists!")
-        if not self.students.search(student_id):
+        if not self.students.find(student_id):
             raise Exception(f"The student {student_id} does not exists!")
-        if not self.subjects.search(subject_id):
+        if not self.subjects.find(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         new_grade = Grade(grade_id, student_id, subject_id, value)
@@ -136,11 +137,11 @@ class ManagerGrade:
     def change(
         self, grade_id: int, new_student_id: int, new_subject_id: int, new_value: float
     ) -> None:
-        if not self.grades.search(grade_id):
+        if not self.grades.find(grade_id):
             raise Exception(f"The grade {grade_id} does not exist!")
-        if not self.students.search(new_student_id):
+        if not self.students.find(new_student_id):
             raise Exception(f"The student {new_student_id} does not exists!")
-        if not self.subjects.search(new_subject_id):
+        if not self.subjects.find(new_subject_id):
             raise Exception(f"The subject {new_subject_id} does not exists!")
 
         new_grade = Grade(grade_id, new_student_id, new_subject_id, new_value)
@@ -149,8 +150,8 @@ class ManagerGrade:
         self.grades.modify(grade_id, new_grade)
         self.grades.save_grades()
 
-    def search(self, grade_id: int) -> str:
-        grade = self.grades.search(grade_id)
+    def find(self, grade_id: int) -> str:
+        grade = self.grades.find(grade_id)
 
         if not grade:
             raise Exception(f"Grade {grade_id} does not exist!")
@@ -163,8 +164,8 @@ class ManagerGrade:
 
         for grade in grade_list:
             grade_id = grade.id
-            student = self.students.search(grade.student_id)
-            subject = self.subjects.search(grade.subject_id)
+            student = self.students.find(grade.student_id)
+            subject = self.subjects.find(grade.subject_id)
             value = grade.value
 
             dto = GradeDTO(grade_id, student, subject, value)
@@ -191,13 +192,12 @@ class ManagerGrade:
         return output_list
 
     def stats_by_name(self, subject_id: int) -> list[GradeDTO]:
-        if not self.subjects.search(subject_id):
+        if not self.subjects.find(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         dto_list = self.get_grades_dto_list()
         list_one_subject = list(filter(lambda x: x.subject.id == subject_id, dto_list))
 
-        # sorted_list = sorted(list_one_subject, key=lambda x: x.student.name)
         Sorting.sort(
             list_one_subject,
             key=lambda x: x.student.name,
@@ -207,13 +207,12 @@ class ManagerGrade:
         return list_one_subject
 
     def stats_by_value(self, subject_id: int) -> list[GradeDTO]:
-        if not self.subjects.search(subject_id):
+        if not self.subjects.find(subject_id):
             raise Exception(f"The subject {subject_id} does not exists!")
 
         dto_list = self.get_grades_dto_list()
         list_one_subject = list(filter(lambda x: x.subject.id == subject_id, dto_list))
 
-        # sorted_list = sorted(list_one_subject, key=lambda x: x.value, reverse=True)
         Sorting.sort(
             list_one_subject,
             key=lambda x: x.value,
@@ -223,29 +222,29 @@ class ManagerGrade:
 
         return list_one_subject
 
+    def get_20_percent(self, items: list, initial_len: int) -> None:
+        if len(items) <= initial_len // 5:
+            return
+
+        items.pop()
+        self.get_20_percent(items, initial_len)
+
     def top20(self) -> list[StudentDTO]:
         dto_list = self.get_students_dto_list()
 
-        # sorted_list = sorted(dto_list, key=lambda x: x.average, reverse=True)
         Sorting.sort(
             dto_list,
             key=lambda x: x.average,
-            reverse=True,
             algorithm=Algorithm.SELECTION_SORT,
         )
 
-        top_list = []
-        for i in range(len(dto_list) // 5):
-            top_list.append(dto_list[i])
-
-        return top_list
+        self.get_20_percent(dto_list, len(dto_list))
+        return dto_list
 
     def failing(self) -> list[StudentDTO]:
         dto_list = self.get_students_dto_list()
-
         failing_students = list(filter(lambda x: x.lowest_grade < 5, dto_list))
 
-        # sorted_list = sorted(failing_students, key=lambda x: (-x.lowest_grade, x.name))
         Sorting.sort(
             failing_students,
             key=lambda x: (-x.lowest_grade, x.name),

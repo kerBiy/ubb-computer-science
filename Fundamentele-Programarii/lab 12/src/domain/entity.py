@@ -6,10 +6,7 @@ class Student:
     def __str__(self) -> str:
         return f"{self.id}. {self.name}"
 
-    def __hash__(self) -> int:
-        return hash(id(self))
-
-    def __eq__(self, another_student) -> bool:
+    def __eq__(self, another_student: object) -> bool:
         return (
             isinstance(another_student, Student)
             and self.id == another_student.id
