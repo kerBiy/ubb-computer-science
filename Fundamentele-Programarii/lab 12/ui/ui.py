@@ -169,8 +169,7 @@ class Ui:
         student_list = self.grade_manager.stats_by_name(subject_id)
 
         if not student_list:
-            print("Nigger")
-            return
+            raise Exception("There are no elements that fit this description")
 
         print(f"\nThe grades in alphabetical order at Subject {subject_id} are:")
         for student in student_list:
@@ -185,8 +184,7 @@ class Ui:
         student_list = self.grade_manager.stats_by_value(subject_id)
 
         if not student_list:
-            print("Nigger")
-            return
+            raise Exception("There are no elements that fit this description")
 
         print(f"\nThe grades in decreasing order at Subject {subject_id} are:")
         for student in student_list:
@@ -199,8 +197,7 @@ class Ui:
         student_list = self.grade_manager.top20()
 
         if not student_list:
-            print("Nigger")
-            return
+            raise Exception("There are no elements that fit this description")
 
         print(f"\nThe top 20% of students are:")
         for student in student_list:
@@ -213,8 +210,7 @@ class Ui:
         student_list = self.grade_manager.failing()
 
         if not student_list:
-            print("Nigger")
-            return
+            raise Exception("There are no elements that fit this description")
 
         print(f"\nThe students that are failing are:")
         for student in student_list:

@@ -5,6 +5,7 @@ from infrastructure.fileRepository import (
     GradeFileRepository,
 )
 from domain.entity import Student, Subject, Grade
+from domain.dto import GradeDTO, StudentDTO
 
 
 class ManagerStudent:
@@ -154,100 +155,73 @@ class ManagerGrade:
 
         return grade
 
-    def stats_by_name(self, subject_id: int) -> str:
-        if not self.subjects.search(subject_id):
-            raise Exception(f"The subject {subject_id} does not exists!")
-
-        student_dict = {}
-
+    def get_grades_dto_list(self) -> list[GradeDTO]:
         grade_list = self.grades.items
-        for grade in grade_list:
-            if grade.subject_id == subject_id:
-                student_dict[self.students.search(grade.student_id).name] = grade
-
-        sorted_grades = dict(sorted(student_dict.items())).values()
-
-        output_str = f"\nThe grades in alphabetical order at {self.subjects.search(subject_id).name} are:\n"
-        output_str += "\n".join(
-            [
-                f"{self.students.search(grade.student_id).name} has an {grade.value}"
-                for grade in sorted_grades
-            ]
-        )
-
-        return output_str
-
-    def stats_by_value(self, subject_id: int) -> str:
-        if not self.subjects.search(subject_id):
-            raise Exception(f"The subject {subject_id} does not exists!")
-
-        grade_list = self.grades.items
-        sorted_grades = [
-            grade for grade in grade_list if grade.subject_id == subject_id
-        ]
-        sorted_grades = sorted(sorted_grades, key=lambda x: x.value, reverse=True)
-
-        output_str = f"\nThe grades in decreasing order at {self.subjects.search(subject_id).name} are:\n"
-        output_str += "\n".join(
-            [
-                f"{self.students.search(grade.student_id).name} has an {grade.value}"
-                for grade in sorted_grades
-            ]
-        )
-
-        return output_str
-
-    def top20(self) -> str:
-        average = {}
-        grade_list = self.grades.items
-
-        for grade in grade_list:
-            student_id = self.students.search(grade.student_id).id
-            average[student_id] = average.get(student_id, 0) + grade.value
-
-        for key in average.keys():
-            counter = 0
-            for grade in grade_list:
-                if grade.student_id == key:
-                    counter += 1
-
-            average[key] /= counter
-
-        sorted_students = dict(
-            sorted(average.items(), key=lambda x: x[1], reverse=True)
-        )
-
-        student_list = []
-        for key in sorted_students.keys():
-            student_list.append(self.students.search(key))
-
         output_list = []
-        for ind in range(len(student_list) // 5):
-            output_list.append(student_list[ind])
-
-        output_str = f"\nThe top 20% of students are:\n"
-        output_str += "\n".join(str(student) for student in output_list)
-
-        return output_str
-
-    def failing(self) -> str:
-        grade_list = self.grades.items
-        student_list = {}
 
         for grade in grade_list:
+            grade_id = grade.id
             student = self.students.search(grade.student_id)
+            subject = self.subjects.search(grade.subject_id)
+            value = grade.value
 
-            if grade.value < 5 and grade.value < student_list.get(student, 5):
-                student_list[student] = grade.value
+            dto = GradeDTO(grade_id, student, subject, value)
+            output_list.append(dto)
 
-        sorted_students = dict(
-            sorted(
-                student_list.items(),
-                key=lambda item: (-item[1], item[0].name),
+        return output_list
+
+    def get_students_dto_list(self) -> list[GradeDTO]:
+        student_list = self.students.items
+        output_list = []
+
+        for student in student_list:
+            student_id = student.id
+            student_name = student.name
+
+            grade_list = self.grades.items
+            student_grades = list(
+                filter(lambda x: x.student_id == student_id, grade_list)
             )
-        )
 
-        output_str = f"\nThe students that are failing are:\n"
-        output_str += "\n".join(str(student) for student in sorted_students.keys())
+            dto = StudentDTO(student_id, student_name, student_grades)
+            output_list.append(dto)
 
-        return output_str
+        return output_list
+
+    def stats_by_name(self, subject_id: int) -> list[GradeDTO]:
+        if not self.subjects.search(subject_id):
+            raise Exception(f"The subject {subject_id} does not exists!")
+
+        dto_list = self.get_grades_dto_list()
+        list_one_subject = filter(lambda x: x.subject.id == subject_id, dto_list)
+        sorted_list = sorted(list_one_subject, key=lambda x: x.student.name)
+
+        return sorted_list
+
+    def stats_by_value(self, subject_id: int) -> list[GradeDTO]:
+        if not self.subjects.search(subject_id):
+            raise Exception(f"The subject {subject_id} does not exists!")
+
+        dto_list = self.get_grades_dto_list()
+        list_one_subject = filter(lambda x: x.subject.id == subject_id, dto_list)
+        sorted_list = sorted(list_one_subject, key=lambda x: x.value, reverse=True)
+
+        return sorted_list
+
+    def top20(self) -> list[StudentDTO]:
+        dto_list = self.get_students_dto_list()
+        sorted_list = sorted(dto_list, key=lambda x: x.average, reverse=True)
+
+        top_list = []
+        for i in range(len(sorted_list) // 5):
+            top_list.append(sorted_list[i])
+
+        return top_list
+
+    def failing(self) -> list[StudentDTO]:
+        dto_list = self.get_students_dto_list()
+
+        failing_students = filter(lambda x: x.lowest_grade < 5, dto_list)
+        sorted_list = sorted(failing_students, key=lambda x: (-x.lowest_grade, x.name))
+
+        return sorted_list

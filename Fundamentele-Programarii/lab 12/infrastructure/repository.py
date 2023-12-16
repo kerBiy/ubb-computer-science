@@ -27,5 +27,5 @@ class Repository:
     def modify(self, item_id: int, new_item) -> None:
         self.__items[item_id] = new_item
 
-    def search(self, item_id):
+    def search(self, item_id: int):
         return self.__items.get(item_id, None)
