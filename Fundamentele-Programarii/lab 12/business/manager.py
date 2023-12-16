@@ -10,12 +10,10 @@ from domain.entity import Student, Subject, Grade
 class ManagerStudent:
     def __init__(self, student_repository: StudentFileRepository) -> None:
         self.students = student_repository
-
-    def load(self) -> None:
         self.students.load_students()
 
-    def save(self) -> None:
-        self.students.save_students()
+    def get_all(self) -> list[Student]:
+        return self.students.items
 
     def print(self) -> str:
         return self.students
@@ -27,12 +25,14 @@ class ManagerStudent:
         new_student = Student(student_id, name)
         ValidatorStudent.validate(new_student)
         self.students.add(new_student)
+        self.students.save_students()
 
     def delete(self, student_id: int) -> None:
         if not self.students.search(student_id):
             raise Exception(f"The student {student_id} does not exist!")
 
         self.students.delete(student_id)
+        self.students.save_students()
 
     def modify(self, student_id: int, new_name: str) -> None:
         if not self.students.search(student_id):
@@ -40,6 +40,7 @@ class ManagerStudent:
 
         ValidatorStudent.validate_name(new_name)
         self.students.modify(student_id, new_name)
+        self.students.save_students()
 
     def search(self, student_id: int) -> str:
         student = self.students.search(student_id)
@@ -56,12 +57,10 @@ class ManagerStudent:
 class ManagerSubject:
     def __init__(self, subject_repository: SubjectFileRepository) -> None:
         self.subjects = subject_repository
-
-    def load(self) -> None:
         self.subjects.load_subjects()
 
-    def save(self) -> None:
-        self.subjects.save_subjects()
+    def get_all(self) -> list[Subject]:
+        return self.subjects.items
 
     def print(self) -> str:
         return self.subjects
@@ -73,12 +72,14 @@ class ManagerSubject:
         new_subject = Subject(subject_id, name, professor)
         ValidatorSubject.validate(new_subject)
         self.subjects.add(new_subject)
+        self.subjects.save_subjects()
 
     def delete(self, subject_id: int) -> None:
         if not self.subjects.search(subject_id):
             raise Exception(f"The subject {subject_id} does not exist!")
 
         self.subjects.delete(subject_id)
+        self.subjects.save_subjects()
 
     def modify(self, subject_id: int, new_name: str, new_professor: str) -> None:
         if not self.subjects.search(subject_id):
@@ -87,6 +88,7 @@ class ManagerSubject:
         ValidatorSubject.validate_name(new_name)
         ValidatorSubject.validate_prof(new_professor)
         self.subjects.modify(subject_id, new_name, new_professor)
+        self.subjects.save_subjects()
 
     def search(self, subject_id: int) -> tuple:
         subject = self.subjects.search(subject_id)
@@ -110,17 +112,12 @@ class ManagerGrade:
         self.grades = grade_book
         self.students = student_repository
         self.subjects = subject_repository
-
-    def load(self) -> None:
         self.grades.load_grades()
-
-    def save(self) -> None:
-        self.grades.save_grades()
 
     def print(self) -> str:
         return self.grades
 
-    def add(
+    def assign(
         self, grade_id: int, student_id: int, subject_id: int, value: float
     ) -> None:
         if self.grades.search(grade_id):
@@ -133,14 +130,9 @@ class ManagerGrade:
         new_grade = Grade(grade_id, student_id, subject_id, value)
         ValidatorGrade.validate(new_grade)
         self.grades.add(new_grade)
+        self.grades.save_grades()
 
-    def delete(self, grade_id: int) -> None:
-        if not self.grades.search(grade_id):
-            raise Exception(f"The grade {grade_id} does not exist!")
-
-        self.grades.delete(grade_id)
-
-    def modify(
+    def change(
         self, grade_id: int, new_student_id: int, new_subject_id: int, new_value: float
     ) -> None:
         if not self.grades.search(grade_id):
@@ -152,6 +144,7 @@ class ManagerGrade:
 
         ValidatorGrade.validate_value(new_value)
         self.grades.modify(grade_id, new_student_id, new_subject_id, new_value)
+        self.grades.save_grades()
 
     def search(self, grade_id: int) -> str:
         grade = self.grades.search(grade_id)

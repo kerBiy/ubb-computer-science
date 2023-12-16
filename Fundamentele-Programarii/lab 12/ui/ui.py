@@ -3,18 +3,6 @@ class Ui:
         self.student_manager = student_manager
         self.subject_manager = subject_manager
         self.grade_manager = grade_manager
-        self.work_with_files = False
-
-    def load(self, cmd: list[str]) -> None:
-        if not cmd == [""]:
-            raise Exception("Invalid command parameters.")
-
-        self.student_manager.load()
-        self.subject_manager.load()
-        self.grade_manager.load()
-
-        self.work_with_files = True
-        print("The values are loaded from the database.")
 
     # /----- Print -----/
 
@@ -52,8 +40,6 @@ class Ui:
         student_name = cmd[1].strip()
 
         self.student_manager.add(student_id, student_name)
-        if self.work_with_files:
-            self.student_manager.save()
         print("Student added in the list.")
 
     def add_subject(self, cmd: list[str]) -> None:
@@ -65,8 +51,6 @@ class Ui:
         professor = cmd[2].strip()
 
         self.subject_manager.add(subject_id, subject_name, professor)
-        if self.work_with_files:
-            self.subject_manager.save()
         print("Subject added in the list.")
 
     # /----- Delete -----/
@@ -78,8 +62,6 @@ class Ui:
         student_id = int(cmd[0])
 
         self.student_manager.delete(student_id)
-        if self.work_with_files:
-            self.student_manager.save()
         print(f"Student {student_id} has been removed")
 
     def delete_subject(self, cmd: list[str]) -> None:
@@ -89,9 +71,6 @@ class Ui:
         subject_id = int(cmd[0])
 
         self.subject_manager.delete(subject_id)
-        if self.work_with_files:
-            self.subject_manager.save()
-
         print(f"Subject {subject_id} has been removed.")
 
     # /----- Modify -----/
@@ -104,9 +83,6 @@ class Ui:
         new_name = cmd[1].strip()
 
         self.student_manager.modify(student_id, new_name)
-        if self.work_with_files:
-            self.student_manager.save()
-
         print(f"Student {student_id} name has been changed to '{new_name}'.")
 
     def modify_subject(self, cmd: list[str]) -> None:
@@ -118,9 +94,6 @@ class Ui:
         new_professor = cmd[2].strip()
 
         self.subject_manager.modify(subject_id, new_name, new_professor)
-        if self.work_with_files:
-            self.subject_manager.save()
-
         print(
             f"Subject {subject_id} name has been changed to '{new_name}' and the professor to '{new_professor}'."
         )
@@ -168,10 +141,7 @@ class Ui:
         subject_id = int(cmd[2])
         value = float(cmd[3])
 
-        self.grade_manager.add(grade_id, student_id, subject_id, value)
-        if self.work_with_files:
-            self.grade_manager.save()
-
+        self.grade_manager.assign(grade_id, student_id, subject_id, value)
         print("Grade added in the list.")
 
     def change_grade(self, cmd: list[str]) -> None:
@@ -183,10 +153,7 @@ class Ui:
         new_subject_id = int(cmd[2])
         new_value = float(cmd[3])
 
-        self.grade_manager.modify(grade_id, new_student_id, new_subject_id, new_value)
-        if self.work_with_files:
-            self.grade_manager.save()
-
+        self.grade_manager.change(grade_id, new_student_id, new_subject_id, new_value)
         print(
             f"Grade {grade_id} student has been changed to '{new_subject_id}', the subject to '{new_subject_id}' and the value to {new_value}."
         )

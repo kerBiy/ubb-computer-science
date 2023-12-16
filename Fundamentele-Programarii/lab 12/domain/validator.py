@@ -1,7 +1,7 @@
 class ValidatorObject:
     @staticmethod
     def validate_id(id: int) -> bool:
-        return 1 <= id <= 999999
+        return type(id) is int and 1 <= id <= 999999
 
     @staticmethod
     def validate_name(name: str) -> bool:

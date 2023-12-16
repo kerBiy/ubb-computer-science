@@ -27,7 +27,6 @@ class Console:
             "stats_by_value": self.ui.stats_by_value,
             "top20": self.ui.top20,
             "failing": self.ui.failing,
-            "load": self.ui.load,
         }
 
     def get_first_command(self, command: str) -> str:
