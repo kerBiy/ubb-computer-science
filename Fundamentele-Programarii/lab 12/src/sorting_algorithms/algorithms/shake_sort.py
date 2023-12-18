@@ -1,4 +1,4 @@
-from sorting.generic_sort import GenericSort
+from sorting_algorithms.algorithms.generic_sort import GenericSort
 
 
 class ShakeSort(GenericSort):

@@ -1,348 +1,121 @@
-# from infrastructure.repository import *
-# from business.manager import Managerstats_by_name
+from sorting_algorithms.sorting import Sorting
+from sorting_algorithms.algorithm import Algorithm
 
 
-# # /----- Add -----/
+class Person:
+    def __init__(self, name: str, age: int):
+        self.__name = name
+        self.__age = age
 
+    @property
+    def name(self) -> str:
+        return self.__name
 
-# def test_add_student() -> None:
-#     new_student_repo = StudentFileRepository()
-#     correct_student_repo = StudentFileRepository({112: Student(112, "James Bond")})
-#     new_student = Student(112, "James Bond")
+    @property
+    def age(self) -> int:
+        return self.__age
 
-#     new_student_repo.add(new_student)
-
-#     assert new_student_repo == correct_student_repo
-
-
-# def test_add_subject() -> None:
-#     new_subject_repo = SubjectFileRepository()
-#     correct_subject_repo = SubjectFileRepository(
-#         {112: Subject(112, "Advanced Calculus", "James Bond")}
-#     )
-#     new_subject = Subject(112, "Advanced Calculus", "James Bond")
-
-#     new_subject_repo.add(new_subject)
-
-#     assert new_subject_repo == correct_subject_repo
-
-
-# def test_assign_grade() -> None:
-#     new_grade_repo = GradeFileRepository()
-#     correct_grade_repo = GradeFileRepository({112: Grade(112, 234, 345, 7.5)})
-#     new_grade = Grade(112, 234, 345, 7.5)
-
-#     new_grade_repo.add(new_grade)
-
-#     assert new_grade_repo == correct_grade_repo
-
-
-# # /----- Delete -----/
-
-
-# def test_delete_student() -> None:
-#     new_student_repo = StudentFileRepository(
-#         {
-#             111: Student(111, "Sergio Ramos"),
-#             112: Student(112, "James Bond"),
-#             113: Student(113, "Jack The Ripper"),
-#             212: Student(212, "John Wick"),
-#         }
-#     )
-
-#     correct_student_repo = StudentFileRepository(
-#         {
-#             111: Student(111, "Sergio Ramos"),
-#             113: Student(113, "Jack The Ripper"),
-#             212: Student(212, "John Wick"),
-#         }
-#     )
-#     student_id = 112
-
-#     new_student_repo.delete(student_id)
-
-#     assert new_student_repo == correct_student_repo
-
-
-# def test_delete_subject() -> None:
-#     new_subject_repo = SubjectFileRepository(
-#         {
-#             111: Subject(111, "Special Maths", "Sergio Ramos"),
-#             112: Subject(112, "Calculus", "James Bond"),
-#             113: Subject(113, "Algebra", "Jack The Ripper"),
-#             212: Subject(212, "Geometry", "John Wick"),
-#         }
-#     )
-
-#     correct_subject_repo = SubjectFileRepository(
-#         {
-#             111: Subject(111, "Special Maths", "Sergio Ramos"),
-#             113: Subject(113, "Algebra", "Jack The Ripper"),
-#             212: Subject(212, "Geometry", "John Wick"),
-#         }
-#     )
-#     subject_id = 112
-
-#     new_subject_repo.delete(subject_id)
-
-#     assert new_subject_repo == correct_subject_repo
-
-
-# # # /----- Modify -----/
-
-
-# # def test_modify_student() -> None:
-# #     new_student_list = [[112, "Sergio Ramos"]]
-# #     correct_student_list = [[112, "James Bond"]]
-
-# #     student_id = 112
-# #     new_name = "James Bond"
-
-# #     modify_student(new_student_list, student_id, new_name)
-
-# #     assert new_student_list == correct_student_list
-
-
-# # def test_modify_subject() -> None:
-# #     new_subject_list = [[112, "Algebra", "Sergio Ramos"]]
-# #     correct_subject_list = [[112, "Calculus", "James Bond"]]
-
-# #     subject_id = 112
-# #     new_name = "Calculus"
-# #     new_prof = "James Bond"
-
-# #     modify_subject(new_subject_list, subject_id, new_name, new_prof)
-
-# #     assert new_subject_list == correct_subject_list
-
-
-# # # /----- find -----/
-
-
-# # def test_find() -> None:
-# #     student_list = {
-# #         111: Student(111, "Sergio Ramos"),
-# #         112: Student(112, "James Bond"),
-# #         113: Student(113, "Jack The Ripper"),
-# #         212: Student(212, "John Wick"),
-# #     }
-
-# #     correct_student = Student(113, "Jack The Ripper")
-
-# #     student_id = 113
-# #     student_list.find(student_id)
-
-# #     assert student_list == correct_student
-
-
-# # def test_find_subject_by_id() -> None:
-# #     subject_list = [
-# #         [111, "Special Maths", "Sergio Ramos"],
-# #         [112, "Calculus", "James Bond"],
-# #         [113, "Algebra", "Jack The Ripper"],
-# #         [212, "Geometry", "John Wick"],
-# #     ]
-# #     correct_subject = [113, "Algebra", "Jack The Ripper"]
-
-# #     subject_id = 113
-# #     answer = find_subject_by_id(subject_list, subject_id)
-
-# #     assert answer == correct_subject
-
-
-# # def test_find_name() -> None:
-# #     student_list = [
-# #         [111, "Sergio John"],
-# #         [112, "James Bond"],
-# #         [113, "Jack The Ripper"],
-# #         [212, "John Wick"],
-# #     ]
-# #     correct_student_list = [
-# #         [111, "Sergio John"],
-# #         [212, "John Wick"],
-# #     ]
-
-# #     student_name = "John"
-# #     answer = find_name(student_list, student_name)
-
-# #     assert answer == correct_student_list
-
-
-# # def test_find_subject_by_name() -> None:
-# #     subject_list = [
-# #         [111, "Special Maths", "Sergio Ramos"],
-# #         [112, "Calculus", "James Bond"],
-# #         [113, "Algebra", "Jack The Ripper"],
-# #         [212, "Mathematic", "John Wick"],
-# #     ]
-# #     correct_subject_list = [
-# #         [111, "Special Maths", "Sergio Ramos"],
-# #         [212, "Mathematic", "John Wick"],
-# #     ]
-
-# #     subject_name = "Math"
-# #     answer = find_subject_by_name(subject_list, subject_name)
-
-# #     assert answer == correct_subject_list
-
-
-# # def test_find_subject_by_prof() -> None:
-# #     subject_list = [
-# #         [111, "Special Maths", "Sergio Jack"],
-# #         [112, "Calculus", "James Bond"],
-# #         [113, "Algebra", "Jack The Ripper"],
-# #         [212, "Mathematic", "John Wick"],
-# #     ]
-# #     correct_subject_list = [
-# #         [111, "Special Maths", "Sergio Jack"],
-# #         [113, "Algebra", "Jack The Ripper"],
-# #     ]
-
-# #     subject_prof = "Jack"
-# #     answer = find_subject_by_prof(subject_list, subject_prof)
-
-# #     assert answer == correct_subject_list
-
-
-# def test_stats_by_name() -> None:
-#     student_repo = StudentFileRepository(
-#         {
-#             111: Student(111, "Balta Alex"),
-#             112: Student(112, "Timu Iustin"),
-#             113: Student(113, "Daniel Marius"),
-#             114: Student(114, "Daniel Petrica"),
-#             115: Student(115, "Darie Ciprian"),
-#             116: Student(116, "David Aneci"),
-#         }
-#     )
-#     subject_repo = SubjectFileRepository(
-#         {
-#             111: Subject(111, "Geografie", "Balta Alex"),
-#             112: Subject(112, "Termometru", "Timu Iustin"),
-#             113: Subject(113, "Geometrie", "Daniel Marius"),
-#             114: Subject(114, "Daniel", "Daniel Petrica"),
-#             115: Subject(115, "Calculus", "Darie Ciprian"),
-#             116: Subject(116, "Mate", "David Aneci"),
-#         }
-#     )
-#     grade_book = GradeFileRepository(
-#         {
-#             1: Grade(1, 111, 115, 7.5),
-#             2: Grade(2, 112, 115, 8.5),
-#             3: Grade(3, 113, 115, 2.5),
-#             4: Grade(4, 114, 115, 9.5),
-#             5: Grade(5, 115, 115, 7),
-#             6: Grade(6, 116, 115, 7.69),
-#             7: Grade(7, 114, 112, 2),
-#         }
-#     )
-
-#     manager = Managerstats_by_name(student_repo, subject_repo, grade_book)
-
-#     correct = "\nThe grades in alphabetical order at Calculus are:\nBalta Alex has an 7.5\nDaniel Marius has an 2.5\nDaniel Petrica has an 9.5\nDarie Ciprian has an 7\nDavid Aneci has an 7.69\nTimu Iustin has an 8.5"
-
-#     assert manager.stats_by_name(115) == correct
-
-
-# def test_stats_by_value() -> None:
-#     student_repo = StudentFileRepository(
-#         {
-#             111: Student(111, "Balta Alex"),
-#             112: Student(112, "Timu Iustin"),
-#             113: Student(113, "Daniel Marius"),
-#             114: Student(114, "Daniel Petrica"),
-#             115: Student(115, "Darie Ciprian"),
-#             116: Student(116, "David Aneci"),
-#         }
-#     )
-#     subject_repo = SubjectFileRepository(
-#         {
-#             111: Subject(111, "Geografie", "Balta Alex"),
-#             112: Subject(112, "Termometru", "Timu Iustin"),
-#             113: Subject(113, "Geometrie", "Daniel Marius"),
-#             114: Subject(114, "Daniel", "Daniel Petrica"),
-#             115: Subject(115, "Calculus", "Darie Ciprian"),
-#             116: Subject(116, "Mate", "David Aneci"),
-#         }
-#     )
-#     grade_book = GradeFileRepository(
-#         {
-#             1: Grade(1, 111, 115, 7.5),
-#             2: Grade(2, 112, 115, 8.5),
-#             3: Grade(3, 113, 115, 2.5),
-#             4: Grade(4, 114, 115, 9.5),
-#             5: Grade(5, 115, 115, 7),
-#             6: Grade(6, 116, 115, 7.69),
-#             7: Grade(7, 114, 112, 2),
-#         }
-#     )
-
-#     manager = Managerstats_by_name(student_repo, subject_repo, grade_book)
-
-#     correct = "\nThe grades in decreasing order at Calculus are:\nDaniel Petrica has an 9.5\nTimu Iustin has an 8.5\nDavid Aneci has an 7.69\nBalta Alex has an 7.5\nDarie Ciprian has an 7\nDaniel Marius has an 2.5"
-
-#     assert manager.stats_by_value(115) == correct
-
-
-# def test_top20() -> None:
-#     student_repo = StudentFileRepository(
-#         {
-#             111: Student(111, "Balta Alex"),
-#             112: Student(112, "Timu Iustin"),
-#             113: Student(113, "Daniel Marius"),
-#             114: Student(114, "Daniel Petrica"),
-#             115: Student(115, "Darie Ciprian"),
-#             116: Student(116, "David Aneci"),
-#         }
-#     )
-#     subject_repo = SubjectFileRepository(
-#         {
-#             111: Subject(111, "Geografie", "Balta Alex"),
-#             112: Subject(112, "Termometru", "Timu Iustin"),
-#             113: Subject(113, "Geometrie", "Daniel Marius"),
-#             114: Subject(114, "Daniel", "Daniel Petrica"),
-#             115: Subject(115, "Calculus", "Darie Ciprian"),
-#             116: Subject(116, "Mate", "David Aneci"),
-#         }
-#     )
-#     grade_book = GradeFileRepository(
-#         {
-#             1: Grade(1, 111, 115, 7.5),
-#             2: Grade(2, 112, 115, 8.5),
-#             3: Grade(3, 113, 115, 2.5),
-#             4: Grade(4, 114, 115, 9.5),
-#             5: Grade(5, 115, 115, 7),
-#             6: Grade(6, 116, 115, 7.69),
-#             7: Grade(7, 114, 112, 2),
-#         }
-#     )
-
-#     manager = Managerstats_by_name(student_repo, subject_repo, grade_book)
-
-#     correct = "\nThe top 20% of students are:\n112. Timu Iustin"
-
-#     assert manager.top20() == correct
+    def __str__(self) -> str:
+        return self.name + " " + str(self.age)
 
 
 class Test:
     @staticmethod
     def run_tests() -> None:
-        # test_add_student()
-        # test_add_subject()
-        # test_assign_grade()
-        # test_delete_student()
-        # test_delete_subject()
-        # test_delete_grade()
-        # test_modify_student()
-        # test_modify_subject()
-        # test_find()
-        # test_find_subject_by_id()
-        # test_find_name()
-        # test_find_subject_by_name()
-        # test_find_subject_by_prof()
+        Test.test_selection_sort()
+        Test.test_shake_sort()
+        print("All tests passed")
 
-        # test_stats_by_name()
-        # test_stats_by_value()
-        # test_top20()
+    @staticmethod
+    def test_selection_sort() -> None:
+        l = [2, 1, 3]
+        Sorting.sort(l)
+        assert l == [1, 2, 3]
 
-        print("All tests passed!")
+        Sorting.sort(l, reverse=True)
+        assert l == [3, 2, 1]
+
+        l = [2, 1, 2, 3, 1]
+        Sorting.sort(l)
+        assert l == [1, 1, 2, 2, 3]
+
+        Sorting.sort(l, reverse=True)
+        assert l == [3, 2, 2, 1, 1]
+
+        p1 = Person("p1", 1)
+        p2 = Person("p2", 2)
+        p3 = Person("p3", 3)
+        p4 = Person("p4", 2)
+
+        # sort by name asc
+        l = [p3, p2, p1, p4]
+        Sorting.sort(l, key=lambda x: x.name)
+        assert l == [p1, p2, p3, p4]
+
+        # sort by age desc
+        l = [p3, p2, p4, p1]
+        Sorting.sort(l, key=lambda x: x.age, reverse=True)
+        assert l == [p3, p2, p4, p1]
+
+        # sort by age asc
+        l = [p3, p2, p4, p1]
+        Sorting.sort(l, key=lambda x: x.age)
+        assert l == [p1, p4, p2, p3]
+
+        # sort by name,age ascending
+        l = [p3, p2, p1, p4]
+        Sorting.sort(l, key=lambda x: (x.name, x.age))
+        assert l == [p1, p2, p3, p4]
+
+        # sort by age descending and by name ascending
+        l = [p3, p2, p1, p4]
+        Sorting.sort(l, key=lambda x: (-x.age, x.name))
+        assert l == [p3, p2, p4, p1]
+
+    @staticmethod
+    def test_shake_sort() -> None:
+        l = [2, 1, 3]
+        Sorting.sort(l, algorithm=Algorithm.SHAKE_SORT)
+        assert l == [1, 2, 3]
+
+        Sorting.sort(l, reverse=True, algorithm=Algorithm.SHAKE_SORT)
+        assert l == [3, 2, 1]
+
+        l = [2, 1, 2, 3, 1]
+        Sorting.sort(l, algorithm=Algorithm.SHAKE_SORT)
+        assert l == [1, 1, 2, 2, 3]
+
+        Sorting.sort(l, reverse=True, algorithm=Algorithm.SHAKE_SORT)
+        assert l == [3, 2, 2, 1, 1]
+
+        p1 = Person("p1", 1)
+        p2 = Person("p2", 2)
+        p3 = Person("p3", 3)
+        p4 = Person("p4", 2)
+
+        # sort by name asc
+        l = [p3, p2, p1, p4]
+        Sorting.sort(l, key=lambda x: x.name, algorithm=Algorithm.SHAKE_SORT)
+        assert l == [p1, p2, p3, p4]
+
+        # sort by age desc
+        l = [p3, p2, p4, p1]
+        Sorting.sort(
+            l, key=lambda x: x.age, reverse=True, algorithm=Algorithm.SHAKE_SORT
+        )
+        assert l == [p3, p2, p4, p1]
+
+        # sort by age asc
+        l = [p3, p2, p4, p1]
+        Sorting.sort(l, key=lambda x: x.age, algorithm=Algorithm.SHAKE_SORT)
+        assert l == [p1, p2, p4, p3]
+
+        # sort by name,age ascending
+        l = [p3, p2, p1, p4]
+        Sorting.sort(l, key=lambda x: (x.name, x.age), algorithm=Algorithm.SHAKE_SORT)
+        assert l == [p1, p2, p3, p4]
+
+        # sort by age descending and by name ascending
+        l = [p3, p2, p1, p4]
+        Sorting.sort(l, key=lambda x: (-x.age, x.name), algorithm=Algorithm.SHAKE_SORT)
+        assert l == [p3, p2, p4, p1]

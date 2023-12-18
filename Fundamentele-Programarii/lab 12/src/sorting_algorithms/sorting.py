@@ -1,4 +1,4 @@
-from sorting.algorithms.algorithm import Algorithm
+from sorting_algorithms.algorithm import Algorithm
 
 
 class Sorting:

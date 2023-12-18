@@ -6,8 +6,8 @@ from infrastructure.fileRepository import (
 )
 from domain.entity import Student, Subject, Grade
 from domain.dto import GradeDTO, StudentDTO
-from sorting.sorting import Sorting
-from sorting.algorithms.algorithm import Algorithm
+from sorting_algorithms.sorting import Sorting
+from sorting_algorithms.algorithm import Algorithm
 from domain.recursive import Recursive
 
 
@@ -199,11 +199,7 @@ class ManagerGrade:
         dto_list = self.get_grades_dto_list()
         list_one_subject = list(filter(lambda x: x.subject.id == subject_id, dto_list))
 
-        Sorting.sort(
-            list_one_subject,
-            key=lambda x: x.student.name,
-            algorithm=Algorithm.SELECTION_SORT,
-        )
+        Sorting.sort(list_one_subject, key=lambda x: x.student.name, reverse=False)
 
         return list_one_subject
 
@@ -229,6 +225,7 @@ class ManagerGrade:
         Sorting.sort(
             dto_list,
             key=lambda x: x.average,
+            reverse=True,
             algorithm=Algorithm.SELECTION_SORT,
         )
 

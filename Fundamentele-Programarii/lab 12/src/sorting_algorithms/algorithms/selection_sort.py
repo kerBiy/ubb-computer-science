@@ -1,4 +1,4 @@
-from sorting.generic_sort import GenericSort
+from sorting_algorithms.algorithms.generic_sort import GenericSort
 
 
 class SelectionSort(GenericSort):
@@ -8,7 +8,7 @@ class SelectionSort(GenericSort):
     def sort(self) -> None:
         for i in range(len(self.iterable) - 1):
             for j in range(i + 1, len(self.iterable)):
-                if self._cmp(self.iterable[i], self.iterable[j]):
+                if not self._cmp(self.iterable[i], self.iterable[j]):
                     self.iterable[i], self.iterable[j] = (
                         self.iterable[j],
                         self.iterable[i],
