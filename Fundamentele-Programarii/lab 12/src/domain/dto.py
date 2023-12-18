@@ -12,7 +12,7 @@ class GradeDTO:
 
     def __str__(self) -> str:
         return (
-            f"{self.id}: {self.student.name} has an {self.value} at {self.subject.name}"
+            f"{self.id}: {self.student.name} has an {self.value}"
         )
 
     @property
@@ -41,7 +41,7 @@ class StudentDTO:
         self.__grades = grade_list
 
     def __str__(self) -> str:
-        return f"{self.id}: {self.name} has an average of {self.average}, {self.lowest_grade}"
+        return f"{self.id}: {self.name}"
 
     @property
     def id(self) -> int:

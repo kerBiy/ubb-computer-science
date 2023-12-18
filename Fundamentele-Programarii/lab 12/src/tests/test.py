@@ -1,5 +1,6 @@
 from sorting_algorithms.sorting import Sorting
 from sorting_algorithms.algorithm import Algorithm
+from domain.recursive import Recursive
 
 
 class Person:
@@ -24,6 +25,7 @@ class Test:
     def run_tests() -> None:
         Test.test_selection_sort()
         Test.test_shake_sort()
+        Test.test_recursive_function()
         print("All tests passed")
 
     @staticmethod
@@ -119,3 +121,25 @@ class Test:
         l = [p3, p2, p1, p4]
         Sorting.sort(l, key=lambda x: (-x.age, x.name), algorithm=Algorithm.SHAKE_SORT)
         assert l == [p3, p2, p4, p1]
+
+    @staticmethod
+    def test_recursive_function() -> None:
+        # for 0 elements
+        l = [1, 2, 3, 4]
+        Recursive.get_20_percent(l, len(l))
+        assert l == []
+
+        # only one element
+        l = [1, 2, 3, 4, 5]
+        Recursive.get_20_percent(l, len(l))
+        assert l == [1]
+
+        # for 20 items
+        l = list(range(1, 101))
+        Recursive.get_20_percent(l, len(l))
+        assert l == list(range(1, 21))
+
+        # for reversed 20 items
+        l = list(reversed(range(100)))
+        Recursive.get_20_percent(l, len(l))
+        assert l == list(reversed(range(80, 100)))
