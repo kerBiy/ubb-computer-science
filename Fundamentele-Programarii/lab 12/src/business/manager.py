@@ -224,7 +224,11 @@ class ManagerGrade:
 
         Sorting.sort(
             dto_list,
-            key=lambda x: x.average,
+            cmp=lambda a, b: 0
+            if a.average == b.average
+            else -1
+            if a.average < b.average
+            else 1,
             reverse=True,
             algorithm=Algorithm.SELECTION_SORT,
         )

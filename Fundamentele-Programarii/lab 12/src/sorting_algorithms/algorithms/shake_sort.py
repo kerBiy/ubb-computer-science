@@ -2,8 +2,8 @@ from sorting_algorithms.algorithms.generic_sort import GenericSort
 
 
 class ShakeSort(GenericSort):
-    def __init__(self, iterable, key, reverse) -> None:
-        super().__init__(iterable, key, reverse)
+    def __init__(self, iterable, key, reverse, cmp) -> None:
+        super().__init__(iterable, key, reverse, cmp)
 
     def sort(self) -> None:
         forward = range(len(self.iterable) - 1)
@@ -12,7 +12,7 @@ class ShakeSort(GenericSort):
                 swapped = False
 
                 for i in indices:
-                    if not self._cmp(self.iterable[i], self.iterable[i + 1]):
+                    if not self._in_order(self.iterable[i], self.iterable[i + 1]):
                         self.iterable[i], self.iterable[i + 1] = (
                             self.iterable[i + 1],
                             self.iterable[i],
