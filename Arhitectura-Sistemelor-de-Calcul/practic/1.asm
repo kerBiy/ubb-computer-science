@@ -10,9 +10,9 @@ import  fclose msvcrt.dll
 
 ; Sa se citeasca de la tastatura un nr n, apoi sa se citeasca mai multe cuvinte, pana cand se citeste #. Se se scrie intr-un fisier cuvintele care au cel putin n vocale.
 segment data use32 class=data 
-    nume_fisier db "nush.txt", 0
-    descriptor_fisier dd 0
-    mod_acces db "a", 0
+    nume_fisier db "nush2.txt", 0
+    descriptor_fisier dd -1
+    mod_acces db "w", 0
 
     n dd 0
     cuvant times 20 db 0
@@ -66,14 +66,18 @@ segment code use32 class=code
                 dec ebx
             vocala:
                 inc ebx
+                
+                cmp al, 0
+                je terminat
             jmp repeta
-
+            
+        terminat:
             cmp ebx, [n]
             jb nu_afisa
 
             push dword cuvant
             push dword format_afisare
-            push dword descriptor_fiseier
+            push dword [descriptor_fisier]
             call [fprintf]
             add esp, 4 * 3
 

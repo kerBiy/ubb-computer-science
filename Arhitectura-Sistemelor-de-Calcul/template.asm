@@ -1,12 +1,12 @@
 bits 32 
-global  start 
+global start 
 
-extern  exit 
-import  exit msvcrt.dll
+extern exit 
+import exit msvcrt.dll
 
-; expresition
+; cerinta
 segment data use32 class=data 
-    ; variabiles
+
 
 segment code use32 class=code 
     start: 
