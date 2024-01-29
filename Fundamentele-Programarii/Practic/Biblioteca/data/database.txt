@@ -1,0 +1,5 @@
+1,Harry Potter,J. K. Rollings,2005,49.99
+2,The Price,Nicolo Machiaveli,1750,35.0
+53,Crime and Punishment,iobag,1880,69.99
+445,Metamorphosis,iobag,1900,29.98
+5,Mama ta,iobag,2024,99.0
