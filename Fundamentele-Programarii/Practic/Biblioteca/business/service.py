@@ -12,22 +12,44 @@ class Service:
     def __init__(self, repository: Repository) -> None:
         self.__repository = repository
         self.__history = [deepcopy(self.__repository.items)]
+        self.__filter = ("", -1)
 
-    def add_book(
-        self, id: int, title: str, author: str, year: int, price: float
-    ) -> None:
+    @property
+    def filter(self) -> tuple:
+        return self.__filter
+
+    @filter.setter
+    def filter(self, new_filter: tuple) -> None:
+        self.__filter = new_filter
+
+    def filter_list(self) -> list[Book]:
+        """
+        It filters the list by the self.filter attribute
+        Return: a list filtered
+        """
+        return (
+            [
+                item
+                for item in self.__repository.items
+                if self.filter[0] in item.title and item.year <= self.filter[1]
+            ]
+            if self.filter != ("", -1)
+            else self.__repository.items
+        )
+
+    def add_book(self, id: int, title: str, author: str, year: int) -> None:
         """
         Adds a new book with the params as proprieties
         """
-        new_book = Book(id, title, author, year, price)
+        new_book = Book(id, title, author, year)
         self.__repository.add(new_book)
 
-    def modify_book(self, digit: int, author: str) -> None:
+    def modify_book(self, digit: int, new_author: str) -> None:
         """
         Modifies the books that have the digit in their ids
         """
         try:
-            self.__repository.modify(digit, author)
+            self.__repository.modify(digit, new_author)
         except RepoError as re:
             print("Repository Error:", re)
 

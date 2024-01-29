@@ -8,15 +8,25 @@ class Console:
         self.__options = {
             "1": self.__add_book,
             "2": self.__modify_book,
+            "3": self.__set_filter,
             "z": self.__undo,
             "x": self.__exit_app,
         }
 
+    def __print_items(self) -> None:
+        title, year = self.__service.filter
+        print(f"\nFilter by: {title}, {year}")
+        filtrated_list = self.__service.filter_list()
+
+        for item in filtrated_list:
+            print(item)
+
     def __print_menu(self) -> None:
         print("\nOPTION MENU")
         print("Press 1 to add a book")
-        print("Press 2 to modify an existing book")
-        print("Press z to undo")
+        print("Press 2 to modify some books")
+        print("Press 3 to set the filter")
+        print("Press z to undo the last operation")
         print("Press x to exit the app")
 
     def __add_book(self) -> None:
@@ -25,9 +35,8 @@ class Console:
             title = input("Enter the title: ")
             author = input("Enter the author: ")
             year = int(input("Enter the year: "))
-            price = float(input("Enter the price: "))
 
-            self.__service.add_book(id, title, author, year, price)
+            self.__service.add_book(id, title, author, year)
         except ValueError:
             print("Value Error: Next time enter a fucking number.")
 
@@ -39,6 +48,12 @@ class Console:
             self.__service.modify_book(digit, new_author)
         except ValueError:
             print("Value Error: Next time enter a fucking number.")
+
+    def __set_filter(self) -> None:
+        title = input("Enter the title you want to filter by: ")
+        year = int(input("Enter the year you want to filter by: "))
+
+        self.__service.filter = title, year
 
     def __undo(self) -> None:
         try:
@@ -53,6 +68,8 @@ class Console:
 
     def run(self) -> None:
         while True:
+            self.__print_items()
+
             self.__print_menu()
             option = input("\n>>> ")
 

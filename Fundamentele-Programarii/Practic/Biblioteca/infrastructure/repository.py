@@ -26,13 +26,7 @@ class Repository:
         with open(self.__file_name, "r") as file:
             for line in file:
                 record = line.strip().split(",")
-                book = Book(
-                    int(record[0]),
-                    record[1],
-                    record[2],
-                    int(record[3]),
-                    float(record[4]),
-                )
+                book = Book(int(record[0]), record[1], record[2], int(record[3]))
                 self.items.append(book)
 
     def save_items(self) -> None:
@@ -42,7 +36,7 @@ class Repository:
         with open(self.__file_name, "w") as file:
             for item in self.items:
                 new_line = (
-                    f"{item.id},{item.title},{item.author},{item.year},{item.price}\n"
+                    f"{item.id},{item.title},{item.author},{item.year}\n"
                 )
                 file.write(new_line)
 
