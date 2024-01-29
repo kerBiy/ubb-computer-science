@@ -1,6 +1,7 @@
 from ui.console import Console
 from business.service import Service
 from infrastructure.repository import Repository
+from tests.test import Test
 
 
 class Application:
@@ -14,5 +15,8 @@ class Application:
 
 
 if __name__ == "__main__":
+    test = Test()
+    test.run_all()
+
     app = Application()
     app.main()
