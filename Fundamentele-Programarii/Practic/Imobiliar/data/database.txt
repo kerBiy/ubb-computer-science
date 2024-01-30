@@ -1,0 +1,5 @@
+23,str. Cernei nr. 10 Cluj-Napoca,50000.0,vanzare
+24,str. Mama nr. 12 Cluj-Napoca,300.0,chirie
+25,str. Tata nr. 3 Cluj-Napoca,80000.0,vanzare
+26,str. Nigger nr. 4 Cluj-Napoca,100000.0,vanzare
+46,str. Cainele nr. 1 Cluj-Napoca,500.0,chirie
