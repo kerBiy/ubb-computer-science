@@ -1,8 +1,10 @@
 bits 32 
 global start 
 
-extern exit 
+extern exit, scanf, printf
 import exit msvcrt.dll
+import scanf msvcrt.dll
+import printf msvcrt.dll
 
 ; Citim un n de la tastatura, apoi n dublucuvinte, Se cere sa se stocheze in memorie toate n dublucuvintele, apoi sa se formeze un nou sir de octeti, in care stocam suma cifrelor pare din fiecare dublucuvant citit
 segment data use32 class=data 
@@ -16,8 +18,8 @@ segment data use32 class=data
 
     output_list times (len + 1) db 0
 
-    read_format "%d", 0
-    print_format "%d", 0
+    read_format db "%d", 0
+    print_format db "%d ", 0
 
 segment code use32 class=code 
     start: 
@@ -54,7 +56,7 @@ segment code use32 class=code
 
             while_loop:
                 xor edx, edx
-                div dword [zece]
+                div dword [ten]
 
                 test edx, 1
                 jnz not_even
