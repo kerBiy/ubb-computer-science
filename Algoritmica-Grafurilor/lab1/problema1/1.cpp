@@ -1,94 +1,98 @@
-// 1. Fie un fisier ce contine un graf neorientat reprezentat sub forma : prima linie contine numarul nodurilor iar urmatoarele randuri muchiile grafului.Sa se scrie un program in C / C++ care sa citeasca fisierul si sa reprezinte / stocheze un graf folosind matricea de adiacenta, lista de adiacenta si matricea de incidenta.Sa se converteasca un graf dintr - o forma de reprezentare in alta.
-
 #include <iostream>
 #include <fstream>
+#include <vector>
 
-void matrice_adiacenta()
+using std::vector;
+
+void printMatrix(const vector<vector<int>> &matrix)
 {
-    std::ifstream fin("in.txt");
-
-    int graf[101][101] = {};
-
-    int vertex, edges;
-    fin >> vertex >> edges;
-
-    for (int i = 1; i <= edges; ++i)
+    for (const auto &row : matrix)
     {
-        int first_vertex, second_vertex;
-        fin >> first_vertex >> second_vertex;
+        for (int val : row)
+            std::cout << val << ' ';
 
-        graf[first_vertex][second_vertex] = 1;
-        graf[second_vertex][first_vertex] = 1;
+        std::cout << '\n';
     }
-
-    for (int i = 1; i <= vertex; ++i, std::cout << "\n")
-        for (int j = 1; j <= vertex; ++j)
-            std::cout << graf[i][j] << ' ';
-    std::cout << "\n";
-
-    fin.close();
 }
 
-void lista_adiacenta()
+void printAdjacencyList(const vector<vector<int>> &adjacencyList)
 {
-    std::ifstream fin("in.txt");
-
-    int graf[101][101] = {};
-
-    int vertex, edges;
-    fin >> vertex >> edges;
-
-    for (int i = 1; i <= edges; ++i)
+    for (size_t i = 0; i < adjacencyList.size(); ++i)
     {
-        int first_vertex, second_vertex;
-        fin >> first_vertex >> second_vertex;
+        std::cout << i + 1 << ": ";
 
-        graf[first_vertex][graf[first_vertex][0] + 1] = second_vertex;
-        graf[first_vertex][0]++;
+        for (const int j : adjacencyList[i])
+            std::cout << j + 1 << " ";
 
-        graf[second_vertex][graf[second_vertex][0] + 1] = first_vertex;
-        graf[second_vertex][0]++;
+        std::cout << '\n';
     }
-
-    for (int i = 1; i <= vertex; ++i, std::cout << '\n')
-        for (int j = 1; j <= graf[i][0]; ++j)
-            std::cout << graf[i][j] << " ";
-    std::cout << "\n";
-
-    fin.close();
 }
 
-void matrice_incidenta()
+vector<vector<int>> transformIntoAdjacencyList(const vector<vector<int>> &adjacencyMatrix, int numNodes)
 {
-    std::ifstream fin("in.txt");
+    vector<vector<int>> adjacencyList(numNodes);
 
-    int graf[101][101] = {};
+    for (int i = 0; i < numNodes; ++i)
+        for (int j = 0; j < numNodes; ++j)
+            if (adjacencyMatrix[i][j] == 1)
+                adjacencyList[i].push_back(j);
 
-    int vertex, edges;
-    fin >> vertex >> edges;
+    return adjacencyList;
+}
 
-    for (int i = 1; i <= edges; ++i)
+vector<vector<int>> transformIntoIncidenceMatrix(const vector<vector<int>> &adjacencyMatrix, int numNodes, int numEdges)
+{
+    vector<vector<int>> incidenceMatrix(numNodes, vector<int>(numEdges, 0));
+    int edgeIndex = 0;
+
+    for (int i = 0; i < numNodes; ++i)
     {
-        int first_vertex, second_vertex;
-        fin >> first_vertex >> second_vertex;
-
-        graf[first_vertex][i] = 1;
-        graf[second_vertex][i] = 1;
+        for (int j = i + 1; j < numNodes; ++j)
+        {
+            if (adjacencyMatrix[i][j] == 1)
+            {
+                incidenceMatrix[i][edgeIndex] = 1;
+                incidenceMatrix[j][edgeIndex] = 1;
+                ++edgeIndex;
+            }
+        }
     }
 
-    for (int i = 1; i <= vertex; ++i, std::cout << "\n")
-        for (int j = 1; j <= edges; ++j)
-            std::cout << graf[i][j] << ' ';
-    std::cout << "\n";
-
-    fin.close();
+    return incidenceMatrix;
 }
 
 int main()
 {
-    matrice_adiacenta();
-    lista_adiacenta();
-    matrice_incidenta();
+    std::ifstream fin("in.txt");
+
+    int numNodes, numEdges;
+    fin >> numNodes >> numEdges;
+
+    vector<vector<int>> adjacencyMatrix(numNodes, vector<int>(numNodes, 0));
+
+    for (int i = 0; i < numEdges; ++i)
+    {
+        int first_node, second_node;
+        fin >> first_node >> second_node;
+
+        adjacencyMatrix[first_node - 1][second_node - 1] = 1;
+        adjacencyMatrix[second_node - 1][first_node - 1] = 1;
+    }
+
+    std::cout << "Matricea de adiacenta:\n";
+    printMatrix(adjacencyMatrix);
+
+    fin.close();
+
+    vector<vector<int>> adjacencyList = transformIntoAdjacencyList(adjacencyMatrix, numNodes);
+
+    std::cout << "\nLista de adiacenta:\n";
+    printAdjacencyList(adjacencyList);
+
+    vector<vector<int>> incidenceMatrix = transformIntoIncidenceMatrix(adjacencyMatrix, numNodes, numEdges);
+
+    std::cout << "\nMatricea de incidenta:\n";
+    printMatrix(incidenceMatrix);
 
     return 0;
 }
