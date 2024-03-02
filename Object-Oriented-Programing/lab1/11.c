@@ -15,28 +15,27 @@ int onSegment(Point p, Point q, Point r) {
     Params: p, q, r. The points defining the segment and the point to check for membership.
     Returns: 1 if point q lies on segment pr, otherwise 0.
     */
-    if (q.x <= max(p.x, r.x) && q.x >= min(p.x, r.x) &&
-        q.y <= max(p.y, r.y) && q.y >= min(p.y, r.y))
-        return 1;
-    return 0;
+    return (q.x <= max(p.x, r.x) && q.x >= min(p.x, r.x) 
+            && q.y <= max(p.y, r.y) && q.y >= min(p.y, r.y)) 
+            ? 1 : 0;
 }
 
-Point findIntersection(Point p1, Point q1, Point p2, Point q2) {
+Point findIntersection(Point a, Point b, Point c, Point d) {
     /*
-    This function calculates the intersection point of two line segments defined by the endpoints p1, q1 and p2, q2, respectively.
-    Params: p1, q1: The endpoints of the first line segment.
-            p2, q2: The endpoints of the second line segment.
+    This function calculates the intersection point of two line segments defined by the endpoints a, b and c, d, respectively.
+    Params: a, b: The endpoints of the first line segment.
+            c, d: The endpoints of the second line segment.
     Returns: intersection: The intersection point of the two line segments. If the segments are parallel or colinear but do not overlap, the coordinates of the intersection point are (-1, -1).
     */
     Point intersection;
 
-    float a1 = q1.y - p1.y;
-    float b1 = p1.x - q1.x;
-    float c1 = a1 * (p1.x) + b1 * (p1.y);
+    float a1 = b.y - a.y;
+    float b1 = a.x - b.x;
+    float c1 = a1 * (a.x) + b1 * (a.y);
 
-    float a2 = q2.y - p2.y;
-    float b2 = p2.x - q2.x;
-    float c2 = a2 * (p2.x) + b2 * (p2.y);
+    float a2 = d.y - c.y;
+    float b2 = c.x - d.x;
+    float c2 = a2 * (c.x) + b2 * (c.y);
 
     float determinant = a1 * b2 - a2 * b1;
 
@@ -47,23 +46,34 @@ Point findIntersection(Point p1, Point q1, Point p2, Point q2) {
         intersection.x = (b2 * c1 - b1 * c2) / determinant;
         intersection.y = (a1 * c2 - a2 * c1) / determinant;
     }
+
     return intersection;
 }
 
-int main() {
-    // Definirea coordonatelor pentru segmentul 1
-    Point p1 = {1, 1};
-    Point q1 = {4, 4};
-    // Definirea coordonatelor pentru segmentul 2
-    Point p2 = {1, 4};
-    Point q2 = {4, 1};
+void getUserInput(Point *a, Point *b, Point *c, Point *d) {
+    printf("Enter the coords for a: ");
+    scanf("%f %f", &a->x, &a->y);
+    printf("Enter the coords for b: ");
+    scanf("%f %f", &b->x, &b->y);
+    printf("Enter the coords for c: ");
+    scanf("%f %f", &c->x, &c->y);
+    printf("Enter the coords for d: ");
+    scanf("%f %f", &d->x, &d->y);
+}
 
-    // Verificarea dacă segmentele se intersectează
-    Point intersection = findIntersection(p1, q1, p2, q2);
-    if (intersection.x != -1 && intersection.y != -1 && onSegment(p1, intersection, q1) && onSegment(p2, intersection, q2)) {
-        printf("Segmentele se intersectează în punctul (%.2f, %.2f)\n", intersection.x, intersection.y);
-    } else {
-        printf("Segmentele nu se intersectează.\n");
+int main() {
+    Point a, b, c, d;
+
+    while (1) {
+        getUserInput(&a, &b, &c, &d);
+
+        Point intersection = findIntersection(a, b, c, d);
+
+        if (intersection.x != -1 && intersection.y != -1 && onSegment(a, intersection, b) && onSegment(c, intersection, d)) {
+            printf("The segments are intersecting in: (%.2f, %.2f).\n", intersection.x, intersection.y);
+        } else {
+            printf("The segments are not intersecting.\n");
+        }
     }
 
     return 0;
