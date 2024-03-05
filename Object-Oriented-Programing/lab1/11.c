@@ -50,31 +50,80 @@ Point findIntersection(Point a, Point b, Point c, Point d) {
     return intersection;
 }
 
-void getUserInput(Point *a, Point *b, Point *c, Point *d) {
+void prob11() {
+    Point a, b, c, d;
+
     printf("Enter the coords for a: ");
-    scanf("%f %f", &a->x, &a->y);
+    scanf("%f %f", &a.x, &a.y);
     printf("Enter the coords for b: ");
-    scanf("%f %f", &b->x, &b->y);
+    scanf("%f %f", &b.x, &b.y);
     printf("Enter the coords for c: ");
-    scanf("%f %f", &c->x, &c->y);
+    scanf("%f %f", &c.x, &c.y);
     printf("Enter the coords for d: ");
-    scanf("%f %f", &d->x, &d->y);
+    scanf("%f %f", &d.x, &d.y);
+
+    Point intersection = findIntersection(a, b, c, d);
+
+    if (intersection.x != -1 && intersection.y != -1 && onSegment(a, intersection, b) && onSegment(c, intersection, d)) {
+        printf("The segments are intersecting in: (%.2f, %.2f).\n", intersection.x, intersection.y);
+    } else {
+        printf("The segments are not intersecting.\n");
+        }
+}
+
+int isPrime(int nr) {
+    /*
+        This function checks if a number is prime
+        param nr: a integer number
+        return: 1 if a is a prime number 0 otherwise
+    */
+    if (nr <= 1) 
+        return 0;
+    if (nr != 2 && nr % 2 == 0) 
+        return 0;
+
+    for (int i = 3; i * i <= nr; i += 2) {
+        if (nr % i == 0)
+            return 0;
+    }
+    return 1;
+}
+
+void prob14() {
+    /*Descompune un numar natural par, mai mare strict ca 2, intr-o suma
+    de doua numere prime (verificarea ipotezei lui Goldbach).*/
+    int n;
+    printf("Enter the number: ");
+    scanf("%d", &n);
+
+    if (n % 2 != 0 || n < 4) {
+        printf("The number is invalid for the theorem.\n");
+        return;
+    }
+
+    for (int i = 2; i <= n; ++i)
+        if (isPrime(i) && isPrime(n - i))
+            printf("The numbers are %d + %d\n", i, n - i);
 }
 
 int main() {
-    Point a, b, c, d;
 
     while (1) {
-        getUserInput(&a, &b, &c, &d);
+        int option = 0;
 
-        Point intersection = findIntersection(a, b, c, d);
+        printf("Enter the mode: ");
+        scanf("%d", &option);
 
-        if (intersection.x != -1 && intersection.y != -1 && onSegment(a, intersection, b) && onSegment(c, intersection, d)) {
-            printf("The segments are intersecting in: (%.2f, %.2f).\n", intersection.x, intersection.y);
-        } else {
-            printf("The segments are not intersecting.\n");
-        }
+        if (option == 1) 
+            prob11();
+        else if (option == 2)
+            prob14();
+        else if (option == 0)
+            break;
+        else 
+            printf("The command is not valid.\n");
     }
 
     return 0;
 }
+// problema 1

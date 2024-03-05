@@ -117,7 +117,7 @@ public:
         for (bool visit : visited)
             if (!visit)
                 return false;
-                
+
         return true;
     }
 };
