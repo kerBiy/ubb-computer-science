@@ -1,18 +1,22 @@
 #pragma once
-#include "VectorDinamic.h"
 
-class IteratorVectorDinamic {
-	friend class VectorDinamic;
-private:
+class Multime;
+typedef int TElem;
+
+class IteratorMultime
+{
+	friend class Multime;
+private:
+
 	//constructorul primeste o referinta catre Container
 	//iteratorul va referi primul element din container
-
-	IteratorVectorDinamic(const VectorDinamic&);
+	IteratorMultime(const Multime& m);
 
 	//contine o referinta catre containerul pe care il itereaza
-	const VectorDinamic& v;
+	const Multime& multime;
+	/* aici e reprezentarea  specifica a iteratorului */
 
-	/* aici e reprezentarea specifica a iteratorului */
+
 public:
 
 		//reseteaza pozitia iteratorului la inceputul containerului
@@ -27,5 +31,5 @@ public:
 
 		//returneaza valoarea elementului din container referit de iterator
 		//arunca exceptie daca iteratorul nu e valid
-		TElem element() const;
+		TElem element() const;
 };
