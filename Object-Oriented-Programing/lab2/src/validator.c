@@ -1,19 +1,18 @@
 #include "../include/validator.h"
-#include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
-// int isValidScore(int score) {
-//     return (score >= 0 && score <= 10);
-// }
+int isValidScore(int score) {
+    return (score >= 0 && score <= 100);
+}
 
-// int isValidName(const char* name) {
-//     while (*name) {
-//         if (!isalpha(*name) && !isspace(*name))
-//             return 0;
-//         name++;
-//     }
-//     return 1;
-// }
+int isValidName(const char* name) {
+    for (size_t i = 0, n = strlen(name); i < n; ++i) 
+        if (!isalpha(name[i]))
+            return 0;
+    
+    return 1;
+}
 
 // int isValidNamePrefix(const char* namePrefix) {
 //     return (strlen(namePrefix) == 1 && isalpha(namePrefix[0]));

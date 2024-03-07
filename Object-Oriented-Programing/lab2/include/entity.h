@@ -1,5 +1,4 @@
-#ifndef ENTITY_H
-#define ENTITY_H
+#pragma once
 
 typedef struct
 {
@@ -9,7 +8,6 @@ typedef struct
 } Participant;
 
 Participant *createParticipant(const char *firstName, const char *lastName, int score);
-void updateParticipant(Participant *participant, const char *firstName, const char *lastName, int score);
+void updateParticipant(Participant *participant, int newScore);
 void destroyParticipant(Participant *participant);
-
-#endif
+void printParticipant(Participant *participant);

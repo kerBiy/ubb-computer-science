@@ -1,7 +1,15 @@
-#ifndef CONSOLE_H
-#define CONSOLE_H
+#pragma once
 
-void consoleRun();
+#include "service.h"
+
+void uiInnit();
+
 void printMenu();
+void uiPrintParticipants();
 
-#endif
+void uiAddParticipant();
+void uiDeleteParticipant();
+void uiUpdateParticipant();
+
+void deallocateMemory();
+void consoleRun();

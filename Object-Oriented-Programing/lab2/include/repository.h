@@ -1,23 +1,23 @@
-#ifndef REPOSITORY_H
-#define REPOSITORY_H
+#pragma once
 
 #include "entity.h"
 
 typedef struct
 {
-    Participant* participants[101];
+    Participant* items[101];
     int size;
 } List;
 
 List *createList();
-void destroyList(List* list);
-void addParticipant(List* list, Participant* participant);
-// void updateParticipantScore(List list, const char *firstName, const char *lastName, int newScore);
-// void deleteParticipant(List list, const char *firstName, const char *lastName);
+void destroyList(List *list);
+void addParticipant(List *list, Participant* participant);
+int updateParticipantScore(List *list, const char *firstName, const char *lastName, int newScore);
+int deleteParticipant(List *list, const char *firstName, const char *lastName);
+Participant *findParticipant(List *list, const char *firstName, const char *lastName);
+int findIndex(List *list, const char *firstName, const char *lastName);
 // void filterParticipantsByScore(List list, int scoreThreshold);
 // void filterParticipantsByName(List list, const char *namePrefix);
 // void sortParticipantsByName(List list, int ascending);
 // void sortParticipantsByScore(List list, int ascending);
 // void printParticipants(List list);
 
-#endif

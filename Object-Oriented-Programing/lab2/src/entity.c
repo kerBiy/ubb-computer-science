@@ -18,12 +18,14 @@ Participant *createParticipant(const char* firstName, const char* lastName, int 
     return participant;
 }
 
-void updateParticipant(Participant *participant, const char* firstName, const char* lastName, int score) {
-    strcpy(participant->firstName, firstName);
-    strcpy(participant->lastName, lastName);
-    participant->score = score;
+void updateParticipant(Participant *participant, int newScore) {
+    participant->score = newScore;
 }
 
 void destroyParticipant(Participant* participant) {
     free(participant);
 }
+
+void printParticipant(Participant* participant) {
+    printf("%s %s: %d\n", participant->firstName, participant->lastName, participant->score);
+} 
