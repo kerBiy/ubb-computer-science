@@ -1,7 +1,6 @@
 #pragma once
 #include "repository.h"
 #include "validator.h"
-#include <stdio.h>
 
 List *list;
 void managerInnit();

@@ -1,7 +1,4 @@
 #include "../include/entity.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 Participant *createParticipant(const char* firstName, const char* lastName, int score) {
     Participant *participant = (Participant*)malloc(sizeof(Participant));

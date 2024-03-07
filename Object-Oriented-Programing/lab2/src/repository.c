@@ -1,7 +1,4 @@
 #include "../include/repository.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 List *createList() {
     List *list = (List *)malloc(sizeof(List));
@@ -30,7 +27,7 @@ int updateParticipantScore(List *list, const char *firstName, const char *lastNa
     Participant* participant = findParticipant(list, firstName, lastName);
 
     if (participant == NULL) {
-        printf("Error not found.");
+        printf("Error not found.\n");
         return 0;
     }
 
@@ -42,7 +39,7 @@ int deleteParticipant(List *list, const char *firstName, const char *lastName) {
     int poz = findIndex(list, firstName, lastName);
 
     if (poz == -1) {
-        printf("Error not found.");
+        printf("Error not found.\n");
         return 0;
     }
 

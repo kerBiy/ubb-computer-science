@@ -25,7 +25,7 @@ void managerAddParticipant(const char *firstName, const char *lastName, int scor
 int managerDeleteParticipant(const char *firstName, const char *lastName){
     if (!isValidName(firstName) || !isValidName(lastName)) {
         printf("Service error.\n");
-        return;
+        return 0;
     }
 
     return deleteParticipant(list, firstName, lastName);
@@ -34,7 +34,7 @@ int managerDeleteParticipant(const char *firstName, const char *lastName){
 int managerUpdateParticipant(const char *firstName, const char *lastName, int newScore) {
     if (!isValidName(firstName) || !isValidName(lastName) || !isValidScore(newScore)) {
         printf("Service error.\n");
-        return;
+        return 0;
     }
 
     return updateParticipantScore(list, firstName, lastName, newScore);
