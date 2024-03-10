@@ -6,7 +6,7 @@ void uiInnit() {
 }
 
 void deallocateMemory() {
-    // managerDestroy();
+    managerDestroy();
 }
 
 void printMenu() {
@@ -20,17 +20,17 @@ void printMenu() {
 }
 
 void uiPrintParticipants() {
-    List list = managerGetAll();
+    List *list = managerGetAll();
     
-    if (list.size == 0) {
+    if (list->size == 0) {
         printf("There are no participants.\n");
         return;
     }
 
     printf("The participants are:\n");
 
-    for (int i = 0; i < list.size; ++i)
-        printParticipant(list.items[i]);
+    for (int i = 0; i < list->size; ++i)
+        printParticipant(list->items[i]);
 }
 
 void uiAddParticipant() {

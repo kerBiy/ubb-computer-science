@@ -1,21 +1,27 @@
 #include "../include/entity.h"
 
-Participant createParticipant(const char* firstName, const char* lastName, int score) {
-    Participant participant;
+Participant *createParticipant(const char* firstName, const char* lastName, int score) {
+    Participant *participant = (Participant*)malloc(sizeof(Participant));
 
-    strcpy(participant.firstName, firstName);
-    strcpy(participant.lastName, lastName);
-    participant.score = score;
+    participant->firstName = (char*)malloc((strlen(firstName) + 1));
+    strcpy(participant->firstName, firstName);
+
+    participant->lastName = (char*)malloc((strlen(lastName) + 1));
+    strcpy(participant->lastName, lastName);
+
+    participant->score = score;
 
     return participant;
 }
 
 void destroyParticipant(Participant *participant) {
-    // free(participant);
+    free(participant->firstName);
+    free(participant->lastName);
+    free(participant);
 }
 
-void printParticipant(Participant participant) {
-    printf("%s %s: %d\n", participant.firstName, participant.lastName, participant.score);
+void printParticipant(Participant *participant) {
+    printf("%s %s: %d\n", participant->firstName, participant->lastName, participant->score);
 } 
 
 char *getFirstName(Participant *participant) {

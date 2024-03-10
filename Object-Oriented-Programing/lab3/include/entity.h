@@ -5,14 +5,14 @@
 
 typedef struct
 {
-    char firstName[50];
-    char lastName[50];
+    char *firstName;
+    char *lastName;
     int score;
 } Participant;
 
-Participant createParticipant(const char *firstName, const char *lastName, int score);
+Participant *createParticipant(const char *firstName, const char *lastName, int score);
 void destroyParticipant(Participant *participant);
-void printParticipant(Participant participant);
+void printParticipant(Participant *participant);
 
 char *getFirstName(Participant *participant);
 char *getLastName(Participant *participant);

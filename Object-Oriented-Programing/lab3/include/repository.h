@@ -3,13 +3,16 @@
 
 typedef struct
 {
-    Participant items[101];
+    Participant** items;
     int size;
+    int capacity;
 } List;
 
-List createList();
+List *createList();
 void destroyList(List *list);
-void addParticipant(List *list, Participant participant);
+void resizeList(List *list);
+
+void addParticipant(List *list, Participant *participant);
 int updateParticipant(List *list, const char *firstName, const char *lastName, int newScore);
 int deleteParticipant(List *list, const char *firstName, const char *lastName);
 int findIndex(List *list, const char *firstName, const char *lastName);
