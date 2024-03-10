@@ -8,5 +8,4 @@
 
 void entityTests();
 void repoTests();
-void serviceTests();
 void runTests();

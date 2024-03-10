@@ -14,7 +14,7 @@ List *createList() {
 
 void destroyList(List* list) {
     for (int i = 0; i < list->size; ++i)
-        destroyParticipant(list->items[i]);
+        destroyParticipant(&list->items[i]);
     free(list);
 }
 
@@ -31,7 +31,7 @@ int updateParticipant(List *list, const char *firstName, const char *lastName, i
         return 0;
     }
 
-    list->items[poz].score = newScore;
+    setScore(&list->items[poz], newScore);
     return 1;
 }
 
@@ -43,7 +43,7 @@ int deleteParticipant(List *list, const char *firstName, const char *lastName) {
         return 0;
     }
 
-    destroyParticipant(list->items[poz]);
+    destroyParticipant(&list->items[poz]);
 
     for (int i = poz; i < list->size; ++i)
 		list->items[i] = list->items[i + 1];
@@ -54,7 +54,8 @@ int deleteParticipant(List *list, const char *firstName, const char *lastName) {
 
 int findIndex(List *list, const char *firstName, const char *lastName) {
     for(int i = 0; i < list->size; ++i) {
-        if (strcmp(list->items[i].firstName, firstName) == 0 && strcmp(list->items[i].lastName, lastName) == 0) 
+        if (strcmp(getFirstName(&list->items[i]), firstName) == 0
+            && strcmp(getLastName(&list->items[i]), lastName) == 0) 
             return i;
     }
     return -1;

@@ -10,10 +10,26 @@ Participant createParticipant(const char* firstName, const char* lastName, int s
     return participant;
 }
 
-void destroyParticipant(Participant participant) {
+void destroyParticipant(Participant *participant) {
     // free(participant);
 }
 
 void printParticipant(Participant participant) {
     printf("%s %s: %d\n", participant.firstName, participant.lastName, participant.score);
 } 
+
+char *getFirstName(Participant *participant) {
+    return participant->firstName;
+}
+
+char *getLastName(Participant *participant) {
+    return participant->lastName;
+}
+
+int getScore(Participant *participant) {
+    return participant->score;
+}
+
+void setScore(Participant *participant, int newScore) {
+    participant->score = newScore;
+}
