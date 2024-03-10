@@ -7,7 +7,7 @@ typedef struct
     int size;
 } List;
 
-List *createList();
+List createList();
 void destroyList(List *list);
 void addParticipant(List *list, Participant participant);
 int updateParticipant(List *list, const char *firstName, const char *lastName, int newScore);

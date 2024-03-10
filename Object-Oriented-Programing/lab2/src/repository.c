@@ -1,21 +1,15 @@
 #include "../include/repository.h"
 
-List *createList() {
-    List *list = (List *)malloc(sizeof(List));
-
-    if (list == NULL) {
-        printf("Memory Allocation Error.");
-        exit(EXIT_FAILURE);
-    }
-
-    list->size = 0;
+List createList() {
+    List list;
+    list.size = 0;
     return list;
 }
 
 void destroyList(List* list) {
     for (int i = 0; i < list->size; ++i)
         destroyParticipant(&list->items[i]);
-    free(list);
+    // free(list);
 }
 
 void addParticipant(List *list, Participant participant) {

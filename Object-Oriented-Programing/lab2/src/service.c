@@ -5,10 +5,10 @@ void managerInnit() {
 }
 
 void managerDestroy() {
-    destroyList(list);
+    destroyList(&list);
 }
 
-List *managerGetAll() {
+List managerGetAll() {
     return list;
 }
 
@@ -19,7 +19,7 @@ void managerAddParticipant(const char *firstName, const char *lastName, int scor
     }
 
     Participant participant = createParticipant(firstName, lastName, score);
-    addParticipant(list, participant);
+    addParticipant(&list, participant);
 }
 
 int managerDeleteParticipant(const char *firstName, const char *lastName){
@@ -28,7 +28,7 @@ int managerDeleteParticipant(const char *firstName, const char *lastName){
         return 0;
     }
 
-    return deleteParticipant(list, firstName, lastName);
+    return deleteParticipant(&list, firstName, lastName);
 }
 
 int managerUpdateParticipant(const char *firstName, const char *lastName, int newScore) {
@@ -37,5 +37,5 @@ int managerUpdateParticipant(const char *firstName, const char *lastName, int ne
         return 0;
     }
 
-    return updateParticipant(list, firstName, lastName, newScore);
+    return updateParticipant(&list, firstName, lastName, newScore);
 }
