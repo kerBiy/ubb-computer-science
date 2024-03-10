@@ -2,41 +2,45 @@
 triple:          'arm64-apple-darwin'
 binary-path:     app
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _uiInnit, symObjAddr: 0x0, symBinAddr: 0x100002FEC, symSize: 0x20 }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _uiInnit, symObjAddr: 0x0, symBinAddr: 0x100002F1C, symSize: 0x20 }
   - { offsetInCU: 0x4D, offset: 0x4D, size: 0x8, addend: 0x0, symName: _list, symBinAddr: 0x100008000, symSize: 0x0 }
-  - { offsetInCU: 0xDD, offset: 0xDD, size: 0x8, addend: 0x0, symName: _uiInnit, symObjAddr: 0x0, symBinAddr: 0x100002FEC, symSize: 0x20 }
-  - { offsetInCU: 0xF2, offset: 0xF2, size: 0x8, addend: 0x0, symName: _deallocateMemory, symObjAddr: 0x20, symBinAddr: 0x10000300C, symSize: 0x14 }
-  - { offsetInCU: 0x107, offset: 0x107, size: 0x8, addend: 0x0, symName: _printMenu, symObjAddr: 0x34, symBinAddr: 0x100003020, symSize: 0x64 }
-  - { offsetInCU: 0x11C, offset: 0x11C, size: 0x8, addend: 0x0, symName: _uiPrintParticipants, symObjAddr: 0x98, symBinAddr: 0x100003084, symSize: 0x9C }
-  - { offsetInCU: 0x15C, offset: 0x15C, size: 0x8, addend: 0x0, symName: _uiAddParticipant, symObjAddr: 0x134, symBinAddr: 0x100003120, symSize: 0xDC }
-  - { offsetInCU: 0x19C, offset: 0x19C, size: 0x8, addend: 0x0, symName: _uiDeleteParticipant, symObjAddr: 0x210, symBinAddr: 0x1000031FC, symSize: 0xD0 }
-  - { offsetInCU: 0x1DC, offset: 0x1DC, size: 0x8, addend: 0x0, symName: _uiUpdateParticipant, symObjAddr: 0x2E0, symBinAddr: 0x1000032CC, symSize: 0xF8 }
-  - { offsetInCU: 0x22A, offset: 0x22A, size: 0x8, addend: 0x0, symName: _consoleRun, symObjAddr: 0x3D8, symBinAddr: 0x1000033C4, symSize: 0xC0 }
-  - { offsetInCU: 0x26, offset: 0x282, size: 0x8, addend: 0x0, symName: _createParticipant, symObjAddr: 0x0, symBinAddr: 0x1000034AC, symSize: 0x90 }
-  - { offsetInCU: 0x8D, offset: 0x2E9, size: 0x8, addend: 0x0, symName: _createParticipant, symObjAddr: 0x0, symBinAddr: 0x1000034AC, symSize: 0x90 }
-  - { offsetInCU: 0xDF, offset: 0x33B, size: 0x8, addend: 0x0, symName: _updateParticipant, symObjAddr: 0x90, symBinAddr: 0x10000353C, symSize: 0x20 }
-  - { offsetInCU: 0x111, offset: 0x36D, size: 0x8, addend: 0x0, symName: _destroyParticipant, symObjAddr: 0xB0, symBinAddr: 0x10000355C, symSize: 0x24 }
-  - { offsetInCU: 0x135, offset: 0x391, size: 0x8, addend: 0x0, symName: _printParticipant, symObjAddr: 0xD4, symBinAddr: 0x100003580, symSize: 0x50 }
-  - { offsetInCU: 0x26, offset: 0x3E5, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000035D0, symSize: 0x34 }
-  - { offsetInCU: 0x3F, offset: 0x3FE, size: 0x8, addend: 0x0, symName: _list, symBinAddr: 0x100008000, symSize: 0x0 }
-  - { offsetInCU: 0xDD, offset: 0x49C, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000035D0, symSize: 0x34 }
-  - { offsetInCU: 0x26, offset: 0x502, size: 0x8, addend: 0x0, symName: _createList, symObjAddr: 0x0, symBinAddr: 0x100003604, symSize: 0x58 }
-  - { offsetInCU: 0xC8, offset: 0x5A4, size: 0x8, addend: 0x0, symName: _createList, symObjAddr: 0x0, symBinAddr: 0x100003604, symSize: 0x58 }
-  - { offsetInCU: 0xF0, offset: 0x5CC, size: 0x8, addend: 0x0, symName: _destroyList, symObjAddr: 0x58, symBinAddr: 0x10000365C, symSize: 0x6C }
-  - { offsetInCU: 0x130, offset: 0x60C, size: 0x8, addend: 0x0, symName: _addParticipant, symObjAddr: 0xC4, symBinAddr: 0x1000036C8, symSize: 0x3C }
-  - { offsetInCU: 0x162, offset: 0x63E, size: 0x8, addend: 0x0, symName: _updateParticipantScore, symObjAddr: 0x100, symBinAddr: 0x100003704, symSize: 0x80 }
-  - { offsetInCU: 0x1C2, offset: 0x69E, size: 0x8, addend: 0x0, symName: _findParticipant, symObjAddr: 0x180, symBinAddr: 0x100003784, symSize: 0xC8 }
-  - { offsetInCU: 0x222, offset: 0x6FE, size: 0x8, addend: 0x0, symName: _deleteParticipant, symObjAddr: 0x248, symBinAddr: 0x10000384C, symSize: 0xEC }
-  - { offsetInCU: 0x290, offset: 0x76C, size: 0x8, addend: 0x0, symName: _findIndex, symObjAddr: 0x334, symBinAddr: 0x100003938, symSize: 0xC4 }
-  - { offsetInCU: 0x26, offset: 0x7FC, size: 0x8, addend: 0x0, symName: _managerInnit, symObjAddr: 0x0, symBinAddr: 0x1000039FC, symSize: 0x20 }
-  - { offsetInCU: 0x4D, offset: 0x823, size: 0x8, addend: 0x0, symName: _list, symBinAddr: 0x100008000, symSize: 0x0 }
-  - { offsetInCU: 0xDD, offset: 0x8B3, size: 0x8, addend: 0x0, symName: _managerInnit, symObjAddr: 0x0, symBinAddr: 0x1000039FC, symSize: 0x20 }
-  - { offsetInCU: 0xF2, offset: 0x8C8, size: 0x8, addend: 0x0, symName: _managerDestroy, symObjAddr: 0x20, symBinAddr: 0x100003A1C, symSize: 0x20 }
-  - { offsetInCU: 0x107, offset: 0x8DD, size: 0x8, addend: 0x0, symName: _managerGetAll, symObjAddr: 0x40, symBinAddr: 0x100003A3C, symSize: 0x10 }
-  - { offsetInCU: 0x120, offset: 0x8F6, size: 0x8, addend: 0x0, symName: _managerAddParticipant, symObjAddr: 0x50, symBinAddr: 0x100003A4C, symSize: 0xA8 }
-  - { offsetInCU: 0x16E, offset: 0x944, size: 0x8, addend: 0x0, symName: _managerDeleteParticipant, symObjAddr: 0xF8, symBinAddr: 0x100003AF4, symSize: 0x88 }
-  - { offsetInCU: 0x1A4, offset: 0x97A, size: 0x8, addend: 0x0, symName: _managerUpdateParticipant, symObjAddr: 0x180, symBinAddr: 0x100003B7C, symSize: 0xA8 }
-  - { offsetInCU: 0x26, offset: 0x9EE, size: 0x8, addend: 0x0, symName: _isValidScore, symObjAddr: 0x0, symBinAddr: 0x100003C24, symSize: 0x48 }
-  - { offsetInCU: 0x33, offset: 0x9FB, size: 0x8, addend: 0x0, symName: _isValidScore, symObjAddr: 0x0, symBinAddr: 0x100003C24, symSize: 0x48 }
-  - { offsetInCU: 0x5B, offset: 0xA23, size: 0x8, addend: 0x0, symName: _isValidName, symObjAddr: 0x48, symBinAddr: 0x100003C6C, symSize: 0x94 }
+  - { offsetInCU: 0xD8, offset: 0xD8, size: 0x8, addend: 0x0, symName: _uiInnit, symObjAddr: 0x0, symBinAddr: 0x100002F1C, symSize: 0x20 }
+  - { offsetInCU: 0xED, offset: 0xED, size: 0x8, addend: 0x0, symName: _deallocateMemory, symObjAddr: 0x20, symBinAddr: 0x100002F3C, symSize: 0x14 }
+  - { offsetInCU: 0x102, offset: 0x102, size: 0x8, addend: 0x0, symName: _printMenu, symObjAddr: 0x34, symBinAddr: 0x100002F50, symSize: 0x64 }
+  - { offsetInCU: 0x117, offset: 0x117, size: 0x8, addend: 0x0, symName: _uiPrintParticipants, symObjAddr: 0x98, symBinAddr: 0x100002FB4, symSize: 0xEC }
+  - { offsetInCU: 0x157, offset: 0x157, size: 0x8, addend: 0x0, symName: _uiAddParticipant, symObjAddr: 0x184, symBinAddr: 0x1000030A0, symSize: 0xDC }
+  - { offsetInCU: 0x197, offset: 0x197, size: 0x8, addend: 0x0, symName: _uiDeleteParticipant, symObjAddr: 0x260, symBinAddr: 0x10000317C, symSize: 0xD0 }
+  - { offsetInCU: 0x1D7, offset: 0x1D7, size: 0x8, addend: 0x0, symName: _uiUpdateParticipant, symObjAddr: 0x330, symBinAddr: 0x10000324C, symSize: 0xF8 }
+  - { offsetInCU: 0x225, offset: 0x225, size: 0x8, addend: 0x0, symName: _consoleRun, symObjAddr: 0x428, symBinAddr: 0x100003344, symSize: 0xC0 }
+  - { offsetInCU: 0x26, offset: 0x27D, size: 0x8, addend: 0x0, symName: _createParticipant, symObjAddr: 0x0, symBinAddr: 0x10000342C, symSize: 0x60 }
+  - { offsetInCU: 0x41, offset: 0x298, size: 0x8, addend: 0x0, symName: _createParticipant, symObjAddr: 0x0, symBinAddr: 0x10000342C, symSize: 0x60 }
+  - { offsetInCU: 0x94, offset: 0x2EB, size: 0x8, addend: 0x0, symName: _destroyParticipant, symObjAddr: 0x60, symBinAddr: 0x10000348C, symSize: 0x10 }
+  - { offsetInCU: 0xB9, offset: 0x310, size: 0x8, addend: 0x0, symName: _printParticipant, symObjAddr: 0x70, symBinAddr: 0x10000349C, symSize: 0x48 }
+  - { offsetInCU: 0x26, offset: 0x3AC, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000034E4, symSize: 0x38 }
+  - { offsetInCU: 0x3F, offset: 0x3C5, size: 0x8, addend: 0x0, symName: _list, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0xD8, offset: 0x45E, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x1000034E4, symSize: 0x38 }
+  - { offsetInCU: 0x26, offset: 0x4C4, size: 0x8, addend: 0x0, symName: _createList, symObjAddr: 0x0, symBinAddr: 0x10000351C, symSize: 0x58 }
+  - { offsetInCU: 0xC3, offset: 0x561, size: 0x8, addend: 0x0, symName: _createList, symObjAddr: 0x0, symBinAddr: 0x10000351C, symSize: 0x58 }
+  - { offsetInCU: 0xEB, offset: 0x589, size: 0x8, addend: 0x0, symName: _destroyList, symObjAddr: 0x58, symBinAddr: 0x100003574, symSize: 0xBC }
+  - { offsetInCU: 0x12B, offset: 0x5C9, size: 0x8, addend: 0x0, symName: _addParticipant, symObjAddr: 0x114, symBinAddr: 0x100003630, symSize: 0x58 }
+  - { offsetInCU: 0x15E, offset: 0x5FC, size: 0x8, addend: 0x0, symName: _updateParticipant, symObjAddr: 0x16C, symBinAddr: 0x100003688, symSize: 0x90 }
+  - { offsetInCU: 0x1BE, offset: 0x65C, size: 0x8, addend: 0x0, symName: _findIndex, symObjAddr: 0x1FC, symBinAddr: 0x100003718, symSize: 0xD4 }
+  - { offsetInCU: 0x21E, offset: 0x6BC, size: 0x8, addend: 0x0, symName: _deleteParticipant, symObjAddr: 0x2D0, symBinAddr: 0x1000037EC, symSize: 0x158 }
+  - { offsetInCU: 0x26, offset: 0x75A, size: 0x8, addend: 0x0, symName: _managerInnit, symObjAddr: 0x0, symBinAddr: 0x100003944, symSize: 0x20 }
+  - { offsetInCU: 0x4D, offset: 0x781, size: 0x8, addend: 0x0, symName: _list, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0xD8, offset: 0x80C, size: 0x8, addend: 0x0, symName: _managerInnit, symObjAddr: 0x0, symBinAddr: 0x100003944, symSize: 0x20 }
+  - { offsetInCU: 0xED, offset: 0x821, size: 0x8, addend: 0x0, symName: _managerDestroy, symObjAddr: 0x20, symBinAddr: 0x100003964, symSize: 0x20 }
+  - { offsetInCU: 0x102, offset: 0x836, size: 0x8, addend: 0x0, symName: _managerGetAll, symObjAddr: 0x40, symBinAddr: 0x100003984, symSize: 0x10 }
+  - { offsetInCU: 0x11B, offset: 0x84F, size: 0x8, addend: 0x0, symName: _managerAddParticipant, symObjAddr: 0x50, symBinAddr: 0x100003994, symSize: 0x104 }
+  - { offsetInCU: 0x16A, offset: 0x89E, size: 0x8, addend: 0x0, symName: _managerDeleteParticipant, symObjAddr: 0x154, symBinAddr: 0x100003A98, symSize: 0x88 }
+  - { offsetInCU: 0x1A0, offset: 0x8D4, size: 0x8, addend: 0x0, symName: _managerUpdateParticipant, symObjAddr: 0x1DC, symBinAddr: 0x100003B20, symSize: 0xA8 }
+  - { offsetInCU: 0x26, offset: 0x948, size: 0x8, addend: 0x0, symName: _entityTests, symObjAddr: 0x0, symBinAddr: 0x100003BC8, symSize: 0x4 }
+  - { offsetInCU: 0x4D, offset: 0x96F, size: 0x8, addend: 0x0, symName: _list, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0xD8, offset: 0x9FA, size: 0x8, addend: 0x0, symName: _entityTests, symObjAddr: 0x0, symBinAddr: 0x100003BC8, symSize: 0x4 }
+  - { offsetInCU: 0xED, offset: 0xA0F, size: 0x8, addend: 0x0, symName: _repoTests, symObjAddr: 0x4, symBinAddr: 0x100003BCC, symSize: 0x4 }
+  - { offsetInCU: 0x102, offset: 0xA24, size: 0x8, addend: 0x0, symName: _serviceTests, symObjAddr: 0x8, symBinAddr: 0x100003BD0, symSize: 0x4 }
+  - { offsetInCU: 0x117, offset: 0xA39, size: 0x8, addend: 0x0, symName: _runTests, symObjAddr: 0xC, symBinAddr: 0x100003BD4, symSize: 0x28 }
+  - { offsetInCU: 0x26, offset: 0xA74, size: 0x8, addend: 0x0, symName: _isValidScore, symObjAddr: 0x0, symBinAddr: 0x100003BFC, symSize: 0x48 }
+  - { offsetInCU: 0x33, offset: 0xA81, size: 0x8, addend: 0x0, symName: _isValidScore, symObjAddr: 0x0, symBinAddr: 0x100003BFC, symSize: 0x48 }
+  - { offsetInCU: 0x5B, offset: 0xAA9, size: 0x8, addend: 0x0, symName: _isValidName, symObjAddr: 0x48, symBinAddr: 0x100003C44, symSize: 0x94 }
 ...

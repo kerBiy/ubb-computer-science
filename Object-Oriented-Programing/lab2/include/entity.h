@@ -10,7 +10,6 @@ typedef struct
     int score;
 } Participant;
 
-Participant *createParticipant(const char *firstName, const char *lastName, int score);
-void updateParticipant(Participant *participant, int newScore);
-void destroyParticipant(Participant *participant);
-void printParticipant(Participant *participant);
+Participant createParticipant(const char *firstName, const char *lastName, int score);
+void destroyParticipant(Participant participant);
+void printParticipant(Participant participant);

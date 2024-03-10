@@ -18,7 +18,7 @@ void managerAddParticipant(const char *firstName, const char *lastName, int scor
         return;
     }
 
-    Participant *participant = createParticipant(firstName, lastName, score);
+    Participant participant = createParticipant(firstName, lastName, score);
     addParticipant(list, participant);
 }
 
@@ -37,5 +37,5 @@ int managerUpdateParticipant(const char *firstName, const char *lastName, int ne
         return 0;
     }
 
-    return updateParticipantScore(list, firstName, lastName, newScore);
+    return updateParticipant(list, firstName, lastName, newScore);
 }

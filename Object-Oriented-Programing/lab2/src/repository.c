@@ -18,20 +18,20 @@ void destroyList(List* list) {
     free(list);
 }
 
-void addParticipant(List *list, Participant *participant) {
+void addParticipant(List *list, Participant participant) {
     list->items[list->size] = participant;
     list->size = list->size + 1;
 }
 
-int updateParticipantScore(List *list, const char *firstName, const char *lastName, int newScore) {
-    Participant* participant = findParticipant(list, firstName, lastName);
+int updateParticipant(List *list, const char *firstName, const char *lastName, int newScore) {
+    int poz = findIndex(list, firstName, lastName);
 
-    if (participant == NULL) {
+     if (poz == -1) {
         printf("Error not found.\n");
         return 0;
     }
 
-    updateParticipant(participant, newScore);
+    list->items[poz].score = newScore;
     return 1;
 }
 
@@ -52,17 +52,9 @@ int deleteParticipant(List *list, const char *firstName, const char *lastName) {
     return 1;
 }
 
-Participant *findParticipant(List *list, const char *firstName, const char *lastName) {
-    for(int i = 0; i < list->size; ++i) {
-        if (strcmp(list->items[i]->firstName, firstName) == 0 && strcmp(list->items[i]->lastName, lastName) == 0)
-            return list->items[i];
-    }
-    return NULL;
-}
-
 int findIndex(List *list, const char *firstName, const char *lastName) {
     for(int i = 0; i < list->size; ++i) {
-        if (strcmp(list->items[i]->firstName, firstName) == 0 && strcmp(list->items[i]->lastName, lastName) == 0) 
+        if (strcmp(list->items[i].firstName, firstName) == 0 && strcmp(list->items[i].lastName, lastName) == 0) 
             return i;
     }
     return -1;
