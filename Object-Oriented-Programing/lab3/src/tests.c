@@ -1,8 +1,8 @@
 #include "../include/tests.h"
 
 void entityTests() {
-    const char *firstName = "Alex";
-    const char *lastName = "Balta";
+    const char *firstName = "John";
+    const char *lastName = "Snow";
     const int score = 99;
 
     Participant *participant = createParticipant(firstName, lastName, score);
@@ -15,12 +15,12 @@ void entityTests() {
 }
 
 void repoTests() {
-    const char *p1FirstName = "Alex";
-    const char *p1LastName = "Balta";
+    const char *p1FirstName = "The";
+    const char *p1LastName = "Rock";
     const int p1Score = 99;
 
-    const char *p2FirstName = "Timu";
-    const char *p2LastName = "Iustin";
+    const char *p2FirstName = "George";
+    const char *p2LastName = "Bush";
     const int p2Score = 80;
 
     Participant *p1 = createParticipant(p1FirstName, p1LastName, p1Score);
