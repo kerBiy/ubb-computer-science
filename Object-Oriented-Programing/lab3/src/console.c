@@ -5,6 +5,10 @@ void uiInnit() {
     printf("Press 7 for help.\n");
 }
 
+void deallocateMemory() {
+    // managerDestroy();
+}
+
 void printMenu() {
     printf("\nOPTION MENU:\n");
     printf("Enter 0 to Exit\n");
@@ -92,6 +96,7 @@ void consoleRun() {
             break;
         case 0:
             printf("Exiting the app...\n");
+            deallocateMemory();
             exit(EXIT_SUCCESS);
         case 9:
             uiPrintParticipants();

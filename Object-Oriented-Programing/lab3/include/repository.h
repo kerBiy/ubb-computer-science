@@ -8,11 +8,11 @@ typedef struct
 } List;
 
 List createList();
-
+void destroyList(List *list);
 void addParticipant(List *list, Participant participant);
-int findIndex(List *list, const char *firstName, const char *lastName);
-int deleteParticipant(List *list, const char *firstName, const char *lastName);
 int updateParticipant(List *list, const char *firstName, const char *lastName, int newScore);
+int deleteParticipant(List *list, const char *firstName, const char *lastName);
+int findIndex(List *list, const char *firstName, const char *lastName);
 // void filterParticipantsByScore(List list, int scoreThreshold);
 // void filterParticipantsByName(List list, const char *namePrefix);
 // void sortParticipantsByName(List list, int ascending);

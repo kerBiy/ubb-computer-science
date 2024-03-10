@@ -2,6 +2,7 @@
 #include "service.h"
 
 void uiInnit();
+void deallocateMemory();
 
 void printMenu();
 void uiPrintParticipants();

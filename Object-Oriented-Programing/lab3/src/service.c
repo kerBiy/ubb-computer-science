@@ -4,6 +4,10 @@ void managerInnit() {
     list = createList();
 }
 
+void managerDestroy() {
+    destroyList(&list);
+}
+
 List managerGetAll() {
     return list;
 }

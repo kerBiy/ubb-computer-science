@@ -10,6 +10,8 @@ void entityTests() {
     assert(strcmp(getFirstName(&participant), firstName) == 0);
     assert(strcmp(getLastName(&participant), lastName) == 0);
     assert(getScore(&participant) == score);
+
+    // destroyParticipant(&participant);
 }
 
 void repoTests() {
@@ -59,6 +61,8 @@ void repoTests() {
     assert(strcmp(getFirstName(&myList.items[0]), p2FirstName) == 0);
     assert(strcmp(getLastName(&myList.items[0]), p2LastName) == 0);
     assert(getScore(&myList.items[0]) == newScore);
+
+    // destroyList(&myList);
 }   
 
 void runTests() {
