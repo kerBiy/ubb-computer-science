@@ -1,27 +1,13 @@
 #include "../include/IteratorMultime.h"
+
 #include "../include/Multime.h"
 
-IteratorMultime::IteratorMultime(const Multime &m) : mult(m)
-{
-	prim();
-}
+IteratorMultime::IteratorMultime(const Multime &m) : mult(m) { prim(); }
 
-TElem IteratorMultime::element() const
-{
-	return mult.items[index];
-}
+TElem IteratorMultime::element() const { return mult.items[index]; }
 
-bool IteratorMultime::valid() const
-{
-	return index < mult.dim();
-}
+bool IteratorMultime::valid() const { return index < mult.dim(); }
 
-void IteratorMultime::urmator()
-{
-	index += 1;
-}
+void IteratorMultime::urmator() { index += 1; }
 
-void IteratorMultime::prim()
-{
-	index = 0;
-}
+void IteratorMultime::prim() { index = 0; }
