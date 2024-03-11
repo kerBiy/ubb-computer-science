@@ -7,9 +7,10 @@ typedef struct {
 } List;
 
 List createList();
+int getLen(List list);
 
 void addParticipant(List *list, Participant participant);
-int findIndex(List *list, const char *firstName, const char *lastName);
-int deleteParticipant(List *list, const char *firstName, const char *lastName);
-int updateParticipant(List *list, const char *firstName, const char *lastName,
+int findIndex(List *list, char firstName[], char lastName[]);
+int deleteParticipant(List *list, char firstName[], char lastName[]);
+int updateParticipant(List *list, char firstName[], char lastName[],
                       int newScore);

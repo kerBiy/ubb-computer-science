@@ -5,7 +5,7 @@
 
 int isValidScore(int score) { return (score >= 0 && score <= 100); }
 
-int isValidName(const char* name) {
+int isValidName(char name[]) {
     for (size_t i = 0, n = strlen(name); i < n; ++i)
         if (!isalpha(name[i])) return 0;
 

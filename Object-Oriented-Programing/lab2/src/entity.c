@@ -1,7 +1,6 @@
 #include "../include/entity.h"
 
-Participant createParticipant(const char *firstName, const char *lastName,
-                              int score) {
+Participant createParticipant(char firstName[], char lastName[], int score) {
     Participant participant;
 
     strcpy(participant.firstName, firstName);

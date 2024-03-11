@@ -1,9 +1,9 @@
 #include "../include/tests.h"
 
 void entityTests() {
-    const char *firstName = "Alex";
-    const char *lastName = "Balta";
-    const int score = 99;
+    char firstName[] = "Alex";
+    char lastName[] = "Balta";
+    int score = 99;
 
     Participant participant = createParticipant(firstName, lastName, score);
 
@@ -13,13 +13,13 @@ void entityTests() {
 }
 
 void repoTests() {
-    const char *p1FirstName = "Alex";
-    const char *p1LastName = "Balta";
-    const int p1Score = 99;
+    char p1FirstName[] = "Alex";
+    char p1LastName[] = "Balta";
+    int p1Score = 99;
 
-    const char *p2FirstName = "Timu";
-    const char *p2LastName = "Iustin";
-    const int p2Score = 80;
+    char p2FirstName[] = "Timu";
+    char p2LastName[] = "Iustin";
+    int p2Score = 80;
 
     Participant p1 = createParticipant(p1FirstName, p1LastName, p1Score);
     Participant p2 = createParticipant(p2FirstName, p2LastName, p2Score);
@@ -53,7 +53,7 @@ void repoTests() {
     assert(getScore(&myList.items[0]) == p2Score);
 
     // Update
-    const int newScore = 99;
+    int newScore = 99;
     updateParticipant(&myList, p2FirstName, p2LastName, newScore);
 
     assert(strcmp(getFirstName(&myList.items[0]), p2FirstName) == 0);

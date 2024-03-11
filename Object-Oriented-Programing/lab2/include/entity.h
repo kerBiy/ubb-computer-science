@@ -9,8 +9,7 @@ typedef struct {
     int score;
 } Participant;
 
-Participant createParticipant(const char *firstName, const char *lastName,
-                              int score);
+Participant createParticipant(char firstName[], char lastName[], int score);
 void printParticipant(Participant participant);
 
 char *getFirstName(Participant *participant);

@@ -25,7 +25,7 @@ void uiPrintParticipants() {
 
     printf("The participants are:\n");
 
-    for (int i = 0; i < list.size; ++i) {
+    for (int i = 0; i < getLen(list); ++i) {
         printParticipant(list.items[i]);
     }
 }

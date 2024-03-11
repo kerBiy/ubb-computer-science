@@ -4,8 +4,7 @@ void managerInnit() { list = createList(); }
 
 List managerGetAll() { return list; }
 
-void managerAddParticipant(const char *firstName, const char *lastName,
-                           int score) {
+void managerAddParticipant(char firstName[], char lastName[], int score) {
     if (!isValidName(firstName) || !isValidName(lastName) ||
         !isValidScore(score)) {
         printf("Service error.\n");
@@ -16,7 +15,7 @@ void managerAddParticipant(const char *firstName, const char *lastName,
     addParticipant(&list, participant);
 }
 
-int managerDeleteParticipant(const char *firstName, const char *lastName) {
+int managerDeleteParticipant(char firstName[], char lastName[]) {
     if (!isValidName(firstName) || !isValidName(lastName)) {
         printf("Service error.\n");
         return 0;
@@ -25,8 +24,7 @@ int managerDeleteParticipant(const char *firstName, const char *lastName) {
     return deleteParticipant(&list, firstName, lastName);
 }
 
-int managerUpdateParticipant(const char *firstName, const char *lastName,
-                             int newScore) {
+int managerUpdateParticipant(char firstName[], char lastName[], int newScore) {
     if (!isValidName(firstName) || !isValidName(lastName) ||
         !isValidScore(newScore)) {
         printf("Service error.\n");
