@@ -1,9 +1,8 @@
 #pragma once
 #include "entity.h"
 
-typedef struct
-{
-    Participant** items;
+typedef struct {
+    Participant **items;
     int size;
     int capacity;
 } List;
@@ -13,7 +12,8 @@ void destroyList(List *list);
 void resizeList(List *list);
 
 void addParticipant(List *list, Participant *participant);
-int updateParticipant(List *list, const char *firstName, const char *lastName, int newScore);
+int updateParticipant(List *list, const char *firstName, const char *lastName,
+                      int newScore);
 int deleteParticipant(List *list, const char *firstName, const char *lastName);
 int findIndex(List *list, const char *firstName, const char *lastName);
 // void filterParticipantsByScore(List list, int scoreThreshold);
@@ -21,4 +21,3 @@ int findIndex(List *list, const char *firstName, const char *lastName);
 // void sortParticipantsByName(List list, int ascending);
 // void sortParticipantsByScore(List list, int ascending);
 // void printParticipants(List list);
-

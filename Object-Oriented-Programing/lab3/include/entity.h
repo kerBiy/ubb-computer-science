@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct
-{
+typedef struct {
     char *firstName;
     char *lastName;
     int score;
 } Participant;
 
-Participant *createParticipant(const char *firstName, const char *lastName, int score);
+Participant *createParticipant(const char *firstName, const char *lastName,
+                               int score);
 void destroyParticipant(Participant *participant);
 void printParticipant(Participant *participant);
 
