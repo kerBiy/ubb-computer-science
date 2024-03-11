@@ -6,7 +6,7 @@ void entityTests() {
     const int score = 99;
 
     Participant participant = createParticipant(firstName, lastName, score);
-    
+
     assert(strcmp(getFirstName(&participant), firstName) == 0);
     assert(strcmp(getLastName(&participant), lastName) == 0);
     assert(getScore(&participant) == score);
@@ -23,7 +23,7 @@ void repoTests() {
 
     Participant p1 = createParticipant(p1FirstName, p1LastName, p1Score);
     Participant p2 = createParticipant(p2FirstName, p2LastName, p2Score);
-    
+
     List myList = createList();
 
     // Add
@@ -59,7 +59,7 @@ void repoTests() {
     assert(strcmp(getFirstName(&myList.items[0]), p2FirstName) == 0);
     assert(strcmp(getLastName(&myList.items[0]), p2LastName) == 0);
     assert(getScore(&myList.items[0]) == newScore);
-}   
+}
 
 void runTests() {
     entityTests();

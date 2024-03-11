@@ -12,9 +12,9 @@ void addParticipant(List *list, Participant participant) {
 }
 
 int findIndex(List *list, const char *firstName, const char *lastName) {
-    for(int i = 0; i < list->size; ++i) {
-        if (strcmp(getFirstName(&list->items[i]), firstName) == 0
-            && strcmp(getLastName(&list->items[i]), lastName) == 0) 
+    for (int i = 0; i < list->size; ++i) {
+        if (strcmp(getFirstName(&list->items[i]), firstName) == 0 &&
+            strcmp(getLastName(&list->items[i]), lastName) == 0)
             return i;
     }
     return -1;
@@ -28,17 +28,19 @@ int deleteParticipant(List *list, const char *firstName, const char *lastName) {
         return 0;
     }
 
-    for (int i = poz; i < list->size; ++i)
-		list->items[i] = list->items[i + 1];
+    for (int i = poz; i < list->size; ++i) {
+        list->items[i] = list->items[i + 1];
+    }
 
-	list->size = list->size - 1;
+    list->size = list->size - 1;
     return 1;
 }
 
-int updateParticipant(List *list, const char *firstName, const char *lastName, int newScore) {
+int updateParticipant(List *list, const char *firstName, const char *lastName,
+                      int newScore) {
     int poz = findIndex(list, firstName, lastName);
 
-     if (poz == -1) {
+    if (poz == -1) {
         printf("Error not found.\n");
         return 0;
     }
