@@ -1,0 +1,10 @@
+# ninja log v5
+222	332	1710239632393874335	lab3	8ae0c115f2f8c725
+1	55	1710241568369894906	CMakeFiles/lab4.dir/src/validator.c.o	6592ce412bfc3556
+1	55	1710241568370060444	CMakeFiles/lab4.dir/src/service.c.o	ab3afc15b2b28f8f
+1	56	1710241568370767304	CMakeFiles/lab4.dir/src/console.c.o	ba24b703fac746e5
+1	56	1710241568370021070	CMakeFiles/lab4.dir/src/tests.c.o	96e8dee9229eb5c8
+0	56	1710241568370161150	CMakeFiles/lab4.dir/src/entity.c.o	d92b6f6ce632b5e2
+1	56	1710241568370499476	CMakeFiles/lab4.dir/src/repository.c.o	1b2d4801c39e763
+55	76	1710241568392595626	CMakeFiles/lab4.dir/src/main.c.o	ccc823d33e9120b5
+76	106	1710241568421103846	lab4	e59d6a5ce594cd4
