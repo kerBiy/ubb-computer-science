@@ -1,4 +1,4 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja "-DCMAKE_CXX_FLAGS=-fcoverage-mapping -fprofile-instr-generate" "-DCMAKE_C_FLAGS=-fcoverage-mapping -fprofile-instr-generate" -G Ninja -S /Users/alexbalta/CLionProjects/lab3 -B /Users/alexbalta/CLionProjects/lab3/cmake-build-debug-coverage
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja "-DCMAKE_CXX_FLAGS=-fcoverage-mapping -fprofile-instr-generate" "-DCMAKE_C_FLAGS=-fcoverage-mapping -fprofile-instr-generate" -G Ninja -S /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4 -B /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/cmake-build-debug-coverage
 -- The C compiler identification is AppleClang 15.0.0.15000309
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
@@ -13,4 +13,4 @@ CMake Warning:
     CMAKE_CXX_FLAGS
 
 
--- Build files have been written to: /Users/alexbalta/CLionProjects/lab3/cmake-build-debug-coverage
+-- Build files have been written to: /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/cmake-build-debug-coverage

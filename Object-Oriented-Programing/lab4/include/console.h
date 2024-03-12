@@ -2,11 +2,6 @@
 #include "service.h"
 
 /*
-Initializes the user interface.
-*/
-void uiInnit();
-
-/*
 Prints the main menu.
 */
 void printMenu();
@@ -14,22 +9,22 @@ void printMenu();
 /*
 Prints all participants.
 */
-void uiPrintParticipants();
+void uiPrintParticipants(List *list);
 
 /*
 Handles adding a participant through the user interface.
 */
-void uiAddParticipant();
+void uiAddParticipant(List *list);
 
 /*
 Handles deleting a participant through the user interface.
 */
-void uiDeleteParticipant();
+void uiDeleteParticipant(List *list);
 
 /*
 Handles updating a participant's score through the user interface.
 */
-void uiUpdateParticipant();
+void uiUpdateParticipant(List *list);
 
 /*
 Runs the console user interface.

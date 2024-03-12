@@ -1,7 +1,4 @@
 #pragma once
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /*
 It's a Participant object
@@ -29,12 +26,6 @@ Destroying a participant
 Params: participant - a participant given by pointer
 */
 void destroyParticipant(Participant *participant);
-
-/*
-Prints a participant on screen
-Params: participant - a participant given by pointer
-*/
-void printParticipant(Participant *participant);
 
 /*
 Getter for the first name of a participant

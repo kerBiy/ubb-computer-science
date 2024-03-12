@@ -1,10 +1,17 @@
 # ninja log v5
-222	332	1710239632393874335	lab3	8ae0c115f2f8c725
-1	55	1710241568369894906	CMakeFiles/lab4.dir/src/validator.c.o	6592ce412bfc3556
-1	55	1710241568370060444	CMakeFiles/lab4.dir/src/service.c.o	ab3afc15b2b28f8f
-1	56	1710241568370767304	CMakeFiles/lab4.dir/src/console.c.o	ba24b703fac746e5
-1	56	1710241568370021070	CMakeFiles/lab4.dir/src/tests.c.o	96e8dee9229eb5c8
-0	56	1710241568370161150	CMakeFiles/lab4.dir/src/entity.c.o	d92b6f6ce632b5e2
-1	56	1710241568370499476	CMakeFiles/lab4.dir/src/repository.c.o	1b2d4801c39e763
-55	76	1710241568392595626	CMakeFiles/lab4.dir/src/main.c.o	ccc823d33e9120b5
-76	106	1710241568421103846	lab4	e59d6a5ce594cd4
+1	158	1710243961733770581	CMakeFiles/lab4.dir/src/tests.c.o	96e8dee9229eb5c8
+0	163	1710244305665559048	CMakeFiles/lab4.dir/src/console.c.o	ba24b703fac746e5
+0	159	1710243961733020012	CMakeFiles/lab4.dir/src/service.c.o	ab3afc15b2b28f8f
+1	191	1710243139482447990	CMakeFiles/lab4.dir/src/validator.c.o	6592ce412bfc3556
+0	190	1710243139483309932	CMakeFiles/lab4.dir/src/entity.c.o	d92b6f6ce632b5e2
+0	190	1710243139484278163	CMakeFiles/lab4.dir/src/repository.c.o	1b2d4801c39e763
+0	162	1710244305664067911	CMakeFiles/lab4.dir/src/main.c.o	ccc823d33e9120b5
+163	255	1710244305756160844	lab4	e59d6a5ce594cd4
+3	200	1710245412645673990	CMakeFiles/lab4.dir/src/repository.c.o	1b2d4801c39e763
+4	200	1710245412645915320	CMakeFiles/lab4.dir/src/tests.c.o	96e8dee9229eb5c8
+4	200	1710245412645842071	CMakeFiles/lab4.dir/src/service.c.o	ab3afc15b2b28f8f
+5	200	1710245412645093872	CMakeFiles/lab4.dir/src/main.c.o	ccc823d33e9120b5
+4	201	1710245412645766613	CMakeFiles/lab4.dir/src/console.c.o	ba24b703fac746e5
+201	313	1710245412758205769	lab4	e59d6a5ce594cd4
+0	57	1710246041960946460	CMakeFiles/lab4.dir/src/console.c.o	ba24b703fac746e5
+57	92	1710246041994719977	lab4	e59d6a5ce594cd4

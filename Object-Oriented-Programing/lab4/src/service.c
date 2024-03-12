@@ -1,37 +1,38 @@
 #include "service.h"
+#include "validator.h"
 
-void managerInnit() { list = createList(); }
+List *managerInnit() {
+    return createList();
+}
 
-void managerDestroy() { destroyList(list); }
+void managerDestroy(List *list) {
+    destroyList(list);
+}
 
-List *managerGetAll() { return list; }
-
-void managerAddParticipant(const char *firstName, const char *lastName,
-                           int score) {
+int managerAddParticipant(List *list, const char *firstName, const char *lastName,
+                          int score) {
     if (!isValidName(firstName) || !isValidName(lastName) ||
         !isValidScore(score)) {
-        printf("Service error.\n");
-        return;
+        return 0;
     }
 
     Participant *participant = createParticipant(firstName, lastName, score);
     addParticipant(list, participant);
+    return 1;
 }
 
-int managerDeleteParticipant(const char *firstName, const char *lastName) {
+int managerDeleteParticipant(List *list, const char *firstName, const char *lastName) {
     if (!isValidName(firstName) || !isValidName(lastName)) {
-        printf("Service error.\n");
         return 0;
     }
 
     return deleteParticipant(list, firstName, lastName);
 }
 
-int managerUpdateParticipant(const char *firstName, const char *lastName,
+int managerUpdateParticipant(List *list, const char *firstName, const char *lastName,
                              int newScore) {
     if (!isValidName(firstName) || !isValidName(lastName) ||
         !isValidScore(newScore)) {
-        printf("Service error.\n");
         return 0;
     }
 

@@ -1,12 +1,14 @@
 #include "repository.h"
 
+#include <stdlib.h>
+#include <string.h>
+
 List *createList() {
-    List *list = (List *)malloc(sizeof(List));
+    List *list = (List *) malloc(sizeof(List));
 
     list->size = 0;
-    list->capacity = 5;
-    list->items =
-        (Participant **)malloc(list->capacity * sizeof(Participant *));
+    list->capacity = 1;
+    list->items = (Participant **) malloc(list->capacity * sizeof(Participant *));
 
     return list;
 }
@@ -23,12 +25,11 @@ void destroyList(List *list) {
 
 void resizeList(List *list) {
     list->capacity = list->capacity * 2;
-    list->items = (Participant **)realloc(
-        list->items, list->capacity * sizeof(Participant *));
-}
-
-int getLen(List *list) {
-    return list->size;
+    list->items = (Participant **) realloc(
+            list->items, list->capacity * sizeof(Participant *));
+    if (list->items == NULL) {
+        exit(EXIT_FAILURE);
+    }
 }
 
 void addParticipant(List *list, Participant *participant) {
@@ -45,7 +46,6 @@ int updateParticipant(List *list, const char *firstName, const char *lastName,
     int poz = findIndex(list, firstName, lastName);
 
     if (poz == -1) {
-        printf("Error not found.\n");
         return 0;
     }
 
@@ -57,7 +57,6 @@ int deleteParticipant(List *list, const char *firstName, const char *lastName) {
     int poz = findIndex(list, firstName, lastName);
 
     if (poz == -1) {
-        printf("Error not found.\n");
         return 0;
     }
 

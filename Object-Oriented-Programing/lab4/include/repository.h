@@ -1,6 +1,13 @@
 #pragma once
+
 #include "entity.h"
 
+/*
+It's a list of participants
+Attrs: items - a list with all the participants
+        size - the size of the list
+        capacity - the capacity of the list
+*/
 typedef struct {
     Participant **items;
     int size;
@@ -24,13 +31,6 @@ Resizes a list of participants.
 Params: list - a list of participants.
 */
 void resizeList(List *list);
-
-/*
-Getter for the number of participants in the list.
-Params: list - a list of participants.
-Returns: the number of participants in the list.
-*/
-int getLen(List *list);
 
 /*
 Adds a participant to the list.

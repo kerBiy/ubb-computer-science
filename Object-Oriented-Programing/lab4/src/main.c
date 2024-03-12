@@ -3,6 +3,6 @@
 
 int main() {
     runTests();
-    consoleRun();
+//    consoleRun();
     return 0;
 }

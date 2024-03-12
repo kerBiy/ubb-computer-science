@@ -1,5 +1,13 @@
 #include "tests.h"
 
+#include "entity.h"
+#include "repository.h"
+#include "service.h"
+
+#include <assert.h>
+#include <stdio.h>
+#include <string.h>
+
 void entityTests() {
     const char *firstName = "John";
     const char *lastName = "Snow";
@@ -22,6 +30,8 @@ void repoTests() {
     const char *p2FirstName = "George";
     const char *p2LastName = "Bush";
     const int p2Score = 80;
+
+    const char *badName = "Nobody";
 
     Participant *p1 = createParticipant(p1FirstName, p1LastName, p1Score);
     Participant *p2 = createParticipant(p2FirstName, p2LastName, p2Score);
@@ -46,6 +56,9 @@ void repoTests() {
     int index = findIndex(myList, p2FirstName, p2LastName);
     assert(index == 1);
 
+    int badIndex = findIndex(myList, badName, p2LastName);
+    assert(badIndex == -1);
+
     // Delete
     deleteParticipant(myList, p1FirstName, p1LastName);
     assert(myList->size == 1);
@@ -53,6 +66,9 @@ void repoTests() {
     assert(strcmp(getFirstName(myList->items[0]), p2FirstName) == 0);
     assert(strcmp(getLastName(myList->items[0]), p2LastName) == 0);
     assert(getScore(myList->items[0]) == p2Score);
+
+    deleteParticipant(myList, badName, p2LastName);
+    assert(myList->size == 1);
 
     // Update
     const int newScore = 99;
@@ -62,10 +78,55 @@ void repoTests() {
     assert(strcmp(getLastName(myList->items[0]), p2LastName) == 0);
     assert(getScore(myList->items[0]) == newScore);
 
+    updateParticipant(myList, badName, p2LastName, newScore);
+    assert(myList->size == 1);
+    assert(strcmp(getFirstName(myList->items[0]), p2FirstName) == 0);
+    assert(strcmp(getLastName(myList->items[0]), p2LastName) == 0);
+    assert(getScore(myList->items[0]) == newScore);
+
     destroyList(myList);
 }
 
 void serviceTests() {
+    const char *p1FirstName = "The";
+    const char *p1LastName = "Rock";
+    const int p1Score = 99;
+
+    const char *p2FirstName = "George";
+    const char *p2LastName = "Bush";
+    const int p2Score = 80;
+
+    const char *badName = "Nom32";
+
+    Participant *p1 = createParticipant(p1FirstName, p1LastName, p1Score);
+    Participant *p2 = createParticipant(p2FirstName, p2LastName, p2Score);
+
+    List *myList = managerInnit();
+
+    // Add
+    managerAddParticipant(myList, p1FirstName, p1LastName, p1Score);
+    managerAddParticipant(myList, p2FirstName, p2LastName, p2Score);
+    assert(myList->size == 2);
+
+    managerAddParticipant(myList, badName, p2LastName, p2Score);
+    assert(myList->size == 2);
+
+    managerDeleteParticipant(myList, p1FirstName, p1LastName);
+    assert(myList->size == 1);
+
+    managerDeleteParticipant(myList, badName, p2LastName);
+    assert(myList->size == 1);
+
+    const int newScore = 99;
+    managerUpdateParticipant(myList, p2FirstName, p2LastName, newScore);
+    assert(myList->size == 1);
+    assert(getScore(myList->items[0]) == newScore);
+
+    managerUpdateParticipant(myList, p2FirstName, badName, p2Score);
+    assert(myList->size == 1);
+    assert(getScore(myList->items[0]) == newScore);
+
+    managerDestroy(myList);
 }
 
 void runTests() {

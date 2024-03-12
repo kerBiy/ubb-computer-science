@@ -1,11 +1,11 @@
 #include "console.h"
 
-void uiInnit() {
-    managerInnit();
-    printf("Press 7 for help.\n");
-}
+#include <stdio.h>
+#include <stdlib.h>
 
-void deallocateMemory() { managerDestroy(); }
+void deallocateMemory(List *list) {
+    managerDestroy(list);
+}
 
 void printMenu() {
     printf("\nOPTION MENU:\n");
@@ -17,9 +17,7 @@ void printMenu() {
     printf("Enter 9 to Print\n");
 }
 
-void uiPrintParticipants() {
-    List *list = managerGetAll();
-
+void uiPrintParticipants(List *list) {
     if (list->size == 0) {
         printf("There are no participants.\n");
         return;
@@ -28,11 +26,13 @@ void uiPrintParticipants() {
     printf("The participants are:\n");
 
     for (int i = 0; i < list->size; ++i) {
-        printParticipant(list->items[i]);
+        Participant *participant = list->items[i];
+        printf("%s %s: %d\n", getFirstName(participant), getLastName(participant),
+               getScore(participant));
     }
 }
 
-void uiAddParticipant() {
+void uiAddParticipant(List *list) {
     char firstName[50], lastName[50];
     int score;
 
@@ -45,12 +45,17 @@ void uiAddParticipant() {
     printf("Enter the score: ");
     scanf("%d", &score);
 
-    managerAddParticipant(firstName, lastName, score);
+    int found = managerAddParticipant(list, firstName, lastName, score);
 
-    printf("The participant was added.\n");
+    if (found) {
+        printf("The participant was added.\n");
+    } else {
+        printf("The participant is not valid.\n");
+    }
+
 }
 
-void uiDeleteParticipant() {
+void uiDeleteParticipant(List *list) {
     char firstName[50], lastName[50];
 
     printf("\nEnter the first name: ");
@@ -59,12 +64,17 @@ void uiDeleteParticipant() {
     printf("Enter the last name: ");
     scanf("%s", lastName);
 
-    int found = managerDeleteParticipant(firstName, lastName);
+    int found = managerDeleteParticipant(list, firstName, lastName);
 
-    if (found) printf("The participant was deleted.\n");
+    if (found) {
+        printf("The participant was deleted.\n");
+    } else {
+        printf("The participant is not valid or doesn't exist.\n");
+    }
+
 }
 
-void uiUpdateParticipant() {
+void uiUpdateParticipant(List *list) {
     char firstName[50], lastName[50];
     int newScore;
 
@@ -77,13 +87,18 @@ void uiUpdateParticipant() {
     printf("Enter the new score: ");
     scanf("%d", &newScore);
 
-    int found = managerUpdateParticipant(firstName, lastName, newScore);
+    int found = managerUpdateParticipant(list, firstName, lastName, newScore);
 
-    if (found) printf("The participant was updated.\n");
+    if (found) {
+        printf("The participant was updated.\n");
+    } else {
+        printf("The participant is not valid or doesn't exist.\n");
+    }
 }
 
 void consoleRun() {
-    uiInnit();
+    List *list = managerInnit();
+    printf("Press 7 for help.\n");
 
     while (1) {
         int option;
@@ -96,19 +111,19 @@ void consoleRun() {
                 break;
             case 0:
                 printf("Exiting the app...\n");
-                deallocateMemory();
+                deallocateMemory(list);
                 exit(EXIT_SUCCESS);
             case 9:
-                uiPrintParticipants();
+                uiPrintParticipants(list);
                 break;
             case 1:
-                uiAddParticipant();
+                uiAddParticipant(list);
                 break;
             case 2:
-                uiDeleteParticipant();
+                uiDeleteParticipant(list);
                 break;
             case 3:
-                uiUpdateParticipant();
+                uiUpdateParticipant(list);
                 break;
 
             default:

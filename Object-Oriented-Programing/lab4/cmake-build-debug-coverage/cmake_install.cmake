@@ -1,4 +1,4 @@
-# Install script for directory: /Users/alexbalta/CLionProjects/lab3
+# Install script for directory: /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/alexbalta/CLionProjects/lab3/cmake-build-debug-coverage/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/cmake-build-debug-coverage/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
