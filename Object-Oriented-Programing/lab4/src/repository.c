@@ -27,6 +27,10 @@ void resizeList(List *list) {
         list->items, list->capacity * sizeof(Participant *));
 }
 
+int getLen(List *list) {
+    return list->size;
+}
+
 void addParticipant(List *list, Participant *participant) {
     if (list->size == list->capacity) {
         resizeList(list);

@@ -65,8 +65,12 @@ void repoTests() {
     destroyList(myList);
 }
 
+void serviceTests() {
+}
+
 void runTests() {
     entityTests();
     repoTests();
+    serviceTests();
     printf("All tests passed.\n");
 }
