@@ -27,9 +27,6 @@ void resizeList(List *list) {
     list->capacity = list->capacity * 2;
     list->items = (Participant **) realloc(
             list->items, list->capacity * sizeof(Participant *));
-    if (list->items == NULL) {
-        exit(EXIT_FAILURE);
-    }
 }
 
 void addParticipant(List *list, Participant *participant) {

@@ -1,63 +1,54 @@
-#include <iostream>
 #include <fstream>
-#include <vector>
+#include <iostream>
 #include <queue>
+#include <vector>
+
+#define INF 9999
 
 using std::vector, std::queue;
 
-class Graph
-{
-private:
+class Graph {
+   private:
     vector<vector<int>> adjacencyMatrix;
     int numNodes;
 
-public:
-    Graph(int numNodes) : numNodes(numNodes)
-    {
+   public:
+    Graph(int numNodes) : numNodes(numNodes) {
         adjacencyMatrix.resize(numNodes, vector<int>(numNodes, 0));
     }
 
-    void addEdge(int first_node, int second_node)
-    {
+    void addEdge(int first_node, int second_node) {
         adjacencyMatrix[first_node - 1][second_node - 1] = 1;
         adjacencyMatrix[second_node - 1][first_node - 1] = 1;
     }
 
-    vector<int> findIsolatedNodes()
-    {
+    vector<int> findIsolatedNodes() {
         vector<int> isolatedNodes;
 
-        for (size_t i = 0; i < adjacencyMatrix.size(); ++i)
-        {
+        for (size_t i = 0; i < adjacencyMatrix.size(); ++i) {
             bool isolated = true;
 
-            for (const auto &element : adjacencyMatrix[i])
-            {
-                if (element == 1)
-                {
+            for (const auto &element : adjacencyMatrix[i]) {
+                if (element == 1) {
                     isolated = false;
                     break;
                 }
             }
 
-            if (isolated)
-                isolatedNodes.push_back(i + 1);
+            if (isolated) isolatedNodes.push_back(i + 1);
         }
 
         return isolatedNodes;
     }
 
-    bool isRegularGraph()
-    {
+    bool isRegularGraph() {
         int degree = 0;
 
-        for (int i = 0; i < numNodes; ++i)
-        {
+        for (int i = 0; i < numNodes; ++i) {
             int nodeDegree = 0;
 
             for (int j = 0; j < numNodes; ++j)
-                if (adjacencyMatrix[i][j] == 1)
-                    nodeDegree++;
+                if (adjacencyMatrix[i][j] == 1) nodeDegree++;
 
             if (i == 0)
                 degree = nodeDegree;
@@ -67,21 +58,26 @@ public:
         return true;
     }
 
-    vector<vector<int>> calculateDistanceMatrix()
-    {
+    vector<vector<int>> calculateDistanceMatrix() {
         vector<vector<int>> distanceMatrix = adjacencyMatrix;
 
-        for (int k = 0; k < numNodes; ++k)
-        {
-            for (int i = 0; i < numNodes; ++i)
-            {
-                for (int j = 0; j < numNodes; ++j)
-                {
-                    if (distanceMatrix[i][k] && distanceMatrix[k][j])
-                    {
-                        if (!distanceMatrix[i][j] || distanceMatrix[i][j] > distanceMatrix[i][k] + distanceMatrix[k][j])
-                        {
-                            distanceMatrix[i][j] = distanceMatrix[i][k] + distanceMatrix[k][j];
+        for (int i = 0; i < numNodes; ++i) {
+            for (int j = 0; j < numNodes; ++j) {
+                if (distanceMatrix[i][j] == 0 && i != j) {
+                    distanceMatrix[i][j] = INF;
+                }
+            }
+        }
+
+        for (int k = 0; k < numNodes; ++k) {
+            for (int i = 0; i < numNodes; ++i) {
+                for (int j = 0; j < numNodes; ++j) {
+                    if (distanceMatrix[i][k] != INF &&
+                        distanceMatrix[k][j] != INF) {
+                        if (distanceMatrix[i][j] >
+                            distanceMatrix[i][k] + distanceMatrix[k][j]) {
+                            distanceMatrix[i][j] =
+                                distanceMatrix[i][k] + distanceMatrix[k][j];
                         }
                     }
                 }
@@ -91,23 +87,19 @@ public:
         return distanceMatrix;
     }
 
-    bool isConnected()
-    {
+    bool isConnected() {
         vector<bool> visited(numNodes, false);
         queue<int> nodesQueue;
 
         nodesQueue.push(0);
         visited[0] = true;
 
-        while (!nodesQueue.empty())
-        {
+        while (!nodesQueue.empty()) {
             int currentNode = nodesQueue.front();
             nodesQueue.pop();
 
-            for (int i = 0; i < numNodes; ++i)
-            {
-                if (adjacencyMatrix[currentNode][i] && !visited[i])
-                {
+            for (int i = 0; i < numNodes; ++i) {
+                if (adjacencyMatrix[currentNode][i] && !visited[i]) {
                     visited[i] = true;
                     nodesQueue.push(i);
                 }
@@ -115,15 +107,13 @@ public:
         }
 
         for (bool visit : visited)
-            if (!visit)
-                return false;
+            if (!visit) return false;
 
         return true;
     }
 };
 
-int main()
-{
+int main() {
     std::ifstream fin("in.txt");
 
     int numNodes, numEdges;
@@ -131,8 +121,7 @@ int main()
 
     Graph graph(numNodes);
 
-    for (int i = 0; i < numEdges; ++i)
-    {
+    for (int i = 0; i < numEdges; ++i) {
         int first_node, second_node;
         fin >> first_node >> second_node;
 
@@ -144,14 +133,10 @@ int main()
     // a. Determinăm nodurile izolate din graf
     vector<int> isolatedNodes = graph.findIsolatedNodes();
     std::cout << "a. Noduri izolate: ";
-    if (isolatedNodes.empty())
-    {
+    if (isolatedNodes.empty()) {
         std::cout << "Nu există noduri izolate.\n";
-    }
-    else
-    {
-        for (int node : isolatedNodes)
-            std::cout << node << " ";
+    } else {
+        for (int node : isolatedNodes) std::cout << node << " ";
         std::cout << '\n';
     }
 
@@ -163,10 +148,8 @@ int main()
     // c. Calculăm matricea de distanțe
     vector<vector<int>> distanceMatrix = graph.calculateDistanceMatrix();
     std::cout << "c. Matricea de distante:\n";
-    for (const auto &row : distanceMatrix)
-    {
-        for (int distance : row)
-            std::cout << distance << " ";
+    for (const auto &row : distanceMatrix) {
+        for (int distance : row) std::cout << distance << " ";
         std::cout << '\n';
     }
 
