@@ -3,18 +3,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void deallocateMemory(List *list) {
-    managerDestroy(list);
-}
-
 void printMenu() {
     printf("\nOPTION MENU:\n");
     printf("Enter 0 to Exit\n");
     printf("Enter 1 to Add\n");
     printf("Enter 2 to Delete\n");
     printf("Enter 3 to Update\n");
-    printf("Enter 7 for this menu.\n");
-    printf("Enter 9 to Print\n");
+    printf("Enter 4 to Filter by score\n");
+    printf("Enter 5 to Sort by score\n");
+    printf("Enter 6 to Sort by name\n");
+    printf("Enter 7 to Show this menu.\n");
+    printf("Enter 9 to Print the list\n");
+}
+
+void uiPrintList(List *list) {
+    for (int i = 0; i < list->size; ++i) {
+        Participant *participant = list->items[i];
+        printf("%s %s: %d\n", getFirstName(participant), getLastName(participant),
+               getScore(participant));
+    }
 }
 
 void uiPrintParticipants(List *list) {
@@ -24,12 +31,7 @@ void uiPrintParticipants(List *list) {
     }
 
     printf("The participants are:\n");
-
-    for (int i = 0; i < list->size; ++i) {
-        Participant *participant = list->items[i];
-        printf("%s %s: %d\n", getFirstName(participant), getLastName(participant),
-               getScore(participant));
-    }
+    uiPrintList(list);
 }
 
 void uiAddParticipant(List *list) {
@@ -47,12 +49,8 @@ void uiAddParticipant(List *list) {
 
     int found = managerAddParticipant(list, firstName, lastName, score);
 
-    if (found) {
-        printf("The participant was added.\n");
-    } else {
-        printf("The participant is not valid.\n");
-    }
-
+    found ? printf("The participant was added.\n")
+          : printf("The participant is not valid.\n");
 }
 
 void uiDeleteParticipant(List *list) {
@@ -66,12 +64,8 @@ void uiDeleteParticipant(List *list) {
 
     int found = managerDeleteParticipant(list, firstName, lastName);
 
-    if (found) {
-        printf("The participant was deleted.\n");
-    } else {
-        printf("The participant is not valid or doesn't exist.\n");
-    }
-
+    found ? printf("The participant was added.\n")
+          : printf("The participant doesn't exist.\n");
 }
 
 void uiUpdateParticipant(List *list) {
@@ -89,16 +83,53 @@ void uiUpdateParticipant(List *list) {
 
     int found = managerUpdateParticipant(list, firstName, lastName, newScore);
 
-    if (found) {
-        printf("The participant was updated.\n");
-    } else {
-        printf("The participant is not valid or doesn't exist.\n");
+    found ? printf("The participant was added.\n")
+          : printf("The participant is not valid or doesn't exist.\n");
+}
+
+void uiFilterParticipantsByScore(List *list) {
+    int minScore;
+
+    printf("Enter the min score you what to filter by: ");
+    scanf("%d", &minScore);
+
+    List *filteredList = managerFilterParticipantsByScore(list, minScore);
+
+    if (filteredList->size == 0) {
+        printf("There are no elements that fit the description.\n");
     }
+
+    uiPrintList(filteredList);
+
+    managerFreeList(filteredList);
+}
+
+void uiSortParticipantsByScore(List *list) {
+    List *sortedList = managerSortParticipantsByScore(list);
+
+    if (sortedList->size == 0) {
+        printf("The list is empty.\n");
+    }
+
+    uiPrintList(sortedList);
+
+    managerFreeList(sortedList);
+}
+
+void uiSortParticipantsByName(List *list) {
+    List *sortedList = managerSortParticipantsByName(list);
+
+    if (sortedList->size == 0) {
+        printf("The list is empty.\n");
+    }
+
+    uiPrintList(sortedList);
+
+    managerFreeList(sortedList);
 }
 
 void consoleRun() {
     List *list = managerInnit();
-    printf("Press 7 for help.\n");
 
     while (1) {
         int option;
@@ -111,7 +142,7 @@ void consoleRun() {
                 break;
             case 0:
                 printf("Exiting the app...\n");
-                deallocateMemory(list);
+                managerDestroyList(list);
                 exit(EXIT_SUCCESS);
             case 9:
                 uiPrintParticipants(list);
@@ -124,6 +155,15 @@ void consoleRun() {
                 break;
             case 3:
                 uiUpdateParticipant(list);
+                break;
+            case 4:
+                uiFilterParticipantsByScore(list);
+                break;
+            case 5:
+                uiSortParticipantsByScore(list);
+                break;
+            case 6:
+                uiSortParticipantsByName(list);
                 break;
 
             default:

@@ -25,8 +25,11 @@ void destroyList(List *list) {
 
 void resizeList(List *list) {
     list->capacity = list->capacity * 2;
-    list->items = (Participant **) realloc(
+
+    Participant **temp = (Participant **) realloc(
             list->items, list->capacity * sizeof(Participant *));
+
+    list->items = temp;
 }
 
 void addParticipant(List *list, Participant *participant) {
@@ -36,6 +39,7 @@ void addParticipant(List *list, Participant *participant) {
 
     list->items[list->size] = participant;
     list->size = list->size + 1;
+
 }
 
 int updateParticipant(List *list, const char *firstName, const char *lastName,

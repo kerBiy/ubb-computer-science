@@ -98,9 +98,6 @@ void serviceTests() {
 
     const char *badName = "Nom32";
 
-    Participant *p1 = createParticipant(p1FirstName, p1LastName, p1Score);
-    Participant *p2 = createParticipant(p2FirstName, p2LastName, p2Score);
-
     List *myList = managerInnit();
 
     // Add
@@ -126,7 +123,50 @@ void serviceTests() {
     assert(myList->size == 1);
     assert(getScore(myList->items[0]) == newScore);
 
-    managerDestroy(myList);
+    managerDeleteParticipant(myList, p2FirstName, p2LastName);
+
+    managerAddParticipant(myList, p1FirstName, p1LastName, p1Score);
+    managerAddParticipant(myList, p2FirstName, p2LastName, p2Score);
+
+    int minScore = 90;
+    List *filteredList = managerFilterParticipantsByScore(myList, minScore);
+    assert(filteredList->size == 1);
+
+    managerFreeList(filteredList);
+
+    int maxScore = 100;
+    filteredList = managerFilterParticipantsByScore(myList, maxScore);
+    assert(filteredList->size == 0);
+
+    managerFreeList(filteredList);
+
+    List *sortedList = managerSortParticipantsByName(myList);
+    assert(sortedList->size == 2);
+
+    assert(strcmp(getFirstName(sortedList->items[0]), p2FirstName) == 0);
+    assert(strcmp(getLastName(sortedList->items[0]), p2LastName) == 0);
+    assert(getScore(sortedList->items[0]) == p2Score);
+
+    assert(strcmp(getFirstName(sortedList->items[1]), p1FirstName) == 0);
+    assert(strcmp(getLastName(sortedList->items[1]), p1LastName) == 0);
+    assert(getScore(sortedList->items[1]) == p1Score);
+
+    managerFreeList(sortedList);
+
+    sortedList = managerSortParticipantsByScore(myList);
+    assert(sortedList->size == 2);
+
+    assert(strcmp(getFirstName(sortedList->items[0]), p2FirstName) == 0);
+    assert(strcmp(getLastName(sortedList->items[0]), p2LastName) == 0);
+    assert(getScore(sortedList->items[0]) == p2Score);
+
+    assert(strcmp(getFirstName(sortedList->items[1]), p1FirstName) == 0);
+    assert(strcmp(getLastName(sortedList->items[1]), p1LastName) == 0);
+    assert(getScore(sortedList->items[1]) == p1Score);
+
+    managerFreeList(sortedList);
+
+    managerDestroyList(myList);
 }
 
 void runTests() {
