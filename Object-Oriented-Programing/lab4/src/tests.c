@@ -140,7 +140,7 @@ void serviceTests() {
 
     managerFreeList(filteredList);
 
-    List *sortedList = managerSortParticipantsByName(myList);
+    List *sortedList = managerSortParticipants(myList, byName, 0);
     assert(sortedList->size == 2);
 
     assert(strcmp(getFirstName(sortedList->items[0]), p2FirstName) == 0);
@@ -153,7 +153,7 @@ void serviceTests() {
 
     managerFreeList(sortedList);
 
-    sortedList = managerSortParticipantsByScore(myList);
+    sortedList = managerSortParticipants(myList, byScore, 0);
     assert(sortedList->size == 2);
 
     assert(strcmp(getFirstName(sortedList->items[0]), p2FirstName) == 0);

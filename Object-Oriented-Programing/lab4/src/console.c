@@ -105,7 +105,18 @@ void uiFilterParticipantsByScore(List *list) {
 }
 
 void uiSortParticipantsByScore(List *list) {
-    List *sortedList = managerSortParticipantsByScore(list);
+    int reversed;
+    printf("Enter 1 for reversed: ");
+    scanf("%d", &reversed);
+
+    List *sortedList;
+
+    if (reversed == 1) {
+        sortedList = managerSortParticipants(list, byScore, 1);
+    } else {
+        sortedList = managerSortParticipants(list, byScore, 0);
+    }
+
 
     if (sortedList->size == 0) {
         printf("The list is empty.\n");
@@ -117,7 +128,17 @@ void uiSortParticipantsByScore(List *list) {
 }
 
 void uiSortParticipantsByName(List *list) {
-    List *sortedList = managerSortParticipantsByName(list);
+    int reversed;
+    printf("Enter 1 for reversed: ");
+    scanf("%d", &reversed);
+
+    List *sortedList;
+
+    if (reversed == 1) {
+        sortedList = managerSortParticipants(list, byName, 1);
+    } else {
+        sortedList = managerSortParticipants(list, byName, 0);
+    }
 
     if (sortedList->size == 0) {
         printf("The list is empty.\n");

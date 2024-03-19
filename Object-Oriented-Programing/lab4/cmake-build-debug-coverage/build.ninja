@@ -51,49 +51,49 @@ build cmake_object_order_depends_target_lab4: phony || CMakeFiles/lab4.dir
 
 build CMakeFiles/lab4.dir/src/entity.c.o: C_COMPILER__lab4_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/src/entity.c || cmake_object_order_depends_target_lab4
   DEP_FILE = CMakeFiles/lab4.dir/src/entity.c.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/include
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/src
 
 build CMakeFiles/lab4.dir/src/repository.c.o: C_COMPILER__lab4_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/src/repository.c || cmake_object_order_depends_target_lab4
   DEP_FILE = CMakeFiles/lab4.dir/src/repository.c.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/include
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/src
 
 build CMakeFiles/lab4.dir/src/validator.c.o: C_COMPILER__lab4_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/src/validator.c || cmake_object_order_depends_target_lab4
   DEP_FILE = CMakeFiles/lab4.dir/src/validator.c.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/include
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/src
 
 build CMakeFiles/lab4.dir/src/service.c.o: C_COMPILER__lab4_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/src/service.c || cmake_object_order_depends_target_lab4
   DEP_FILE = CMakeFiles/lab4.dir/src/service.c.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/include
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/src
 
 build CMakeFiles/lab4.dir/src/console.c.o: C_COMPILER__lab4_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/src/console.c || cmake_object_order_depends_target_lab4
   DEP_FILE = CMakeFiles/lab4.dir/src/console.c.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/include
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/src
 
 build CMakeFiles/lab4.dir/src/tests.c.o: C_COMPILER__lab4_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/src/tests.c || cmake_object_order_depends_target_lab4
   DEP_FILE = CMakeFiles/lab4.dir/src/tests.c.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/include
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/src
 
 build CMakeFiles/lab4.dir/src/main.c.o: C_COMPILER__lab4_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/src/main.c || cmake_object_order_depends_target_lab4
   DEP_FILE = CMakeFiles/lab4.dir/src/main.c.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu2x -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab4/include
   OBJECT_DIR = CMakeFiles/lab4.dir
   OBJECT_FILE_DIR = CMakeFiles/lab4.dir/src
@@ -107,7 +107,7 @@ build CMakeFiles/lab4.dir/src/main.c.o: C_COMPILER__lab4_unscanned_Debug /Users/
 # Link the executable lab4
 
 build lab4: C_EXECUTABLE_LINKER__lab4_Debug CMakeFiles/lab4.dir/src/entity.c.o CMakeFiles/lab4.dir/src/repository.c.o CMakeFiles/lab4.dir/src/validator.c.o CMakeFiles/lab4.dir/src/service.c.o CMakeFiles/lab4.dir/src/console.c.o CMakeFiles/lab4.dir/src/tests.c.o CMakeFiles/lab4.dir/src/main.c.o
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/lab4.dir
   POST_BUILD = :
   PRE_LINK = :

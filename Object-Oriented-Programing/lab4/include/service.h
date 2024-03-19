@@ -61,15 +61,25 @@ Returns: a list of participants if they score higher than the score given as par
 List *managerFilterParticipantsByScore(List *list, int minScore);
 
 /*
-Sorts the participants by name.
-Params: list - a list of participants.
-Returns: a list of participants sorted by their name.
+Compare the participants by name
+Params: first - a participant
+        second - a participant
+Returns: 1 if they are not in order 0 otherwise
 */
-List *managerSortParticipantsByName(List *list);
+int byName(Participant *first, Participant *second);
 
 /*
-Sorts the participants by the score.
+Compare the participants by name
+Params: first - a participant
+        second - a participant
+Returns: 1 if they are not in order 0 otherwise
+*/
+int byScore(Participant *first, Participant *second);
+
+/*
+Sorts the participants by the cmp given as parameter.
 Params: list - a list of participants.
+        cmp - a function which compares the elements
 Returns: a list of participants sorted by their score.
 */
-List *managerSortParticipantsByScore(List *list);
+List *managerSortParticipants(List *list, int (*cmp)(Participant *, Participant *), int reversed);
