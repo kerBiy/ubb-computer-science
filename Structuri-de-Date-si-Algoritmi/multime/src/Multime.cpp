@@ -3,19 +3,23 @@
 #include "IteratorMultime.h"
 
 // o posibila relatie
-bool rel(TElem e1, TElem e2) { return e1 <= e2; }
+bool rel(TElem e1, TElem e2) {
+    return e1 <= e2;
+}
 
 Multime::Multime() {
-    size = 0; 
+    size = 0;
     capacity = 1;
     items = new TElem[capacity];
 }
 
-Multime::~Multime() { delete[] items; }
+Multime::~Multime() {
+    delete[] items;
+}
 
 void Multime::resize_append() {
     capacity *= 2;
-    TElem *new_items = new TElem[capacity];
+    auto *new_items = new TElem[capacity];
 
     for (int i = 0; i < size; ++i) {
         new_items[i] = items[i];
@@ -27,7 +31,7 @@ void Multime::resize_append() {
 
 void Multime::resize_delete() {
     capacity /= 2;
-    TElem *new_items = new TElem[capacity];
+    auto *new_items = new TElem[capacity];
 
     for (int i = 0; i < size; ++i) {
         new_items[i] = items[i];
@@ -94,8 +98,14 @@ bool Multime::cauta(TElem elem) const {
     return false;
 }
 
-int Multime::dim() const { return size; }
+int Multime::dim() const {
+    return size;
+}
 
-bool Multime::vida() const { return size == 0; }
+bool Multime::vida() const {
+    return size == 0;
+}
 
-IteratorMultime Multime::iterator() const { return IteratorMultime(*this); }
+IteratorMultime Multime::iterator() const {
+    return IteratorMultime(*this);
+}
