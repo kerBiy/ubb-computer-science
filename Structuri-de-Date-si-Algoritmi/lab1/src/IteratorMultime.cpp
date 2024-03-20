@@ -1,6 +1,6 @@
-#include "../include/IteratorMultime.h"
+#include "IteratorMultime.h"
 
-#include "../include/Multime.h"
+#include "Multime.h"
 
 IteratorMultime::IteratorMultime(const Multime &m) : mult(m) { prim(); }
 
