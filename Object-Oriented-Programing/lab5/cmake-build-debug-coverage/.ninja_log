@@ -1,0 +1,11 @@
+# ninja log v5
+175	204	1711042661821797879	CMakeFiles/lab5.dir/Ui/Menu.c.o	f93b27d5d0f6191a
+175	199	1711042661817355887	CMakeFiles/lab5.dir/Utility/Utility.c.o	409ff60452e21f1b
+2	176	1711042661793054302	CMakeFiles/lab5.dir/Service/Service.c.o	41973a9945fe2a6
+2	178	1711042661794991471	CMakeFiles/lab5.dir/Tests/tests.c.o	960592be770a0925
+1	175	1711042661790957970	CMakeFiles/lab5.dir/main.c.o	ba4a868d433eaaf5
+2	176	1711042661790991011	CMakeFiles/lab5.dir/Validator/validator.c.o	85ffe92942e2d6d7
+2	176	1711042661791393420	CMakeFiles/lab5.dir/Domain/lista.c.o	d4d80ddb236c628
+204	299	1711042661915897198	lab5	bd430b018ead49fd
+2	175	1711042661791320463	CMakeFiles/lab5.dir/Domain/medicament.c.o	1f515334deba60c2
+0	59	1711042736502674258	build.ninja	4dece8fd0d4b4063
