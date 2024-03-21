@@ -16,7 +16,7 @@ Params: list - a list of participants.
 void managerDestroyList(List *list);
 
 /*
-Frees the list given as input.
+Frees the list given as input. Used when you don't want to delete the content.
 This mean that does not free the content only the container.
 Params: list - a list of participants.
 */

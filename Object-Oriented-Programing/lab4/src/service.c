@@ -50,77 +50,35 @@ int managerUpdateParticipant(List *list, const char *firstName, const char *last
 List *managerFilterParticipantsByScore(List *list, int minScore) {
     List *output = createList();
 
-    for (int i = 0; i < list->size; ++i) {
-        if (list->items[i]->score >= minScore) {
-            addParticipant(output, list->items[i]);
+    for (int i = 0; i < getSize(list); ++i) {
+        if (getElement(list, i)->score >= minScore) {
+            addParticipant(output, getElement(list, i));
         }
     }
 
     return output;
 }
 
-//List *managerSortParticipantsByName(List *list) {
-//    List *output = createList();
-//
-//    for (int i = 0; i < list->size; ++i) {
-//        addParticipant(output, list->items[i]);
-//    }
-//
-//    for (int i = 0; i < output->size - 1; ++i) {
-//        for (int j = i + 1; j < output->size; ++j) {
-//            if (strcmp(output->items[i]->firstName, output->items[j]->firstName) > 0
-//                || (strcmp(output->items[i]->firstName, output->items[j]->firstName) == 0
-//                    && strcmp(output->items[i]->lastName, output->items[j]->lastName) > 0)) {
-//                Participant *aux = output->items[i];
-//                output->items[i] = output->items[j];
-//                output->items[j] = aux;
-//            }
-//        }
-//    }
-//
-//    return output;
-//}
-//
-//List *managerSortParticipantsByScore(List *list) {
-//    List *output = createList();
-//
-//    for (int i = 0; i < list->size; ++i) {
-//        addParticipant(output, list->items[i]);
-//    }
-//
-//    for (int i = 0; i < output->size - 1; ++i) {
-//        for (int j = i + 1; j < output->size; ++j) {
-//            if (output->items[i]->score > output->items[j]->score) {
-//                Participant *aux = output->items[i];
-//                output->items[i] = output->items[j];
-//                output->items[j] = aux;
-//            }
-//        }
-//    }
-//
-//    return output;
-//}
-
 int byName(Participant *first, Participant *second) {
-    return first->score > second->score;
+    return getScore(first) > getScore(second);
 }
 
 int byScore(Participant *first, Participant *second) {
-    return strcmp(first->firstName, second->firstName) > 0;
+    return strcmp(getFirstName(first), getFirstName(second)) > 0;
 }
 
 
 List *managerSortParticipants(List *list, int (*cmp)(Participant *, Participant *), int reversed) {
     List *output = createList();
 
-    for (int i = 0; i < list->size; ++i) {
-        addParticipant(output, list->items[i]);
+    for (int i = 0; i < getSize(list); ++i) {
+        addParticipant(output, getElement(list, i));
     }
 
-    for (int i = 0; i < output->size - 1; ++i) {
-        for (int j = i + 1; j < output->size; ++j) {
-            if ((cmp(output->items[i], output->items[j]) && reversed == 0) ||
-                (!cmp(output->items[i], output->items[j]) && reversed == 1)) {
+    for (int i = 0; i < getSize(output) - 1; ++i) {
+        for (int j = i + 1; j < getSize(output); ++j) {
+            if ((cmp(getElement(output, i), getElement(output, j)) && reversed == 0) ||
+                (!cmp(getElement(output, i), getElement(output, j)) && reversed == 1)) {
                 Participant *aux = output->items[i];
                 output->items[i] = output->items[j];
                 output->items[j] = aux;

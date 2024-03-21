@@ -33,6 +33,21 @@ Params: list - a list of participants.
 void resizeList(List *list);
 
 /*
+Gets the size of the list.
+Params: list - a pointer to the list of participants.
+Returns: the size.
+*/
+int getSize(List *list);
+
+/*
+Gets a participant from the list.
+Params: list - a pointer to the list of participants.
+        index - the participant to index you want the list.
+Returns: the participant.
+*/
+Participant *getElement(List *list, int index);
+
+/*
 Adds a participant to the list.
 Params: list - a pointer to the list of participants.
         participant - the participant to add to the list.

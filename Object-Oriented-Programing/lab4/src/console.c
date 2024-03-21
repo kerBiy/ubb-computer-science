@@ -17,15 +17,15 @@ void printMenu() {
 }
 
 void uiPrintList(List *list) {
-    for (int i = 0; i < list->size; ++i) {
-        Participant *participant = list->items[i];
+    for (int i = 0; i < getSize(list); ++i) {
+        Participant *participant = getElement(list, i);
         printf("%s %s: %d\n", getFirstName(participant), getLastName(participant),
                getScore(participant));
     }
 }
 
 void uiPrintParticipants(List *list) {
-    if (list->size == 0) {
+    if (getSize(list) == 0) {
         printf("There are no participants.\n");
         return;
     }
@@ -95,7 +95,7 @@ void uiFilterParticipantsByScore(List *list) {
 
     List *filteredList = managerFilterParticipantsByScore(list, minScore);
 
-    if (filteredList->size == 0) {
+    if (getSize(filteredList) == 0) {
         printf("There are no elements that fit the description.\n");
     }
 
@@ -117,8 +117,7 @@ void uiSortParticipantsByScore(List *list) {
         sortedList = managerSortParticipants(list, byScore, 0);
     }
 
-
-    if (sortedList->size == 0) {
+    if (getSize(sortedList) == 0) {
         printf("The list is empty.\n");
     }
 
@@ -140,7 +139,7 @@ void uiSortParticipantsByName(List *list) {
         sortedList = managerSortParticipants(list, byName, 0);
     }
 
-    if (sortedList->size == 0) {
+    if (getSize(sortedList) == 0) {
         printf("The list is empty.\n");
     }
 

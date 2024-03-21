@@ -32,6 +32,14 @@ void resizeList(List *list) {
     list->items = temp;
 }
 
+int getSize(List *list) {
+    return list->size;
+}
+
+Participant *getElement(List *list, int index) {
+    return list->items[index];
+}
+
 void addParticipant(List *list, Participant *participant) {
     if (list->size == list->capacity) {
         resizeList(list);
@@ -76,5 +84,6 @@ int findIndex(List *list, const char *firstName, const char *lastName) {
             strcmp(getLastName(list->items[i]), lastName) == 0)
             return i;
     }
+
     return -1;
 }
