@@ -32,7 +32,6 @@ void push(Lista* lista,Medicament medicament) {
     lista->medicamente[get_len(lista)] = medicament;
     lista->len +=1;
     reallocMedicament(&lista->medicamente,lista->len);
-
 }
 
 /// Sterge medicamentul cu id-ul furnizat
