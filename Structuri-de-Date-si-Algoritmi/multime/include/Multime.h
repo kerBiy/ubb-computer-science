@@ -4,6 +4,12 @@ typedef int TElem;
 
 //typedef bool (*Relatie)(TElem, TElem);
 
+<<<<<<< HEAD
+=======
+// in implementarea operatiilor se va folosi functia (relatia) rel (de ex,
+// pentru <=)
+//  va fi declarata in .h si implementata in .cpp ca functie externa colectiei
+>>>>>>> origin/main
 bool rel(TElem, TElem);
 
 class IteratorMultime;
@@ -11,11 +17,17 @@ class IteratorMultime;
 class Multime {
     friend class IteratorMultime;
 
+<<<<<<< HEAD
 private:
+=======
+   private:
+    /* aici e reprezentarea */
+>>>>>>> origin/main
     TElem *items;
     int size;
     int capacity;
 
+<<<<<<< HEAD
     // TO(size)
     void resize_append();
 
@@ -59,4 +71,36 @@ public:
     // WC = TO(size * other.size * min{size, output.size})
     // O(min{size, output.size} * size * other.size)
     Multime intersection(Multime &other);
+=======
+    void resize_append();
+    void resize_delete();
+
+   public:
+    // constructorul implicit
+    Multime();
+
+    // adauga un element in multime
+    // returneaza adevarat daca elementul a fost adaugat (nu exista deja in
+    // multime)
+    bool adauga(TElem e);
+
+    // sterge un element din multime
+    // returneaza adevarat daca elementul a existat si a fost sters
+    bool sterge(TElem e);
+
+    // verifica daca un element se afla in multime
+    bool cauta(TElem elem) const;
+
+    // intoarce numarul de elemente din multime;
+    int dim() const;
+
+    // verifica daca multimea e vida;
+    bool vida() const;
+
+    // returneaza un iterator pe multime
+    IteratorMultime iterator() const;
+
+    // destructorul multimii
+    ~Multime();
+>>>>>>> origin/main
 };
