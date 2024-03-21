@@ -109,3 +109,17 @@ bool Multime::vida() const {
 IteratorMultime Multime::iterator() const {
     return IteratorMultime(*this);
 }
+
+Multime Multime::intersection(Multime &other) {
+    Multime output;
+
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < other.size; ++j) {
+            if (items[i] == other.items[j]) {
+                output.adauga(items[i]);
+            }
+        }
+    }
+
+    return output;
+}

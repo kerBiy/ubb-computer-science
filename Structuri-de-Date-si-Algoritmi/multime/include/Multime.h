@@ -4,9 +4,6 @@ typedef int TElem;
 
 //typedef bool (*Relatie)(TElem, TElem);
 
-// in implementarea operatiilor se va folosi functia (relatia) rel (de ex,
-// pentru <=)
-//  va fi declarata in .h si implementata in .cpp ca functie externa colectiei
 bool rel(TElem, TElem);
 
 class IteratorMultime;
@@ -14,40 +11,52 @@ class IteratorMultime;
 class Multime {
     friend class IteratorMultime;
 
-   private:
-    /* aici e reprezentarea */
+private:
     TElem *items;
     int size;
     int capacity;
 
+    // TO(size)
     void resize_append();
+
+    // TO(size)
     void resize_delete();
 
-   public:
-    // constructorul implicit
+public:
+    // TO(1)
     Multime();
 
-    // adauga un element in multime
-    // returneaza adevarat daca elementul a fost adaugat (nu exista deja in
-    // multime)
+    // Complexitate amortizata
+    // BC = TO(log size) - cand se insereaza pe prima pozitie (cautarea binara)
+    //    = TO(1) - cand elementul deja exista (si nu il adaugam)
+    // WC = TO(size) - cand trebuie sa inseram pe prima pozitie
+    // C = TO(size) (amortizata)
     bool adauga(TElem e);
 
-    // sterge un element din multime
-    // returneaza adevarat daca elementul a existat si a fost sters
+    // Complexitate amortizata
+    // BC = TO(size) - cand se afla pe ultima pozitie (cautarea binara)
+    //    = TO(1) - cand elementul nu exista (si nu il stergem)
+    // WC = TO(size) - cand trebuie sa stergem de pe ultima pozitie
+    // C = TO(size) (amortizata)
     bool sterge(TElem e);
 
-    // verifica daca un element se afla in multime
+    // C = O(log size)
     bool cauta(TElem elem) const;
 
-    // intoarce numarul de elemente din multime;
+    // TO(1)
     int dim() const;
 
-    // verifica daca multimea e vida;
+    // TO(1)
     bool vida() const;
 
-    // returneaza un iterator pe multime
+    // TO(1)
     IteratorMultime iterator() const;
 
-    // destructorul multimii
+    // TO(size) ?
     ~Multime();
+
+    // BC = TO(size * other.size)
+    // WC = TO(size * other.size * min{size, output.size})
+    // O(min{size, output.size} * size * other.size)
+    Multime intersection(Multime &other);
 };
