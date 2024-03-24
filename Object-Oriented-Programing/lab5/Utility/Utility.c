@@ -13,15 +13,15 @@ void clear_screen() {
 }
 /// sterge buffer char
 
-void clear (void) {
-    while ( getchar() != '\n' );
+void clear(void) {
+    while (getchar() != '\n');
 }
 
 /// string to lower
 /// @param str string
-void modify_string(char * str) {
-    while ( * str != '\0') {
-        * str = tolower( * str);
+void modify_string(char *str) {
+    while (*str != '\0') {
+        *str = tolower(*str);
         str++;
     }
 }

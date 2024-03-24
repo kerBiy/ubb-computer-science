@@ -36,5 +36,5 @@ int main() {
     Lista list = createLista();
     main_menu(&list);
     destructor(&list);
-    return 0; 
+    return 0;
 }

@@ -9,18 +9,26 @@ typedef struct {
     char nume[50];
     float concentratie;
     int cantitate;
-}Medicament;
+} Medicament;
 
-int get_id(Medicament* m);
-char* get_nume(Medicament* m);
-float get_concentratie(Medicament* m);
-int get_cantitate(Medicament* m);
+int get_id(Medicament *m);
 
-void set_nume(Medicament* m, char* nume);
-void set_concentratie(Medicament* m, float concentratie);
-void set_cantitate(Medicament* m, int cantitate);
-Medicament createMedicament(int id, char* nume,float concentratie,int cantitate);
-Medicament* allocateMedicament();
-int reallocMedicament(Medicament** med,int n);
+char *get_nume(Medicament *m);
+
+float get_concentratie(Medicament *m);
+
+int get_cantitate(Medicament *m);
+
+void set_nume(Medicament *m, char *nume);
+
+void set_concentratie(Medicament *m, float concentratie);
+
+void set_cantitate(Medicament *m, int cantitate);
+
+Medicament createMedicament(int id, char *nume, float concentratie, int cantitate);
+
+Medicament *allocateMedicament();
+
+int reallocMedicament(Medicament **med, int n);
 
 #endif //MEDICAMENT_H
