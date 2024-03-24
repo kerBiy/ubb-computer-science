@@ -3,7 +3,7 @@
 //
 #include "Menu.h"
 
-
+#include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
 
@@ -187,7 +187,7 @@ void filtreaza_medicament_ui(Lista *lista) {
             scanf("%d", &cantitate);
             Lista list = filter_cantitate(lista, cantitate);
             afisare_lista(&list);
-            destructor(&list);
+            free(list.medicamente);
             loop = 0;
         } else if (choice == '2') {
             char initiala;
@@ -196,7 +196,7 @@ void filtreaza_medicament_ui(Lista *lista) {
             initiala = tolower(getchar());
             Lista list = filter_initiala(lista, initiala);
             afisare_lista(&list);
-            destructor(&list);
+            free(list.medicamente);
             loop = 0;
         } else if (choice == '3') {
             float concentratie;
@@ -204,7 +204,7 @@ void filtreaza_medicament_ui(Lista *lista) {
             scanf("%f", &concentratie);
             Lista list = filter_concentratie(lista, concentratie);
             afisare_lista(&list);
-            destructor(&list);
+            free(list.medicamente);
             loop = 0;
         }
     }

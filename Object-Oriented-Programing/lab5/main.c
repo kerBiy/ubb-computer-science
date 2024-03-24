@@ -33,8 +33,8 @@ mai mic decat o valoare data; medicamente cu numele incepand cu o litera data.
 
 int main() {
     test_all();
-//    Lista list = createLista();
-//    main_menu(&list);
-//    destructor(&list);
+    Lista list = createLista();
+    main_menu(&list);
+    destructor(&list);
     return 0;
 }

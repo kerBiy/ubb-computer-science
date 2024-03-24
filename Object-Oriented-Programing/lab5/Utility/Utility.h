@@ -5,9 +5,6 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-/// sterge ecran
-void clear_screen();
-
 /// sterge buffer char
 void clear(void);
 

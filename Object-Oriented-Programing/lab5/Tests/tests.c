@@ -11,9 +11,7 @@
 
 void test_all() {
     test_domain();
-    clear_screen();
     test_service();
-//    clear_screen();
 }
 
 void test_domain() {
@@ -31,9 +29,6 @@ void test_domain() {
     assert(get_concentratie(m) == 2.5);
     assert(get_cantitate(m) == 30);
 
-    free(m1);
-    free(m2);
-
     Lista l = createLista();
     assert(get_len(&l) == 0);
     assert(validator(m, &l) == 1);
@@ -48,6 +43,9 @@ void test_domain() {
     assert(get_len(&l) == 1);
     pop(&l, 7);
     assert(destructor(&l) == 1);
+
+    free(m1);
+    free(m2);
 }
 
 void test_service() {
@@ -101,22 +99,22 @@ void test_service() {
     assert(get_cantitate(get_medicament(&l, 0)) == 0);
     sort(&l, cantitate_descrescator);
     assert(get_cantitate(get_medicament(&l, 0)) == 50);
-//    sort(&l, nume_descresc);
-//    assert(strcmp(get_nume(get_medicament(&l, 0)), "Penicilina") == 0);
-//    //FILTRARI
-//    Lista filtrate = filter_cantitate(&l, 25);
-//    assert(get_len(&filtrate) == 2);
-//    destructor(&filtrate);
-//    filtrate = filter_initiala(&l, 'N');
-//    assert(get_len(&filtrate) == 1);
-//    assert(strcmp(get_nume(&filtrate.medicamente[0]), "Nurofen") == 0);
-//    modify_string(get_nume(&l.medicamente[0]));
-//    destructor(&filtrate);
-//
-//    // My code
-//    filtrate = filter_concentratie(&l, 3.5f);
-//    assert(get_len(&filtrate) == 1);
-//    destructor(&filtrate);
-//
+    sort(&l, nume_descresc);
+    assert(strcmp(get_nume(get_medicament(&l, 0)), "Penicilina") == 0);
+    //FILTRARI
+    Lista filtrate = filter_cantitate(&l, 25);
+    assert(get_len(&filtrate) == 2);
+    free(filtrate.medicamente);
+
+    filtrate = filter_initiala(&l, 'N');
+    assert(get_len(&filtrate) == 1);
+    assert(strcmp(get_nume(get_medicament(&filtrate, 0)), "Nurofen") == 0);
+    modify_string(get_nume(get_medicament(&filtrate, 0)));
+    free(filtrate.medicamente);
+
+    filtrate = filter_concentratie(&l, 3.5f);
+    assert(get_len(&filtrate) == 1);
+    free(filtrate.medicamente);
+
     destructor(&l);
 }
