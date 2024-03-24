@@ -4,6 +4,7 @@
 
 #ifndef MEDICAMENT_H
 #define MEDICAMENT_H
+
 typedef struct {
     int id;
     char nume[50];

@@ -3,6 +3,8 @@
 //
 
 #include "lista.h"
+
+#include <string.h>
 #include <stdlib.h>
 
 int get_len(Lista *lista) {
@@ -13,13 +15,13 @@ void set_len(Lista *lista, int len) {
     lista->len = len;
 }
 
-void push(Lista *lista, Medicament *medicament) {
+void push(Lista *lista, void *item) {
     if (lista->len >= lista->capacity) {
         lista->capacity *= 2;
         lista->medicamente = realloc(lista->medicamente, lista->capacity * sizeof(void *));
     }
 
-    lista->medicamente[lista->len++] = (void *) medicament;
+    lista->medicamente[lista->len++] = item;
 }
 
 void pop(Lista *lista, int id) {
@@ -60,5 +62,22 @@ int destructor(Lista *list) {
         free(get_medicament(list, i));
     }
     free(list->medicamente);
+    return 1;
+}
+
+int equal_medicaments(Medicament *med1, Medicament *med2) {
+    if (get_id(med1) != get_id(med2)) {
+        return 0;
+    }
+    if (strcmp(get_nume(med1), get_nume(med2)) != 0) {
+        return 0;
+    }
+    if (get_concentratie(med1) != get_concentratie(med2)) {
+        return 0;
+    }
+    if (get_cantitate(med1) != get_cantitate(med2)) {
+        return 0;
+    }
+
     return 1;
 }

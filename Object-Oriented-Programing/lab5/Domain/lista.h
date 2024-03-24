@@ -23,10 +23,16 @@ int get_len(Lista *lista);
 /// @param len lungimea noua a listei
 void set_len(Lista *lista, int len);
 
+///
+/// @param lista lista de medicamente
+/// @param index pozitia elementului
+/// @return returneaza medicamentul de la pozitia i
+Medicament *get_medicament(Lista *lista, int index);
+
 /// Adauga medicament in listsa
 /// @param lista lista de medicamente
 /// @param medicament medicament nou
-void push(Lista *lista, Medicament *medicament);
+void push(Lista *lista, void *item);
 
 /// Sterge medicamentul cu id-ul furnizat
 /// @param lista lista de medicamente
@@ -48,6 +54,6 @@ Lista createLista();
 /// @return 1 daca a fost distrus 0 altfel
 int destructor(Lista *list);
 
-Medicament *get_medicament(Lista *lista, int index);
+int equal_medicaments(Medicament *med1, Medicament *med2);
 
 #endif //LISTA_H

@@ -5,7 +5,6 @@
 #include "Service.h"
 
 #include <string.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 int add_medicament(Lista *list, int id, char *nume, float concentratie, int cantitate) {
@@ -56,14 +55,14 @@ int delete_all_stock(Lista *list, int id) {
 }
 
 int nume_cresc(Medicament *m1, Medicament *m2) {
-    if (strcmp(get_nume(m1), get_nume(m2)) >= 1) {
+    if (strcmp(get_nume(m1), get_nume(m2)) > 0) {
         return 1;
     }
     return 0;
 }
 
 int nume_descresc(Medicament *m1, Medicament *m2) {
-    if (strcmp(get_nume(m1), get_nume(m2)) <= 1) {
+    if (strcmp(get_nume(m1), get_nume(m2)) < 0) {
         return 1;
     }
     return 0;
@@ -142,4 +141,26 @@ Lista filter_concentratie(Lista *list, float concentratie) {
     }
 
     return filtrate;
+}
+
+int compare_lists(Lista *list1, Lista *list2) {
+    if (list1->len != list2->len) {
+        return 0;
+    }
+
+    for (int i = 0; i < list1->len; ++i) {
+        if (!equal_medicaments(get_medicament(list1, i), get_medicament(list2, i))) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+void update_history(Lista *history, Lista *current_list) {
+//    if (!compare_lists())
+}
+
+void undo(Lista *hisotry, Lista *current_list) {
+
 }

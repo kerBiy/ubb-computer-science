@@ -26,17 +26,15 @@ void print_sortare_menu() {
     printf("4. Sosrtare dupa cantitate Descrescator\n");
 }
 
-void print_cresc_menu() {
-    printf("Meniu Sortari\n");
-    printf("1.Sortare crescatoare\n");
-    printf("2. Sosrtare descrscatoare\n");
-}
-
 void print_filtrare_menu() {
     printf("Meniu Filtrari\n");
     printf("1. Filtrare dupa cantitate\n");
     printf("2. FIltrare dupa Initiala\n");
     printf("3. Filtrare dupa concentratie\n");
+}
+
+void clear(void) {
+    while (getchar() != '\n');
 }
 
 ///  UI ADAUGARE MEDICAMENT
@@ -134,12 +132,10 @@ void afisare_lista(Lista *lista) {
     int len = get_len(lista);
 
     for (int i = 0; i < len; i++) {
-        Medicament *med = (Medicament *) lista->medicamente[i];
-
-        int id = get_id(med);
-        char *nume = get_nume(med);
-        float concentratie = get_concentratie(med);
-        int cantitate = get_cantitate(med);
+        int id = get_id(get_medicament(lista, i));
+        char *nume = get_nume(get_medicament(lista, i));
+        float concentratie = get_concentratie(get_medicament(lista, i));
+        int cantitate = get_cantitate(get_medicament(lista, i));
         printf("%d %s %.2f%% %d\n", id, nume, concentratie, cantitate);
     }
 }

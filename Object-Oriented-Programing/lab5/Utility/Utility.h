@@ -5,9 +5,6 @@
 #ifndef UTILITY_H
 #define UTILITY_H
 
-/// sterge buffer char
-void clear(void);
-
 /// string to lower
 /// @param str string
 void modify_string(char *str);
