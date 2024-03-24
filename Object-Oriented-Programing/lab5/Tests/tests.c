@@ -5,6 +5,8 @@
 #include "tests.h"
 
 #include "../Utility/Utility.h"
+#include <stdlib.h>
+#include <string.h>
 
 void test_all() {
     test_domain();
@@ -19,9 +21,9 @@ void test_domain() {
     assert(reallocMedicament(&a, INT32_MAX) == 0);
     free(a);
 
-    Medicament m = createMedicament(1, "asdf", 2.5, 30);
+    Medicament m = createMedicament(1, "asdf", 2.5f, 30);
     Medicament m3 = createMedicament(2, "hfg", 2, 30);
-    Medicament m1 = createMedicament(1, "", 2.5, 30);
+    Medicament m1 = createMedicament(1, "", 2.5f, 30);
     Medicament m2 = createMedicament(1, "asdf", 200, 30);
     assert(get_id(&m) == 1);
     assert(strcmp(get_nume(&m), "asdf") == 0);
@@ -67,13 +69,13 @@ void test_service() {
     assert(get_cantitate(&l.medicamente[0]) == 0);
 
 
-    add_medicament(&l, 2, "Nurofen", 3.2, 50);
+    add_medicament(&l, 2, "Nurofen", 3.2f, 50);
     //existence
     assert(verify_existence(&l, "Nurofen") == 2);
     assert(verify_existence(&l, "Cauciuc") == -1);
     //sortari
-    add_medicament(&l, 3, "Penicilina", 2.5, 42);
-    add_medicament(&l, 4, "Antibiotic", 87.5, 21);
+    add_medicament(&l, 3, "Penicilina", 2.5f, 42);
+    add_medicament(&l, 4, "Antibiotic", 87.5f, 21);
 
     assert(strcmp(get_nume(&l.medicamente[0]), "Ibuprofen") == 0);
     sort(&l, nume_cresc);

@@ -5,8 +5,6 @@
 #ifndef VALIDATOR_H
 #define VALIDATOR_H
 
-#include <string.h>
-
 #include "../Domain/medicament.h"
 #include "../Domain/lista.h"
 

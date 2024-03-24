@@ -3,6 +3,7 @@
 //
 
 #include "validator.h"
+#include <string.h>
 
 
 /// Valideaza un medicament creat

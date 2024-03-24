@@ -209,9 +209,6 @@ void filtreaza_medicament_ui(Lista *lista) {
     }
 }
 
-/// Meniu Principal
-/// @param lista de medicamente
-/// @return 0 la inchidere
 int main_menu(Lista *lista) {
     char choice;
     print_main_menu();

@@ -4,13 +4,8 @@
 
 #include "Service.h"
 
-/// 
-/// @param list Lista de medicamente
-/// @param id id medicament
-/// @param nume nume medicament 
-/// @param concentratie concentratie medicament
-/// @param cantitate cantitate medicament
-/// @return 0 sau 1 in functie daca medicamentul a fost adaugat in lista
+#include <string.h>
+
 int add_medicament(Lista *list, int id, char *nume, float concentratie, int cantitate) {
     Medicament m = createMedicament(id, nume, concentratie, cantitate);
     if (validator(m, list) == 1) {
@@ -21,11 +16,6 @@ int add_medicament(Lista *list, int id, char *nume, float concentratie, int cant
     }
 }
 
-/// 
-/// @param list lista de medicamente
-/// @param id id ul medicamentului care sa fie modificat
-/// @param cantitate noua cantitate
-/// @return 1 sau 0 in functie de succesul functiei
 int modify_quantity(Lista *list, int id, int cantitate) {
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
@@ -37,12 +27,6 @@ int modify_quantity(Lista *list, int id, int cantitate) {
     return 0;
 }
 
-/// 
-/// @param list lista de medicamente
-/// @param id id care sa fie modificat
-/// @param nume numele noiu
-/// @param concentratie concentratia noua
-/// @return 1 sau 0 in functie de succesul functiei
 int modify_medicament(Lista *list, int id, char *nume, float concentratie) {
     int len = get_len(list);
     for (int i = 0; i <= len; i++) {
@@ -56,10 +40,6 @@ int modify_medicament(Lista *list, int id, char *nume, float concentratie) {
 
 }
 
-/// 
-/// @param list lista de medicamente
-/// @param id id de la care sa fie sters tot stockul
-/// @return 1 sau 0 in functie de succesul functiei
 int delete_all_stock(Lista *list, int id) {
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
@@ -72,11 +52,6 @@ int delete_all_stock(Lista *list, int id) {
     return 0;
 }
 
-/// 
-/// @param list lista de medicamente
-/// @param nume flag:daca este  setat sorteaza dupa nume
-/// @param cantitate flag: daca este setat sorteaza dupa cantitate
-/// @param crescator flag; daca este setat sorteaza crescator
 int nume_cresc(Medicament *m1, Medicament *m2) {
     if (strcmp(get_nume(m1), get_nume(m2)) >= 1) {
         return 1;
@@ -116,10 +91,6 @@ void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2)) {
     }
 }
 
-/// Filtreaza medicamente dupa o cantitate data
-/// @param list lista de medicamente
-/// @param cantitate de filtrat
-/// @return o lista de medicamente filtrata
 Lista filter_cantitate(Lista *list, int cantitate) {
     Medicament *meds = get_medicamente(list);
 
@@ -133,10 +104,6 @@ Lista filter_cantitate(Lista *list, int cantitate) {
     return filtrate;
 }
 
-/// FIltreaza medicamente dupa initiala
-/// @param list
-/// @param initiala
-/// @return
 Lista filter_initiala(Lista *list, char initiala) {
     Medicament *meds = get_medicamente(list);
     Lista filtrate = createLista();
@@ -149,10 +116,6 @@ Lista filter_initiala(Lista *list, char initiala) {
     return filtrate;
 }
 
-/// Verifica daca exista medicamentul cu nume dat
-/// @param list lista de medicamente
-/// @param nume nume dupa care se cauta
-/// @return id-ul medicamentului cu numele
 int verify_existence(Lista *list, char *nume) {
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
@@ -166,10 +129,6 @@ int verify_existence(Lista *list, char *nume) {
 
 // My code
 
-/// Filtreaza medicamente dupa o concentratie data
-/// @param list lista de medicamente
-/// @param concentratie de filtrat
-/// @return o lista de medicamente filtrata
 Lista filter_concentratie(Lista *list, float concentratie) {
     Medicament *meds = get_medicamente(list);
 
