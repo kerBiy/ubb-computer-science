@@ -13,21 +13,22 @@ void set_len(Lista *lista, int len) {
     lista->len = len;
 }
 
-Medicament *get_medicamente(Lista *lista) {
-    return lista->medicamente;
-}
+void push(Lista *lista, Medicament *medicament) {
+    if (lista->len >= lista->capacity) {
+        lista->capacity *= 2;
+        lista->medicamente = realloc(lista->medicamente, lista->capacity * sizeof(void *));
+    }
 
-void push(Lista *lista, Medicament medicament) {
-    lista->medicamente[get_len(lista)] = medicament;
-    lista->len += 1;
-    reallocMedicament(&lista->medicamente, lista->len);
+    lista->medicamente[lista->len++] = (void *) medicament;
 }
 
 void pop(Lista *lista, int id) {
 
     int len = get_len(lista);
     for (int i = 0; i < len; i++) {
-        if (lista->medicamente[i].id == id) {
+
+        if (get_medicament(lista, i)->id == id) {
+            free(get_medicament(lista, i));
             for (int j = i + 1; j < len; j++) {
                 lista->medicamente[j - 1] = lista->medicamente[j];
             }
@@ -40,17 +41,24 @@ void pop(Lista *lista, int id) {
 Lista createLista() {
     Lista list;
     set_len(&list, 0);
-    list.medicamente = allocateMedicament();
+    list.medicamente = (void **) malloc(1 * sizeof(void *));
     return list;
 }
 
+Medicament *get_medicament(Lista *lista, int index) {
+    return (Medicament *) lista->medicamente[index];
+}
+
 void listswap(Lista *list, int index1, int index2) {
-    Medicament med = list->medicamente[index1];
+    void *med = list->medicamente[index1];
     list->medicamente[index1] = list->medicamente[index2];
     list->medicamente[index2] = med;
 }
 
 int destructor(Lista *list) {
+    for (int i = 0; i < list->len; ++i) {
+        free(get_medicament(list, i));
+    }
     free(list->medicamente);
     return 1;
 }

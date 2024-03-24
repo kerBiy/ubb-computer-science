@@ -8,8 +8,9 @@
 #include "medicament.h"
 
 typedef struct {
-    Medicament *medicamente;
+    void **medicamente;
     int len;
+    int capacity;
 } Lista;
 
 ///
@@ -22,15 +23,10 @@ int get_len(Lista *lista);
 /// @param len lungimea noua a listei
 void set_len(Lista *lista, int len);
 
-///
-/// @param lista lista de medicamente
-/// @return array de medicamente
-Medicament *get_medicamente(Lista *lista);
-
 /// Adauga medicament in listsa
 /// @param lista lista de medicamente
 /// @param medicament medicament nou
-void push(Lista *lista, Medicament medicament);
+void push(Lista *lista, Medicament *medicament);
 
 /// Sterge medicamentul cu id-ul furnizat
 /// @param lista lista de medicamente
@@ -51,5 +47,7 @@ Lista createLista();
 /// @param list lista de medicamente
 /// @return 1 daca a fost distrus 0 altfel
 int destructor(Lista *list);
+
+Medicament *get_medicament(Lista *lista, int index);
 
 #endif //LISTA_H

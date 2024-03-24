@@ -8,6 +8,6 @@
 #include "../Domain/medicament.h"
 #include "../Domain/lista.h"
 
-int validator(Medicament m, Lista *medicamente);
+int validator(Medicament *m, Lista *medicamente);
 
 #endif //VALIDATOR_H

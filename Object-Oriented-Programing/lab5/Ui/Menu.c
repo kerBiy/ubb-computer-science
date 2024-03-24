@@ -131,14 +131,15 @@ void sterge_medicament_ui(Lista *lista) {
 /// Afiseaza lista de medicamente furnizata
 /// @param lista lista de medicamente
 void afisare_lista(Lista *lista) {
-    Medicament *meds = get_medicamente(lista);
     int len = get_len(lista);
 
     for (int i = 0; i < len; i++) {
-        int id = get_id(&meds[i]);
-        char *nume = get_nume(&meds[i]);
-        float concentratie = get_concentratie(&meds[i]);
-        int cantitate = get_cantitate(&meds[i]);
+        Medicament *med = (Medicament *) lista->medicamente[i];
+
+        int id = get_id(med);
+        char *nume = get_nume(med);
+        float concentratie = get_concentratie(med);
+        int cantitate = get_cantitate(med);
         printf("%d %s %.2f%% %d\n", id, nume, concentratie, cantitate);
     }
 }

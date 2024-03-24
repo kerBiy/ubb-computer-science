@@ -5,13 +5,16 @@
 #include "Service.h"
 
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int add_medicament(Lista *list, int id, char *nume, float concentratie, int cantitate) {
-    Medicament m = createMedicament(id, nume, concentratie, cantitate);
+    Medicament *m = createMedicament(id, nume, concentratie, cantitate);
     if (validator(m, list) == 1) {
         push(list, m);
         return 1;
     } else {
+        free(m);
         return 0;
     }
 }
@@ -19,8 +22,8 @@ int add_medicament(Lista *list, int id, char *nume, float concentratie, int cant
 int modify_quantity(Lista *list, int id, int cantitate) {
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
-        if (get_id(&list->medicamente[i]) == id) {
-            set_cantitate(&list->medicamente[i], cantitate);
+        if (get_id(get_medicament(list, i)) == id) {
+            set_cantitate(get_medicament(list, i), cantitate);
             return 1;
         }
     }
@@ -29,10 +32,10 @@ int modify_quantity(Lista *list, int id, int cantitate) {
 
 int modify_medicament(Lista *list, int id, char *nume, float concentratie) {
     int len = get_len(list);
-    for (int i = 0; i <= len; i++) {
-        if (get_id(&list->medicamente[i]) == id) {
-            set_nume(&list->medicamente[i], nume);
-            set_concentratie(&list->medicamente[i], concentratie);
+    for (int i = 0; i < len; i++) {
+        if (get_id(get_medicament(list, i)) == id) {
+            set_nume(get_medicament(list, i), nume);
+            set_concentratie(get_medicament(list, i), concentratie);
             return 1;
         }
     }
@@ -43,8 +46,8 @@ int modify_medicament(Lista *list, int id, char *nume, float concentratie) {
 int delete_all_stock(Lista *list, int id) {
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
-        if (get_id(&list->medicamente[i]) == id) {
-            set_cantitate(&list->medicamente[i], 0);
+        if (get_id(get_medicament(list, i)) == id) {
+            set_cantitate(get_medicament(list, i), 0);
             return 1;
         }
 
@@ -82,9 +85,9 @@ int cantitate_descrescator(Medicament *m1, Medicament *m2) {
 
 void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2)) {
     int len = get_len(list);
-    for (int k = 0; k <= len; k++) {
+    for (int k = 0; k < len; k++) {
         for (int i = 0; i < len - 1; i++) {
-            if (functie(&list->medicamente[i], &list->medicamente[i + 1])) {
+            if (functie(get_medicament(list, i), get_medicament(list, i + 1))) {
                 listswap(list, i, i + 1);
             }
         }
@@ -92,25 +95,23 @@ void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2)) {
 }
 
 Lista filter_cantitate(Lista *list, int cantitate) {
-    Medicament *meds = get_medicamente(list);
-
     Lista filtrate = createLista();
+
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
-        if (get_cantitate(&meds[i]) <= cantitate) {
-            push(&filtrate, meds[i]);
+        if (get_cantitate(get_medicament(list, i)) <= cantitate) {
+            push(&filtrate, get_medicament(list, i));
         }
     }
     return filtrate;
 }
 
 Lista filter_initiala(Lista *list, char initiala) {
-    Medicament *meds = get_medicamente(list);
     Lista filtrate = createLista();
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
-        if (get_nume(&meds[i])[0] == initiala) {
-            push(&filtrate, meds[i]);
+        if (get_nume(get_medicament(list, i))[0] == initiala) {
+            push(&filtrate, get_medicament(list, i));
         }
     }
     return filtrate;
@@ -119,8 +120,8 @@ Lista filter_initiala(Lista *list, char initiala) {
 int verify_existence(Lista *list, char *nume) {
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
-        if (strcmp(get_nume(&list->medicamente[i]), nume) == 0) {
-            return get_id(&list->medicamente[i]);
+        if (strcmp(get_nume(get_medicament(list, i)), nume) == 0) {
+            return get_id(get_medicament(list, i));
         }
     }
     return -1;
@@ -130,15 +131,13 @@ int verify_existence(Lista *list, char *nume) {
 // My code
 
 Lista filter_concentratie(Lista *list, float concentratie) {
-    Medicament *meds = get_medicamente(list);
-
     Lista filtrate = createLista();
 
     int len = get_len(list);
 
     for (int i = 0; i < len; i++) {
-        if (get_concentratie(&meds[i]) >= concentratie) {
-            push(&filtrate, meds[i]);
+        if (get_concentratie(get_medicament(list, i)) >= concentratie) {
+            push(&filtrate, get_medicament(list, i));
         }
     }
 

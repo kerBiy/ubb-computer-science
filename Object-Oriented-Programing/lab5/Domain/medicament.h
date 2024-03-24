@@ -52,14 +52,6 @@ void set_cantitate(Medicament *m, int cantitate);
 /// @param concentratie concentratie medicament
 /// @param cantitate cantitate medicament
 /// @return medicament creat
-Medicament createMedicament(int id, char *nume, float concentratie, int cantitate);
-
-/// Alocheaza vectorul dinamic
-/// @return adresa medicamentului de pe heap
-Medicament *allocateMedicament();
-
-/// Mareste vectorul dinamic
-/// @return 1 daca s a realocat 0 daca nu
-int reallocMedicament(Medicament **med, int n);
+Medicament *createMedicament(int id, char *nume, float concentratie, int cantitate);
 
 #endif //MEDICAMENT_H
