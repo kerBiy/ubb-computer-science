@@ -10,7 +10,7 @@
 
 /// Valideaza un medicament creat
 /// @param medicament medicamentul de verificat
-/// @param medicamente lista de medicamente
+/// @param medicamente lista de items
 /// @return 0 sau 1 in functie daca medicamentul este valid sau nu
 int validator(Medicament *m, Lista *medicamente);
 

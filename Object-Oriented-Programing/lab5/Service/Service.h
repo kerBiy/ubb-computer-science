@@ -10,7 +10,7 @@
 #include "../Validator/validator.h"
 
 ///
-/// @param list Lista de medicamente
+/// @param list Lista de items
 /// @param id id medicament
 /// @param nume nume medicament
 /// @param concentratie concentratie medicament
@@ -19,14 +19,14 @@
 int add_medicament(Lista *list, int id, char *nume, float concentratie, int cantitate);
 
 ///
-/// @param list lista de medicamente
+/// @param list lista de items
 /// @param id id ul medicamentului care sa fie modificat
 /// @param cantitate noua cantitate
 /// @return 1 sau 0 in functie de succesul functiei
 int modify_quantity(Lista *list, int id, int cantitate);
 
 ///
-/// @param list lista de medicamente
+/// @param list lista de items
 /// @param id id care sa fie modificat
 /// @param nume numele noiu
 /// @param concentratie concentratia noua
@@ -34,31 +34,31 @@ int modify_quantity(Lista *list, int id, int cantitate);
 int modify_medicament(Lista *list, int id, char *nume, float concentratie);
 
 ///
-/// @param list lista de medicamente
+/// @param list lista de items
 /// @param id id de la care sa fie sters tot stockul
 /// @return 1 sau 0 in functie de succesul functiei
 int delete_all_stock(Lista *list, int id);
 
-/// Filtreaza medicamente dupa o cantitate data
-/// @param list lista de medicamente
+/// Filtreaza items dupa o cantitate data
+/// @param list lista de items
 /// @param cantitate de filtrat
-/// @return o lista de medicamente filtrata
-Lista filter_cantitate(Lista *list, int cantitate);
+/// @return o lista de items filtrata
+Lista *filter_cantitate(Lista *list, int cantitate);
 
-/// FIltreaza medicamente dupa initiala
+/// FIltreaza items dupa initiala
 /// @param list
 /// @param initiala
 /// @return
-Lista filter_initiala(Lista *list, char initiala);
+Lista *filter_initiala(Lista *list, char initiala);
 
-/// Filtreaza medicamente dupa o concentratie data
-/// @param list lista de medicamente
+/// Filtreaza items dupa o concentratie data
+/// @param list lista de items
 /// @param concentratie de filtrat
-/// @return o lista de medicamente filtrata
-Lista filter_concentratie(Lista *list, float concentratie);
+/// @return o lista de items filtrata
+Lista *filter_concentratie(Lista *list, float concentratie);
 
 /// Verifica daca exista medicamentul cu nume dat
-/// @param list lista de medicamente
+/// @param list lista de items
 /// @param nume nume dupa care se cauta
 /// @return id-ul medicamentului cu numele
 int verify_existence(Lista *list, char *nume);
@@ -75,10 +75,8 @@ void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2));
 
 // My Code
 
-int compare_lists(Lista *list1, Lista *list2);
+void updateHistory(Lista *history, Lista *medicamente);
 
-void update_history(Lista *history, Lista *current_list);
-
-void undo(Lista *hisotry, Lista *current_list);
+int undo(Lista *history, Lista **medicamente);
 
 #endif //SERVICE_H

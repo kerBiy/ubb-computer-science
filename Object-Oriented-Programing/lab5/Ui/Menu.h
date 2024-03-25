@@ -10,8 +10,8 @@
 #include "../Service/Service.h"
 
 /// Meniu Principal
-/// @param lista de medicamente
+/// @param lista de items
 /// @return 0 la inchidere
-int main_menu(Lista *lista);
+int main_menu();
 
 #endif //MENU_H

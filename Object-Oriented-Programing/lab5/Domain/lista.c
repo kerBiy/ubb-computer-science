@@ -18,21 +18,20 @@ void set_len(Lista *lista, int len) {
 void push(Lista *lista, void *item) {
     if (lista->len >= lista->capacity) {
         lista->capacity *= 2;
-        lista->medicamente = realloc(lista->medicamente, lista->capacity * sizeof(void *));
+        lista->items = realloc(lista->items, lista->capacity * sizeof(void *));
     }
 
-    lista->medicamente[lista->len++] = item;
+    lista->items[lista->len++] = item;
 }
 
 void pop(Lista *lista, int id) {
 
     int len = get_len(lista);
     for (int i = 0; i < len; i++) {
-
         if (get_medicament(lista, i)->id == id) {
-            free(get_medicament(lista, i));
+            free(lista->items[i]);
             for (int j = i + 1; j < len; j++) {
-                lista->medicamente[j - 1] = lista->medicamente[j];
+                lista->items[j - 1] = lista->items[j];
             }
             lista->len -= 1;
             return;
@@ -40,44 +39,63 @@ void pop(Lista *lista, int id) {
     }
 }
 
-Lista createLista() {
-    Lista list;
-    set_len(&list, 0);
-    list.medicamente = (void **) malloc(1 * sizeof(void *));
+Lista *createLista() {
+    Lista *list = (Lista *) malloc(sizeof(Lista));
+    set_len(list, 0);
+    list->capacity = 1;
+    list->items = (void **) malloc(list->capacity * sizeof(void *));
     return list;
 }
 
+Lista *deepCopy(Lista *oldList) {
+    Lista *newList = (Lista *) malloc(sizeof(Lista));
+
+    newList->capacity = oldList->capacity;
+    newList->len = oldList->len;
+    newList->items = (void **) malloc(oldList->capacity * sizeof(void *));
+
+    for (int i = 0; i < oldList->capacity; ++i) {
+        if (i < oldList->len) {
+            Medicament *oldMed = (Medicament *) oldList->items[i];
+
+            int id = get_id(oldMed);
+
+            char nume[50];
+            strcpy(nume, oldMed->nume);
+
+            float concentratie = get_concentratie(oldMed);
+
+            int cantitate = get_cantitate(oldMed);
+
+            Medicament *newMed = createMedicament(id, nume, concentratie, cantitate);
+            newList->items[i] = newMed;
+        } else {
+            newList->items[i] = NULL;
+        }
+    }
+    return newList;
+}
+
 Medicament *get_medicament(Lista *lista, int index) {
-    return (Medicament *) lista->medicamente[index];
+    return (Medicament *) lista->items[index];
 }
 
 void listswap(Lista *list, int index1, int index2) {
-    void *med = list->medicamente[index1];
-    list->medicamente[index1] = list->medicamente[index2];
-    list->medicamente[index2] = med;
+    void *med = list->items[index1];
+    list->items[index1] = list->items[index2];
+    list->items[index2] = med;
 }
 
 int destructor(Lista *list) {
-    for (int i = 0; i < list->len; ++i) {
-        free(get_medicament(list, i));
+    if (list) {
+        for (int i = 0; i < list->len; ++i) {
+            if (list->items[i]) {
+                free(list->items[i]);
+            }
+        }
+        free(list->items);
+        free(list);
+        return 1;
     }
-    free(list->medicamente);
-    return 1;
-}
-
-int equal_medicaments(Medicament *med1, Medicament *med2) {
-    if (get_id(med1) != get_id(med2)) {
-        return 0;
-    }
-    if (strcmp(get_nume(med1), get_nume(med2)) != 0) {
-        return 0;
-    }
-    if (get_concentratie(med1) != get_concentratie(med2)) {
-        return 0;
-    }
-    if (get_cantitate(med1) != get_cantitate(med2)) {
-        return 0;
-    }
-
-    return 1;
+    return 0;
 }

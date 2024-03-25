@@ -1,5 +1,3 @@
-
-#include "Domain/lista.h"
 #include "Tests/tests.h"
 #include "Ui/Menu.h"
 
@@ -23,18 +21,17 @@ Timp de lucru 2 saptamani.
 Administratorul unei facatie care permite gestiunea stocului din farmacie.
 Fiecare medicament din stoc are un cod unic, un nume,concentratie, cantitate disponibila in stoc.
 Creati o aplicatie care permite:
- a) Adaugare de noi medicamente. Daca medicamentul este deja in stoc trebuie actualizat cantitatea
- b) Actualizare medicamente (modificare nume, concentratie pentru un medicament din stoc)
+ a) Adaugare de noi items. Daca medicamentul este deja in stoc trebuie actualizat cantitatea
+ b) Actualizare items (modificare nume, concentratie pentru un medicament din stoc)
  c) Stergerea intregului stoc dintr-un medicament dat
- d) Vizualizare medicamente din stoc, ordonat dupa nume, cantitate (crescator/descrescator)
- e) Vizualizare lista de medicamente filtrate dupa un criteriu. Medicamente unde stocul disponibil este
-mai mic decat o valoare data; medicamente cu numele incepand cu o litera data.
+ d) Vizualizare items din stoc, ordonat dupa nume, cantitate (crescator/descrescator)
+ e) Vizualizare lista de items filtrate dupa un criteriu. Medicamente unde stocul disponibil este
+mai mic decat o valoare data; items cu numele incepand cu o litera data.
 */
 
 int main() {
     test_all();
-    Lista list = createLista();
-    main_menu(&list);
-    destructor(&list);
+    main_menu();
+
     return 0;
 }

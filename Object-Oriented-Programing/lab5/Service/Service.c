@@ -6,6 +6,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int add_medicament(Lista *list, int id, char *nume, float concentratie, int cantitate) {
     Medicament *m = createMedicament(id, nume, concentratie, cantitate);
@@ -93,24 +94,24 @@ void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2)) {
     }
 }
 
-Lista filter_cantitate(Lista *list, int cantitate) {
-    Lista filtrate = createLista();
+Lista *filter_cantitate(Lista *list, int cantitate) {
+    Lista *filtrate = createLista();
 
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
         if (get_cantitate(get_medicament(list, i)) <= cantitate) {
-            push(&filtrate, get_medicament(list, i));
+            push(filtrate, get_medicament(list, i));
         }
     }
     return filtrate;
 }
 
-Lista filter_initiala(Lista *list, char initiala) {
-    Lista filtrate = createLista();
+Lista *filter_initiala(Lista *list, char initiala) {
+    Lista *filtrate = createLista();
     int len = get_len(list);
     for (int i = 0; i < len; i++) {
         if (get_nume(get_medicament(list, i))[0] == initiala) {
-            push(&filtrate, get_medicament(list, i));
+            push(filtrate, get_medicament(list, i));
         }
     }
     return filtrate;
@@ -129,38 +130,35 @@ int verify_existence(Lista *list, char *nume) {
 
 // My code
 
-Lista filter_concentratie(Lista *list, float concentratie) {
-    Lista filtrate = createLista();
+Lista *filter_concentratie(Lista *list, float concentratie) {
+    Lista *filtrate = createLista();
 
     int len = get_len(list);
 
     for (int i = 0; i < len; i++) {
         if (get_concentratie(get_medicament(list, i)) >= concentratie) {
-            push(&filtrate, get_medicament(list, i));
+            push(filtrate, get_medicament(list, i));
         }
     }
 
     return filtrate;
 }
 
-int compare_lists(Lista *list1, Lista *list2) {
-    if (list1->len != list2->len) {
+void updateHistory(Lista *history, Lista *medicamente) {
+    Lista *newList = deepCopy(medicamente);
+    push(history, newList);
+}
+
+int undo(Lista *history, Lista **medicamente) {
+    if (history->len <= 1) {
         return 0;
     }
+    if (*medicamente != (Lista *) history->items[history->len - 1])
+        destructor((Lista *) history->items[history->len - 1]);
 
-    for (int i = 0; i < list1->len; ++i) {
-        if (!equal_medicaments(get_medicament(list1, i), get_medicament(list2, i))) {
-            return 0;
-        }
-    }
+    destructor(*medicamente);
 
+    history->len--;
+    *medicamente = (Lista *) history->items[history->len - 1];
     return 1;
-}
-
-void update_history(Lista *history, Lista *current_list) {
-//    if (!compare_lists())
-}
-
-void undo(Lista *hisotry, Lista *current_list) {
-
 }

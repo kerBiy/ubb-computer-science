@@ -39,7 +39,7 @@ void clear(void) {
 
 ///  UI ADAUGARE MEDICAMENT
 /// @param lista LISTA DE MEDICAMENTE
-void adauga_medicament_ui(Lista *lista) {
+void adauga_medicament_ui(Lista *history, Lista *lista) {
     int id, cantitate;
     char nume[50];
     float concentratie;
@@ -67,6 +67,7 @@ void adauga_medicament_ui(Lista *lista) {
         }
         if (add_medicament(lista, id, nume, concentratie, cantitate)) {
             printf("Medicament Adaugat cu succes!\n");
+            updateHistory(history, lista);
         } else {
             printf("Medicamentul nu a fost adaugat!\n");
         }
@@ -83,8 +84,8 @@ void adauga_medicament_ui(Lista *lista) {
 }
 
 /// UI MODIFICARE MEDICAMENT
-/// @param lista de medicamente
-void modifica_medicament_ui(Lista *lista) {
+/// @param lista de items
+void modifica_medicament_ui(Lista *history, Lista *lista) {
     int id;
     char nume[50];
     float concentratie;
@@ -105,14 +106,15 @@ void modifica_medicament_ui(Lista *lista) {
     }
     if (modify_medicament(lista, id, nume, concentratie)) {
         printf("Medicament Modificat cu succes!\n");
+        updateHistory(history, lista);
     } else {
         printf("Medicamentu nu a putut fi modificat!\n");
     }
 }
 
 /// UI STERGERE MEDICAMENT
-/// @param lista lista de medicamente
-void sterge_medicament_ui(Lista *lista) {
+/// @param lista lista de items
+void sterge_medicament_ui(Lista *history, Lista *lista) {
     int id;
     printf("Id:");
     if (scanf("%d", &id) != 1) {
@@ -121,13 +123,14 @@ void sterge_medicament_ui(Lista *lista) {
     }
     if (delete_all_stock(lista, id)) {
         printf("Stocul Medicamentului a fost Eliminat cu succes!\n");
+        updateHistory(history, lista);
     } else {
         printf("Stocul Medicamentului nu a fost eliminat!\n");
     }
 }
 
-/// Afiseaza lista de medicamente furnizata
-/// @param lista lista de medicamente
+/// Afiseaza lista de items furnizata
+/// @param lista lista de items
 void afisare_lista(Lista *lista) {
     int len = get_len(lista);
 
@@ -141,7 +144,7 @@ void afisare_lista(Lista *lista) {
 }
 
 /// UI AFISARI CU SORTARI
-/// @param lista lista de medicamente
+/// @param lista lista de items
 void afisare_medicament_ui(Lista *lista) {
     int loop = 1;
     char choice;
@@ -170,7 +173,7 @@ void afisare_medicament_ui(Lista *lista) {
 }
 
 /// UI FILTRARE MEDICAMENT CU AFISARE
-/// @param lista lista de medicamente
+/// @param lista lista de items
 void filtreaza_medicament_ui(Lista *lista) {
     char choice;
     int loop = 1;
@@ -181,44 +184,54 @@ void filtreaza_medicament_ui(Lista *lista) {
             int cantitate;
             printf("Cantitate:");
             scanf("%d", &cantitate);
-            Lista list = filter_cantitate(lista, cantitate);
-            afisare_lista(&list);
-            free(list.medicamente);
+            Lista *list = filter_cantitate(lista, cantitate);
+            afisare_lista(list);
+            free(list->items);
+            free(list);
             loop = 0;
         } else if (choice == '2') {
             char initiala;
             printf("initiala:");
             clear();
             initiala = tolower(getchar());
-            Lista list = filter_initiala(lista, initiala);
-            afisare_lista(&list);
-            free(list.medicamente);
+            Lista *list = filter_initiala(lista, initiala);
+            afisare_lista(list);
+            free(list->items);
+            free(list);
             loop = 0;
         } else if (choice == '3') {
             float concentratie;
             printf("Concentratie: ");
             scanf("%f", &concentratie);
-            Lista list = filter_concentratie(lista, concentratie);
-            afisare_lista(&list);
-            free(list.medicamente);
+            Lista *list = filter_concentratie(lista, concentratie);
+            afisare_lista(list);
+            free(list->items);
+            free(list);
             loop = 0;
         }
     }
 }
 
-int main_menu(Lista *lista) {
+int main_menu() {
+    Lista *history = createLista();
+    Lista *empty = createLista();
+    push(history, empty);
+//    updateHistory(history, lista);
+
+    Lista *lista = createLista();
+
     char choice;
     print_main_menu();
     while (1) {
         choice = getchar();
         if (choice == '1') {
-            adauga_medicament_ui(lista);
+            adauga_medicament_ui(history, lista);
             print_main_menu();
         } else if (choice == '2') {
-            modifica_medicament_ui(lista);
+            modifica_medicament_ui(history, lista);
             print_main_menu();
         } else if (choice == '3') {
-            sterge_medicament_ui(lista);
+            sterge_medicament_ui(history, lista);
             print_main_menu();
         } else if (choice == '4') {
             afisare_medicament_ui(lista);
@@ -227,7 +240,23 @@ int main_menu(Lista *lista) {
             filtreaza_medicament_ui(lista);
             print_main_menu();
         } else if (choice == 'q') {
+            for (int i = 0; i < history->len; ++i) {
+                destructor(history->items[i]);
+            }
+            free(history->items);
+            free(history);
+            destructor(lista);
             return 0;
+        } else if (choice == '0') {
+            if (undo(history, &lista) == 1) {
+                printf("The last operation was undone...\n");
+            } else {
+                printf("You can't undo any further.\n");
+            }
+            print_main_menu();
+        } else if (choice == 'p') {
+            afisare_lista(lista);
+            print_main_menu();
         }
     }
 }
