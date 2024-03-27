@@ -148,25 +148,51 @@ void afisare_lista(Lista *lista) {
 void afisare_medicament_ui(Lista *lista) {
     int loop = 1;
     char choice;
+    int sort_alg;
+
     print_sortare_menu();
     while (loop) {
-
         printf(":");
-
         choice = getchar();
+
         if (choice == '1') {
-            sort(lista, nume_cresc);
+            printf("Enter the sorting alg:\n");
+            printf("Enter 1 for buble sort\n");
+            printf("Enter 2 for selection sort\n");
+            printf(":");
+            scanf("%d", &sort_alg);
+
+            sort(lista, nume_cresc, sort_alg);
             loop = 0;
         } else if (choice == '2') {
-            sort(lista, nume_descresc);
+            printf("Enter the sorting alg:\n");
+            printf("Enter 1 for buble sort\n");
+            printf("Enter 2 for selection sort\n");
+            printf(":");
+            scanf("%d", &sort_alg);
+
+            sort(lista, nume_descresc, sort_alg);
             loop = 0;
         } else if (choice == '3') {
-            sort(lista, cantitate_crescator);
+            printf("Enter the sorting alg:\n");
+            printf("Enter 1 for buble sort\n");
+            printf("Enter 2 for selection sort\n");
+            printf(":");
+            scanf("%d", &sort_alg);
+
+            sort(lista, cantitate_crescator, sort_alg);
             loop = 0;
         } else if (choice == '4') {
-            sort(lista, cantitate_descrescator);
+            printf("Enter the sorting alg:\n");
+            printf("Enter 1 for buble sort\n");
+            printf("Enter 2 for selection sort\n");
+            printf(":");
+            scanf("%d", &sort_alg);
+
+            sort(lista, cantitate_descrescator, sort_alg);
             loop = 0;
         }
+
     }
     afisare_lista(lista);
 
@@ -216,7 +242,6 @@ int main_menu() {
     Lista *history = createLista();
     Lista *empty = createLista();
     push(history, empty);
-//    updateHistory(history, lista);
 
     Lista *lista = createLista();
 

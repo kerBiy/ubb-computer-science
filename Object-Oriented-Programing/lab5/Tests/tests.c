@@ -75,14 +75,14 @@ void test_service() {
     add_medicament(l, 4, "Antibiotic", 87.5f, 21);
 
     assert(strcmp(get_nume(get_medicament(l, 0)), "Ibuprofen") == 0);
-    sort(l, nume_cresc);
+    sort(l, nume_cresc, 1);
     assert(strcmp(get_nume(get_medicament(l, 0)), "Antibiotic") == 0);
     assert(get_cantitate(get_medicament(l, 0)) == 21);
-    sort(l, cantitate_crescator);
+    sort(l, cantitate_crescator, 2);
     assert(get_cantitate(get_medicament(l, 0)) == 0);
-    sort(l, cantitate_descrescator);
+    sort(l, cantitate_descrescator, 1);
     assert(get_cantitate(get_medicament(l, 0)) == 50);
-    sort(l, nume_descresc);
+    sort(l, nume_descresc, 2);
     assert(strcmp(get_nume(get_medicament(l, 0)), "Penicilina") == 0);
 
     //FILTRARI
@@ -103,5 +103,25 @@ void test_service() {
     free(filtrate->items);
     free(filtrate);
 
+    //TODO teste undo
+
+    Lista *history = createLista();
+    Lista *empty = createLista();
+    push(history, empty);
+
+    assert(undo(history, &l) == 0);
+    updateHistory(history, l);
+    assert(history->len == 2);
+    assert(undo(history, &l) == 1);
+    assert(history->len == 1);
+
+    for (int i = 0; i < history->len; ++i) {
+        destructor(history->items[i]);
+    }
+    free(history->items);
+    free(history);
     destructor(l);
+
+    Lista *null = NULL;
+    assert(destructor(null) == 0);
 }

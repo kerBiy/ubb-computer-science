@@ -6,7 +6,6 @@
 
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 int add_medicament(Lista *list, int id, char *nume, float concentratie, int cantitate) {
     Medicament *m = createMedicament(id, nume, concentratie, cantitate);
@@ -83,12 +82,23 @@ int cantitate_descrescator(Medicament *m1, Medicament *m2) {
     return 0;
 }
 
-void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2)) {
+void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2), int alg) {
     int len = get_len(list);
-    for (int k = 0; k < len; k++) {
-        for (int i = 0; i < len - 1; i++) {
-            if (functie(get_medicament(list, i), get_medicament(list, i + 1))) {
-                listswap(list, i, i + 1);
+
+    if (alg == 1) {
+        for (int k = 0; k < len; k++) {
+            for (int i = 0; i < len - 1; i++) {
+                if (functie(get_medicament(list, i), get_medicament(list, i + 1))) {
+                    listswap(list, i, i + 1);
+                }
+            }
+        }
+    } else if (alg == 2) {
+        for (int i = 0; i < len - 1; ++i) {
+            for (int j = 0; j < len; ++j) {
+                if (functie(get_medicament(list, i), get_medicament(list, i + 1))) {
+                    listswap(list, i, i + 1);
+                }
             }
         }
     }
@@ -153,12 +163,11 @@ int undo(Lista *history, Lista **medicamente) {
     if (history->len <= 1) {
         return 0;
     }
-    if (*medicamente != (Lista *) history->items[history->len - 1])
-        destructor((Lista *) history->items[history->len - 1]);
 
+    destructor((Lista *) history->items[history->len - 1]);
     destructor(*medicamente);
 
     history->len--;
-    *medicamente = (Lista *) history->items[history->len - 1];
+    *medicamente = deepCopy((Lista *) history->items[history->len - 1]);
     return 1;
 }

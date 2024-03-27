@@ -63,20 +63,45 @@ Lista *filter_concentratie(Lista *list, float concentratie);
 /// @return id-ul medicamentului cu numele
 int verify_existence(Lista *list, char *nume);
 
+/// Verifica daca parametri sunt in ordine crescatoare dupa nume
+/// @param m1 primul medicament
+/// @param m2 al doilea medicament
+/// @return 1 daca sunt in ordine 0 altfel
 int nume_cresc(Medicament *m1, Medicament *m2);
 
+/// Verifica daca parametri sunt in ordine descrescatoare dupa nume
+/// @param m1 primul medicament
+/// @param m2 al doilea medicament
+/// @return 1 daca sunt in ordine 0 altfel
 int nume_descresc(Medicament *m1, Medicament *m2);
 
+/// Verifica daca parametri sunt in ordine crescatoare dupa cantitate
+/// @param m1 primul medicament
+/// @param m2 al doilea medicament
+/// @return 1 daca sunt in ordine 0 altfel
 int cantitate_crescator(Medicament *m1, Medicament *m2);
 
+/// Verifica daca parametri sunt in ordine descrescatoare dupa cantitate
+/// @param m1 primul medicament
+/// @param m2 al doilea medicament
+/// @return 1 daca sunt in ordine 0 altfel
 int cantitate_descrescator(Medicament *m1, Medicament *m2);
 
-void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2));
+/// Sorteaza elementele unei liste
+/// @param list lista de medicamente
+/// @param functie o functie de comparare
+/// @param alg un caracter, 1 bubble sort, 2 selection sort
+void sort(Lista *list, int (*functie)(Medicament *m1, Medicament *m2), int alg);
 
-// My Code
-
+/// Modifica history ul dupa fiecare operatie CRUD
+/// @param history lista de liste de medicamente
+/// @param medicamente lista de medicamente
 void updateHistory(Lista *history, Lista *medicamente);
 
+/// Performa operatia de undo
+/// @param history lista de liste de medicamente
+/// @param medicamente lista de medicamente
+/// @return 1 daca sa facut undo, 0 daca nu s a putut face
 int undo(Lista *history, Lista **medicamente);
 
 #endif //SERVICE_H
