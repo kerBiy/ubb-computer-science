@@ -40,7 +40,7 @@ class Graph {
 
         std::cout << "The min distance from node " << src << ":\n";
         for (int i = 0; i < nodes; ++i) {
-            std::cout << "The node " << i << ": ";
+            std::cout << "The node " << i + 1 << ": ";
 
             (dist[i] == INT_MAX) ? std::cout << "Infinity\n"
                                  : std::cout << dist[i] << "\n";
