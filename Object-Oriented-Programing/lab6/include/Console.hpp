@@ -12,7 +12,7 @@ private:
 
     static void printMenu();
 
-    static int getUserInput();
+    static char getUserInput();
 
     void uiPrintBooks();
 

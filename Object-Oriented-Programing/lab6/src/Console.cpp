@@ -12,8 +12,8 @@ void Console::printMenu() {
     std::cout << "Enter 1 for adding a book.\n";
     std::cout << "Enter 2 for updating a book.\n";
     std::cout << "Enter 3 for deleting a book.\n";
-    std::cout << "Enter 4 for printing the book list.\n";
-    std::cout << "Enter 0 for exiting the app.\n";
+    std::cout << "Enter p for printing the book list.\n";
+    std::cout << "Enter q for exiting the app.\n";
 }
 
 void Console::uiPrintBooks() {
@@ -85,8 +85,8 @@ void Console::uiDeleteBook() {
     std::cout << "The book was deleted\n";
 }
 
-int Console::getUserInput() {
-    int option;
+char Console::getUserInput() {
+    char option;
     std::cout << "\n>>> ";
     std::cin >> option;
 
@@ -97,26 +97,26 @@ int Console::getUserInput() {
 void Console::run() {
     while (true) {
         printMenu();
-        int option = getUserInput();
+        char option = getUserInput();
 
         switch (option) {
-            case 1: {
+            case '1': {
                 uiAddBook();
                 break;
             }
-            case 2: {
+            case '2': {
                 uiUpdateBook();
                 break;
             }
-            case 3: {
+            case '3': {
                 uiDeleteBook();
                 break;
             }
-            case 4: {
+            case 'p' : {
                 uiPrintBooks();
                 break;
             }
-            case 0: {
+            case 'q' : {
                 std::cout << "Exiting the app...";
                 exit(0);
             }

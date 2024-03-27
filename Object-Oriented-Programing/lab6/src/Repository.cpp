@@ -4,8 +4,6 @@
 
 #include "Repository.hpp"
 
-#include <iostream>
-
 std::vector<Book> Repository::getBooks() {
     return items;
 }
@@ -15,7 +13,6 @@ size_t Repository::getLen() {
 }
 
 void Repository::addBook(const Book &book) {
-    std::cout << "Adding Book" << book.getTitle() << "\n";
     items.push_back(book);
 }
 
