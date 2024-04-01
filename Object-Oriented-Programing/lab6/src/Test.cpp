@@ -85,9 +85,11 @@ void Test::testService() {
     // TEST ADD
     service.addBook(title, author, genre, year);
     assert(service.getAll().size() == 1);
+    assert(repo.getLen() == 1);
 
     service.addBook(title, other_author, other_genre, other_year);
     assert(service.getAll().size() == 1);
+    assert(repo.getLen() == 1);
 
     // TEST UPDATE
     service.updateBook(title, other_author, other_genre, other_year);
@@ -101,6 +103,12 @@ void Test::testService() {
     assert(all.front().getAuthor() == other_author);
     assert(all.front().getGenre() == other_genre);
     assert(all.front().getYear() == other_year);
+
+    auto all_repo = repo.getBooks();
+    assert(all_repo.front().getTitle() == title);
+    assert(all_repo.front().getAuthor() == other_author);
+    assert(all_repo.front().getGenre() == other_genre);
+    assert(all_repo.front().getYear() == other_year);
 
     // TEST DELETE
     service.deleteBook(title);

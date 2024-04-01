@@ -5,7 +5,6 @@
 #pragma once
 
 #include <string>
-#include "Book.hpp"
 
 class Test {
 private:

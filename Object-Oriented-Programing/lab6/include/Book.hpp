@@ -32,31 +32,31 @@ public:
      * Converts the book into a string
      * @return a string with all the proprieties of a book
      */
-    std::string intoString() const;
+    [[nodiscard]] std::string intoString() const;
 
     /*!
      * Getter for the title
      * @return the title of the book
      */
-    std::string getTitle() const;
+    [[nodiscard]] std::string getTitle() const;
 
     /*!
      * Getter for the author
      * @return the author of the book
      */
-    std::string getAuthor() const;
+    [[nodiscard]] std::string getAuthor() const;
 
     /*!
      * Getter for the genre
      * @return the genre of the book
      */
-    std::string getGenre() const;
+    [[nodiscard]] std::string getGenre() const;
 
     /*!
      * Getter for the year
      * @return the year of the book
      */
-    int getYear() const;
+    [[nodiscard]] int getYear() const;
 
     /*!
      * Setter for the title

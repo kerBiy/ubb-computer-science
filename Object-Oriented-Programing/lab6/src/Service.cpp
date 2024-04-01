@@ -4,9 +4,7 @@
 
 #include "Service.hpp"
 
-Service::Service(Repository &repo) {
-    this->repo = repo;
-}
+Service::Service(Repository &repo) : repo(repo) {}
 
 std::vector<Book> Service::getAll() {
     return repo.getBooks();
