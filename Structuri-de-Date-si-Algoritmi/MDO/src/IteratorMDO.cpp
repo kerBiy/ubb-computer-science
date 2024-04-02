@@ -1,26 +1,26 @@
 #include "IteratorMDO.h"
 #include "MDO.h"
 
-IteratorMDO::IteratorMDO(const MDO& d) : dict(d){
-	/* de adaugat */
+IteratorMDO::IteratorMDO(const MDO &dict) : dict(dict), current(dict.head) {}
+
+void IteratorMDO::prim() {
+    current = dict.head;
 }
 
-void IteratorMDO::prim(){
-	/* de adaugat */
+void IteratorMDO::urmator() {
+    if (!valid()) {
+        throw std::runtime_error("Iterator invalid!");
+    }
+    current = current->next;
 }
 
-void IteratorMDO::urmator(){
-	/* de adaugat */
+bool IteratorMDO::valid() const {
+    return current != nullptr;
 }
 
-bool IteratorMDO::valid() const{
-	/* de adaugat */
-	return false;
+TElem IteratorMDO::element() const {
+    if (!valid()) {
+        throw std::runtime_error("Iterator invalid!");
+    }
+    return current->element;
 }
-
-TElem IteratorMDO::element() const{
-	/* de adaugat */
-	return pair <TCheie, TValoare>  (-1, -1);
-}
-
-

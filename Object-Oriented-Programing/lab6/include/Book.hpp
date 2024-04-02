@@ -23,6 +23,8 @@ public:
      */
     Book(std::string title, std::string author, std::string genre, int year);
 
+    Book(const Book &new_book);
+
     /*!
      * The default destructor.
      */

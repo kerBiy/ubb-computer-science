@@ -56,22 +56,8 @@ build CMakeFiles/MDO.dir/src/App.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users
   OBJECT_DIR = CMakeFiles/MDO.dir
   OBJECT_FILE_DIR = CMakeFiles/MDO.dir/src
 
-build CMakeFiles/MDO.dir/src/Iterator.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/src/Iterator.cpp || cmake_object_order_depends_target_MDO
-  DEP_FILE = CMakeFiles/MDO.dir/src/Iterator.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/include -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/headers
-  OBJECT_DIR = CMakeFiles/MDO.dir
-  OBJECT_FILE_DIR = CMakeFiles/MDO.dir/src
-
 build CMakeFiles/MDO.dir/src/IteratorMDO.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/src/IteratorMDO.cpp || cmake_object_order_depends_target_MDO
   DEP_FILE = CMakeFiles/MDO.dir/src/IteratorMDO.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/include -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/headers
-  OBJECT_DIR = CMakeFiles/MDO.dir
-  OBJECT_FILE_DIR = CMakeFiles/MDO.dir/src
-
-build CMakeFiles/MDO.dir/src/LO.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/src/LO.cpp || cmake_object_order_depends_target_MDO
-  DEP_FILE = CMakeFiles/MDO.dir/src/LO.cpp.o.d
   FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/include -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/headers
   OBJECT_DIR = CMakeFiles/MDO.dir
@@ -83,20 +69,6 @@ build CMakeFiles/MDO.dir/src/MDO.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users
   INCLUDES = -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/include -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/headers
   OBJECT_DIR = CMakeFiles/MDO.dir
   OBJECT_FILE_DIR = CMakeFiles/MDO.dir/src
-
-build CMakeFiles/MDO.dir/tests/TestScurtList.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/TestScurtList.cpp || cmake_object_order_depends_target_MDO
-  DEP_FILE = CMakeFiles/MDO.dir/tests/TestScurtList.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/include -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/headers
-  OBJECT_DIR = CMakeFiles/MDO.dir
-  OBJECT_FILE_DIR = CMakeFiles/MDO.dir/tests
-
-build CMakeFiles/MDO.dir/tests/TestExtinsList.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/TestExtinsList.cpp || cmake_object_order_depends_target_MDO
-  DEP_FILE = CMakeFiles/MDO.dir/tests/TestExtinsList.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/include -I/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/headers
-  OBJECT_DIR = CMakeFiles/MDO.dir
-  OBJECT_FILE_DIR = CMakeFiles/MDO.dir/tests
 
 build CMakeFiles/MDO.dir/tests/TestScurt.cpp.o: CXX_COMPILER__MDO_unscanned_Debug /Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/tests/TestScurt.cpp || cmake_object_order_depends_target_MDO
   DEP_FILE = CMakeFiles/MDO.dir/tests/TestScurt.cpp.o.d
@@ -120,7 +92,7 @@ build CMakeFiles/MDO.dir/tests/TestExtins.cpp.o: CXX_COMPILER__MDO_unscanned_Deb
 #############################################
 # Link the executable MDO
 
-build MDO: CXX_EXECUTABLE_LINKER__MDO_Debug CMakeFiles/MDO.dir/src/App.cpp.o CMakeFiles/MDO.dir/src/Iterator.cpp.o CMakeFiles/MDO.dir/src/IteratorMDO.cpp.o CMakeFiles/MDO.dir/src/LO.cpp.o CMakeFiles/MDO.dir/src/MDO.cpp.o CMakeFiles/MDO.dir/tests/TestScurtList.cpp.o CMakeFiles/MDO.dir/tests/TestExtinsList.cpp.o CMakeFiles/MDO.dir/tests/TestScurt.cpp.o CMakeFiles/MDO.dir/tests/TestExtins.cpp.o
+build MDO: CXX_EXECUTABLE_LINKER__MDO_Debug CMakeFiles/MDO.dir/src/App.cpp.o CMakeFiles/MDO.dir/src/IteratorMDO.cpp.o CMakeFiles/MDO.dir/src/MDO.cpp.o CMakeFiles/MDO.dir/tests/TestScurt.cpp.o CMakeFiles/MDO.dir/tests/TestExtins.cpp.o
   FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/MDO.dir
   POST_BUILD = :

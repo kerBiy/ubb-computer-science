@@ -25,7 +25,7 @@ public:
      * Retrieves all books from the repository.
      * @return vector containing all books in the repository
      */
-    std::vector<Book> getAll();
+    const std::vector<Book> &getAll();
 
     /*!
      * Adds a new book to the repository.
@@ -52,4 +52,11 @@ public:
      * @param title Title of the book to be deleted
      */
     void deleteBook(const std::string &title);
+
+    /*!
+     * Finds a book from the repository.
+     * @param title Title of the book to be deleted
+     * @return array of books whose name fits
+     */
+    std::vector<Book> findBook(const std::string &title);
 };

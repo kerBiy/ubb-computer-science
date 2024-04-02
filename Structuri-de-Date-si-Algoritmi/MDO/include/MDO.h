@@ -1,49 +1,48 @@
 #pragma once
 
+#include <utility>
 #include <vector>
 
 typedef int TCheie;
 typedef int TValoare;
 
 #include <utility>
+
 typedef std::pair<TCheie, TValoare> TElem;
 
-using namespace std;
-
 class IteratorMDO;
+
+struct Nod {
+    TElem element;
+    Nod *next;
+
+    explicit Nod(TElem e, Nod *urm = nullptr) : element(std::move(e)), next(urm) {}
+};
 
 typedef bool(*Relatie)(TCheie, TCheie);
 
 class MDO {
-	friend class IteratorMDO;
-    private:
-	/* aici e reprezentarea */
-    public:
+    friend class IteratorMDO;
 
-	// constructorul implicit al MultiDictionarului Ordonat
-	MDO(Relatie r);
+private:
+    Relatie rel;
+    Nod *head;
+public:
 
-	// adauga o pereche (cheie, valoare) in MDO
-	void adauga(TCheie c, TValoare v);
+    explicit MDO(Relatie r);
 
-	//cauta o cheie si returneaza vectorul de valori asociate
-	vector<TValoare> cauta(TCheie c) const;
+    void adauga(TCheie c, TValoare v);
 
-	//sterge o cheie si o valoare 
-	//returneaza adevarat daca s-a gasit cheia si valoarea de sters
-	bool sterge(TCheie c, TValoare v);
+    std::vector<TValoare> cauta(TCheie c) const;
 
-	//returneaza numarul de perechi (cheie, valoare) din MDO 
-	int dim() const;
+    bool sterge(TCheie c, TValoare v);
 
-	//verifica daca MultiDictionarul Ordonat e vid 
-	bool vid() const;
+    int dim() const;
 
-	// se returneaza iterator pe MDO
-	// iteratorul va returna perechile in ordine in raport cu relatia de ordine
-	IteratorMDO iterator() const;
+    bool vid() const;
 
-	// destructorul 	
-	~MDO();
+    IteratorMDO iterator() const;
+
+    ~MDO();
 
 };

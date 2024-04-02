@@ -29,9 +29,9 @@ void testCreeaza() {
     assert(d.dim() == 0);
     assert(d.vid());
 
-    //IteratorMDO it = d.iterator();
-    //it.prim();
-    //assert(!it.valid());
+    IteratorMDO it = d.iterator();
+    it.prim();
+    assert(!it.valid());
 
     for (int i = 0; i < 10; i++) {
         vector<TValoare> v = d.cauta(i);

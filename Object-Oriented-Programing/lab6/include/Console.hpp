@@ -8,7 +8,7 @@
 
 class Console {
 private:
-    Service &service; // the referece for a service
+    Service &service; // Reference to a Service object
 
     /*!
      * Prints the menu options to the console.
@@ -40,6 +40,11 @@ private:
      * Deletes a book from the library based on user input.
      */
     void uiDeleteBook();
+
+    /*!
+   * Finds a book from the library based on user input.
+   */
+    void uiFindBook();
 
 public:
     /*!

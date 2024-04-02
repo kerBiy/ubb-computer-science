@@ -26,7 +26,7 @@ public:
      * Retrieves all books stored in the repository.
      * @return vector containing all books
      */
-    std::vector<Book> getBooks();
+    const std::vector<Book> &getBooks();
 
     /*!
      * Retrieves the number of books in the repository.

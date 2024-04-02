@@ -8,7 +8,7 @@ int main() {
     Repository repo;
     Service service(repo);
     Console ui(service);
-    
+
     ui.run();
     return 0;
 }

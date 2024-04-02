@@ -18,7 +18,7 @@ Test::Test() {
     year = 1890;
 
     other_title = "The brothers Karamazov";
-    other_author = "Fyodor Dostoievski";
+    other_author = "Fyodor Dostoevsky";
     other_genre = "Crime";
     other_year = 1910;
 }
@@ -117,6 +117,13 @@ void Test::testService() {
     service.addBook(title, other_author, other_genre, other_year);
     service.deleteBook(other_title);
     assert(service.getAll().size() == 1);
+
+    // TEST FIND
+    auto list = service.findBook(other_title);
+    assert(list.empty());
+
+    auto new_list = service.findBook(title);
+    assert(!new_list.empty());
 
     std::cout << "Service tests ran successfully.\n";
 }

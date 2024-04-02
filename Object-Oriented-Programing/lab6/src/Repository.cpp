@@ -4,7 +4,9 @@
 
 #include "Repository.hpp"
 
-std::vector<Book> Repository::getBooks() {
+#include <iostream>
+
+const std::vector<Book> &Repository::getBooks() {
     return items;
 }
 
@@ -25,11 +27,11 @@ void Repository::deleteBook(const std::vector<Book>::iterator &position) {
 }
 
 std::vector<Book>::iterator Repository::findBook(const std::string &title) {
-    return std::find_if(items.begin(), items.end(),
-                        [&](const Book &book) { return book.getTitle() == title; });
+    return std::find_if(items.begin(), items.end(), [&](const Book &book) {
+        return book.getTitle() == title;
+    });
 }
 
 bool Repository::isPositionValid(const std::vector<Book>::iterator &position) {
     return position != items.end();
-
 }

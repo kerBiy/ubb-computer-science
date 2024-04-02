@@ -6,12 +6,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 set(SOURCES
         src/App.cpp
-        src/Iterator.cpp
         src/IteratorMDO.cpp
-        src/LO.cpp
         src/MDO.cpp
-        tests/TestScurtList.cpp
-        tests/TestExtinsList.cpp
         tests/TestScurt.cpp
         tests/TestExtins.cpp
 )

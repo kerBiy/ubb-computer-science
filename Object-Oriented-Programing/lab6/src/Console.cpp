@@ -12,12 +12,13 @@ void Console::printMenu() {
     std::cout << "Enter 1 for adding a book.\n";
     std::cout << "Enter 2 for updating a book.\n";
     std::cout << "Enter 3 for deleting a book.\n";
+    std::cout << "Enter 4 for finding a book.\n";
     std::cout << "Enter p for printing the book list.\n";
     std::cout << "Enter q for exiting the app.\n";
 }
 
 void Console::uiPrintBooks() {
-    auto all_books = service.getAll();
+    auto &all_books = service.getAll();
 
     if (all_books.empty()) {
         std::cout << "There are no books in the library.\n";
@@ -85,6 +86,26 @@ void Console::uiDeleteBook() {
     std::cout << "The book was deleted\n";
 }
 
+void Console::uiFindBook() {
+    std::string title;
+
+    std::cout << "Enter the title of the book you want to find: ";
+    std::cin.ignore();
+    std::getline(std::cin, title);
+
+    auto found_books = service.findBook(title);
+
+    if (found_books.empty()) {
+        std::cout << "There are no books that fit the description.\n";
+        return;
+    }
+
+    std::cout << "The found books are:\n";
+    for (const Book &book: found_books) {
+        std::cout << book.intoString() << "\n";
+    }
+}
+
 char Console::getUserInput() {
     char option;
     std::cout << "\n>>> ";
@@ -110,6 +131,10 @@ void Console::run() {
             }
             case '3': {
                 uiDeleteBook();
+                break;
+            }
+            case '4': {
+                uiFindBook();
                 break;
             }
             case 'p' : {
