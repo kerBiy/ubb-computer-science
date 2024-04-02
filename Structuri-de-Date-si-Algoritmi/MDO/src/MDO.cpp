@@ -16,12 +16,12 @@ void MDO::adauga(TCheie c, TValoare v) {
         return;
     }
 
-    Nod *curent = head;
-    while (curent->next != nullptr && rel(curent->next->element.first, c)) {
-        curent = curent->next;
+    Nod *current = head;
+    while (current->next != nullptr && rel(current->next->element.first, c)) {
+        current = current->next;
     }
-    new_node->next = curent->next;
-    curent->next = new_node;
+    new_node->next = current->next;
+    current->next = new_node;
 }
 
 
