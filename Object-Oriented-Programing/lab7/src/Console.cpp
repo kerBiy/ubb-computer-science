@@ -20,7 +20,7 @@ void Console::printMenu() {
 void Console::uiPrintBooks() {
     auto &all_books = service.getAll();
 
-    if (all_books.empty()) {
+    if (all_books.size() == 0) {
         std::cout << "There are no books in the library.\n";
         return;
     }
@@ -95,7 +95,7 @@ void Console::uiFindBook() {
 
     auto found_books = service.findBook(title);
 
-    if (found_books.empty()) {
+    if (found_books.size() == 0) {
         std::cout << "There are no books that fit the description.\n";
         return;
     }

@@ -27,7 +27,7 @@ public:
 
     List &operator=(const List &other);
 
-    void pushBack(const TElem &element);
+    void push_back(const TElem &element);
 
     TElem &get(size_t position) const;
 
@@ -40,6 +40,8 @@ public:
     Iterator<TElem> begin();
 
     Iterator<TElem> end();
+
+    void erase(Iterator<TElem> iterator);
 };
 
 template<typename TElem>
@@ -55,7 +57,6 @@ List<TElem>::List(const List<TElem> &other) {
 
     len = other.len;
     capacity = other.capacity;
-    return *this;
 }
 
 template<typename TElem>
@@ -82,13 +83,32 @@ List<TElem>::~List() {
 }
 
 template<typename TElem>
-void List<TElem>::pushBack(const TElem &element) {
+void List<TElem>::push_back(const TElem &element) {
     if (len == capacity) {
         resizeList();
     }
 
     items[len++] = element;
 }
+
+template<typename TElem>
+void List<TElem>::erase(Iterator<TElem> iterator) {
+    if (!iterator.valid() || iterator == end()) {
+        throw std::out_of_range("Iterator is not valid or at the end of the list");
+    }
+
+    auto nextIt = iterator;
+    nextIt.next();
+
+    while (nextIt != end()) {
+        *iterator = *nextIt;
+        ++iterator;
+        ++nextIt;
+    }
+
+    len--;
+}
+
 
 template<typename TElem>
 TElem &List<TElem>::get(size_t position) const {

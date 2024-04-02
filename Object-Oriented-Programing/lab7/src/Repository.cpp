@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-const std::vector<Book> &Repository::getBooks() {
+List<Book> &Repository::getBooks() {
     return items;
 }
 
@@ -18,20 +18,20 @@ void Repository::addBook(const Book &book) {
     items.push_back(book);
 }
 
-void Repository::updateBook(const std::vector<Book>::iterator &position, const Book &new_book) {
+void Repository::updateBook(Iterator<Book> &position, const Book &new_book) {
     *position = new_book;
 }
 
-void Repository::deleteBook(const std::vector<Book>::iterator &position) {
+void Repository::deleteBook(Iterator<Book> &position) {
     items.erase(position);
 }
 
-std::vector<Book>::iterator Repository::findBook(const std::string &title) {
+Iterator<Book> Repository::findBook(const std::string &title) {
     return std::find_if(items.begin(), items.end(), [&](const Book &book) {
         return book.getTitle() == title;
     });
 }
 
-bool Repository::isPositionValid(const std::vector<Book>::iterator &position) {
+bool Repository::isPositionValid(Iterator<Book> &position) {
     return position != items.end();
 }

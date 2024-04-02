@@ -11,9 +11,11 @@ private:
     std::string title;
     std::string author;
     std::string genre;
-    int year;
+    int year = 0;
 
 public:
+    Book() = default;
+
     /*!
      * The default constructor.
      * @param title the title of the book

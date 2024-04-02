@@ -6,7 +6,7 @@
 
 Service::Service(Repository &repo) : repo(repo) {}
 
-const std::vector<Book> &Service::getAll() {
+List<Book> &Service::getAll() {
     return repo.getBooks();
 }
 
@@ -44,10 +44,10 @@ void Service::deleteBook(const std::string &title) {
     repo.deleteBook(position);
 }
 
-std::vector<Book> Service::findBook(const std::string &title) {
-    std::vector<Book> output;
+List<Book> Service::findBook(const std::string &title) {
+    List<Book> output;
 
-    for (const Book &x: repo.getBooks()) {
+    for (auto &x: repo.getBooks()) {
         if (x.getTitle().find(title) == 0) {
             output.push_back(x);
         }

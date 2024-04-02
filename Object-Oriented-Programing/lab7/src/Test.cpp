@@ -64,15 +64,15 @@ void Test::testRepository() {
     assert(repo.getLen() == 1);
 
     // TEST UPDATE
-    book_iter = repo.findBook(title);
-    repo.updateBook(book_iter, other_book);
+    auto new_book_iter = repo.findBook(title);
+    repo.updateBook(new_book_iter, other_book);
     assert(repo.getLen() == 1);
 
     auto all = repo.getBooks();
-    assert(all.front().getTitle() == other_title);
-    assert(all.front().getAuthor() == other_author);
-    assert(all.front().getGenre() == other_genre);
-    assert(all.front().getYear() == other_year);
+    assert(all.get(0).getTitle() == other_title);
+    assert(all.get(0).getAuthor() == other_author);
+    assert(all.get(0).getGenre() == other_genre);
+    assert(all.get(0).getYear() == other_year);
 
     std::cout << "Repository tests ran successfully.\n";
 }
@@ -99,20 +99,20 @@ void Test::testService() {
     assert(service.getAll().size() == 1);
 
     auto all = service.getAll();
-    assert(all.front().getTitle() == title);
-    assert(all.front().getAuthor() == other_author);
-    assert(all.front().getGenre() == other_genre);
-    assert(all.front().getYear() == other_year);
+    assert(all.get(0).getTitle() == title);
+    assert(all.get(0).getAuthor() == other_author);
+    assert(all.get(0).getGenre() == other_genre);
+    assert(all.get(0).getYear() == other_year);
 
     auto all_repo = repo.getBooks();
-    assert(all_repo.front().getTitle() == title);
-    assert(all_repo.front().getAuthor() == other_author);
-    assert(all_repo.front().getGenre() == other_genre);
-    assert(all_repo.front().getYear() == other_year);
+    assert(all_repo.get(0).getTitle() == title);
+    assert(all_repo.get(0).getAuthor() == other_author);
+    assert(all_repo.get(0).getGenre() == other_genre);
+    assert(all_repo.get(0).getYear() == other_year);
 
     // TEST DELETE
     service.deleteBook(title);
-    assert(service.getAll().empty());
+    assert(service.getAll().size() == 0);
 
     service.addBook(title, other_author, other_genre, other_year);
     service.deleteBook(other_title);
@@ -120,10 +120,10 @@ void Test::testService() {
 
     // TEST FIND
     auto list = service.findBook(other_title);
-    assert(list.empty());
+    assert(list.size() == 0);
 
     auto new_list = service.findBook(title);
-    assert(!new_list.empty());
+    assert(new_list.size() == 1);
 
     std::cout << "Service tests ran successfully.\n";
 }

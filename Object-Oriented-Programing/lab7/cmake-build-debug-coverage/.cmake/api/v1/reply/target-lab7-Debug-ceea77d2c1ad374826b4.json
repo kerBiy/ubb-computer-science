@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lab6"
+			"path" : "lab7"
 		}
 	],
 	"backtrace" : 1,
@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 16,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 18,
+				"line" : 19,
 				"parent" : 0
 			}
 		]
@@ -42,14 +42,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics"
+					"fragment" : "-fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab6/include"
+					"path" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/include"
 				}
 			],
 			"language" : "CXX",
@@ -59,7 +59,7 @@
 				[
 					1
 				],
-				"standard" : "17"
+				"standard" : "23"
 			},
 			"sourceIndexes" : 
 			[
@@ -72,7 +72,7 @@
 			]
 		}
 	],
-	"id" : "lab6::@6890427a1f51a3e7e1df",
+	"id" : "lab7::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -88,8 +88,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "lab6",
-	"nameOnDisk" : "lab6",
+	"name" : "lab7",
+	"nameOnDisk" : "lab7",
 	"paths" : 
 	{
 		"build" : ".",
@@ -107,6 +107,13 @@
 				3,
 				4,
 				5
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				6
 			]
 		}
 	],
@@ -147,6 +154,11 @@
 			"compileGroupIndex" : 0,
 			"path" : "src/Console.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/List.hpp",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
