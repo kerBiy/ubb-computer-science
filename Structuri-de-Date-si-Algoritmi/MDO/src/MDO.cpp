@@ -6,7 +6,6 @@
 
 MDO::MDO(Relatie r) : rel(r), head(nullptr) {}
 
-
 void MDO::adauga(TCheie c, TValoare v) {
     TElem elem = {c, v};
     Nod *new_node = new Nod(elem);
