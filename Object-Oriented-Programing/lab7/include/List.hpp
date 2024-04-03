@@ -68,12 +68,12 @@ public:
      */
     TElem &get(size_t position) const;
 
-    /**
-     * Sets the element at the specified position.
-     * @param position The position at which to set the element.
-     * @param element The element to set.
-     */
-    void set(size_t position, const TElem &element);
+//    /**
+//     * Sets the element at the specified position.
+//     * @param position The position at which to set the element.
+//     * @param element The element to set.
+//     */
+//    void set(size_t position, const TElem &element);
 
     /**
      * Returns the current size of the list.
@@ -171,10 +171,10 @@ TElem &List<TElem>::get(size_t position) const {
     return items[position];
 }
 
-template<typename TElem>
-void List<TElem>::set(size_t position, const TElem &element) {
-    items[position] = element;
-}
+//template<typename TElem>
+//void List<TElem>::set(size_t position, const TElem &element) {
+//    items[position] = element;
+//}
 
 template<typename TElem>
 size_t List<TElem>::size() const {

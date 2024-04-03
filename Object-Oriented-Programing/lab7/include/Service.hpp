@@ -58,5 +58,5 @@ public:
      * @param title Title of the book to be deleted
      * @return array of books whose name fits
      */
-    List<Book> findBook(const std::string &title);
+    List<Book> findBooks(const std::string &title);
 };

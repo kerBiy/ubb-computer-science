@@ -14,6 +14,9 @@ private:
     int year = 0;
 
 public:
+    /*!
+    * The default constructor.
+    */
     Book() = default;
 
     /*!
@@ -24,8 +27,6 @@ public:
      * @param year the year of the book
      */
     Book(std::string title, std::string author, std::string genre, int year);
-
-//    Book(const Book &new_book);
 
     /*!
      * The default destructor.

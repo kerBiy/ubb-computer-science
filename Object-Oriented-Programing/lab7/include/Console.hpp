@@ -19,7 +19,7 @@ private:
      * Retrieves user input from the console.
      * @return Character representing user input
      */
-    static char getUserInput();
+    static int getUserInput();
 
     /*!
      * Displays all books in the library to the console.

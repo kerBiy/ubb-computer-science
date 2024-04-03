@@ -1,155 +1,197 @@
 //
 // Created by Alex Balta on 27.03.2024.
 //
-
 #include "Console.hpp"
-#include <iostream>
 
 Console::Console(Service &service) : service(service) {}
 
 void Console::printMenu() {
-    std::cout << "\nOPTION MENU\n";
-    std::cout << "Enter 1 for adding a book.\n";
-    std::cout << "Enter 2 for updating a book.\n";
-    std::cout << "Enter 3 for deleting a book.\n";
-    std::cout << "Enter 4 for finding a book.\n";
-    std::cout << "Enter p for printing the book list.\n";
-    std::cout << "Enter q for exiting the app.\n";
+    std::cout << "\nOPTION MENU\n"
+              << "Enter 1 for adding a book.\n"
+              << "Enter 2 for updating a book.\n"
+              << "Enter 3 for deleting a book.\n"
+              << "Enter 4 for finding a book.\n"
+              << "Enter p for printing the book list.\n"
+              << "Enter q for exiting the app.\n";
 }
 
 void Console::uiPrintBooks() {
-    auto &all_books = service.getAll();
+    try {
+        auto &all_books = service.getAll();
 
-    if (all_books.size() == 0) {
-        std::cout << "There are no books in the library.\n";
-        return;
+        if (all_books.size() == 0) {
+            std::cout << "There are no books in the library.\n";
+            return;
+        }
+
+        std::cout << "The books are:\n";
+        for (const Book &book: all_books) {
+            std::cout << book.intoString() << "\n";
+        }
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error printing book: " + std::string(e.what()));
     }
 
-    std::cout << "The books are:\n";
-    for (const Book &book: all_books) {
-        std::cout << book.intoString() << "\n";
-    }
+
 }
 
 void Console::uiAddBook() {
     std::string title, author, genre;
     int year;
 
-    std::cout << "Enter the title: ";
-    std::cin.ignore();
-    std::getline(std::cin, title);
+    try {
+        std::cout << "Enter the title: ";
+        std::getline(std::cin, title);
 
-    std::cout << "Enter the author: ";
-    std::getline(std::cin, author);
+        std::cout << "Enter the author: ";
+        std::getline(std::cin, author);
 
-    std::cout << "Enter the genre: ";
-    std::getline(std::cin, genre);
+        std::cout << "Enter the genre: ";
+        std::getline(std::cin, genre);
 
-    std::cout << "Enter the year: ";
-    std::cin >> year;
+        std::cout << "Enter the year: ";
+        std::cin >> year;
 
-    service.addBook(title, author, genre, year);
-    std::cout << "The book was added.\n";
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            throw std::runtime_error("Invalid input for year.");
+        }
+
+        service.addBook(title, author, genre, year);
+        std::cout << "The book was added.\n";
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error adding book: " + std::string(e.what()));
+    }
 }
 
 void Console::uiUpdateBook() {
     std::string title, newTitle, author, genre;
     int year;
 
-    std::cout << "Enter the title of the book you want to update: ";
-    std::cin.ignore();
-    std::getline(std::cin, title);
+    try {
+        std::cout << "Enter the title of the book you want to update: ";
+        std::getline(std::cin, title);
 
-    std::cout << "\nEnter the new information:\n";
+        std::cout << "\nEnter the new information:\n";
 
-    std::cout << "Enter the author: ";
-    std::getline(std::cin, author);
+        std::cout << "Enter the author: ";
+        std::getline(std::cin, author);
 
-    std::cout << "Enter the genre: ";
-    std::getline(std::cin, genre);
+        std::cout << "Enter the genre: ";
+        std::getline(std::cin, genre);
 
-    std::cout << "Enter the year: ";
-    std::cin >> year;
+        std::cout << "Enter the year: ";
+        std::cin >> year;
 
-    service.updateBook(title, author, genre, year);
-    std::cout << "The book was updated.\n";
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            throw std::runtime_error("Invalid input for year.");
+        }
+
+        service.updateBook(title, author, genre, year);
+        std::cout << "The book was updated.\n";
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error updating book: " + std::string(e.what()));
+    }
 }
 
 void Console::uiDeleteBook() {
     std::string title;
 
-    std::cout << "Enter the title of the book you want to delete: ";
-    std::cin.ignore();
-    std::getline(std::cin, title);
+    try {
+        std::cout << "Enter the title of the book you want to delete: ";
+        std::getline(std::cin, title);
 
-    service.deleteBook(title);
-    std::cout << "The book was deleted\n";
+        service.deleteBook(title);
+        std::cout << "The book was deleted\n";
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error deleting book: " + std::string(e.what()));
+    }
 }
 
 void Console::uiFindBook() {
     std::string title;
 
-    std::cout << "Enter the title of the book you want to find: ";
-    std::cin.ignore();
-    std::getline(std::cin, title);
+    try {
+        std::cout << "Enter the title of the book you want to find: ";
+        std::getline(std::cin, title);
 
-    auto found_books = service.findBook(title);
+        auto found_books = service.findBooks(title);
 
-    if (found_books.size() == 0) {
-        std::cout << "There are no books that fit the description.\n";
-        return;
-    }
+        if (found_books.size() == 0) {
+            std::cout << "There are no books that fit the description.\n";
+            return;
+        }
 
-    std::cout << "The found books are:\n";
-    for (const Book &book: found_books) {
-        std::cout << book.intoString() << "\n";
+        std::cout << "The found books are:\n";
+        for (const Book &book: found_books) {
+            std::cout << book.intoString() << "\n";
+        }
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error finding book: " + std::string(e.what()));
     }
 }
 
-char Console::getUserInput() {
+int Console::getUserInput() {
     char option;
-    std::cout << "\n>>> ";
-    std::cin >> option;
 
-    std::cout << "\n";
-    return option;
+    while (true) {
+        std::cout << "\n>>> ";
+        std::cin >> option;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cerr << "Invalid input. Please enter a single character.\n";
+        } else {
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return option;
+        }
+    }
 }
 
 void Console::run() {
     while (true) {
         printMenu();
-        char option = getUserInput();
+        int option;
 
-        switch (option) {
-            case '1': {
-                uiAddBook();
-                break;
-            }
-            case '2': {
-                uiUpdateBook();
-                break;
-            }
-            case '3': {
-                uiDeleteBook();
-                break;
-            }
-            case '4': {
-                uiFindBook();
-                break;
-            }
-            case 'p' : {
-                uiPrintBooks();
-                break;
-            }
-            case 'q' : {
-                std::cout << "Exiting the app...";
-                exit(0);
+        try {
+            option = getUserInput();
+
+            switch (option) {
+                case '1': {
+                    uiAddBook();
+                    break;
+                }
+                case '2': {
+                    uiUpdateBook();
+                    break;
+                }
+                case '3': {
+                    uiDeleteBook();
+                    break;
+                }
+                case '4': {
+                    uiFindBook();
+                    break;
+                }
+                case 'p': {
+                    uiPrintBooks();
+                    break;
+                }
+                case 'q': {
+                    std::cout << "Exiting the app...";
+                    return;
+                }
+                default: {
+                    std::cout << "The option was not yet implemented.\n";
+                }
             }
 
-            default: {
-                std::cout << "The option was not yet implemented.\n";
-            }
-
+        } catch (const std::exception &e) {
+            std::cerr << e.what() << std::endl;
         }
     }
 }
