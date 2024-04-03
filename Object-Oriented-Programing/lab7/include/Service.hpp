@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <functional>
+
 #include "Repository.hpp"
 
 class Service {
@@ -59,4 +61,18 @@ public:
      * @return array of books whose name fits
      */
     List<Book> findBooks(const std::string &title);
+
+    /*!
+     * Filters all books from the repository by year.
+     * @param min_year the year you want to filter by
+     * @return array of books whose year is greater than min_year
+     */
+    List<Book> filterBooks(int min_year);
+
+    /*!
+     * Sorts all books from the repository.
+     * @param title Title of the book to be deleted
+     * @return array of books whose name fits
+     */
+    List<Book> sortBooks(const std::function<bool(Book, Book)> &compare);
 };

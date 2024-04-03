@@ -68,18 +68,18 @@ public:
      */
     TElem &get(size_t position) const;
 
-//    /**
-//     * Sets the element at the specified position.
-//     * @param position The position at which to set the element.
-//     * @param element The element to set.
-//     */
-//    void set(size_t position, const TElem &element);
+    /**
+     * Sets the element at the specified position.
+     * @param position The position at which to set the element.
+     * @param element The element to set.
+     */
+    void set(size_t position, const TElem &element);
 
     /**
      * Returns the current size of the list.
      * @return The number of elements in the list.
      */
-    size_t size() const;
+    [[nodiscard]] size_t size() const;
 
     friend class Iterator<TElem>;
 
@@ -171,10 +171,10 @@ TElem &List<TElem>::get(size_t position) const {
     return items[position];
 }
 
-//template<typename TElem>
-//void List<TElem>::set(size_t position, const TElem &element) {
-//    items[position] = element;
-//}
+template<typename TElem>
+void List<TElem>::set(size_t position, const TElem &element) {
+    items[position] = element;
+}
 
 template<typename TElem>
 size_t List<TElem>::size() const {
@@ -230,7 +230,7 @@ public:
      * Checks if the iterator is still within the bounds of the list.
      * @return true if the iterator is valid, false otherwise.
      */
-    bool valid() const;
+    [[nodiscard]] bool valid() const;
 
     /**
     * Retrieves the element at the current iterator position.

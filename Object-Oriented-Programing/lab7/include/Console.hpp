@@ -44,7 +44,17 @@ private:
     /*!
    * Finds a book from the library based on user input.
    */
-    void uiFindBook();
+    void uiFindBooks();
+
+    /*!
+     * Filters books from the library based on user input.
+     */
+    void uiFilterBooks();
+
+    /*!
+     * Sorts books from the library based on user input.
+     */
+    void uiSortBooks();
 
 public:
     /*!

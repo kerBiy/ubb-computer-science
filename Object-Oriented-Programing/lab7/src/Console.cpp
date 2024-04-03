@@ -10,7 +10,9 @@ void Console::printMenu() {
               << "Enter 1 for adding a book.\n"
               << "Enter 2 for updating a book.\n"
               << "Enter 3 for deleting a book.\n"
-              << "Enter 4 for finding a book.\n"
+              << "Enter 4 for finding books.\n"
+              << "Enter 5 for filtering books.\n"
+              << "Enter 6 for sorting books.\n"
               << "Enter p for printing the book list.\n"
               << "Enter q for exiting the app.\n";
 }
@@ -111,7 +113,7 @@ void Console::uiDeleteBook() {
     }
 }
 
-void Console::uiFindBook() {
+void Console::uiFindBooks() {
     std::string title;
 
     try {
@@ -133,6 +135,55 @@ void Console::uiFindBook() {
         throw std::runtime_error("Error finding book: " + std::string(e.what()));
     }
 }
+
+void Console::uiFilterBooks() {
+    try {
+        int year;
+        std::cout << "Enter the year: ";
+        std::cin >> year;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            throw std::runtime_error("Invalid input for year.");
+        }
+
+        auto filtered_books = service.filterBooks(year);
+
+        if (filtered_books.size() == 0) {
+            std::cout << "There are no books published after " << year << ".\n";
+            return;
+        }
+
+        std::cout << "The filtered books are:\n";
+        for (const Book &book: filtered_books) {
+            std::cout << book.intoString() << "\n";
+        }
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error filtering books: " + std::string(e.what()));
+    }
+}
+
+void Console::uiSortBooks() {
+    try {
+        auto sorted_books = service.sortBooks([&](const Book &b1, const Book &b2) {
+            return b1.getYear() > b2.getYear();
+        });
+
+        if (sorted_books.size() == 0) {
+            std::cout << "There are no books to sort.\n";
+            return;
+        }
+
+        std::cout << "The sorted books are:\n";
+        for (const Book &book: sorted_books) {
+            std::cout << book.intoString() << "\n";
+        }
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error sorting books: " + std::string(e.what()));
+    }
+}
+
 
 int Console::getUserInput() {
     char option;
@@ -174,7 +225,15 @@ void Console::run() {
                     break;
                 }
                 case '4': {
-                    uiFindBook();
+                    uiFindBooks();
+                    break;
+                }
+                case '5': {
+                    uiFilterBooks();
+                    break;
+                }
+                case '6': {
+                    uiSortBooks();
                     break;
                 }
                 case 'p': {

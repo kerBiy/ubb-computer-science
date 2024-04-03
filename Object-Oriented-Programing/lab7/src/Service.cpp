@@ -56,3 +56,34 @@ List<Book> Service::findBooks(const std::string &title) {
 
     return output;
 }
+
+List<Book> Service::filterBooks(int min_year) {
+    List<Book> filteredBooks;
+    List<Book> allBooks = repo.getBooks(); // Assuming getBooks() returns a List<Book>
+
+    for (const auto &book: allBooks) {
+        if (book.getYear() >= min_year) {
+            filteredBooks.push_back(book);
+        }
+    }
+
+    return filteredBooks;
+}
+
+
+List<Book> Service::sortBooks(const std::function<bool(Book, Book)> &compare) {
+    List<Book> sortedBooks = repo.getBooks();
+    size_t len = sortedBooks.size();
+
+    for (size_t i = 0; i < len; ++i) {
+        for (size_t j = i + 1; j < len; ++j) {
+            if (compare(sortedBooks.get(i), sortedBooks.get(j))) {
+                Book temp = sortedBooks.get(i);
+                sortedBooks.set(i, sortedBooks.get(j));
+                sortedBooks.set(j, temp);
+            }
+        }
+    }
+
+    return sortedBooks;
+}

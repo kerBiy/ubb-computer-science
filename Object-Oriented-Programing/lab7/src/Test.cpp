@@ -133,6 +133,28 @@ void Test::testService() {
     list = service.findBooks(title);
     assert(list.size() == 1);
 
+    // TEST FILTER
+    auto filter = service.filterBooks(1900);
+    assert(filter.size() == 1);
+
+    filter = service.filterBooks(2000);
+    assert(filter.size() == 0);
+
+    // TEST SORT
+    service.deleteBook(title);
+    service.addBook(other_title, other_author, other_genre, other_year);
+    service.addBook(title, author, genre, year);
+
+    auto sorted = service.sortBooks([&](const Book &b1, const Book &b2) {
+        return b1.getYear() > b2.getYear();
+    });
+
+    assert(sorted.size() == 2);
+    assert(sorted.get(0).getTitle() == title);
+    assert(sorted.get(0).getAuthor() == author);
+    assert(sorted.get(0).getGenre() == genre);
+    assert(sorted.get(0).getYear() == year);
+
     std::cout << "Service tests ran successfully.\n";
 }
 
