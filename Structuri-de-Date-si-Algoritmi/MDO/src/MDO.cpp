@@ -44,7 +44,9 @@ bool MDO::sterge(TCheie c, TValoare v) {
         return false;
     }
 
-    if (head->element.first == c && head->element.second == v) {
+    TElem elem = {c, v};
+
+    if (head->element == elem) {
         Nod *temp = head;
         head = head->next;
         delete temp;
@@ -53,7 +55,7 @@ bool MDO::sterge(TCheie c, TValoare v) {
 
     Nod *current = head;
     while (current->next != nullptr) {
-        if (current->next->element.first == c && current->next->element.second == v) {
+        if (current->next->element == elem) {
             Nod *temp = current->next;
             current->next = current->next->next;
             delete temp;

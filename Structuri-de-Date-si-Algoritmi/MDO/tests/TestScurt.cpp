@@ -1,20 +1,15 @@
 #include "TestScurt.h"
-#include <assert.h>
+#include <cassert>
 
 #include "MDO.h"
 #include "IteratorMDO.h"
 
-#include <exception>
 #include <vector>
 
 using namespace std;
 
 bool relatie1(TCheie cheie1, TCheie cheie2) {
-    if (cheie1 <= cheie2) {
-        return true;
-    } else {
-        return false;
-    }
+    return cheie1 <= cheie2;
 }
 
 void testAll() {

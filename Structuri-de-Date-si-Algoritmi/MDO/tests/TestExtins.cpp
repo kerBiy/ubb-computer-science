@@ -1,27 +1,18 @@
-#include <exception>
-#include <assert.h>
-#include <algorithm>
-#include <vector>
 #include "IteratorMDO.h"
 #include "MDO.h"
 #include "TestExtins.h"
 
+#include <cassert>
+#include <vector>
+
 using namespace std;
 
 bool cresc(TCheie c1, TCheie c2) {
-    if (c1 <= c2) {
-        return true;
-    } else {
-        return false;
-    }
+    return c1 <= c2;
 }
 
 bool desc(TCheie c1, TCheie c2) {
-    if (c1 >= c2) {
-        return true;
-    } else {
-        return false;
-    }
+    return c1 >= c2;
 }
 
 void testCreeaza() {
