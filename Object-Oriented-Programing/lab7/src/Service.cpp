@@ -13,6 +13,7 @@ List<Book> &Service::getAll() {
 void Service::addBook(const std::string &title, const std::string &author,
                       const std::string &genre, int year) {
     auto position = repo.findBook(title);
+
     if (repo.isPositionValid(position)) {
         return;
     }

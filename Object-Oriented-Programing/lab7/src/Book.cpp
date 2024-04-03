@@ -9,10 +9,10 @@
 Book::Book(std::string title, std::string author, std::string genre, int year)
         : title(std::move(title)), author(std::move(author)), genre(std::move(genre)), year(year) {}
 
-Book::Book(const Book &new_book) : title(new_book.title), author(new_book.author),
-                                   genre(new_book.genre), year(new_book.year) {
-    std::cout << "Copy carte\n";
-}
+//Book::Book(const Book &new_book) : title(new_book.title), author(new_book.author),
+//                                   genre(new_book.genre), year(new_book.year) {
+//    std::cout << "Copy carte\n";
+//}
 
 std::string Book::intoString() const {
     std::stringstream string_stream;
