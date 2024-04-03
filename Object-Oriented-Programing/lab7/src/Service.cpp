@@ -59,7 +59,7 @@ List<Book> Service::findBooks(const std::string &title) {
 
 List<Book> Service::filterBooks(int min_year) {
     List<Book> filteredBooks;
-    List<Book> allBooks = repo.getBooks(); // Assuming getBooks() returns a List<Book>
+    List<Book> allBooks = repo.getBooks();
 
     for (const auto &book: allBooks) {
         if (book.getYear() >= min_year) {
