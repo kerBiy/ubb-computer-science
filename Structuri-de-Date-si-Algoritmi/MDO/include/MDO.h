@@ -49,9 +49,7 @@ public:
      * Searches the list for all the elements with c as key
      * @param c the key
      * @return a vector with all the values having c as their key
-     * @complexity - BC: T(1): there is only one element with c key and it's first in the list
-     *             - WC: T(n): the last one is an element with c as key
-     *             => AC: O(n), where n is the current number of nodes in the list
+     * @complexity - T(n), where n is the number of nodes
      */
     std::vector<TValoare> cauta(TCheie c) const;
 
@@ -69,12 +67,14 @@ public:
     /**
      * Getter for the size of the dict
      * @return the size of the dict
+     * @complexity T(1)
      */
     int dim() const;
 
     /**
      * Sees if the list hast no elements
      * @return true if there are no elements in the list, false otherwise
+     * @complexity T(1)
      */
     bool vid() const;
 
@@ -90,4 +90,12 @@ public:
      */
     ~MDO();
 
+    /**
+     * Serches for all the elements that have keys in the [a, b] range
+     * @param a the smallest key
+     * @param b the biggest key
+     * @return a vector containing the searched elements
+     * @complexity - T(n), where n is the number of nodes
+     */
+    std::vector<TElem> inRange(TCheie a, TCheie b);
 };

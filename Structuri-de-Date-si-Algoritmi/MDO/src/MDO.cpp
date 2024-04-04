@@ -96,3 +96,17 @@ MDO::~MDO() {
         delete temp;
     }
 }
+
+std::vector<TElem> MDO::inRange(TCheie a, TCheie b) {
+    std::vector<TElem> output;
+    Nod *current = head;
+
+    while (current != nullptr) {
+        if (current->element.first >= a && current->element.first <= b) {
+            output.push_back(current->element);
+        }
+        current = current->next;
+    }
+
+    return output;
+}

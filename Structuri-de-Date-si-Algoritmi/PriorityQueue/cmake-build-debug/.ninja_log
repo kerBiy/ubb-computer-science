@@ -1,0 +1,10 @@
+# ninja log v5
+0	449	1712209780045775380	CMakeFiles/PriorityQueue.dir/src/App.cpp.o	a883202a7c13ecea
+1	474	1712209780071035647	CMakeFiles/PriorityQueue.dir/src/CP.cpp.o	b00c77dfcfa553da
+1	476	1712209780073829468	CMakeFiles/PriorityQueue.dir/tests/TestScurt.cpp.o	b570e81742af8f15
+1	478	1712209780075850638	CMakeFiles/PriorityQueue.dir/tests/TestExtins.cpp.o	ccc70a26441e57c
+478	578	1712209780175087653	PriorityQueue	69507d3cbdd0f87f
+1	335	1712209853317481379	CMakeFiles/PriorityQueue.dir/src/CP.cpp.o	b00c77dfcfa553da
+2	341	1712209853324457453	CMakeFiles/PriorityQueue.dir/tests/TestScurt.cpp.o	b570e81742af8f15
+2	341	1712209853325421393	CMakeFiles/PriorityQueue.dir/tests/TestExtins.cpp.o	ccc70a26441e57c
+341	373	1712209853356737251	PriorityQueue	69507d3cbdd0f87f
