@@ -52,18 +52,21 @@ void Test::testRepository() {
     Book other_book(other_title, other_author, other_genre, other_year);
 
     // TEST ADD
+
     repo.addBook(new_book);
     assert(repo.getLen() == 1);
     repo.addBook(other_book);
     assert(repo.getLen() == 2);
 
     // TEST DELETE
+
     auto book_iter = repo.findBook(title);
     assert(book_iter.valid());
     repo.deleteBook(book_iter);
     assert(repo.getLen() == 1);
 
     // TEST UPDATE
+    
     auto new_book_iter = repo.findBook(other_title);
     repo.updateBook(new_book_iter, new_book);
     assert(repo.getLen() == 1);
@@ -82,18 +85,37 @@ void Test::testService() {
     Repository repo;
     Service service(repo);
 
+    // TEST VALIDATOR
+
+    std::string bad_title = "war and peace";
+    std::string bad_author = "levTolstoy";
+    std::string bad_genre = "randomWORDS";
+    int bad_year = 2050;
+
+    try {
+        service.addBook(bad_title, bad_author, bad_genre, bad_year);
+        assert(false);
+    }
+    catch (const std::exception &e) {
+        std::string correct_error = "\nThe title is not valid.\nThe author is not valid.\nThe genre is not valid.\nThe year is not valid.";
+        assert(e.what() == correct_error);
+    }
+
     // TEST ADD
+
     service.addBook(title, author, genre, year);
     assert(service.getAll().size() == 1);
     assert(repo.getLen() == 1);
     try {
         service.addBook(title, other_author, other_genre, other_year);
+        assert(false);
     } catch (const std::exception &e) {
         assert(service.getAll().size() == 1);
         assert(repo.getLen() == 1);
     }
 
     // TEST UPDATE
+
     service.updateBook(title, other_author, other_genre, other_year);
     assert(service.getAll().size() == 1);
 
@@ -105,6 +127,7 @@ void Test::testService() {
 
     try {
         service.updateBook(other_title, author, genre, year);
+        assert(false);
     } catch (const std::exception &e) {
         assert(service.getAll().size() == 1);
 
@@ -116,17 +139,20 @@ void Test::testService() {
     }
 
     // TEST DELETE
+
     service.deleteBook(title);
     assert(service.getAll().size() == 0);
 
     try {
         service.addBook(title, other_author, other_genre, other_year);
         service.deleteBook(other_title);
+        assert(false);
     } catch (const std::exception &e) {
         assert(service.getAll().size() == 1);
     }
 
     // TEST FIND
+
     auto list = service.findBooks(other_title);
     assert(list.size() == 0);
 
@@ -134,6 +160,7 @@ void Test::testService() {
     assert(list.size() == 1);
 
     // TEST FILTER
+
     auto filter = service.filterBooks(1900);
     assert(filter.size() == 1);
 
@@ -141,6 +168,7 @@ void Test::testService() {
     assert(filter.size() == 0);
 
     // TEST SORT
+
     service.deleteBook(title);
     service.addBook(other_title, other_author, other_genre, other_year);
     service.addBook(title, author, genre, year);
