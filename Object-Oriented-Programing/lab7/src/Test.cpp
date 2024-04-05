@@ -14,12 +14,12 @@
 Test::Test() {
     title = "War and Peace";
     author = "Lev Tolstoy";
-    genre = "Social Roman";
+    genre = "roman";
     year = 1890;
 
     other_title = "The brothers Karamazov";
     other_author = "Fyodor Dostoevsky";
-    other_genre = "Crime";
+    other_genre = "literature";
     other_year = 1910;
 }
 
@@ -31,7 +31,7 @@ void Test::testDomain() {
     assert(new_book.getGenre() == genre);
     assert(new_book.getYear() == year);
 
-    assert(new_book.intoString() == "War and Peace, Lev Tolstoy, Social Roman, 1890");
+    assert(new_book.intoString() == "War and Peace, Lev Tolstoy, roman, 1890");
 
     new_book.setTitle(other_title);
     new_book.setAuthor(other_author);
@@ -58,21 +58,21 @@ void Test::testRepository() {
     assert(repo.getLen() == 2);
 
     // TEST DELETE
-    auto book_iter = repo.findBook(other_title);
-    assert(repo.isPositionValid(book_iter));
+    auto book_iter = repo.findBook(title);
+    assert(book_iter.valid());
     repo.deleteBook(book_iter);
     assert(repo.getLen() == 1);
 
     // TEST UPDATE
-    auto new_book_iter = repo.findBook(title);
-    repo.updateBook(new_book_iter, other_book);
+    auto new_book_iter = repo.findBook(other_title);
+    repo.updateBook(new_book_iter, new_book);
     assert(repo.getLen() == 1);
 
     auto all = repo.getBooks();
-    assert(all.get(0).getTitle() == other_title);
-    assert(all.get(0).getAuthor() == other_author);
-    assert(all.get(0).getGenre() == other_genre);
-    assert(all.get(0).getYear() == other_year);
+    assert(all[0].getTitle() == title);
+    assert(all[0].getAuthor() == author);
+    assert(all[0].getGenre() == genre);
+    assert(all[0].getYear() == year);
 
     std::cout << "Repository tests ran successfully.\n";
 }
@@ -98,10 +98,10 @@ void Test::testService() {
     assert(service.getAll().size() == 1);
 
     auto all_repo = repo.getBooks();
-    assert(all_repo.get(0).getTitle() == title);
-    assert(all_repo.get(0).getAuthor() == other_author);
-    assert(all_repo.get(0).getGenre() == other_genre);
-    assert(all_repo.get(0).getYear() == other_year);
+    assert(all_repo[0].getTitle() == title);
+    assert(all_repo[0].getAuthor() == other_author);
+    assert(all_repo[0].getGenre() == other_genre);
+    assert(all_repo[0].getYear() == other_year);
 
     try {
         service.updateBook(other_title, author, genre, year);
@@ -109,10 +109,10 @@ void Test::testService() {
         assert(service.getAll().size() == 1);
 
         auto all = service.getAll();
-        assert(all.get(0).getTitle() == title);
-        assert(all.get(0).getAuthor() == other_author);
-        assert(all.get(0).getGenre() == other_genre);
-        assert(all.get(0).getYear() == other_year);
+        assert(all[0].getTitle() == title);
+        assert(all[0].getAuthor() == other_author);
+        assert(all[0].getGenre() == other_genre);
+        assert(all[0].getYear() == other_year);
     }
 
     // TEST DELETE
@@ -150,10 +150,10 @@ void Test::testService() {
     });
 
     assert(sorted.size() == 2);
-    assert(sorted.get(0).getTitle() == title);
-    assert(sorted.get(0).getAuthor() == author);
-    assert(sorted.get(0).getGenre() == genre);
-    assert(sorted.get(0).getYear() == year);
+    assert(sorted[0].getTitle() == title);
+    assert(sorted[0].getAuthor() == author);
+    assert(sorted[0].getGenre() == genre);
+    assert(sorted[0].getYear() == year);
 
     std::cout << "Service tests ran successfully.\n";
 }

@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 19,
+				"line" : 20,
 				"parent" : 0
 			}
 		]
@@ -68,7 +68,8 @@
 				2,
 				3,
 				4,
-				5
+				5,
+				6
 			]
 		}
 	],
@@ -106,14 +107,15 @@
 				2,
 				3,
 				4,
-				5
+				5,
+				6
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				6
+				7
 			]
 		}
 	],
@@ -157,7 +159,13 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "include/List.hpp",
+			"compileGroupIndex" : 0,
+			"path" : "src/Validator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/Validator.hpp",
 			"sourceGroupIndex" : 1
 		}
 	],

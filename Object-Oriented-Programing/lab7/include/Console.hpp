@@ -4,7 +4,6 @@
 #pragma once
 
 #include "Service.hpp"
-#include <iostream>
 
 class Console {
 private:
@@ -19,7 +18,7 @@ private:
      * Retrieves user input from the console.
      * @return Character representing user input
      */
-    static int getUserInput();
+    static char getUserInput();
 
     /*!
      * Displays all books in the library to the console.

@@ -11,7 +11,8 @@ set(SOURCES
         src/Repository.cpp
         src/Service.cpp
         src/Console.cpp
-        include/List.hpp
+        src/Validator.cpp
+        include/Validator.hpp
 )
 
 add_executable(lab7 ${SOURCES})

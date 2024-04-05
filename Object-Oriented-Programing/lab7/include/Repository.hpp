@@ -3,14 +3,15 @@
 
 #pragma once
 
+#include "Vector.hpp"
 #include "Book.hpp"
-//#include <vector>
+
 #include <algorithm>
-#include "List.hpp"
+#include <functional>
 
 class Repository {
 private:
-    List<Book> items; // Vector to store books
+    Vector<Book> items; // Vector to store books
 
 public:
     /*!
@@ -27,7 +28,7 @@ public:
      * Retrieves all books stored in the repository.
      * @return vector containing all books
      */
-    List<Book> &getBooks();
+    Vector<Book> &getBooks();
 
     /*!
      * Retrieves the number of books in the repository.
@@ -60,11 +61,4 @@ public:
      * @return Iterator pointing to the found book or end iterator if not found
      */
     Iterator<Book> findBook(const std::string &title);
-
-    /*!
-     * Checks if the iterator position is valid (not pointing to end()).
-     * @param position Iterator to be validated
-     * @return true if the position is valid, false otherwise
-     */
-    bool isPositionValid(Iterator<Book> &position);
 };

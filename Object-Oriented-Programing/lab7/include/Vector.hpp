@@ -10,14 +10,14 @@ template<typename TElem>
 class Iterator;
 
 /*
- * List hpp
+ * Vector hpp
  */
 
 template<typename TElem>
-class List {
+class Vector {
 private:
-    size_t len; // Current length of the list
-    size_t capacity; // Current capacity of the list
+    size_t len{0}; // Current length of the list
+    size_t capacity{1}; // Current capacity of the list
     TElem *items; // Array to store list elements
 
     /**
@@ -29,25 +29,25 @@ public:
     /**
      * Default constructor.
      */
-    List();
+    Vector();
 
     /**
      * Copy constructor.
      * @param other The list to be copied.
      */
-    List(const List &other);
+    Vector(const Vector &other);
 
     /**
      * Destructor.
      */
-    ~List();
+    ~Vector();
 
     /**
      * Assignment operator.
      * @param other The list to be assigned.
      * @return Reference to the assigned list.
      */
-    List &operator=(const List &other);
+    Vector &operator=(const Vector &other);
 
     /**
      * Adds an element to the end of the list.
@@ -62,18 +62,18 @@ public:
     void erase(Iterator<TElem> iterator);
 
     /**
-     * Retrieves the element at the specified position.
-     * @param position The position of the element to retrieve.
-     * @return Reference to the element at the specified position.
-     */
-    TElem &get(size_t position) const;
+    * Retrieves the element at the specified position.
+    * @param position The position of the element to retrieve.
+    * @return Reference to the element at the specified position.
+    */
+    TElem &operator[](size_t position);
 
     /**
-     * Sets the element at the specified position.
-     * @param position The position at which to set the element.
+     * Sets the element at the specified position given by the iterator.
+     * @param iter An iterator pointing to the position at which to set the element.
      * @param element The element to set.
      */
-    void set(size_t position, const TElem &element);
+    void set(Iterator<TElem> &iter, const TElem &element);
 
     /**
      * Returns the current size of the list.
@@ -97,49 +97,42 @@ public:
 };
 
 /*
- * List cpp
+ * Vector cpp
  */
 
 template<typename TElem>
-List<TElem>::List() : len{0}, capacity{1}, items{new TElem[1]} {}
+Vector<TElem>::Vector() : items{new TElem[1]} {}
 
 template<typename TElem>
-List<TElem>::List(const List<TElem> &other) {
-    items = new TElem[other.capacity];
-
-    for (size_t i = 0; i < other.len; ++i) {
+Vector<TElem>::Vector(const Vector<TElem> &other) : len{other.len}, capacity{other.capacity},
+                                                    items{new TElem[other.capacity]} {
+    for (size_t i = 0; i < len; ++i) {
         items[i] = other.items[i];
     }
-
-    len = other.len;
-    capacity = other.capacity;
 }
 
 template<typename TElem>
-List<TElem> &List<TElem>::operator=(const List<TElem> &other) {
-    if (this == &other) {
-        return *this;
-    }
-
+Vector<TElem> &Vector<TElem>::operator=(const Vector<TElem> &other) {
     delete[] items;
-    items = new TElem[other.capacity];
 
-    for (size_t i = 0; i < other.len; ++i) {
+    items = new TElem[other.capacity];
+    len = other.len;
+    capacity = other.capacity;
+
+    for (size_t i = 0; i < len; ++i) {
         items[i] = other.items[i];
     }
 
-    len = other.len;
-    capacity = other.capacity;
     return *this;
 }
 
 template<typename TElem>
-List<TElem>::~List() {
+Vector<TElem>::~Vector() {
     delete[] items;
 }
 
 template<typename TElem>
-void List<TElem>::push_back(const TElem &element) {
+void Vector<TElem>::push_back(const TElem &element) {
     if (len == capacity) {
         resizeList();
     }
@@ -148,15 +141,11 @@ void List<TElem>::push_back(const TElem &element) {
 }
 
 template<typename TElem>
-void List<TElem>::erase(Iterator<TElem> iterator) {
-    if (!iterator.valid() || iterator == end()) {
-        throw std::out_of_range("Iterator is not valid or at the end of the list");
-    }
-
+void Vector<TElem>::erase(Iterator<TElem> iterator) {
     auto nextIt = iterator;
-    nextIt.next();
+    ++nextIt;
 
-    while (nextIt != end()) {
+    while (nextIt.valid()) {
         *iterator = *nextIt;
         ++iterator;
         ++nextIt;
@@ -165,24 +154,23 @@ void List<TElem>::erase(Iterator<TElem> iterator) {
     len--;
 }
 
-
 template<typename TElem>
-TElem &List<TElem>::get(size_t position) const {
+TElem &Vector<TElem>::operator[](size_t position) {
     return items[position];
 }
 
 template<typename TElem>
-void List<TElem>::set(size_t position, const TElem &element) {
-    items[position] = element;
+void Vector<TElem>::set(Iterator<TElem> &iter, const TElem &element) {
+    *iter = element;
 }
 
 template<typename TElem>
-size_t List<TElem>::size() const {
+size_t Vector<TElem>::size() const {
     return len;
 }
 
 template<typename TElem>
-void List<TElem>::resizeList() {
+void Vector<TElem>::resizeList() {
     capacity *= 2;
     auto temp = new TElem[capacity];
     for (size_t i = 0; i < len; ++i) {
@@ -194,12 +182,12 @@ void List<TElem>::resizeList() {
 }
 
 template<typename TElem>
-Iterator<TElem> List<TElem>::begin() {
+Iterator<TElem> Vector<TElem>::begin() {
     return Iterator<TElem>(*this);
 }
 
 template<typename TElem>
-Iterator<TElem> List<TElem>::end() {
+Iterator<TElem> Vector<TElem>::end() {
     return Iterator<TElem>(*this, len);
 }
 
@@ -210,38 +198,27 @@ Iterator<TElem> List<TElem>::end() {
 template<typename TElem>
 class Iterator {
 private:
-    const List<TElem> &list; // Reference to the list being iterated
+    const Vector<TElem> &list; // Reference to the list being iterated
     size_t index; // Current index of the iterator within the list
 public:
     /**
      * Constructor with list reference parameter
      * @param list a reference to the list that is being iterated
      */
-    explicit Iterator(List<TElem> &list);
+    explicit Iterator(Vector<TElem> &list);
 
     /**
      * Constructor with list reference and starting index parameters
      * @param list a reference to the list that is being iterated
      * @param index a position in the list
      */
-    Iterator(List<TElem> &list, size_t index);
+    Iterator(Vector<TElem> &list, size_t index);
 
     /**
      * Checks if the iterator is still within the bounds of the list.
      * @return true if the iterator is valid, false otherwise.
      */
     [[nodiscard]] bool valid() const;
-
-    /**
-    * Retrieves the element at the current iterator position.
-    * @return Reference to the element at the current iterator position.
-    */
-    TElem &element() const;
-
-    /**
-     * Moves the iterator to the next element in the list.
-     */
-    void next();
 
     /**
      * Dereferences the iterator to retrieve the element at the current position.
@@ -275,10 +252,10 @@ public:
  */
 
 template<typename TElem>
-Iterator<TElem>::Iterator(List<TElem> &list) : list{list}, index{0} {}
+Iterator<TElem>::Iterator(Vector<TElem> &list) : list{list}, index{0} {}
 
 template<typename TElem>
-Iterator<TElem>::Iterator(List<TElem> &list, size_t index) : list{list}, index{index} {}
+Iterator<TElem>::Iterator(Vector<TElem> &list, size_t index) : list{list}, index{index} {}
 
 template<typename TElem>
 bool Iterator<TElem>::valid() const {
@@ -286,23 +263,13 @@ bool Iterator<TElem>::valid() const {
 }
 
 template<typename TElem>
-TElem &Iterator<TElem>::element() const {
+TElem &Iterator<TElem>::operator*() {
     return list.items[index];
 }
 
 template<typename TElem>
-void Iterator<TElem>::next() {
-    index++;
-}
-
-template<typename TElem>
-TElem &Iterator<TElem>::operator*() {
-    return element();
-}
-
-template<typename TElem>
 Iterator<TElem> &Iterator<TElem>::operator++() {
-    next();
+    index++;
     return *this;
 }
 
@@ -313,5 +280,5 @@ bool Iterator<TElem>::operator==(const Iterator<TElem> &other) {
 
 template<typename TElem>
 bool Iterator<TElem>::operator!=(const Iterator<TElem> &other) {
-    return index != other.index;
+    return !(*this == other);
 }

@@ -91,6 +91,13 @@ build CMakeFiles/lab7.dir/src/Console.cpp.o: CXX_COMPILER__lab7_unscanned_Debug 
   OBJECT_DIR = CMakeFiles/lab7.dir
   OBJECT_FILE_DIR = CMakeFiles/lab7.dir/src
 
+build CMakeFiles/lab7.dir/src/Validator.cpp.o: CXX_COMPILER__lab7_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/src/Validator.cpp || cmake_object_order_depends_target_lab7
+  DEP_FILE = CMakeFiles/lab7.dir/src/Validator.cpp.o.d
+  FLAGS = -Wall -Wextra -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/include
+  OBJECT_DIR = CMakeFiles/lab7.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab7.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab7
@@ -99,7 +106,7 @@ build CMakeFiles/lab7.dir/src/Console.cpp.o: CXX_COMPILER__lab7_unscanned_Debug 
 #############################################
 # Link the executable lab7
 
-build lab7: CXX_EXECUTABLE_LINKER__lab7_Debug CMakeFiles/lab7.dir/src/main.cpp.o CMakeFiles/lab7.dir/src/Test.cpp.o CMakeFiles/lab7.dir/src/Book.cpp.o CMakeFiles/lab7.dir/src/Repository.cpp.o CMakeFiles/lab7.dir/src/Service.cpp.o CMakeFiles/lab7.dir/src/Console.cpp.o
+build lab7: CXX_EXECUTABLE_LINKER__lab7_Debug CMakeFiles/lab7.dir/src/main.cpp.o CMakeFiles/lab7.dir/src/Test.cpp.o CMakeFiles/lab7.dir/src/Book.cpp.o CMakeFiles/lab7.dir/src/Repository.cpp.o CMakeFiles/lab7.dir/src/Service.cpp.o CMakeFiles/lab7.dir/src/Console.cpp.o CMakeFiles/lab7.dir/src/Validator.cpp.o
   FLAGS = -Wall -Wextra -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/lab7.dir
   POST_BUILD = :

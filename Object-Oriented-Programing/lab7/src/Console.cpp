@@ -2,6 +2,8 @@
 // Created by Alex Balta on 27.03.2024.
 //
 #include "Console.hpp"
+#include <iostream>
+
 
 Console::Console(Service &service) : service(service) {}
 
@@ -39,7 +41,7 @@ void Console::uiPrintBooks() {
 
 void Console::uiAddBook() {
     std::string title, author, genre;
-    int year;
+    int year{0};
 
     try {
         std::cout << "Enter the title: ";
@@ -69,7 +71,7 @@ void Console::uiAddBook() {
 
 void Console::uiUpdateBook() {
     std::string title, newTitle, author, genre;
-    int year;
+    int year{0};
 
     try {
         std::cout << "Enter the title of the book you want to update: ";
@@ -137,8 +139,9 @@ void Console::uiFindBooks() {
 }
 
 void Console::uiFilterBooks() {
+    int year{0};
+
     try {
-        int year;
         std::cout << "Enter the year: ";
         std::cin >> year;
 
@@ -185,8 +188,8 @@ void Console::uiSortBooks() {
 }
 
 
-int Console::getUserInput() {
-    char option;
+char Console::getUserInput() {
+    char option{};
 
     while (true) {
         std::cout << "\n>>> ";
@@ -206,10 +209,9 @@ int Console::getUserInput() {
 void Console::run() {
     while (true) {
         printMenu();
-        int option;
 
         try {
-            option = getUserInput();
+            char option = getUserInput();
 
             switch (option) {
                 case '1': {

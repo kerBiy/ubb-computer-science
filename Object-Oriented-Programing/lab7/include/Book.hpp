@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <iostream>
 #include <string>
 
 class Book {
@@ -18,6 +19,12 @@ public:
     * The default constructor.
     */
     Book() = default;
+
+//    /**
+//     * The copy constructor
+//     * @param ot another book
+//     */
+//    Book(const Book &ot);
 
     /*!
      * The default constructor.
