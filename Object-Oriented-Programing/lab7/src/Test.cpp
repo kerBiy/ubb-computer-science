@@ -12,15 +12,18 @@
 #include <cassert>
 
 Test::Test() {
+    const int YEAR = 1890;
+    const int OTHER_YEAR = 1910;
+
     title = "War and Peace";
     author = "Lev Tolstoy";
     genre = "roman";
-    year = 1890;
+    year = YEAR;
 
     other_title = "The brothers Karamazov";
     other_author = "Fyodor Dostoevsky";
     other_genre = "literature";
-    other_year = 1910;
+    other_year = OTHER_YEAR;
 }
 
 void Test::testDomain() {
@@ -66,7 +69,7 @@ void Test::testRepository() {
     assert(repo.getLen() == 1);
 
     // TEST UPDATE
-    
+
     auto new_book_iter = repo.findBook(other_title);
     repo.updateBook(new_book_iter, new_book);
     assert(repo.getLen() == 1);
@@ -87,10 +90,11 @@ void Test::testService() {
 
     // TEST VALIDATOR
 
+    const int BAD_YEAR = 2050;
     std::string bad_title = "war and peace";
     std::string bad_author = "levTolstoy";
     std::string bad_genre = "randomWORDS";
-    int bad_year = 2050;
+    int bad_year = BAD_YEAR;
 
     try {
         service.addBook(bad_title, bad_author, bad_genre, bad_year);
@@ -160,11 +164,13 @@ void Test::testService() {
     assert(list.size() == 1);
 
     // TEST FILTER
+    const int GOOD_MIN_YEAR = 1900;
+    const int BAD_MIN_YEAR = 2000;
 
-    auto filter = service.filterBooks(1900);
+    auto filter = service.filterBooks(GOOD_MIN_YEAR);
     assert(filter.size() == 1);
 
-    filter = service.filterBooks(2000);
+    filter = service.filterBooks(BAD_MIN_YEAR);
     assert(filter.size() == 0);
 
     // TEST SORT

@@ -3,14 +3,13 @@
 //
 
 #include "Repository.hpp"
-
 #include <iostream>
 
 Vector<Book> &Repository::getBooks() {
     return items;
 }
 
-size_t Repository::getLen() {
+size_t Repository::getLen() const {
     return items.size();
 }
 
@@ -27,7 +26,7 @@ void Repository::deleteBook(Iterator<Book> &position) {
 }
 
 Iterator<Book> Repository::findBook(const std::string &title) {
-    return std::find_if(items.begin(), items.end(), [&](const Book &book) {
+    return std::find_if(items.begin(), items.end(), [=](const Book &book) {
         return book.getTitle() == title;
     });
 }

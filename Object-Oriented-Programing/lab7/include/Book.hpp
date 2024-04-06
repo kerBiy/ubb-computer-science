@@ -36,11 +36,6 @@ public:
     Book(std::string title, std::string author, std::string genre, int year);
 
     /*!
-     * The default destructor.
-     */
-    ~Book() = default;
-
-    /*!
      * Converts the book into a string
      * @return a string with all the proprieties of a book
      */

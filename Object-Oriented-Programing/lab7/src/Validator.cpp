@@ -5,6 +5,8 @@
 #include "Validator.hpp"
 #include "Vector.hpp"
 
+const int CURRENT_YEAR = 2024;
+
 bool Validator::isValidName(const std::string &name) {
     return isupper(name[0]);
 }
@@ -27,7 +29,7 @@ bool Validator::isValidGenre(const std::string &genre) {
 }
 
 bool Validator::isValidYear(int year) {
-    return 0 <= year && year <= 2024;
+    return 0 <= year && year <= CURRENT_YEAR;
 }
 
 void Validator::validateBook(const Book &book) {

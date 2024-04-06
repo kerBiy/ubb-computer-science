@@ -5,8 +5,6 @@
 
 #include "Vector.hpp"
 #include "Book.hpp"
-
-#include <algorithm>
 #include <functional>
 
 class Repository {
@@ -20,11 +18,6 @@ public:
     Repository() = default;
 
     /*!
-     * The default destructor.
-     */
-    ~Repository() = default;
-
-    /*!
      * Retrieves all books stored in the repository.
      * @return vector containing all books
      */
@@ -34,7 +27,7 @@ public:
      * Retrieves the number of books in the repository.
      * @return number of books in the repository
      */
-    size_t getLen();
+    [[nodiscard]] size_t getLen() const;
 
     /*!
      * Adds a new book to the repository.

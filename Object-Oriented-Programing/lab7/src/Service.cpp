@@ -5,7 +5,7 @@
 #include "Service.hpp"
 #include "Validator.hpp"
 
-Service::Service(Repository &repo) : repo(repo) {}
+Service::Service(Repository &repo) : repo{repo} {}
 
 Vector<Book> &Service::getAll() {
     return repo.getBooks();

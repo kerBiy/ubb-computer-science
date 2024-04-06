@@ -40,11 +40,6 @@ public:
     Test();
 
     /*!
-     * The default destructor.
-     */
-    ~Test() = default;
-
-    /*!
      * Runs all the tests.
      */
     void runAll();

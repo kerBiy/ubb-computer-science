@@ -5,6 +5,7 @@
 #pragma once
 
 #include <cstddef>
+#include <algorithm>
 
 template<typename TElem>
 class Iterator;
@@ -106,22 +107,22 @@ Vector<TElem>::Vector() : items{new TElem[1]} {}
 template<typename TElem>
 Vector<TElem>::Vector(const Vector<TElem> &other) : len{other.len}, capacity{other.capacity},
                                                     items{new TElem[other.capacity]} {
-    for (size_t i = 0; i < len; ++i) {
-        items[i] = other.items[i];
-    }
+    std::copy(other.items, other.items + other.len, items);
 }
 
 template<typename TElem>
 Vector<TElem> &Vector<TElem>::operator=(const Vector<TElem> &other) {
+    if (this == &other) {
+        return *this;
+    }
+
     delete[] items;
 
-    items = new TElem[other.capacity];
     len = other.len;
     capacity = other.capacity;
+    items = new TElem[capacity];
 
-    for (size_t i = 0; i < len; ++i) {
-        items[i] = other.items[i];
-    }
+    std::copy(other.items, other.items + other.len, items);
 
     return *this;
 }
@@ -172,10 +173,9 @@ size_t Vector<TElem>::size() const {
 template<typename TElem>
 void Vector<TElem>::resizeList() {
     capacity *= 2;
+
     auto temp = new TElem[capacity];
-    for (size_t i = 0; i < len; ++i) {
-        temp[i] = items[i];
-    }
+    std::copy(items, items + len, temp);
 
     delete[] items;
     items = temp;

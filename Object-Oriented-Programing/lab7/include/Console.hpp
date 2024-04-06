@@ -63,11 +63,6 @@ public:
     explicit Console(Service &service);
 
     /*!
-     * Destructor for the Console class.
-     */
-    ~Console() = default;
-
-    /*!
      * Runs the console application, displaying the menu and handling user input.
      */
     void run();

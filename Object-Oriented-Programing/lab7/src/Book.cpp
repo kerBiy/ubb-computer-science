@@ -6,7 +6,7 @@
 #include <sstream>
 
 Book::Book(std::string title, std::string author, std::string genre, int year)
-        : title(std::move(title)), author(std::move(author)), genre(std::move(genre)), year(year) {}
+        : title{std::move(title)}, author{std::move(author)}, genre{std::move(genre)}, year{year} {}
 
 //Book::Book(const Book &ot) : title{ot.title}, author{ot.author}, genre{ot.genre}, year{ot.year} {
 //    std::cout << "One book has been copied\n";

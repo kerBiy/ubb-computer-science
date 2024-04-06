@@ -17,11 +17,6 @@ public:
     explicit Service(Repository &repo);
 
     /*!
-     * The default destructor.
-     */
-    ~Service() = default;
-
-    /*!
      * Retrieves all books from the repository.
      * @return vector containing all books in the repository
      */
