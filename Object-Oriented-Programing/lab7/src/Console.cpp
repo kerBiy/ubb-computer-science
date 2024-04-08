@@ -4,7 +4,6 @@
 #include "Console.hpp"
 #include <iostream>
 
-
 Console::Console(Service &service) : service(service) {}
 
 void Console::printMenu() {
@@ -20,23 +19,17 @@ void Console::printMenu() {
 }
 
 void Console::uiPrintBooks() {
-    try {
-        auto &all_books = service.getAll();
+    auto &all_books = service.getAll();
 
-        if (all_books.size() == 0) {
-            std::cout << "There are no books in the library.\n";
-            return;
-        }
-
-        std::cout << "The books are:\n";
-        for (const Book &book: all_books) {
-            std::cout << book.intoString() << "\n";
-        }
-    } catch (const std::exception &e) {
-        throw std::runtime_error("Error printing book: " + std::string(e.what()));
+    if (all_books.size() == 0) {
+        std::cout << "There are no books in the library.\n";
+        return;
     }
 
-
+    std::cout << "The books are:\n";
+    for (const Book &book : all_books) {
+        std::cout << book.intoString() << "\n";
+    }
 }
 
 void Console::uiAddBook() {
@@ -130,7 +123,7 @@ void Console::uiFindBooks() {
         }
 
         std::cout << "The found books are:\n";
-        for (const Book &book: found_books) {
+        for (const Book &book : found_books) {
             std::cout << book.intoString() << "\n";
         }
     } catch (const std::exception &e) {
@@ -159,7 +152,7 @@ void Console::uiFilterBooks() {
         }
 
         std::cout << "The filtered books are:\n";
-        for (const Book &book: filtered_books) {
+        for (const Book &book : filtered_books) {
             std::cout << book.intoString() << "\n";
         }
     } catch (const std::exception &e) {
@@ -179,14 +172,13 @@ void Console::uiSortBooks() {
         }
 
         std::cout << "The sorted books are:\n";
-        for (const Book &book: sorted_books) {
+        for (const Book &book : sorted_books) {
             std::cout << book.intoString() << "\n";
         }
     } catch (const std::exception &e) {
         throw std::runtime_error("Error sorting books: " + std::string(e.what()));
     }
 }
-
 
 char Console::getUserInput() {
     char option{};

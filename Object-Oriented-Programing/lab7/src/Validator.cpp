@@ -19,7 +19,7 @@ bool Validator::isValidGenre(const std::string &genre) {
     valid_genres.push_back("roman");
 
     bool found{false};
-    for (const std::string &valid_genre: valid_genres) {
+    for (const std::string &valid_genre : valid_genres) {
         if (genre == valid_genre) {
             found = true;
         }

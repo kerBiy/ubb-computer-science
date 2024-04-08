@@ -16,7 +16,7 @@ class Iterator;
 
 template<typename TElem>
 class Vector {
-private:
+  private:
     size_t len{0}; // Current length of the list
     size_t capacity{1}; // Current capacity of the list
     TElem *items; // Array to store list elements
@@ -26,7 +26,7 @@ private:
      */
     void resizeList();
 
-public:
+  public:
     /**
      * Default constructor.
      */
@@ -105,7 +105,8 @@ template<typename TElem>
 Vector<TElem>::Vector() : items{new TElem[1]} {}
 
 template<typename TElem>
-Vector<TElem>::Vector(const Vector<TElem> &other) : len{other.len}, capacity{other.capacity},
+Vector<TElem>::Vector(const Vector<TElem> &other) : len{other.len},
+                                                    capacity{other.capacity},
                                                     items{new TElem[other.capacity]} {
     std::copy(other.items, other.items + other.len, items);
 }
@@ -197,10 +198,10 @@ Iterator<TElem> Vector<TElem>::end() {
 
 template<typename TElem>
 class Iterator {
-private:
+  private:
     const Vector<TElem> &list; // Reference to the list being iterated
     size_t index; // Current index of the iterator within the list
-public:
+  public:
     /**
      * Constructor with list reference parameter
      * @param list a reference to the list that is being iterated

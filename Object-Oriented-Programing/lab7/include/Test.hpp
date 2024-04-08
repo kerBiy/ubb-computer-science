@@ -7,7 +7,7 @@
 #include <string>
 
 class Test {
-private:
+  private:
     std::string title;
     std::string author;
     std::string genre;
@@ -18,28 +18,28 @@ private:
     std::string other_genre;
     int other_year;
 
-    /*!
+    /**
      * Tests the domain module.
      */
     void testDomain();
 
-    /*!
+    /**
      * Tests the repository module.
      */
     void testRepository();
 
-    /*!
+    /**
      * Tests the service module.
      */
     void testService();
 
-public:
+  public:
     /*!
      * The constructor.
      */
     Test();
 
-    /*!
+    /**
      * Runs all the tests.
      */
     void runAll();

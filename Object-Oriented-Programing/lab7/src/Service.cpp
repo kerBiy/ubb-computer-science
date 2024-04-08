@@ -51,7 +51,7 @@ void Service::deleteBook(const std::string &title) {
 Vector<Book> Service::findBooks(const std::string &title) {
     Vector<Book> foundBooks;
 
-    for (const auto &book: repo.getBooks()) {
+    for (const auto &book : repo.getBooks()) {
         if (book.getTitle().find(title) == 0) {
             foundBooks.push_back(book);
         }
@@ -64,7 +64,7 @@ Vector<Book> Service::filterBooks(int min_year) {
     Vector<Book> filteredBooks;
     Vector<Book> allBooks = repo.getBooks();
 
-    for (const auto &book: allBooks) {
+    for (const auto &book : allBooks) {
         if (book.getYear() >= min_year) {
             filteredBooks.push_back(book);
         }
@@ -72,7 +72,6 @@ Vector<Book> Service::filterBooks(int min_year) {
 
     return filteredBooks;
 }
-
 
 Vector<Book> Service::sortBooks(const std::function<bool(const Book &, const Book &)> &compare) {
     Vector<Book> sortedBooks = repo.getBooks();

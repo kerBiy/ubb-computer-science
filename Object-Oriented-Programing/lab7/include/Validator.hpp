@@ -8,7 +8,7 @@
 #include "Book.hpp"
 
 class Validator {
-private:
+  private:
     /**
      * Checks if a given name is valid.
      * @param name The name to be validated.
@@ -30,7 +30,7 @@ private:
      */
     static bool isValidYear(int year);
 
-public:
+  public:
     /**
      * Validates a book object.
      * @param book The book object to be validated.

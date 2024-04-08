@@ -83,7 +83,6 @@ void Test::testRepository() {
     std::cout << "Repository tests ran successfully.\n";
 }
 
-
 void Test::testService() {
     Repository repo;
     Service service(repo);
@@ -101,7 +100,8 @@ void Test::testService() {
         assert(false);
     }
     catch (const std::exception &e) {
-        std::string correct_error = "\nThe title is not valid.\nThe author is not valid.\nThe genre is not valid.\nThe year is not valid.";
+        std::string correct_error =
+            "\nThe title is not valid.\nThe author is not valid.\nThe genre is not valid.\nThe year is not valid.";
         assert(e.what() == correct_error);
     }
 
