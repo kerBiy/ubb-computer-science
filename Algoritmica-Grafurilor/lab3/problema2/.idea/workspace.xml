@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b746bdaa-8ad3-4dcc-98e5-bb4b0f2d85cb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.cmake/api/v1/reply/index-2024-04-05T20-19-13-0039.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Console.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Console.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Repository.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Repository.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Service.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Service.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Test.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Test.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Validator.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Validator.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/coverage-lab7.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/coverage-lab7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/lab7" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/lab7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.cmake/api/v1/reply/index-2024-04-05T20-19-13-0040.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Console.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Console.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Repository.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Repository.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Service.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Service.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Test.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Test.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Validator.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Validator.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/lab7" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/lab7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/include/Vector.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/include/Vector.hpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.4" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2erhjFWBi7f8UeRKfDTKr6y59oq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.problema2.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b746bdaa-8ad3-4dcc-98e5-bb4b0f2d85cb" name="Changes" comment="" />
+      <created>1712668737626</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712668737626</updated>
+      <workItem from="1712668739256" duration="201000" />
+      <workItem from="1712669005016" duration="1543000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+</project>
