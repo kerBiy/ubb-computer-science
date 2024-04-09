@@ -11,7 +11,7 @@ template<typename TElem>
 class Iterator;
 
 /*
- * Vector hpp
+ * VECTOR HPP
  */
 
 template<typename TElem>
@@ -39,16 +39,29 @@ class Vector {
     Vector(const Vector &other);
 
     /**
+     * Move constructor.
+     * @param other The list to be copied.
+     */
+    Vector(Vector &&other) noexcept;
+
+    /**
      * Destructor.
      */
     ~Vector();
 
     /**
-     * Assignment operator.
+     * Copy Assignment operator.
      * @param other The list to be assigned.
      * @return Reference to the assigned list.
      */
     Vector &operator=(const Vector &other);
+
+    /**
+     * Move Assignment operator.
+     * @param other The list to be assigned.
+     * @return Reference to the assigned list.
+     */
+    Vector &operator=(Vector &&other) noexcept;
 
     /**
      * Adds an element to the end of the list.
@@ -98,7 +111,7 @@ class Vector {
 };
 
 /*
- * Vector cpp
+ * VECTOR CPP
  */
 
 template<typename TElem>
@@ -109,6 +122,15 @@ Vector<TElem>::Vector(const Vector<TElem> &other) : len{other.len},
                                                     capacity{other.capacity},
                                                     items{new TElem[other.capacity]} {
     std::copy(other.items, other.items + other.len, items);
+}
+
+template<typename TElem>
+Vector<TElem>::Vector(Vector<TElem> &&other) noexcept : len{other.len},
+                                                        capacity{other.capacity},
+                                                        items{other.items} {
+    other.items = nullptr;
+    other.len = 0;
+    other.capacity = 0;
 }
 
 template<typename TElem>
@@ -129,6 +151,25 @@ Vector<TElem> &Vector<TElem>::operator=(const Vector<TElem> &other) {
 }
 
 template<typename TElem>
+Vector<TElem> &Vector<TElem>::operator=(Vector<TElem> &&other) noexcept {
+    if (this == &other) {
+        return *this;
+    }
+
+    delete[] items;
+
+    items = other.items;
+    len = other.len;
+    capacity = other.capacity;
+
+    other.items = nullptr;
+    other.len = 0;
+    other.capacity = 0;
+
+    return *this;
+}
+
+template<typename TElem>
 Vector<TElem>::~Vector() {
     delete[] items;
 }
@@ -138,7 +179,7 @@ void Vector<TElem>::push_back(const TElem &element) {
     if (len == capacity) {
         resizeList();
     }
-
+    
     items[len++] = element;
 }
 
@@ -193,7 +234,7 @@ Iterator<TElem> Vector<TElem>::end() {
 }
 
 /*
- * Iterator hpp
+ * ITERATOR HPP
  */
 
 template<typename TElem>
@@ -249,7 +290,7 @@ class Iterator {
 };
 
 /*
- * Iterator cpp
+ * ITERATOR CPP
  */
 
 template<typename TElem>
