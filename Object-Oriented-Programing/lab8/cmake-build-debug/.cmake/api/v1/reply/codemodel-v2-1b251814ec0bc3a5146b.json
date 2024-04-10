@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "lab7",
+					"name" : "lab8",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "lab7::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-lab7-Debug-f5cfa1aceb88d8c22fb2.json",
-					"name" : "lab7",
+					"id" : "lab8::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab8-Debug-2a3c98cf9df35f3f47df.json",
+					"name" : "lab8",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/cmake-build-debug-coverage",
-		"source" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7"
+		"build" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8/cmake-build-debug",
+		"source" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8"
 	},
 	"version" : 
 	{

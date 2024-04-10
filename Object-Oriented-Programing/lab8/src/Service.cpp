@@ -4,91 +4,95 @@
 
 #include "Service.hpp"
 #include "Validator.hpp"
+#include <algorithm>
 
-Service::Service(Repository &repo) : repo{repo} {}
+Service::Service(Library &lib, ShoppingCart &cart) : library{lib}, shopping_cart{cart} {}
 
-Vector<Book> &Service::getAll() {
-    return repo.getBooks();
+std::vector<Book> &Service::getAllLib() {
+    return library.getBooks();
 }
 
-void Service::addBook(const std::string &title, const std::string &author,
-                      const std::string &genre, int year) {
-    auto position = repo.findBook(title);
+void Service::addBookLib(const std::string &title, const std::string &author,
+                         const std::string &genre, int year) {
+    auto position = library.findBook(title);
 
-    if (position.valid()) {
+    if (library.isValid(position)) {
         throw std::runtime_error("There already exist a book with this title.");
     }
 
     Book new_book(title, author, genre, year);
     Validator::validateBook(new_book);
-    repo.addBook(new_book);
+    library.addBook(new_book);
 
 }
 
-void Service::updateBook(const std::string &title, const std::string &new_author,
-                         const std::string &new_genre, int new_year) {
-    auto position = repo.findBook(title);
+void Service::updateBookLib(const std::string &title, const std::string &new_author,
+                            const std::string &new_genre, int new_year) {
+    auto position = library.findBook(title);
 
-    if (!position.valid()) {
+    if (!library.isValid(position)) {
         throw std::runtime_error("There are no books with this title.");
     }
 
     Book new_book(title, new_author, new_genre, new_year);
     Validator::validateBook(new_book);
-    repo.updateBook(position, new_book);
+    library.updateBook(position, new_book);
 }
 
-void Service::deleteBook(const std::string &title) {
-    auto position = repo.findBook(title);
+void Service::deleteBookLib(const std::string &title) {
+    auto position = library.findBook(title);
 
-    if (!position.valid()) {
+    if (!library.isValid(position)) {
         throw std::runtime_error("There are no books with this title.");
     }
 
-    repo.deleteBook(position);
+    library.deleteBook(position);
 }
 
-Vector<Book> Service::findBooks(const std::string &title) {
-    Vector<Book> foundBooks;
+std::vector<Book> Service::findBooksLib(const std::string &title) {
+    std::vector<Book> foundBooks;
+    std::vector<Book> allBooks = library.getBooks();
 
-    for (const auto &book : repo.getBooks()) {
-        if (book.getTitle().find(title) == 0) {
-            foundBooks.push_back(book);
-        }
-    }
+    std::copy_if(allBooks.begin(), allBooks.end(), std::back_inserter(foundBooks),
+                 [&title](const Book &book) { return book.getTitle().find(title) == 0; });
 
     return foundBooks;
 }
 
-Vector<Book> Service::filterBooks(int min_year) {
-    Vector<Book> filteredBooks;
-    Vector<Book> allBooks = repo.getBooks();
+std::vector<Book> Service::filterBooksLib(int min_year) {
+    std::vector<Book> filteredBooks;
+    std::vector<Book> allBooks = library.getBooks();
 
-    for (const auto &book : allBooks) {
-        if (book.getYear() >= min_year) {
-            filteredBooks.push_back(book);
-        }
-    }
+    std::copy_if(allBooks.begin(), allBooks.end(), std::back_inserter(filteredBooks),
+                 [min_year](const Book &book) { return book.getYear() >= min_year; });
 
     return filteredBooks;
 }
 
-Vector<Book> Service::sortBooks(const std::function<bool(const Book &, const Book &)> &compare) {
-    Vector<Book> sortedBooks = repo.getBooks();
-    size_t len = sortedBooks.size();
+std::vector<Book> Service::sortBooksLib(const std::function<bool(const Book &, const Book &)> &compare) {
+    std::vector<Book> sortedBooks = library.getBooks();
+    std::sort(sortedBooks.begin(), sortedBooks.end(), compare);
+    return sortedBooks;
+}
 
-    for (size_t i = 0; i < len; ++i) {
-        for (size_t j = i + 1; j < len; ++j) {
-            Book &iBook = sortedBooks[i];
-            Book &jBook = sortedBooks[j];
+/*
+ * SHOPPING CART
+ */
 
-            if (compare(iBook, jBook)) {
-                Book &temp = iBook;
-                sortedBooks[i] = jBook;
-                sortedBooks[j] = temp;
-            }
-        }
+std::vector<std::vector<Book>::iterator> &Service::getShoppingCart() {
+    return shopping_cart.getBooks();
+}
+
+void Service::addBookCart(const std::string &title) {
+    auto position = library.findBook(title);
+
+    if (!library.isValid(position)) {
+        throw std::runtime_error("There is not book with this title.");
     }
 
-    return sortedBooks;
+    shopping_cart.addBook(position);
+}
+
+void Service::deleteCart() {
+    shopping_cart.deleteAllBooks();
 }

@@ -5,8 +5,10 @@ int main() {
     Test tests;
     tests.runAll();
 
-    Repository repo;
-    Service service(repo);
+    Library lib;
+    ShoppingCart cart(lib);
+
+    Service service(lib, cart);
     Console ui(service);
 
     ui.run();

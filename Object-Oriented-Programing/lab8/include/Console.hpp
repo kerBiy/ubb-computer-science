@@ -15,6 +15,11 @@ class Console {
     static void printMenu();
 
     /**
+    * Prints the shopping cart menu options to the console.
+    */
+    static void printShoppingCartMenu();
+
+    /**
      * Retrieves user input from the console.
      * @return Character representing user input
      */
@@ -55,6 +60,16 @@ class Console {
      */
     void uiSortBooks();
 
+    /*
+     * NEW SHIT
+     */
+
+    void uiShoppingCartMenu();
+
+    void uiPrintShoppingCart();
+    void uiAddToShoppingCart();
+    void uiDeleteShoppingCart();
+
   public:
     /**
      * Constructor for the Console class.
@@ -66,4 +81,5 @@ class Console {
      * Runs the console application, displaying the menu and handling user input.
      */
     void run();
+
 };

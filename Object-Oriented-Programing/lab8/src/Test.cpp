@@ -50,7 +50,7 @@ void Test::testDomain() {
 }
 
 void Test::testRepository() {
-    Repository repo;
+    Library repo;
     Book new_book(title, author, genre, year);
     Book other_book(other_title, other_author, other_genre, other_year);
 
@@ -64,7 +64,7 @@ void Test::testRepository() {
     // TEST DELETE
 
     auto book_iter = repo.findBook(title);
-    assert(book_iter.valid());
+    assert(book_iter != repo.getBooks().end());
     repo.deleteBook(book_iter);
     assert(repo.getLen() == 1);
 
@@ -84,8 +84,9 @@ void Test::testRepository() {
 }
 
 void Test::testService() {
-    Repository repo;
-    Service service(repo);
+    Library repo;
+    ShoppingCart cart(repo);
+    Service service(repo, cart);
 
     // TEST VALIDATOR
 
@@ -96,7 +97,7 @@ void Test::testService() {
     int bad_year = BAD_YEAR;
 
     try {
-        service.addBook(bad_title, bad_author, bad_genre, bad_year);
+        service.addBookLib(bad_title, bad_author, bad_genre, bad_year);
         assert(false);
     }
     catch (const std::exception &e) {
@@ -107,21 +108,21 @@ void Test::testService() {
 
     // TEST ADD
 
-    service.addBook(title, author, genre, year);
-    assert(service.getAll().size() == 1);
+    service.addBookLib(title, author, genre, year);
+    assert(service.getAllLib().size() == 1);
     assert(repo.getLen() == 1);
     try {
-        service.addBook(title, other_author, other_genre, other_year);
+        service.addBookLib(title, other_author, other_genre, other_year);
         assert(false);
     } catch (const std::exception &e) {
-        assert(service.getAll().size() == 1);
+        assert(service.getAllLib().size() == 1);
         assert(repo.getLen() == 1);
     }
 
     // TEST UPDATE
 
-    service.updateBook(title, other_author, other_genre, other_year);
-    assert(service.getAll().size() == 1);
+    service.updateBookLib(title, other_author, other_genre, other_year);
+    assert(service.getAllLib().size() == 1);
 
     auto all_repo = repo.getBooks();
     assert(all_repo[0].getTitle() == title);
@@ -130,12 +131,12 @@ void Test::testService() {
     assert(all_repo[0].getYear() == other_year);
 
     try {
-        service.updateBook(other_title, author, genre, year);
+        service.updateBookLib(other_title, author, genre, year);
         assert(false);
     } catch (const std::exception &e) {
-        assert(service.getAll().size() == 1);
+        assert(service.getAllLib().size() == 1);
 
-        auto all = service.getAll();
+        auto all = service.getAllLib();
         assert(all[0].getTitle() == title);
         assert(all[0].getAuthor() == other_author);
         assert(all[0].getGenre() == other_genre);
@@ -144,43 +145,43 @@ void Test::testService() {
 
     // TEST DELETE
 
-    service.deleteBook(title);
-    assert(service.getAll().size() == 0);
+    service.deleteBookLib(title);
+    assert(service.getAllLib().size() == 0);
 
     try {
-        service.addBook(title, other_author, other_genre, other_year);
-        service.deleteBook(other_title);
+        service.addBookLib(title, other_author, other_genre, other_year);
+        service.deleteBookLib(other_title);
         assert(false);
     } catch (const std::exception &e) {
-        assert(service.getAll().size() == 1);
+        assert(service.getAllLib().size() == 1);
     }
 
     // TEST FIND
 
-    auto list = service.findBooks(other_title);
+    auto list = service.findBooksLib(other_title);
     assert(list.size() == 0);
 
-    list = service.findBooks(title);
+    list = service.findBooksLib(title);
     assert(list.size() == 1);
 
     // TEST FILTER
     const int GOOD_MIN_YEAR = 1900;
     const int BAD_MIN_YEAR = 2000;
 
-    auto filter = service.filterBooks(GOOD_MIN_YEAR);
+    auto filter = service.filterBooksLib(GOOD_MIN_YEAR);
     assert(filter.size() == 1);
 
-    filter = service.filterBooks(BAD_MIN_YEAR);
+    filter = service.filterBooksLib(BAD_MIN_YEAR);
     assert(filter.size() == 0);
 
     // TEST SORT
 
-    service.deleteBook(title);
-    service.addBook(other_title, other_author, other_genre, other_year);
-    service.addBook(title, author, genre, year);
+    service.deleteBookLib(title);
+    service.addBookLib(other_title, other_author, other_genre, other_year);
+    service.addBookLib(title, author, genre, year);
 
-    auto sorted = service.sortBooks([&](const Book &b1, const Book &b2) {
-        return b1.getYear() > b2.getYear();
+    auto sorted = service.sortBooksLib([&](const Book &b1, const Book &b2) {
+        return b1.getYear() < b2.getYear();
     });
 
     assert(sorted.size() == 2);

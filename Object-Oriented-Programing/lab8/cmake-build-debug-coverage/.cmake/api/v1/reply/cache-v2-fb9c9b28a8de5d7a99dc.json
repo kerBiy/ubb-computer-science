@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/cmake-build-debug-coverage"
+			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8/cmake-build-debug-coverage"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/pkgRedirects"
+			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8/cmake-build-debug-coverage/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -539,7 +539,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7"
+			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -819,7 +819,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "lab7"
+			"value" : "lab8"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1118,7 +1118,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "lab7_BINARY_DIR",
+			"name" : "lab8_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1127,10 +1127,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/cmake-build-debug-coverage"
+			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8/cmake-build-debug-coverage"
 		},
 		{
-			"name" : "lab7_IS_TOP_LEVEL",
+			"name" : "lab8_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1142,7 +1142,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "lab7_SOURCE_DIR",
+			"name" : "lab8_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1151,7 +1151,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7"
+			"value" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8"
 		}
 	],
 	"kind" : "cache",

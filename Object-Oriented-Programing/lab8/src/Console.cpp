@@ -14,14 +14,15 @@ void Console::printMenu() {
               << "Enter 4 for finding books.\n"
               << "Enter 5 for filtering books.\n"
               << "Enter 6 for sorting books.\n"
+              << "Enter c for the shopping cart menu.\n"
               << "Enter p for printing the book list.\n"
               << "Enter q for exiting the app.\n";
 }
 
 void Console::uiPrintBooks() {
-    auto &all_books = service.getAll();
+    auto &all_books = service.getAllLib();
 
-    if (all_books.size() == 0) {
+    if (all_books.empty()) {
         std::cout << "There are no books in the library.\n";
         return;
     }
@@ -55,7 +56,7 @@ void Console::uiAddBook() {
             throw std::runtime_error("Invalid input for year.");
         }
 
-        service.addBook(title, author, genre, year);
+        service.addBookLib(title, author, genre, year);
         std::cout << "The book was added.\n";
     } catch (const std::exception &e) {
         throw std::runtime_error("Error adding book: " + std::string(e.what()));
@@ -87,7 +88,7 @@ void Console::uiUpdateBook() {
             throw std::runtime_error("Invalid input for year.");
         }
 
-        service.updateBook(title, author, genre, year);
+        service.updateBookLib(title, author, genre, year);
         std::cout << "The book was updated.\n";
     } catch (const std::exception &e) {
         throw std::runtime_error("Error updating book: " + std::string(e.what()));
@@ -101,7 +102,7 @@ void Console::uiDeleteBook() {
         std::cout << "Enter the title of the book you want to delete: ";
         std::getline(std::cin, title);
 
-        service.deleteBook(title);
+        service.deleteBookLib(title);
         std::cout << "The book was deleted\n";
     } catch (const std::exception &e) {
         throw std::runtime_error("Error deleting book: " + std::string(e.what()));
@@ -115,9 +116,9 @@ void Console::uiFindBooks() {
         std::cout << "Enter the title of the book you want to find: ";
         std::getline(std::cin, title);
 
-        auto found_books = service.findBooks(title);
+        auto found_books = service.findBooksLib(title);
 
-        if (found_books.size() == 0) {
+        if (found_books.empty()) {
             std::cout << "There are no books that fit the description.\n";
             return;
         }
@@ -144,9 +145,9 @@ void Console::uiFilterBooks() {
             throw std::runtime_error("Invalid input for year.");
         }
 
-        auto filtered_books = service.filterBooks(year);
+        auto filtered_books = service.filterBooksLib(year);
 
-        if (filtered_books.size() == 0) {
+        if (filtered_books.empty()) {
             std::cout << "There are no books published after " << year << ".\n";
             return;
         }
@@ -162,11 +163,11 @@ void Console::uiFilterBooks() {
 
 void Console::uiSortBooks() {
     try {
-        auto sorted_books = service.sortBooks([&](const Book &b1, const Book &b2) {
-            return b1.getYear() > b2.getYear();
+        auto sorted_books = service.sortBooksLib([&](const Book &b1, const Book &b2) {
+            return b1.getYear() < b2.getYear();
         });
 
-        if (sorted_books.size() == 0) {
+        if (sorted_books.empty()) {
             std::cout << "There are no books to sort.\n";
             return;
         }
@@ -230,6 +231,10 @@ void Console::run() {
                     uiSortBooks();
                     break;
                 }
+                case 'c': {
+                    uiShoppingCartMenu();
+                    break;
+                }
                 case 'p': {
                     uiPrintBooks();
                     break;
@@ -247,4 +252,86 @@ void Console::run() {
             std::cerr << e.what() << std::endl;
         }
     }
+}
+
+/*
+ * NEW SHIT
+ */
+
+void Console::printShoppingCartMenu() {
+    std::cout << "\nSHOPPING CART MENU\n"
+              << "Enter 1 for adding an book to your shopping cart.\n"
+              << "Enter 2 for deleting all the items in your shopping cart\n"
+              << "Enter p for viewing your shopping cart.\n"
+              << "Enter q to exit this menu.\n";
+}
+
+void Console::uiPrintShoppingCart() {
+    auto &all_cart = service.getShoppingCart();
+
+    if (all_cart.empty()) {
+        std::cout << "There are no books in the shopping cart.\n";
+        return;
+    }
+
+    std::cout << "The books are:\n";
+    for (auto book : all_cart) {
+        std::cout << book->intoString() << "\n";
+    }
+}
+
+void Console::uiAddToShoppingCart() {
+    std::string title;
+
+    try {
+        std::cout << "Enter the title of the book you want to delete: ";
+        std::getline(std::cin, title);
+
+        service.addBookCart(title);
+        std::cout << "The book was added in the shopping cart\n";
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error adding shopping cart: " + std::string(e.what()));
+    }
+}
+
+void Console::uiDeleteShoppingCart() {
+    try {
+        service.deleteCart();
+        std::cout << "The books from the shopping cart were deleted.\n";
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error adding shopping cart: " + std::string(e.what()));
+    }
+}
+
+void Console::uiShoppingCartMenu() {
+    printShoppingCartMenu();
+
+    try {
+        char option = getUserInput();
+
+        switch (option) {
+            case '1': {
+                uiAddToShoppingCart();
+                break;
+            }
+            case '2': {
+                uiDeleteShoppingCart();
+                break;
+            }
+            case 'p': {
+                uiPrintShoppingCart();
+                break;
+            }
+            case 'q': {
+                return;
+            }
+            default: {
+                std::cout << "The option was not yet implemented.\n";
+            }
+        }
+
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+
 }

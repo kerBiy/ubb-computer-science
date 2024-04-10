@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lab7"
+			"path" : "lab8"
 		}
 	],
 	"backtrace" : 1,
@@ -49,7 +49,7 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab7/include"
+					"path" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab8/include"
 				}
 			],
 			"language" : "CXX",
@@ -73,7 +73,7 @@
 			]
 		}
 	],
-	"id" : "lab7::@6890427a1f51a3e7e1df",
+	"id" : "lab8::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -89,8 +89,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "lab7",
-	"nameOnDisk" : "lab7",
+	"name" : "lab8",
+	"nameOnDisk" : "lab8",
 	"paths" : 
 	{
 		"build" : ".",

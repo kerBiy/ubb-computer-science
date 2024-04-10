@@ -3,7 +3,7 @@
 //
 
 #include "Validator.hpp"
-#include "Vector.hpp"
+#include <vector>
 
 const int CURRENT_YEAR = 2024;
 
@@ -12,7 +12,7 @@ bool Validator::isValidName(const std::string &name) {
 }
 
 bool Validator::isValidGenre(const std::string &genre) {
-    Vector<std::string> valid_genres;
+    std::vector<std::string> valid_genres;
     valid_genres.push_back("crime");
     valid_genres.push_back("self-help");
     valid_genres.push_back("literature");
