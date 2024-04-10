@@ -27,7 +27,7 @@ class Graph {
             for (const auto& edge : adjList[u]) {
                 int v = edge.first;
                 int weight = edge.second;
-                if (dist[u] != INF && dist[u] + weight < dist[v]) {
+                if (dist[u] != INF && dist[v] > dist[u] + weight) {
                     dist[v] = dist[u] + weight;
                 }
             }
@@ -37,7 +37,7 @@ class Graph {
             for (const auto& edge : adjList[u]) {
                 int v = edge.first;
                 int weight = edge.second;
-                if (dist[u] != INF && dist[u] + weight < dist[v]) {
+                if (dist[u] != INF && dist[v] > dist[u] + weight) {
                     std::cout << "Graph contains negative weight cycle\n";
                     return false;
                 }

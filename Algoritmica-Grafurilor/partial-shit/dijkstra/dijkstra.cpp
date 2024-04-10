@@ -36,6 +36,9 @@ class Graph {
             int current = queue.top().second;
             queue.pop();
 
+            if (visited[current]) continue;
+            visited[current] = true;
+
             for (const auto &neighbor : adjList[current]) {
                 int node = neighbor.first;
                 int weight = neighbor.second;

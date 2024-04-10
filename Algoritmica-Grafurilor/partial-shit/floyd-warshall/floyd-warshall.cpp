@@ -18,8 +18,8 @@ class Graph {
     }
 
     void addEdge(int u, int v) {
-        dist[u][v] = 1; 
-        dist[v][u] = 1; 
+        dist[u][v] = 1;
+        // dist[v][u] = 1;
     }
 
     void floydWarshallAlg() {

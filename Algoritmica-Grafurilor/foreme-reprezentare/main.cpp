@@ -57,6 +57,36 @@ Graph fromLEtoAL() {
     return output;
 }
 
+Graph fromAMtoAL(Graph adjMat) {
+    int nodes = adjMat.size();
+    Graph output(nodes);
+
+    for (int i = 0; i < nodes; ++i) {
+        for (int j = i + 1; j < nodes; ++j) {
+            if (adjMat[i][j]) {
+                output[i].push_back(j + 1);
+                output[j].push_back(i + 1);
+            }
+        }
+    }
+
+    return output;
+}
+
+Graph fromALtoAM(Graph adjList) {
+    int nodes = adjList.size();
+    Graph output(nodes, std::vector<int>(nodes, 0));
+
+    for (int i = 0; i < nodes; ++i) {
+        for (auto node : adjList[i]) {
+            output[i][node - 1] = 1;
+            output[node - 1][i] = 1;
+        }
+    }
+
+    return output;
+}
+
 int main() {
     auto adjMat = fromLEtoAM();
 
@@ -77,7 +107,7 @@ int main() {
 
     auto adjList = fromLEtoAL();
 
-    std::cout << "Form edge list to adj matrix:\n";
+    std::cout << "Form edge list to adj list:\n";
     for (size_t i = 0; i < adjList.size(); ++i) {
         std::cout << i + 1 << ": ";
         for (auto x : adjList[i]) {
@@ -86,5 +116,25 @@ int main() {
         std::cout << '\n';
     }
 
+    adjList = fromAMtoAL(adjMat);
+
+    std::cout << "Form adj matrix to adj list\n";
+    for (size_t i = 0; i < adjList.size(); ++i) {
+        std::cout << i + 1 << ": ";
+        for (auto x : adjList[i]) {
+            std::cout << x << ' ';
+        }
+        std::cout << '\n';
+    }
+
+    adjMat = fromALtoAM(adjList);
+
+    std::cout << "Form adj list to adj matrix:\n";
+    for (auto x : adjMat) {
+        for (auto y : x) {
+            std::cout << y << ' ';
+        }
+        std::cout << '\n';
+    }
     return 0;
 }
