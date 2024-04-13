@@ -19,30 +19,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b746bdaa-8ad3-4dcc-98e5-bb4b0f2d85cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.cmake/api/v1/reply/index-2024-04-05T20-19-13-0039.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Console.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Console.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Repository.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Repository.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Service.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Service.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Test.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Test.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Validator.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/Validator.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/CMakeFiles/lab7.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/coverage-lab7.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/coverage-lab7.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/lab7" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug-coverage/lab7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.cmake/api/v1/reply/index-2024-04-05T20-19-13-0040.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Console.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Console.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Repository.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Repository.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Service.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Service.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Test.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Test.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Validator.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/Validator.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/CMakeFiles/lab7.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/lab7" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/cmake-build-debug/lab7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/include/Vector.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab7/include/Vector.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab8/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Object-Oriented-Programing/lab8/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/cmake-build-debug/PriorityQueue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/cmake-build-debug/PriorityQueue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/include/CP.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/include/CP.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/src/CP.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Structuri-de-Date-si-Algoritmi/PriorityQueue/src/CP.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +85,9 @@
       <updated>1712668737626</updated>
       <workItem from="1712668739256" duration="201000" />
       <workItem from="1712669005016" duration="1543000" />
+      <workItem from="1712755982482" duration="598000" />
+      <workItem from="1712758025427" duration="598000" />
+      <workItem from="1712764918425" duration="628000" />
     </task>
     <servers />
   </component>

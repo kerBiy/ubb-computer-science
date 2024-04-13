@@ -1,0 +1,9 @@
+apie0012:x:12:600:Aricescu Paul:/home/scs/gr911/apie0012:/bin/bash
+bpie0024:x:24:600:Barzescu Paul:/home/scs/gr911/bpie0024:/bin/bash
+cpie0036:x:36:600:Cotofanescu Paul:/home/scs/gr911/cpie0036:/bin/bash
+dpie0048:x:48:600:Delfinescu Paul:/home/scs/gr911/dpie0048:/bin/bash
+epie0060:x:60:600:Elefantescu Paul:/home/scs/gr911/epie0060:/bin/bash
+fpie0072:x:72:600:Furnicescu Paul:/home/scs/gr911/fpie0072:/bin/bash
+ipie0084:x:84:600:Iepurescu Paul:/home/scs/gr911/ipie0084:/bin/bash
+lpie0096:x:96:600:Leopardescu Paul:/home/scs/gr911/lpie0096:/bin/bash
+mpie0108:x:108:600:Martinescu Paul:/home/scs/gr911/mpie0108:/bin/bash

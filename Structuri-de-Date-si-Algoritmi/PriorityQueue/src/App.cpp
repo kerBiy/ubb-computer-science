@@ -3,8 +3,9 @@
 #include "TestScurt.h"
 
 int main() {
-	testAll();
-	testAllExtins();
+    testAll();
+    testAllExtins();
 
- 	std::cout<<"All tests ran successfully.";
+    std::cout << "All tests ran successfully.";
+    return 0;
 }
