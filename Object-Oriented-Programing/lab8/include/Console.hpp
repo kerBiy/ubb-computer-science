@@ -61,14 +61,33 @@ class Console {
     void uiSortBooks();
 
     /*
-     * NEW SHIT
+     * Shopping Cart ui
      */
 
+    /*
+     * Main menu for shopping cart actions .
+     */
     void uiShoppingCartMenu();
 
+    /*
+     * Prints all the books in the shopping cart based on user input.
+     */
     void uiPrintShoppingCart();
+
+    /*
+     * Adds book to shopping cart based on user input.
+     */
     void uiAddToShoppingCart();
+
+    /*
+     * Deletes a book from the shopping cart based on user input.
+     */
     void uiDeleteShoppingCart();
+
+    /*
+     * Populates the shopping cart with random books based on user input.
+     */
+    void uiPopulateShoppingCart();
 
   public:
     /**

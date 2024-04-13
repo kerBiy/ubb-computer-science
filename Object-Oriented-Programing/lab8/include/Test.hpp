@@ -29,6 +29,11 @@ class Test {
     void testRepository();
 
     /**
+     * Tests the validator module.
+     */
+    void testValidator();
+
+    /**
      * Tests the service module.
      */
     void testService();

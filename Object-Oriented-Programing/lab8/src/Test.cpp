@@ -5,6 +5,7 @@
 #include "Test.hpp"
 
 #include "Book.hpp"
+#include "Validator.hpp"
 #include "Repository.hpp"
 #include "Service.hpp"
 
@@ -50,6 +51,10 @@ void Test::testDomain() {
 }
 
 void Test::testRepository() {
+    /*
+     * TEST LIBRARY
+     */
+
     Library repo;
     Book new_book(title, author, genre, year);
     Book other_book(other_title, other_author, other_genre, other_year);
@@ -80,15 +85,27 @@ void Test::testRepository() {
     assert(all[0].getGenre() == genre);
     assert(all[0].getYear() == year);
 
+    /*
+     * TEST SHOPPING CART
+     */
+
+    ShoppingCart cart;
+
+    // TEST DELETE ALL
+
+    cart.addBook(new_book);
+    cart.addBook(other_book);
+    assert(cart.getLen() == 2);
+
+    cart.deleteAllBooks();
+    assert(cart.getLen() == 0);
+
     std::cout << "Repository tests ran successfully.\n";
 }
 
-void Test::testService() {
-    Library repo;
-    ShoppingCart cart(repo);
-    Service service(repo, cart);
-
-    // TEST VALIDATOR
+void Test::testValidator() {
+    Book good_book(title, author, genre, year);
+    Validator::validateBook(good_book);
 
     const int BAD_YEAR = 2050;
     std::string bad_title = "war and peace";
@@ -96,8 +113,10 @@ void Test::testService() {
     std::string bad_genre = "randomWORDS";
     int bad_year = BAD_YEAR;
 
+    Book bad_book(bad_title, bad_author, bad_genre, bad_year);
+
     try {
-        service.addBookLib(bad_title, bad_author, bad_genre, bad_year);
+        Validator::validateBook(bad_book);
         assert(false);
     }
     catch (const std::exception &e) {
@@ -105,6 +124,14 @@ void Test::testService() {
             "\nThe title is not valid.\nThe author is not valid.\nThe genre is not valid.\nThe year is not valid.";
         assert(e.what() == correct_error);
     }
+
+    std::cout << "Validator tests ran successfully.\n";
+}
+
+void Test::testService() {
+    Library repo;
+    ShoppingCart cart;
+    Service service(repo, cart);
 
     // TEST ADD
 
@@ -146,7 +173,7 @@ void Test::testService() {
     // TEST DELETE
 
     service.deleteBookLib(title);
-    assert(service.getAllLib().size() == 0);
+    assert(service.getAllLib().empty());
 
     try {
         service.addBookLib(title, other_author, other_genre, other_year);
@@ -159,12 +186,13 @@ void Test::testService() {
     // TEST FIND
 
     auto list = service.findBooksLib(other_title);
-    assert(list.size() == 0);
+    assert(list.empty());
 
     list = service.findBooksLib(title);
     assert(list.size() == 1);
 
     // TEST FILTER
+
     const int GOOD_MIN_YEAR = 1900;
     const int BAD_MIN_YEAR = 2000;
 
@@ -172,7 +200,7 @@ void Test::testService() {
     assert(filter.size() == 1);
 
     filter = service.filterBooksLib(BAD_MIN_YEAR);
-    assert(filter.size() == 0);
+    assert(filter.empty());
 
     // TEST SORT
 
@@ -180,7 +208,7 @@ void Test::testService() {
     service.addBookLib(other_title, other_author, other_genre, other_year);
     service.addBookLib(title, author, genre, year);
 
-    auto sorted = service.sortBooksLib([&](const Book &b1, const Book &b2) {
+    auto sorted = service.sortBooksLib([](const Book &b1, const Book &b2) {
         return b1.getYear() < b2.getYear();
     });
 
@@ -190,11 +218,54 @@ void Test::testService() {
     assert(sorted[0].getGenre() == genre);
     assert(sorted[0].getYear() == year);
 
+    // TEST ADD CART
+
+    service.addBookCart(title);
+    assert(service.getShoppingCart().size() == 1);
+
+    service.addBookCart(other_title);
+    assert(service.getShoppingCart().size() == 2);
+
+    std::string nonexistent_book = "Metamorphosis";
+    try {
+        service.addBookCart(nonexistent_book);
+        assert(false);
+    } catch (const std::exception &e) {
+        assert(cart.getLen() == 2);
+        assert(service.getShoppingCart().size() == 2);
+    }
+
+    // TEST DELETE CART
+
+    service.deleteCart();
+    assert(service.getShoppingCart().empty());
+
+    // TEST POPULATE RANDOM
+
+    const int number = 12;
+    service.populateRandomCart(number);
+    assert(service.getShoppingCart().size() == number);
+
+    service.populateRandomCart(number);
+    assert(service.getShoppingCart().size() == number * 2);
+
+    service.deleteCart();
+    service.deleteBookLib(title);
+    service.deleteBookLib(other_title);
+
+    try {
+        service.populateRandomCart(number);
+        assert(false);
+    } catch (const std::exception &e) {
+        assert(service.getShoppingCart().empty());
+    }
+
     std::cout << "Service tests ran successfully.\n";
 }
 
 void Test::runAll() {
     testDomain();
+    testValidator();
     testRepository();
     testService();
     std::cout << "All tests ran successfully.\n";

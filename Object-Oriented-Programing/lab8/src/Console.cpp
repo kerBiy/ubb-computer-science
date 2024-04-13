@@ -254,14 +254,15 @@ void Console::run() {
     }
 }
 
-/*
- * NEW SHIT
+/**
+ * SHOPPING CART
  */
 
 void Console::printShoppingCartMenu() {
     std::cout << "\nSHOPPING CART MENU\n"
               << "Enter 1 for adding an book to your shopping cart.\n"
               << "Enter 2 for deleting all the items in your shopping cart\n"
+              << "Enter 3 for populating shopping cart with random books\n"
               << "Enter p for viewing your shopping cart.\n"
               << "Enter q to exit this menu.\n";
 }
@@ -275,8 +276,8 @@ void Console::uiPrintShoppingCart() {
     }
 
     std::cout << "The books are:\n";
-    for (auto book : all_cart) {
-        std::cout << book->intoString() << "\n";
+    for (const Book &book : all_cart) {
+        std::cout << book.intoString() << "\n";
     }
 }
 
@@ -284,7 +285,7 @@ void Console::uiAddToShoppingCart() {
     std::string title;
 
     try {
-        std::cout << "Enter the title of the book you want to delete: ";
+        std::cout << "Enter the title of the book you want to add in the shopping cart: ";
         std::getline(std::cin, title);
 
         service.addBookCart(title);
@@ -303,6 +304,26 @@ void Console::uiDeleteShoppingCart() {
     }
 }
 
+void Console::uiPopulateShoppingCart() {
+    size_t book_count{0};
+
+    try {
+        std::cout << "Enter the number of books you want to add random: ";
+        std::cin >> book_count;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            throw std::runtime_error("Invalid input for year.");
+        }
+
+        service.populateRandomCart(book_count);
+        std::cout << "The book was added in the shopping cart\n";
+    } catch (const std::exception &e) {
+        throw std::runtime_error("Error adding shopping cart: " + std::string(e.what()));
+    }
+}
+
 void Console::uiShoppingCartMenu() {
     printShoppingCartMenu();
 
@@ -316,6 +337,10 @@ void Console::uiShoppingCartMenu() {
             }
             case '2': {
                 uiDeleteShoppingCart();
+                break;
+            }
+            case '3': {
+                uiPopulateShoppingCart();
                 break;
             }
             case 'p': {

@@ -6,7 +6,7 @@ int main() {
     tests.runAll();
 
     Library lib;
-    ShoppingCart cart(lib);
+    ShoppingCart cart;
 
     Service service(lib, cart);
     Console ui(service);

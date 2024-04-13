@@ -5,6 +5,7 @@
 #include "Service.hpp"
 #include "Validator.hpp"
 #include <algorithm>
+#include <random>
 
 Service::Service(Library &lib, ShoppingCart &cart) : library{lib}, shopping_cart{cart} {}
 
@@ -79,7 +80,7 @@ std::vector<Book> Service::sortBooksLib(const std::function<bool(const Book &, c
  * SHOPPING CART
  */
 
-std::vector<std::vector<Book>::iterator> &Service::getShoppingCart() {
+std::vector<Book> &Service::getShoppingCart() {
     return shopping_cart.getBooks();
 }
 
@@ -90,9 +91,23 @@ void Service::addBookCart(const std::string &title) {
         throw std::runtime_error("There is not book with this title.");
     }
 
-    shopping_cart.addBook(position);
+    shopping_cart.addBook(*position);
 }
 
 void Service::deleteCart() {
     shopping_cart.deleteAllBooks();
+}
+
+void Service::populateRandomCart(size_t book_count) {
+    if (library.getLen() == 0) {
+        throw std::runtime_error("There are no books in the library");
+    }
+
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_int_distribution<int> distribution(0, static_cast<int>(library.getLen() - 1));
+
+    for (size_t i = 0; i < book_count; ++i) {
+        int random_number = distribution(gen);
+        shopping_cart.addBook(library.getBooks()[random_number]);
+    }
 }

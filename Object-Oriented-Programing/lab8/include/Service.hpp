@@ -27,7 +27,7 @@ class Service {
    * Retrieves all books from the shopping cart.
    * @return std::vector containing all books in the repository
    */
-    std::vector<std::vector<Book>::iterator> &getShoppingCart();
+    std::vector<Book> &getShoppingCart();
 
     /**
      * Adds a new book to the repository.
@@ -39,10 +39,6 @@ class Service {
      */
     void addBookLib(const std::string &title, const std::string &author,
                     const std::string &genre, int year);
-
-    void addBookCart(const std::string &title);
-
-    void deleteCart();
 
     /**
      * Updates information of an existing book in the repository.
@@ -82,4 +78,26 @@ class Service {
      * @return array of books whose name fits
      */
     std::vector<Book> sortBooksLib(const std::function<bool(const Book &, const Book &)> &compare);
+
+    /*
+     * Shopping Cart
+     */
+
+    /**
+     * Adds a new book to the shopping cart.
+     * @param title Title of the book to be added.
+     * @throws std::runtime_error if the book is not in the list.
+     */
+    void addBookCart(const std::string &title);
+
+    /**
+    * Deletes the entire shopping cart.
+    */
+    void deleteCart();
+
+    /**
+     * Populates the repository with random books.
+     * @param book_count the number of random books to add.
+     */
+    void populateRandomCart(size_t book_count);
 };

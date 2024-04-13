@@ -20,12 +20,6 @@ class Book {
     */
     Book() = default;
 
-//    /**
-//     * The copy constructor
-//     * @param ot another book
-//     */
-//    Book(const Book &ot);
-
     /**
      * The default constructor.
      * @param title the title of the book

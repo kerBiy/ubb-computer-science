@@ -8,18 +8,18 @@
 #include <vector>
 
 /*
- * LIBRARY REPOSITORY
+ * GENERIC REPOSITORY
  */
 
-class Library {
-  private:
+class AbstractRepository {
+  protected:
     std::vector<Book> items; // std::vector to store books
 
   public:
     /**
      * The default constructor.
      */
-    Library() = default;
+    AbstractRepository() = default;
 
     /**
      * Retrieves all books stored in the repository.
@@ -31,12 +31,20 @@ class Library {
      * @return number of books in the repository.
      */
     [[nodiscard]] size_t getLen() const;
+
     /**
      * Adds a new book to the repository.
      * @param book The book to be added.
      */
     void addBook(const Book &book);
+};
 
+/*
+ * LIBRARY REPOSITORY
+ */
+
+class Library : public AbstractRepository {
+  public:
     /**
      * Deletes a book from the repository.
      * @param position Iterator pointing to the position of the book to be deleted.
@@ -69,44 +77,10 @@ class Library {
  * SHOPING CARD REPOSITORY
  */
 
-class ShoppingCart {
-  private:
-    Library &library;
-    std::vector<std::vector<Book>::iterator> items;
+class ShoppingCart : public AbstractRepository {
   public:
-    explicit ShoppingCart(Library &lib);
-
-    /**
-     * Retrieves all books stored in the repository.
-     * @return std::vector containing all books.
-     */
-    std::vector<std::vector<Book>::iterator> &getBooks();
-    /**
-     * Retrieves the number of books in the repository.
-     * @return number of books in the repository.
-     */
-    [[nodiscard]] size_t getLen() const;
-
-    /**
-     * Adds a new book to the repository.
-     * @param book The book to be added.
-     */
-    void addBook(std::vector<Book>::iterator iter);
-
     /**
      * Deletes all books from the repository.
      */
     void deleteAllBooks();
-
-//    /**
-//     * Populates the repository with random books.
-//     * @param book_count the number of random books to add.
-//     */
-//    void populateRandom(int book_count);
-//
-//    /**
-//     * Exports in an HTML or CVS file the repository.
-//     * @param file_name where to export
-//     */
-//    void exportAll(const std::string &file_name);
 };
