@@ -30,7 +30,6 @@ class CP {
     Relatie rel;
 
     void resize_enqueue();
-    void resize_dequeue();
 
   public:
     //constructorul implicit

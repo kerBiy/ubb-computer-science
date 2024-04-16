@@ -1,10 +1,11 @@
 #!/bin/bash
 
-value=9
-
-if [ $value -eq 9 ]
-then
-    echo "is true"
-else
-    echo "is false"
-fi
+for arg in $@; do
+    if [ -f $arg ]; then
+        echo $arg is a file
+    elif [ -d $arg ]; then
+        echo $arg is a dir
+    else
+        echo We do not know what $A is
+    fi
+done

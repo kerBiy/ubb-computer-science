@@ -28,15 +28,15 @@ void CP::adauga(TElem e, TPrioritate p) {
         current = items[current].next;
     }
 
-    if (prev == NIL) { // insert at head
+    if (prev == NIL) {
         items[newNodeIndex].next = head;
         items[head].prev = newNodeIndex;
         head = newNodeIndex;
-    } else if (current == NIL) { // insert at tail
+    } else if (current == NIL) {
         items[prev].next = newNodeIndex;
         items[newNodeIndex].prev = prev;
         tail = newNodeIndex;
-    } else { // insert in between
+    } else {
         items[prev].next = newNodeIndex;
         items[newNodeIndex].prev = prev;
         items[newNodeIndex].next = current;
@@ -71,10 +71,6 @@ Element CP::sterge() {
 
     size--;
 
-//    if (size == capacity / 4 && capacity > 1) {
-//        resize_dequeue();
-//    }
-
     return deletedElement;
 }
 
@@ -97,18 +93,5 @@ void CP::resize_enqueue() {
     delete[] items;
     items = new_items;
 }
-
-//void CP::resize_dequeue() {
-//    capacity /= 2;
-//    auto *new_items = new Node[capacity];
-//
-//    for (int i = 0; i < size; ++i) {
-//        new_items[i] = items[i];
-//    }
-//
-//    delete[] items;
-//    items = new_items;
-//}
-
 
 
