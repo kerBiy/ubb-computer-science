@@ -271,7 +271,7 @@ void Test::testService() {
      * New Functionality
      */
 
-    const std::string new_title = "Hanibal";
+    const std::string new_title = "Hannibal";
     service.addBookLib(other_title, other_author, other_genre, other_year);
     service.addBookLib(title, author, genre, year);
     service.addBookLib(new_title, author, genre, other_year);
