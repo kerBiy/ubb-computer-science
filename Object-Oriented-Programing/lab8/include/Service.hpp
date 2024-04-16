@@ -4,6 +4,14 @@
 #pragma once
 
 #include "Repository.hpp"
+#include "Validator.hpp"
+
+#include <unordered_map>
+
+class ServiceError : public std::runtime_error {
+  public:
+    explicit ServiceError(const std::string &message) : std::runtime_error(message) {}
+};
 
 class Service {
   private:
@@ -35,7 +43,7 @@ class Service {
      * @param author Author of the book to be added
      * @param genre Genre of the book to be added
      * @param year Year of the book to be added
-     * @throws std::runtime_error if the new book created is not valid or if the book is already in the list.
+     * @throws ServiceError if the new book created is not valid or if the book is already in the list.
      */
     void addBookLib(const std::string &title, const std::string &author,
                     const std::string &genre, int year);
@@ -46,7 +54,7 @@ class Service {
      * @param new_author New author of the book
      * @param new_genre New genre of the book
      * @param new_year New year of the book
-     * @throws std::runtime_error if the new book created is not valid or if the book in not in the list.
+     * @throws ServiceError if the new book created is not valid or if the book in not in the list.
      */
     void updateBookLib(const std::string &title, const std::string &new_author,
                        const std::string &new_genre, int new_year);
@@ -54,7 +62,7 @@ class Service {
     /**
      * Deletes a book from the repository.
      * @param title Title of the book to be deleted
-     * @throws std::runtime_error if the book is not on the list.
+     * @throws ServiceError if the book is not on the list.
      */
     void deleteBookLib(const std::string &title);
 
@@ -86,18 +94,22 @@ class Service {
     /**
      * Adds a new book to the shopping cart.
      * @param title Title of the book to be added.
-     * @throws std::runtime_error if the book is not in the list.
+     * @throws ServiceError if the book is not in the library with this title.
      */
     void addBookCart(const std::string &title);
 
     /**
     * Deletes the entire shopping cart.
+    * @throws ServiceError if there are not books in the cart.
     */
     void deleteCart();
 
     /**
      * Populates the repository with random books.
      * @param book_count the number of random books to add.
+     * @throws ServiceError if there are not books in the library.
      */
     void populateRandomCart(size_t book_count);
+
+    std::unordered_map<std::string, int> getRaport();
 };

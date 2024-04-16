@@ -260,6 +260,27 @@ void Test::testService() {
         assert(service.getShoppingCart().empty());
     }
 
+    try {
+        service.deleteCart();
+        assert(false);
+    } catch (const std::exception &e) {
+        assert(service.getShoppingCart().empty());
+    }
+
+    /*
+     * New Functionality
+     */
+
+    const std::string new_title = "Hanibal";
+    service.addBookLib(other_title, other_author, other_genre, other_year);
+    service.addBookLib(title, author, genre, year);
+    service.addBookLib(new_title, author, genre, other_year);
+
+    auto map = service.getRaport();
+
+    assert(map[other_genre] == 1);
+    assert(map[genre] == 2);
+
     std::cout << "Service tests ran successfully.\n";
 }
 

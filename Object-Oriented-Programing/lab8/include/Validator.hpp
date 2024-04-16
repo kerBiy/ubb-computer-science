@@ -7,6 +7,13 @@
 #include <string>
 #include "Book.hpp"
 
+#include <stdexcept>
+
+class ValidatorError : public std::runtime_error {
+  public:
+    explicit ValidatorError(const std::string &message) : std::runtime_error(message) {}
+};
+
 class Validator {
   private:
     /**
@@ -34,7 +41,7 @@ class Validator {
     /**
      * Validates a book object.
      * @param book The book object to be validated.
-     * @throws std::runtime_error if the book object is not valid.
+     * @throws ValidatorError if the book object is not valid.
      */
     static void validateBook(const Book &book);
 };

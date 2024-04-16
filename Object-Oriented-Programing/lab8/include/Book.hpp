@@ -20,6 +20,10 @@ class Book {
     */
     Book() = default;
 
+    Book(const Book &ot) : title(ot.title), author(ot.author), genre(ot.genre), year(ot.year) {
+        std::cout << "Book copy\n";
+    }
+
     /**
      * The default constructor.
      * @param title the title of the book

@@ -12,11 +12,7 @@ bool Validator::isValidName(const std::string &name) {
 }
 
 bool Validator::isValidGenre(const std::string &genre) {
-    std::vector<std::string> valid_genres;
-    valid_genres.push_back("crime");
-    valid_genres.push_back("self-help");
-    valid_genres.push_back("literature");
-    valid_genres.push_back("roman");
+    std::vector<std::string> valid_genres = {"crime", "self-help", "literature", "roman"};
 
     bool found{false};
     for (const std::string &valid_genre : valid_genres) {
@@ -49,7 +45,7 @@ void Validator::validateBook(const Book &book) {
     }
 
     if (!error.empty()) {
-        throw std::runtime_error(error);
+        throw ValidatorError(error);
     }
 }
 

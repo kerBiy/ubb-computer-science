@@ -71,6 +71,7 @@ class Library : public AbstractRepository {
      * @return true if the iterator is currently in the list.
      */
     [[nodiscard]] bool isValid(const std::vector<Book>::iterator &iter) const;
+
 };
 
 /*

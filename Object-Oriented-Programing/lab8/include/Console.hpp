@@ -5,6 +5,11 @@
 
 #include "Service.hpp"
 
+class UiError : public std::runtime_error {
+  public:
+    explicit UiError(const std::string &message) : std::runtime_error(message) {}
+};
+
 class Console {
   private:
     Service &service; // Reference to a Service object
@@ -88,6 +93,8 @@ class Console {
      * Populates the shopping cart with random books based on user input.
      */
     void uiPopulateShoppingCart();
+
+    void showRaport();
 
   public:
     /**

@@ -3,7 +3,7 @@
 //
 
 #include "Service.hpp"
-#include "Validator.hpp"
+
 #include <algorithm>
 #include <random>
 
@@ -18,7 +18,7 @@ void Service::addBookLib(const std::string &title, const std::string &author,
     auto position = library.findBook(title);
 
     if (library.isValid(position)) {
-        throw std::runtime_error("There already exist a book with this title.");
+        throw ServiceError("There already exist a book with this title.");
     }
 
     Book new_book(title, author, genre, year);
@@ -32,7 +32,7 @@ void Service::updateBookLib(const std::string &title, const std::string &new_aut
     auto position = library.findBook(title);
 
     if (!library.isValid(position)) {
-        throw std::runtime_error("There are no books with this title.");
+        throw ServiceError("There are no books with this title.");
     }
 
     Book new_book(title, new_author, new_genre, new_year);
@@ -44,7 +44,7 @@ void Service::deleteBookLib(const std::string &title) {
     auto position = library.findBook(title);
 
     if (!library.isValid(position)) {
-        throw std::runtime_error("There are no books with this title.");
+        throw ServiceError("There are no books with this title.");
     }
 
     library.deleteBook(position);
@@ -88,19 +88,23 @@ void Service::addBookCart(const std::string &title) {
     auto position = library.findBook(title);
 
     if (!library.isValid(position)) {
-        throw std::runtime_error("There is not book with this title.");
+        throw ServiceError("There is not book with this title to add in the shopping cart.");
     }
 
     shopping_cart.addBook(*position);
 }
 
 void Service::deleteCart() {
+    if (shopping_cart.getLen() == 0) {
+        throw ServiceError("There are already no books in the shopping cart.");
+    }
+
     shopping_cart.deleteAllBooks();
 }
 
 void Service::populateRandomCart(size_t book_count) {
     if (library.getLen() == 0) {
-        throw std::runtime_error("There are no books in the library");
+        throw ServiceError("There are no books in the library");
     }
 
     std::mt19937 gen(std::random_device{}());
@@ -110,4 +114,18 @@ void Service::populateRandomCart(size_t book_count) {
         int random_number = distribution(gen);
         shopping_cart.addBook(library.getBooks()[random_number]);
     }
+}
+
+/*
+ * New functionality
+ */
+
+std::unordered_map<std::string, int> Service::getRaport() {
+    std::unordered_map<std::string, int> output;
+
+    for (const auto &book : library.getBooks()) {
+        output[book.getGenre()] += 1;
+    }
+
+    return output;
 }
