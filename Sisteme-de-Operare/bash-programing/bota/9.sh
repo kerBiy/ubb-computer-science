@@ -16,9 +16,7 @@ for file in "$@"; do
         continue
     fi
 
-    # Count occurrences of each line and sort them by count in descending order
     lines_with_counts=$(sort "$file" | uniq -c | sort -nr)
-
     most_frequent_line=$(echo "$lines_with_counts" | head -n 1)
 
     echo "Most frequent line in '$file': $most_frequent_line"
