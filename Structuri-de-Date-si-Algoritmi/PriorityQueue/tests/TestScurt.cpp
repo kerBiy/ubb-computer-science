@@ -39,5 +39,28 @@ void testAll() { //apelam fiecare functie sa vedem daca exista
     assert(c.element().second == 12);
     assert(c.sterge().second == 12);
     assert(c.vida() == true);
+
+    /**
+     * Test pentru noua functie
+     */
+    CP cn(rel);
+
+    cn.adauga(5, 5);
+    cn.adauga(3, 3);
+    cn.adauga(10, 10);
+    cn.adauga(2, 2);
+    cn.adauga(12, 12);
+
+    cn.schimbaPrioritate(5, 11);
+    assert(cn.schimbaPrioritate(7, 12) == NIL);
+
+    assert(cn.sterge().first == 2);
+    assert(cn.sterge().first == 3);
+    assert(cn.sterge().first == 10);
+    auto val = cn.sterge();
+    assert(val.first == 5);
+    assert(val.second == 11);
+    assert(cn.sterge().first == 12);
+    assert(cn.vida() == true);
 }
 

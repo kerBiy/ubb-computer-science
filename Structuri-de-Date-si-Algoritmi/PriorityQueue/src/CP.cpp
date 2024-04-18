@@ -94,4 +94,42 @@ void CP::resize_enqueue() {
     items = new_items;
 }
 
+TPrioritate CP::schimbaPrioritate(TElem e, TPrioritate pn) {
+    int current = head;
+    TPrioritate last_priority = NIL;
+
+    while (current != NIL) {
+        if (items[current].element.first == e) {
+            last_priority = items[current].element.second;
+
+            if (last_priority != pn) {
+                if (current == head) {
+                    head = items[current].next;
+                    if (head != NIL) {
+                        items[head].prev = NIL;
+                    }
+                } else if (current == tail) {
+                    tail = items[current].prev;
+                    if (tail != NIL) {
+                        items[tail].next = NIL;
+                    }
+                } else {
+                    items[items[current].prev].next = items[current].next;
+                    items[items[current].next].prev = items[current].prev;
+                }
+
+                adauga(e, pn);
+
+                size--;
+                break;
+            }
+        }
+
+        current = items[current].next;
+    }
+
+    return last_priority;
+}
+
+
 

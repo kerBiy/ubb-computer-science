@@ -32,23 +32,60 @@ class CP {
     void resize_enqueue();
 
   public:
-    //constructorul implicit
+    /**
+     * Constructor for CP
+     * @param r The relation function pointer
+     * @complexity T(1)
+     */
     CP(Relatie r);
 
-    //adauga un element in CP
+    /**
+     * Adds an element with a priority to the priority queue
+     * @param e The element to be added
+     * @param p The priority of the element
+     * @complexity - Best Case: T(1): Adding to an empty queue
+     *             - Worst Case: T(n): Adding to the end of the queue
+     *             => Amortized Complexity: O(n), where n is the current number of elements in the queue
+     */
     void adauga(TElem e, TPrioritate p);
 
-    //acceseaza elementul cel mai prioritar in raport cu relatia de ordine
-    //arunca exceptie daca CP e vida
+    /**
+     * Retrieves the element with the highest priority from the queue
+     * @return The element with the highest priority
+     * @throws std::exception if the queue is empty
+     * @complexity T(1)
+     */
     Element element() const;
 
-    //sterge elementul cel mai prioritar si il returneaza
-    //arunca exceptie daca CP e vida
+    /**
+     * Removes and returns the element with the highest priority from the queue
+     * @return The element with the highest priority
+     * @throws std::exception if the queue is empty
+     * @complexity T(1)
+     */
     Element sterge();
 
-    //verifica daca CP e vida;
+    /**
+     * Checks if the priority queue is empty
+     * @return true if the queue is empty, false otherwise
+     * @complexity T(1)
+     */
     bool vida() const;
 
-    // destructorul cozii
+    /**
+     * Destructor for CP
+     * @complexity T(1)
+     */
     ~CP();
+
+    /**
+     * Changes a priority from an existing element
+     * @param e The element to be added
+     * @param pn The new priority of the element
+     * @return the priority being updated or NIL if the element does not exist
+     * @complexity - Best Case: T(1): Changing the head with the same priority as before
+     *             - Worst Case: T(n): Changing the tail with a new priority
+     *             => Complexity: O(n), where n is the current number of elements in the queue
+     */
+    TPrioritate schimbaPrioritate(TElem e, TPrioritate pn);
 };
