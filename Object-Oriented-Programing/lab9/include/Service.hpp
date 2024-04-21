@@ -6,6 +6,7 @@
 #include "Undo.hpp"
 #include "Validator.hpp"
 
+#include <functional>
 #include <unordered_map>
 
 class ServiceError : public std::runtime_error {
@@ -108,6 +109,8 @@ class Service {
      * @throws ServiceError if there are not books in the library.
      */
     void populateRandomCart(size_t book_count);
+
+    void exportHTML(const std::string &file_name);
 
     /**
     * Generates a report containing the number of books per genre.

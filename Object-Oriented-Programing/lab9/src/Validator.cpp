@@ -15,9 +15,11 @@ bool Validator::isValidGenre(const std::string &genre) {
     std::vector<std::string> valid_genres = {"crime", "self-help", "literature", "roman"};
 
     bool found{false};
+
     for (const std::string &valid_genre : valid_genres) {
         if (genre == valid_genre) {
             found = true;
+            break;
         }
     }
 

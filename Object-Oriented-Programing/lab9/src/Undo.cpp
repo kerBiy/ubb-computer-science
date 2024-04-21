@@ -4,13 +4,11 @@
 
 #include "Undo.hpp"
 
-#include <utility>
-
 UndoAdd::UndoAdd(Library &lib, Book book) : book{std::move(book)}, lib{lib} {}
 
 void UndoAdd::doUndo() {
-    auto iter = lib.findBook(book.getTitle());
-    lib.deleteBook(iter);
+    auto position = lib.findBook(book.getTitle());
+    lib.deleteBook(position);
 }
 
 UndoDelete::UndoDelete(Library &lib, Book book) : book{std::move(book)}, lib{lib} {}
@@ -22,6 +20,6 @@ void UndoDelete::doUndo() {
 UndoUpdate::UndoUpdate(Library &lib, Book book) : book{std::move(book)}, lib{lib} {}
 
 void UndoUpdate::doUndo() {
-    auto iter = lib.findBook(book.getTitle());
-    lib.updateBook(iter, book);
+    auto position = lib.findBook(book.getTitle());
+    lib.updateBook(position, book);
 }

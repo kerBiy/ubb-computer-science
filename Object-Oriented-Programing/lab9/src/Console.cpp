@@ -4,7 +4,7 @@
 #include "Console.hpp"
 #include <iostream>
 
-Console::Console(Service &service) : service(service) {}
+Console::Console(Service &service) : service{service} {}
 
 void Console::printMenu() {
     std::cout << "\nOPTION MENU\n"
@@ -14,8 +14,10 @@ void Console::printMenu() {
               << "Enter 4 for finding books.\n"
               << "Enter 5 for filtering books.\n"
               << "Enter 6 for sorting books.\n"
+              << "Enter 7 for a report of books by genre.\n"
               << "Enter c for the shopping cart menu.\n"
               << "Enter p for printing the book list.\n"
+              << "Enter z for undoing the last operation.\n"
               << "Enter q for exiting the app.\n";
 }
 
@@ -59,22 +61,22 @@ void Console::uiAddBook() {
 }
 
 void Console::uiUpdateBook() {
-    std::string title, newTitle, author, genre;
-    int year{0};
+    std::string title, new_author, new_genre;
+    int new_year{0};
 
     std::cout << "Enter the title of the book you want to update: ";
     std::getline(std::cin, title);
 
     std::cout << "\nEnter the new information:\n";
 
-    std::cout << "Enter the author: ";
-    std::getline(std::cin, author);
+    std::cout << "Enter the new author: ";
+    std::getline(std::cin, new_author);
 
-    std::cout << "Enter the genre: ";
-    std::getline(std::cin, genre);
+    std::cout << "Enter the new genre: ";
+    std::getline(std::cin, new_genre);
 
-    std::cout << "Enter the year: ";
-    std::cin >> year;
+    std::cout << "Enter the new year: ";
+    std::cin >> new_year;
 
     if (std::cin.fail()) {
         std::cin.clear();
@@ -82,7 +84,7 @@ void Console::uiUpdateBook() {
         throw UiError("Invalid input for year.");
     }
 
-    service.updateBookLib(title, author, genre, year);
+    service.updateBookLib(title, new_author, new_genre, new_year);
     std::cout << "The book was updated.\n";
 
 }
@@ -140,7 +142,7 @@ void Console::uiFilterBooks() {
 }
 
 void Console::uiSortBooks() {
-    auto sorted_books = service.sortBooksLib([&](const Book &b1, const Book &b2) {
+    auto sorted_books = service.sortBooksLib([](const Book &b1, const Book &b2) {
         return b1.getYear() < b2.getYear();
     });
 
@@ -154,6 +156,24 @@ void Console::uiSortBooks() {
     }
 }
 
+void Console::uiShowRaport() {
+    auto raport = service.getRaport();
+
+    if (raport.empty()) {
+        throw UiError("There are no books in the library.");
+    }
+
+    std::cout << "The genre, count pairs are:\n";
+    for (const auto &x : raport) {
+        std::cout << "The genre " << x.first << " has " << x.second << " books\n";
+    }
+}
+
+void Console::uiUndo() {
+    service.undo();
+    std::cout << "Undoing the last action...\n";
+}
+
 char Console::getUserInput() {
     char option{};
 
@@ -165,6 +185,10 @@ char Console::getUserInput() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cerr << "Invalid input. Please enter a single character.\n";
+        } else if (std::cin.peek() != '\n') {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cerr << "Invalid input. Please enter only one character.\n";
         } else {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return option;
@@ -229,6 +253,8 @@ void Console::run() {
                 }
             }
 
+        } catch (const RepositoryError &re) {
+            std::cerr << "Repository Error: " << re.what() << std::endl;
         } catch (const ValidatorError &ve) {
             std::cerr << "Validation Error: " << ve.what() << std::endl;
         } catch (const ServiceError &se) {
@@ -239,110 +265,4 @@ void Console::run() {
             std::cerr << e.what() << std::endl;
         }
     }
-}
-
-/**
- * SHOPPING CART
- */
-
-void Console::printShoppingCartMenu() {
-    std::cout << "\nSHOPPING CART MENU\n"
-              << "Enter 1 for adding an book to your shopping cart.\n"
-              << "Enter 2 for deleting all the items in your shopping cart\n"
-              << "Enter 3 for populating shopping cart with random books\n"
-              << "Enter p for viewing your shopping cart.\n"
-              << "Enter q to exit this menu.\n";
-}
-
-void Console::uiPrintShoppingCart() {
-    auto &all_cart = service.getShoppingCart();
-
-    if (all_cart.empty()) {
-        throw UiError("There are no books in the shopping cart.");
-    }
-
-    std::cout << "The books are:\n";
-    for (const Book &book : all_cart) {
-        std::cout << book.intoString() << "\n";
-    }
-}
-
-void Console::uiAddToShoppingCart() {
-    std::string title;
-
-    std::cout << "Enter the title of the book you want to add in the shopping cart: ";
-    std::getline(std::cin, title);
-
-    service.addBookCart(title);
-    std::cout << "The book was added in the shopping cart\n";
-}
-
-void Console::uiDeleteShoppingCart() {
-    service.deleteCart();
-    std::cout << "The books from the shopping cart were deleted.\n";
-}
-
-void Console::uiPopulateShoppingCart() {
-    size_t book_count{0};
-
-    std::cout << "Enter the number of books you want to add random: ";
-    std::cin >> book_count;
-
-    if (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        throw UiError("Invalid input for year.");
-    }
-
-    service.populateRandomCart(book_count);
-    std::cout << "The book was added in the shopping cart\n";
-}
-
-void Console::uiShoppingCartMenu() {
-    printShoppingCartMenu();
-
-    char option = getUserInput();
-
-    switch (option) {
-        case '1': {
-            uiAddToShoppingCart();
-            break;
-        }
-        case '2': {
-            uiDeleteShoppingCart();
-            break;
-        }
-        case '3': {
-            uiPopulateShoppingCart();
-            break;
-        }
-        case 'p': {
-            uiPrintShoppingCart();
-            break;
-        }
-        case 'q': {
-            return;
-        }
-        default: {
-            std::cout << "The option was not yet implemented.\n";
-        }
-    }
-}
-
-void Console::uiShowRaport() {
-    auto raport = service.getRaport();
-
-    if (raport.empty()) {
-        throw UiError("There are no books in the library.");
-    }
-
-    std::cout << "The genre, count pairs are:\n";
-    for (const auto &x : raport) {
-        std::cout << "The genre " << x.first << " has " << x.second << " books\n";
-    }
-}
-
-void Console::uiUndo() {
-    service.undo();
-    std::cout << "Undoing the last action...\n";
 }

@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include <iostream>
 #include <string>
 
 class Book {
@@ -12,17 +11,13 @@ class Book {
     std::string title;
     std::string author;
     std::string genre;
-    int year = 0;
+    int year{0};
 
   public:
     /**
     * The default constructor.
     */
     Book() = default;
-
-//    Book(const Book &ot) : title(ot.title), author(ot.author), genre(ot.genre), year(ot.year) {
-//        std::cout << "Book copy\n";
-//    }
 
     /**
      * The default constructor.

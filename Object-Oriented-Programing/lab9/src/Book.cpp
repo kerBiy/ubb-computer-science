@@ -14,8 +14,6 @@ std::string Book::intoString() const {
     return string_stream.str();
 }
 
-// Getters
-
 std::string Book::getTitle() const {
     return title;
 }
@@ -31,8 +29,6 @@ std::string Book::getGenre() const {
 int Book::getYear() const {
     return year;
 }
-
-// Setters
 
 void Book::setTitle(const std::string &new_title) {
     this->title = new_title;

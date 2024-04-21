@@ -16,6 +16,7 @@ class AbstractUndo {
 };
 
 class UndoAdd : public AbstractUndo {
+  private:
     Book book;
     Library &lib;
   public:
@@ -29,6 +30,7 @@ class UndoAdd : public AbstractUndo {
 };
 
 class UndoDelete : public AbstractUndo {
+  private:
     Book book;
     Library &lib;
   public:
@@ -42,6 +44,7 @@ class UndoDelete : public AbstractUndo {
 };
 
 class UndoUpdate : public AbstractUndo {
+  private:
     Book book;
     Library &lib;
   public:

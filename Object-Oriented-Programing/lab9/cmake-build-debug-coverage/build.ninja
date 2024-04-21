@@ -105,6 +105,13 @@ build CMakeFiles/lab9.dir/src/Undo.cpp.o: CXX_COMPILER__lab9_unscanned_Debug /Us
   OBJECT_DIR = CMakeFiles/lab9.dir
   OBJECT_FILE_DIR = CMakeFiles/lab9.dir/src
 
+build CMakeFiles/lab9.dir/src/ConsoleSC.cpp.o: CXX_COMPILER__lab9_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab9/src/ConsoleSC.cpp || cmake_object_order_depends_target_lab9
+  DEP_FILE = CMakeFiles/lab9.dir/src/ConsoleSC.cpp.o.d
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++2b -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab9/include
+  OBJECT_DIR = CMakeFiles/lab9.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab9.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab9
@@ -113,7 +120,7 @@ build CMakeFiles/lab9.dir/src/Undo.cpp.o: CXX_COMPILER__lab9_unscanned_Debug /Us
 #############################################
 # Link the executable lab9
 
-build lab9: CXX_EXECUTABLE_LINKER__lab9_Debug CMakeFiles/lab9.dir/src/main.cpp.o CMakeFiles/lab9.dir/src/Test.cpp.o CMakeFiles/lab9.dir/src/Book.cpp.o CMakeFiles/lab9.dir/src/Repository.cpp.o CMakeFiles/lab9.dir/src/Service.cpp.o CMakeFiles/lab9.dir/src/Console.cpp.o CMakeFiles/lab9.dir/src/Validator.cpp.o CMakeFiles/lab9.dir/src/Undo.cpp.o
+build lab9: CXX_EXECUTABLE_LINKER__lab9_Debug CMakeFiles/lab9.dir/src/main.cpp.o CMakeFiles/lab9.dir/src/Test.cpp.o CMakeFiles/lab9.dir/src/Book.cpp.o CMakeFiles/lab9.dir/src/Repository.cpp.o CMakeFiles/lab9.dir/src/Service.cpp.o CMakeFiles/lab9.dir/src/Console.cpp.o CMakeFiles/lab9.dir/src/Validator.cpp.o CMakeFiles/lab9.dir/src/Undo.cpp.o CMakeFiles/lab9.dir/src/ConsoleSC.cpp.o
   FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/lab9.dir
   POST_BUILD = :

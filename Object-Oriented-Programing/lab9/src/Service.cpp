@@ -4,6 +4,7 @@
 
 #include "Service.hpp"
 
+#include <fstream>
 #include <algorithm>
 #include <random>
 
@@ -23,6 +24,7 @@ void Service::addBookLib(const std::string &title, const std::string &author,
 
     Book new_book(title, author, genre, year);
     Validator::validateBook(new_book);
+
     library.addBook(new_book);
     history.push_back(std::make_unique<UndoAdd>(library, new_book));
 }
@@ -37,6 +39,7 @@ void Service::updateBookLib(const std::string &title, const std::string &new_aut
 
     Book new_book(title, new_author, new_genre, new_year);
     Validator::validateBook(new_book);
+
     auto updated_book = library.updateBook(position, new_book);
     history.push_back(std::make_unique<UndoUpdate>(library, updated_book));
 }
@@ -53,29 +56,31 @@ void Service::deleteBookLib(const std::string &title) {
 }
 
 std::vector<Book> Service::findBooksLib(const std::string &title) {
-    std::vector<Book> foundBooks;
-    std::vector<Book> allBooks = library.getBooks();
+    std::vector<Book> found_books;
+    std::vector<Book> all_books = library.getBooks();
 
-    std::copy_if(allBooks.begin(), allBooks.end(), std::back_inserter(foundBooks),
+    std::copy_if(all_books.begin(), all_books.end(), std::back_inserter(found_books),
                  [&title](const Book &book) { return book.getTitle().find(title) == 0; });
 
-    return foundBooks;
+    return found_books;
 }
 
 std::vector<Book> Service::filterBooksLib(int min_year) {
-    std::vector<Book> filteredBooks;
-    std::vector<Book> allBooks = library.getBooks();
+    std::vector<Book> filtered_books;
+    std::vector<Book> all_books = library.getBooks();
 
-    std::copy_if(allBooks.begin(), allBooks.end(), std::back_inserter(filteredBooks),
+    std::copy_if(all_books.begin(),
+                 all_books.end(),
+                 std::back_inserter(filtered_books),
                  [min_year](const Book &book) { return book.getYear() >= min_year; });
 
-    return filteredBooks;
+    return filtered_books;
 }
 
 std::vector<Book> Service::sortBooksLib(const std::function<bool(const Book &, const Book &)> &compare) {
-    std::vector<Book> sortedBooks = library.getBooks();
-    std::sort(sortedBooks.begin(), sortedBooks.end(), compare);
-    return sortedBooks;
+    std::vector<Book> sorted_books = library.getBooks();
+    std::sort(sorted_books.begin(), sorted_books.end(), compare);
+    return sorted_books;
 }
 
 /*
@@ -119,13 +124,13 @@ void Service::populateRandomCart(size_t book_count) {
 }
 
 std::unordered_map<std::string, int> Service::getRaport() {
-    std::unordered_map<std::string, int> output;
+    std::unordered_map<std::string, int> raport;
 
     for (const auto &book : library.getBooks()) {
-        output[book.getGenre()] += 1;
+        raport[book.getGenre()] += 1;
     }
 
-    return output;
+    return raport;
 }
 
 /*
@@ -137,8 +142,37 @@ void Service::undo() {
         throw ServiceError{"You can't undo any further."};
     }
 
-    auto action = std::move(history.back());
+    auto last_action = std::move(history.back());
     history.pop_back();
 
-    action->doUndo();
+    last_action->doUndo();
 }
+
+void Service::exportHTML(const std::string &filename) {
+    std::ofstream outputFile(filename);
+
+    if (!outputFile.is_open()) {
+        throw ServiceError("Unable to open file " + filename + " for writing.\n");
+    }
+
+    // Write the HTML header
+    outputFile << "<!DOCTYPE html>\n<html lang=\"en\">\n"
+               << "<head>\n<title>Book List</title>\n"
+               << "<link rel=\"stylesheet\" href=\"style.css\">\n"
+               << "\n</head>\n<body>\n";
+    outputFile << "<h1>Book List</h1>\n<ul>\n";
+
+    // Write each book as a list item
+    for (const auto &book : getShoppingCart()) {
+        outputFile << "<li>\n";
+        outputFile << "<strong>Title:</strong> " << book.getTitle() << "<br>\n";
+        outputFile << "<strong>Author:</strong> " << book.getAuthor() << "<br>\n";
+        outputFile << "<strong>Genre:</strong> " << book.getGenre() << "<br>\n";
+        outputFile << "<strong>Year:</strong> " << book.getYear() << "<br>\n";
+        outputFile << "</li>\n";
+    }
+
+    // Close the list and body
+    outputFile << "</ul>\n</body>\n</html>\n";
+}
+

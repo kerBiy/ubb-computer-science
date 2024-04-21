@@ -12,8 +12,8 @@ set(SOURCES
         src/Service.cpp
         src/Console.cpp
         src/Validator.cpp
-        include/Undo.hpp
         src/Undo.cpp
+        src/ConsoleSC.cpp
 )
 
 add_executable(lab9 ${SOURCES})

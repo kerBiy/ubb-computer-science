@@ -91,6 +91,11 @@ class Console {
     void uiPopulateShoppingCart();
 
     /*
+     * Exports all the shopping cart in a html page
+     */
+    void uiExportToHTML();
+    
+    /*
      * Generates a report containing the number of books per genre.
      */
     void uiShowRaport();
@@ -111,5 +116,4 @@ class Console {
      * Runs the console application, displaying the menu and handling user input.
      */
     void run();
-
 };
