@@ -10,7 +10,9 @@
 #include "Service.hpp"
 
 #include <iostream>
+#include <fstream>
 #include <cassert>
+#include <cstdio>
 
 Test::Test() {
     const int YEAR = 1890;
@@ -99,6 +101,40 @@ void Test::testRepository() {
 
     cart.deleteAllBooks();
     assert(cart.getLen() == 0);
+
+    // TEST FILE REPO
+
+    std::ofstream out("../database/test.txt");
+    out.close();
+
+    LibraryFile library_file{"../database/test.txt"};
+
+    try {
+        LibraryFile bad_lib{"random_name"};
+        assert(false);
+    } catch (const std::exception &e) {}
+
+    // TEST ADD
+
+    library_file.addBook(new_book);
+    assert(library_file.getLen() == 1);
+    library_file.addBook(other_book);
+    assert(library_file.getLen() == 2);
+
+    // TEST DELETE
+
+    auto iter = library_file.findBook(title);
+    assert(book_iter != library_file.getBooks().end());
+    library_file.deleteBook(book_iter);
+    assert(library_file.getLen() == 1);
+
+    // TEST UPDATE
+
+    auto new_iter = library_file.findBook(other_title);
+    library_file.updateBook(new_book_iter, new_book);
+    assert(library_file.getLen() == 1);
+
+    std::remove("../database/test.txt");
 
     std::cout << "Repository tests ran successfully.\n";
 }
@@ -245,6 +281,11 @@ void Test::testService() {
     const int number = 12;
     service.populateRandomCart(number);
     assert(service.getShoppingCart().size() == number);
+
+    service.exportHTML("../database/test.html");
+    std::remove("../database/test.html");
+    service.exportCSV("../database/test.csv");
+    std::remove("../database/test.csv");
 
     service.populateRandomCart(number);
     assert(service.getShoppingCart().size() == number * 2);

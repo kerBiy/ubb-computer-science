@@ -11,6 +11,7 @@ void Console::printShoppingCartMenu() {
               << "Enter 2 for deleting all the items in your shopping cart\n"
               << "Enter 3 for populating shopping cart with random books\n"
               << "Enter 4 for exporting all the books in a html page\n"
+              << "Enter 5 for exporting all the books in a csv file\n"
               << "Enter p for viewing your shopping cart.\n"
               << "Enter q to exit this menu.\n";
 }
@@ -64,6 +65,11 @@ void Console::uiExportToHTML() {
     std::cout << "The shopping cart was exported successfully.\n";
 }
 
+void Console::uiExportToCSV() {
+    service.exportCSV("../database/export.csv");
+    std::cout << "The shopping cart was exported successfully.\n";
+}
+
 void Console::uiShoppingCartMenu() {
     printShoppingCartMenu();
 
@@ -84,6 +90,10 @@ void Console::uiShoppingCartMenu() {
         }
         case '4': {
             uiExportToHTML();
+            break;
+        }
+        case '5': {
+            uiExportToCSV();
             break;
         }
         case 'p': {

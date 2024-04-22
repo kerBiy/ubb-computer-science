@@ -94,6 +94,11 @@ class Console {
      * Exports all the shopping cart in a html page
      */
     void uiExportToHTML();
+
+    /*
+     * Exports all the shopping cart in a csv file
+     */
+    void uiExportToCSV();
     
     /*
      * Generates a report containing the number of books per genre.

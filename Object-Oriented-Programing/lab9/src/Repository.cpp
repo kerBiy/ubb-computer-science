@@ -86,9 +86,6 @@ void LibraryFile::loadFromFile() {
 
 void LibraryFile::writeToFile() {
     std::ofstream out(file_name);
-    if (!out.is_open()) {
-        throw RepositoryError("Can't open file: " + file_name);
-    }
 
     for (const Book &book : items) {
         out << book.getTitle() << ','

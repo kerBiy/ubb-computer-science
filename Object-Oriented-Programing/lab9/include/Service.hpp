@@ -110,7 +110,17 @@ class Service {
      */
     void populateRandomCart(size_t book_count);
 
+    /**
+     * Exports the shopping cart into a html file
+     * @param file_name the path to the file that will be created
+     */
     void exportHTML(const std::string &file_name);
+
+    /**
+     * Exports the shopping cart into a csv file
+     * @param file_name the path to the file that will be created
+     */
+    void exportCSV(const std::string &filename);
 
     /**
     * Generates a report containing the number of books per genre.

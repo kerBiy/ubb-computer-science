@@ -8,7 +8,13 @@
 #include <algorithm>
 #include <random>
 
-Service::Service(Library &lib, ShoppingCart &cart) : library{lib}, shopping_cart{cart} {}
+Service::Service(Library &lib, ShoppingCart &cart) : library{lib}, shopping_cart{cart} {
+    std::ofstream html("../database/export.html");
+    html.close();
+
+    std::ofstream csv("../database/export.csv");
+    csv.close();
+}
 
 std::vector<Book> &Service::getAllLib() {
     return library.getBooks();
@@ -123,19 +129,55 @@ void Service::populateRandomCart(size_t book_count) {
     }
 }
 
+void Service::exportHTML(const std::string &filename) {
+    std::ofstream output_file(filename);
+
+    output_file << "<!DOCTYPE html>\n<html lang=\"en\">\n"
+                << "<head>\n<title>Book List</title>\n"
+                << "<link rel=\"stylesheet\" href=\"style.css\">\n"
+                << "\n</head>\n<body>\n";
+    output_file << "<h1>Book List</h1>\n<ul>\n";
+
+    for (const auto &book : getShoppingCart()) {
+        output_file << "<li>\n";
+        output_file << "<strong>Title:</strong> " << book.getTitle() << "<br>\n";
+        output_file << "<strong>Author:</strong> " << book.getAuthor() << "<br>\n";
+        output_file << "<strong>Genre:</strong> " << book.getGenre() << "<br>\n";
+        output_file << "<strong>Year:</strong> " << book.getYear() << "<br>\n";
+        output_file << "</li>\n";
+    }
+
+    output_file << "</ul>\n</body>\n</html>\n";
+}
+
+void Service::exportCSV(const std::string &filename) {
+    std::ofstream output_file(filename);
+
+    output_file << "Title,Author,Genre,Year\n";
+
+    for (const auto &book : getShoppingCart()) {
+        output_file << "\"" << book.getTitle() << "\",";
+        output_file << "\"" << book.getAuthor() << "\",";
+        output_file << "\"" << book.getGenre() << "\",";
+        output_file << "\"" << book.getYear() << "\"\n";
+    }
+
+    output_file.close();
+}
+
+/*
+ * Undo and Raport
+ */
+
 std::unordered_map<std::string, int> Service::getRaport() {
     std::unordered_map<std::string, int> raport;
 
-    for (const auto &book : library.getBooks()) {
+    for (const Book &book : library.getBooks()) {
         raport[book.getGenre()] += 1;
     }
 
     return raport;
 }
-
-/*
- * Undo
- */
 
 void Service::undo() {
     if (history.empty()) {
@@ -147,32 +189,3 @@ void Service::undo() {
 
     last_action->doUndo();
 }
-
-void Service::exportHTML(const std::string &filename) {
-    std::ofstream outputFile(filename);
-
-    if (!outputFile.is_open()) {
-        throw ServiceError("Unable to open file " + filename + " for writing.\n");
-    }
-
-    // Write the HTML header
-    outputFile << "<!DOCTYPE html>\n<html lang=\"en\">\n"
-               << "<head>\n<title>Book List</title>\n"
-               << "<link rel=\"stylesheet\" href=\"style.css\">\n"
-               << "\n</head>\n<body>\n";
-    outputFile << "<h1>Book List</h1>\n<ul>\n";
-
-    // Write each book as a list item
-    for (const auto &book : getShoppingCart()) {
-        outputFile << "<li>\n";
-        outputFile << "<strong>Title:</strong> " << book.getTitle() << "<br>\n";
-        outputFile << "<strong>Author:</strong> " << book.getAuthor() << "<br>\n";
-        outputFile << "<strong>Genre:</strong> " << book.getGenre() << "<br>\n";
-        outputFile << "<strong>Year:</strong> " << book.getYear() << "<br>\n";
-        outputFile << "</li>\n";
-    }
-
-    // Close the list and body
-    outputFile << "</ul>\n</body>\n</html>\n";
-}
-
