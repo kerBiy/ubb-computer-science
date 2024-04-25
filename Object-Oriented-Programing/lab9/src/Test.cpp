@@ -57,7 +57,7 @@ void Test::testRepository() {
      * TEST LIBRARY
      */
 
-    Library repo;
+    LibraryVector repo;
     Book new_book(title, author, genre, year);
     Book other_book(other_title, other_author, other_genre, other_year);
 
@@ -70,15 +70,12 @@ void Test::testRepository() {
 
     // TEST DELETE
 
-    auto book_iter = repo.findBook(title);
-    assert(book_iter != repo.getBooks().end());
-    repo.deleteBook(book_iter);
+    repo.deleteBook(title);
     assert(repo.getLen() == 1);
 
     // TEST UPDATE
 
-    auto new_book_iter = repo.findBook(other_title);
-    repo.updateBook(new_book_iter, new_book);
+    repo.updateBook(other_title, new_book);
     assert(repo.getLen() == 1);
 
     auto all = repo.getBooks();
@@ -123,15 +120,12 @@ void Test::testRepository() {
 
     // TEST DELETE
 
-    auto iter = library_file.findBook(title);
-    assert(book_iter != library_file.getBooks().end());
-    library_file.deleteBook(book_iter);
+    library_file.deleteBook(title);
     assert(library_file.getLen() == 1);
 
     // TEST UPDATE
 
-    auto new_iter = library_file.findBook(other_title);
-    library_file.updateBook(new_book_iter, new_book);
+    library_file.updateBook(other_title, new_book);
     assert(library_file.getLen() == 1);
 
     std::remove("../database/test.txt");
@@ -165,7 +159,7 @@ void Test::testValidator() {
 }
 
 void Test::testService() {
-    Library repo;
+    LibraryDict repo;
     ShoppingCart cart;
     Service service(repo, cart);
 
@@ -323,7 +317,7 @@ void Test::testService() {
 
     // TEST UNDO
 
-    Library other_repo;
+    LibraryVector other_repo;
     ShoppingCart other_cart;
     Service other_service(other_repo, other_cart);
 

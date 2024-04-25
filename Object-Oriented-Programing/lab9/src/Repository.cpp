@@ -7,47 +7,139 @@
 #include <fstream>
 #include <utility>
 #include <sstream>
-
-/*
- * ABSTRACT REPOSITORY
- */
-
-std::vector<Book> &GenericRepository::getBooks() {
-    return items;
-}
-
-size_t GenericRepository::getLen() const {
-    return items.size();
-}
+#include <algorithm>
+#include <random>
 
 /*
  * LIBRARY REPOSITORY
  */
 
-void Library::addBook(const Book &book) {
+std::vector<Book> LibraryVector::getBooks() {
+    return items;
+}
+
+size_t LibraryVector::getLen() const {
+    return items.size();
+}
+
+void LibraryVector::addBook(const Book &book) {
     items.push_back(book);
 }
 
-Book Library::deleteBook(std::vector<Book>::iterator &position) {
-    auto previous_book = *position;
-    items.erase(position);
-    return previous_book;
-}
-
-Book Library::updateBook(std::vector<Book>::iterator &position, const Book &new_book) {
-    auto previous_book = *position;
-    *position = new_book;
-    return previous_book;
-}
-
-std::vector<Book>::iterator Library::findBook(const std::string &title) {
-    return std::find_if(items.begin(), items.end(), [&title](const Book &book) {
+Book LibraryVector::deleteBook(const std::string &title) {
+    auto it = std::find_if(items.begin(), items.end(), [&title](const Book &book) {
         return book.getTitle() == title;
     });
+
+    Book deleted_book = *it;
+    items.erase(it);
+    return deleted_book;
 }
 
-bool Library::isValid(const std::vector<Book>::iterator &iter) const {
-    return iter != items.end();
+Book LibraryVector::updateBook(const std::string &title, const Book &new_book) {
+    auto it = std::find_if(items.begin(), items.end(), [&title](const Book &book) {
+        return book.getTitle() == title;
+    });
+
+    Book previous_book = *it;
+    *it = new_book;
+    return previous_book;
+}
+
+bool LibraryVector::findBook(const std::string &title) {
+    auto it = std::find_if(items.begin(), items.end(), [&title](const Book &book) {
+        return book.getTitle() == title;
+    });
+
+    return it != items.end();
+}
+
+/*
+ * LIBRARY DICT
+ */
+
+LibraryDict::LibraryDict() : probability{0.2} {
+}
+
+std::vector<Book> LibraryDict::getBooks() {
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_real_distribution<> distribution(0, 1);
+
+    double random_number = distribution(gen);
+    if (random_number < probability) {
+        throw RepositoryError("The random prob is " + std::to_string(random_number));
+    }
+
+    std::vector<Book> output;
+
+    for (const auto &book : items) {
+        output.push_back(book.second);
+    }
+
+    return output;
+}
+
+size_t LibraryDict::getLen() const {
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_real_distribution<> distribution(0, 1);
+
+    double random_number = distribution(gen);
+    if (random_number < probability) {
+        throw RepositoryError("The random prob is " + std::to_string(random_number));
+    }
+    return items.size();
+}
+
+void LibraryDict::addBook(const Book &book) {
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_real_distribution<> distribution(0, 1);
+
+    double random_number = distribution(gen);
+    if (random_number < probability) {
+        throw RepositoryError("The random prob is " + std::to_string(random_number));
+    }
+    items[book.getTitle()] = book;
+}
+
+Book LibraryDict::deleteBook(const std::string &title) {
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_real_distribution<> distribution(0, 1);
+
+    double random_number = distribution(gen);
+    if (random_number < probability) {
+        throw RepositoryError("The random prob is " + std::to_string(random_number));
+    }
+    auto it = items.find(title);
+
+    Book deleted_book = it->second;
+    items.erase(it);
+    return deleted_book;
+}
+
+Book LibraryDict::updateBook(const std::string &title, const Book &new_book) {
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_real_distribution<> distribution(0, 1);
+
+    double random_number = distribution(gen);
+    if (random_number < probability) {
+        throw RepositoryError("The random prob is " + std::to_string(random_number));
+    }
+    auto it = items.find(title);
+
+    Book previous_book = it->second;
+    it->second = new_book;
+    return previous_book;
+}
+
+bool LibraryDict::findBook(const std::string &title) {
+    std::mt19937 gen(std::random_device{}());
+    std::uniform_real_distribution<> distribution(0, 1);
+
+    double random_number = distribution(gen);
+    if (random_number < probability) {
+        throw RepositoryError("The random prob is " + std::to_string(random_number));
+    }
+    return items.find(title) != items.end();
 }
 
 /*
@@ -77,7 +169,7 @@ void LibraryFile::loadFromFile() {
             std::string genre = split[2];
             int year = stoi(split[3]);
 
-            Library::addBook({title, author, genre, year});
+            LibraryVector::addBook({title, author, genre, year});
         }
     }
 
@@ -97,23 +189,23 @@ void LibraryFile::writeToFile() {
     out.close();
 }
 
-LibraryFile::LibraryFile(std::string file_name) : Library(), file_name{std::move(file_name)} {
+LibraryFile::LibraryFile(std::string file_name) : LibraryVector(), file_name{std::move(file_name)} {
     loadFromFile();
 }
 
 void LibraryFile::addBook(const Book &book) {
-    Library::addBook(book);
+    LibraryVector::addBook(book);
     writeToFile();
 }
 
-Book LibraryFile::deleteBook(std::vector<Book>::iterator &position) {
-    auto deleted_book = Library::deleteBook(position);
+Book LibraryFile::deleteBook(const std::string &title) {
+    auto deleted_book = LibraryVector::deleteBook(title);
     writeToFile();
     return deleted_book;
 }
 
-Book LibraryFile::updateBook(std::vector<Book>::iterator &position, const Book &new_book) {
-    auto updated_book = Library::updateBook(position, new_book);
+Book LibraryFile::updateBook(const std::string &title, const Book &new_book) {
+    auto updated_book = LibraryVector::updateBook(title, new_book);
     writeToFile();
     return updated_book;
 }
@@ -121,6 +213,14 @@ Book LibraryFile::updateBook(std::vector<Book>::iterator &position, const Book &
 /*
  * SHOPING CART REPOSITORY
  */
+
+std::vector<Book> &ShoppingCart::getBooks() {
+    return items;
+}
+
+size_t ShoppingCart::getLen() const {
+    return items.size();
+}
 
 void ShoppingCart::addBook(const Book &book) {
     items.push_back(book);

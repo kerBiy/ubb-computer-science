@@ -1,78 +1,140 @@
 #include <fstream>
 #include <iostream>
-#include <limits>
 #include <queue>
+#include <string>
 #include <vector>
 
-using namespace std;
-
-const int INF =
-    numeric_limits<int>::max();  // Infinity value for unreachable vertices
-
-struct Edge {
-    int source, dest, weight;
-};
+const int INF = 1000000;
+using std::priority_queue;
+typedef std::pair<int, int> pair;
 
 class Graph {
-   private:
-    int V, E;
-    vector<Edge> edges;
+    std::string in;
+    std::string out;
+
+    int nodes;
+    int edges;
+    std::vector<std::vector<pair>> adjList;
 
    public:
-    Graph(int V, int E) : V(V), E(E) {}
+    Graph(std::string in, std::string out) {
+        this->in = in;
+        this->out = out;
+        std::ifstream fin(this->in);
 
-    void addEdge(int source, int dest, int weight) {
-        edges.push_back({source, dest, weight});
+        if (!fin) {
+            std::cout << "Fisierul de intrare nu a putut fi deschis!\n";
+            exit(-1);
+        }
+
+        int nodes, edges;
+        fin >> nodes >> edges;
+        this->adjList.resize(nodes);
+        this->nodes = nodes;
+        this->edges = edges;
+
+        for (int i = 0; i < edges; ++i) {
+            int u, v, w;
+            fin >> u >> v >> w;
+            adjList[u].push_back({v, w});
+        }
+
+        fin.close();
     }
 
-    // Function to read graph from input file
-    void readGraphFromFile(const string& filename) {
-        ifstream infile(filename);
-        if (!infile) {
-            cerr << "Error: Unable to open input file." << endl;
-            exit(1);
-        }
+    void dijkstra(int src) {
+        priority_queue<pair, std::vector<pair>, std::greater<>> queue;
+        std::vector<int> distance(nodes, INF);
 
-        infile >> V >> E;
-        edges.clear();
-        for (int i = 0; i < E; ++i) {
-            int source, dest, weight;
-            infile >> source >> dest >> weight;
-            addEdge(source, dest, weight);
-        }
+        distance[src] = 0;
+        queue.push({0, src});
 
-        infile.close();
-    }
+        while (!queue.empty()) {
+            int current = queue.top().second;
+            queue.pop();
 
-    // Function to write distances matrix and updated edges to output file
-    void writeOutputToFile(const vector<vector<int>>& distances) {
-        // Write updated edges
-        for (const auto& edge : edges) {
-            cout << edge.source << " " << edge.dest << " " << edge.weight
-                 << endl;
-        }
+            for (const auto& neighbor : adjList[current]) {
+                int node = neighbor.first;
+                int weight = neighbor.second;
 
-        // Write distances matrix
-        for (int i = 0; i < V; ++i) {
-            for (int j = 0; j < V; ++j) {
-                if (distances[i][j] == INF) {
-                    cout << "INF ";
-                } else {
-                    cout << distances[i][j] << " ";
+                if (distance[node] > distance[current] + weight) {
+                    distance[node] = distance[current] + weight;
+                    queue.push({distance[node], node});
                 }
             }
-            cout << endl;
+        }
+
+        std::ofstream out_file(out, std::ios_base::app);
+
+        for (int i = 0; i < nodes; ++i) {
+            if (distance[i] == INF) {
+                out_file << "INF ";
+            } else {
+                out_file << distance[i] << " ";
+            }
+        }
+        out_file << "\n";
+    }
+
+    bool bellmanFord() {
+        struct edge {
+            int src, dest, weight;
+        };
+
+        std::vector<edge> edges;
+        std::vector<int> dist(nodes, INF);
+        dist[nodes] = 0;
+
+        for (int i = 0; i < nodes; ++i) {
+            edges.push_back({nodes, i, 0});
+            for (auto j : adjList[i]) {
+                edges.push_back({i, j.first, j.second});
+            }
+        }
+
+        for (int i = 0; i < nodes; ++i) {
+            for (auto j : edges) {
+                if (dist[j.src] != INF &&
+                    dist[j.dest] > dist[j.src] + j.weight) {
+                    dist[j.dest] = dist[j.src] + j.weight;
+                }
+            }
+        }
+
+        for (auto j : edges) {
+            if (dist[j.src] + j.weight < dist[j.dest]) {
+                return false;
+            }
+        }
+
+        std::ofstream out_file(out);
+        for (int i = 0; i < nodes; ++i) {
+            for (auto j : adjList[i]) {
+                j.second += dist[i] - dist[j.first];
+                out_file << i << " " << j.first << " " << j.second << "\n";
+            }
+        }
+
+        out_file.close();
+        return true;
+    }
+
+    void johnson() {
+        if (bellmanFord() == false) {
+            std::ofstream out_file(out);
+            out_file << "-1\n";
+            out_file.close();
+            return;
+        }
+
+        for (int i = 0; i < nodes; ++i) {
+            dijkstra(i);
         }
     }
 };
 
 int main() {
-    string input_file = "input.txt";
-
-    Graph graph(0, 0);  // Initialize an empty graph
-    graph.readGraphFromFile(input_file);
-
-    // graph.writeOutputToFile(distances);
-
+    Graph G("input.txt", "output.txt");
+    G.johnson();
     return 0;
 }

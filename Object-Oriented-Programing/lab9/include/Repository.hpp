@@ -4,7 +4,9 @@
 #pragma once
 
 #include "Book.hpp"
+
 #include <vector>
+#include <unordered_map>
 
 class RepositoryError : public std::runtime_error {
   public:
@@ -12,78 +14,162 @@ class RepositoryError : public std::runtime_error {
 };
 
 /*
- * GENERIC REPOSITORY
+ * ABSTRACT REPOSITORY
  */
 
-class GenericRepository {
-  protected:
-    std::vector<Book> items; // std::vector to store books
-
+class AbstractLibrary {
   public:
-    virtual ~GenericRepository() = default;
     /**
-     * The default constructor.
+    * The default constructor.
+    */
+    AbstractLibrary() = default;
+
+    /**
+     * The default destructor.
      */
-    GenericRepository() = default;
+    virtual ~AbstractLibrary() = default;
 
     /**
      * Retrieves all books stored in the repository.
      * @return std::vector containing all books.
      */
-    std::vector<Book> &getBooks();
+    virtual std::vector<Book> getBooks() = 0;
     /**
      * Retrieves the number of books in the repository.
      * @return number of books in the repository.
      */
-    [[nodiscard]] size_t getLen() const;
-};
+    [[nodiscard]] virtual size_t getLen() const = 0;
 
-/*
- * LIBRARY REPOSITORY
- */
-
-class Library : public GenericRepository {
-  public:
     /**
     * Adds a new book to the repository.
     * @param book The book to be added.
     */
-    virtual void addBook(const Book &book);
+    virtual void addBook(const Book &book) = 0;
 
     /**
      * Deletes a book from the repository.
      * @param position Iterator pointing to the position of the book to be deleted.
      */
-    virtual Book deleteBook(std::vector<Book>::iterator &position);
+    virtual Book deleteBook(const std::string &title) = 0;
 
     /**
      * Updates information of an existing book in the repository.
      * @param position Iterator pointing to the position of the book to be updated.
      * @param new_book The new book information.
      */
-    virtual Book updateBook(std::vector<Book>::iterator &position, const Book &new_book);
+    virtual Book updateBook(const std::string &title, const Book &new_book) = 0;
 
     /**
      * Finds a book by its title.
      * @param title The title of the book to find.
      * @return Iterator pointing to the found book or end iterator if not found.
      */
-    std::vector<Book>::iterator findBook(const std::string &title);
+    virtual bool findBook(const std::string &title) = 0;
+};
+
+/*
+ * LIBRARY REPOSITORY
+ */
+
+class LibraryVector : public AbstractLibrary {
+  protected:
+    std::vector<Book> items; // std::vector to store books
+
+  public:
+    ~LibraryVector() override = default;
+    /**
+     * Retrieves all books stored in the repository.
+     * @return std::vector containing all books.
+     */
+    std::vector<Book> getBooks() override;
+    /**
+     * Retrieves the number of books in the repository.
+     * @return number of books in the repository.
+     */
+    [[nodiscard]] size_t getLen() const override;
 
     /**
-     * Finds if the iterator is valid.
-     * @param iter the iterator you want to check.
-     * @return true if the iterator is currently in the list.
-     */
-    [[nodiscard]] bool isValid(const std::vector<Book>::iterator &iter) const;
+    * Adds a new book to the repository.
+    * @param book The book to be added.
+    */
+    void addBook(const Book &book) override;
 
+    /**
+     * Deletes a book from the repository.
+     * @param position Iterator pointing to the position of the book to be deleted.
+     */
+    Book deleteBook(const std::string &title) override;
+
+    /**
+     * Updates information of an existing book in the repository.
+     * @param position Iterator pointing to the position of the book to be updated.
+     * @param new_book The new book information.
+     */
+    Book updateBook(const std::string &title, const Book &new_book) override;
+
+    /**
+     * Finds a book by its title.
+     * @param title The title of the book to find.
+     * @return Iterator pointing to the found book or end iterator if not found.
+     */
+    bool findBook(const std::string &title) override;
+};
+
+/*
+ * LIBRARY DICT
+ */
+
+class LibraryDict : public AbstractLibrary {
+  private:
+    std::unordered_map<std::string, Book> items; // std::map to store books
+    double probability;
+
+  public:
+    LibraryDict();
+    ~LibraryDict() override = default;
+    /**
+     * Retrieves all books stored in the repository.
+     * @return std::vector containing all books.
+     */
+    std::vector<Book> getBooks() override;
+    /**
+     * Retrieves the number of books in the repository.
+     * @return number of books in the repository.
+     */
+    [[nodiscard]] size_t getLen() const override;
+
+    /**
+    * Adds a new book to the repository.
+    * @param book The book to be added.
+    */
+    void addBook(const Book &book) override;
+
+    /**
+     * Deletes a book from the repository.
+     * @param position Iterator pointing to the position of the book to be deleted.
+     */
+    Book deleteBook(const std::string &title) override;
+
+    /**
+     * Updates information of an existing book in the repository.
+     * @param position Iterator pointing to the position of the book to be updated.
+     * @param new_book The new book information.
+     */
+    Book updateBook(const std::string &title, const Book &new_book) override;
+
+    /**
+     * Finds a book by its title.
+     * @param title The title of the book to find.
+     * @return Iterator pointing to the found book or end iterator if not found.
+     */
+    bool findBook(const std::string &title) override;
 };
 
 /*
  * LIBRARY FILE REPOSITORY
  */
 
-class LibraryFile : public Library {
+class LibraryFile : public LibraryVector {
   private:
     std::string file_name; // The file where the data is being stored.
 
@@ -117,7 +203,7 @@ class LibraryFile : public Library {
      * @param position Iterator pointing to the book to delete.
      * @return The deleted book.
      */
-    Book deleteBook(std::vector<Book>::iterator &position) override;
+    Book deleteBook(const std::string &title) override;
 
     /**
      * Update a book in the library and write to file.
@@ -125,15 +211,34 @@ class LibraryFile : public Library {
      * @param new_book New book information.
      * @return The previous book information.
      */
-    Book updateBook(std::vector<Book>::iterator &position, const Book &new_book) override;
+    Book updateBook(const std::string &title, const Book &new_book) override;
 };
 
 /*
  * SHOPING CARD REPOSITORY
  */
 
-class ShoppingCart : public GenericRepository {
+class ShoppingCart {
+  private:
+    std::vector<Book> items; // std::vector to store books
+
   public:
+    /**
+     * The default constructor.
+     */
+    ShoppingCart() = default;
+
+    /**
+     * Retrieves all books stored in the repository.
+     * @return std::vector containing all books.
+     */
+    std::vector<Book> &getBooks();
+    /**
+     * Retrieves the number of books in the repository.
+     * @return number of books in the repository.
+     */
+    [[nodiscard]] size_t getLen() const;
+
     /**
     * Adds a new book to the repository.
     * @param book The book to be added.

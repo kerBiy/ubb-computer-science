@@ -22,7 +22,7 @@ void Console::printMenu() {
 }
 
 void Console::uiPrintBooks() {
-    auto &all_books = service.getAllLib();
+    auto all_books = service.getAllLib();
 
     if (all_books.empty()) {
         throw UiError("There are no books in the library.");

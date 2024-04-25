@@ -16,7 +16,7 @@ class ServiceError : public std::runtime_error {
 
 class Service {
   private:
-    Library &library; // Reference to a Repository object
+    AbstractLibrary &library; // Reference to a Repository object
     ShoppingCart &shopping_cart; // Reference to a Shopping Cart object
 
     std::vector<std::unique_ptr<AbstractUndo>> history; // Vector containing all modifications of library
@@ -26,13 +26,13 @@ class Service {
      * Constructor for the Service class.
      * @param repo Reference to a Repository object
      */
-    Service(Library &lib, ShoppingCart &cart);
+    Service(AbstractLibrary &lib, ShoppingCart &cart);
 
     /**
      * Retrieves all books from the library.
      * @return std::vector containing all books in the repository
      */
-    std::vector<Book> &getAllLib();
+    std::vector<Book> getAllLib();
 
     /**
    * Retrieves all books from the shopping cart.

@@ -4,22 +4,20 @@
 
 #include "Undo.hpp"
 
-UndoAdd::UndoAdd(Library &lib, Book book) : book{std::move(book)}, lib{lib} {}
+UndoAdd::UndoAdd(AbstractLibrary &lib, Book book) : book{std::move(book)}, lib{lib} {}
 
 void UndoAdd::doUndo() {
-    auto position = lib.findBook(book.getTitle());
-    lib.deleteBook(position);
+    lib.deleteBook(book.getTitle());
 }
 
-UndoDelete::UndoDelete(Library &lib, Book book) : book{std::move(book)}, lib{lib} {}
+UndoDelete::UndoDelete(AbstractLibrary &lib, Book book) : book{std::move(book)}, lib{lib} {}
 
 void UndoDelete::doUndo() {
     lib.addBook(book);
 }
 
-UndoUpdate::UndoUpdate(Library &lib, Book book) : book{std::move(book)}, lib{lib} {}
+UndoUpdate::UndoUpdate(AbstractLibrary &lib, Book book) : book{std::move(book)}, lib{lib} {}
 
 void UndoUpdate::doUndo() {
-    auto position = lib.findBook(book.getTitle());
-    lib.updateBook(position, book);
+    lib.updateBook(book.getTitle(), book);
 }

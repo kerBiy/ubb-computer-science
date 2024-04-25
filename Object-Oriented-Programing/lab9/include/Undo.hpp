@@ -18,41 +18,41 @@ class AbstractUndo {
 class UndoAdd : public AbstractUndo {
   private:
     Book book;
-    Library &lib;
+    AbstractLibrary &lib;
   public:
     /**
      * Constructs an UndoAdd object.
      * @param lib Reference to the library where the book was added.
      * @param book The book that was added.
      */
-    UndoAdd(Library &lib, Book book);
+    UndoAdd(AbstractLibrary &lib, Book book);
     void doUndo() override;
 };
 
 class UndoDelete : public AbstractUndo {
   private:
     Book book;
-    Library &lib;
+    AbstractLibrary &lib;
   public:
     /**
      * Constructs an UndoDelete object.
      * @param lib Reference to the library where the book was deleted.
      * @param book The book that was deleted.
      */
-    UndoDelete(Library &lib, Book book);
+    UndoDelete(AbstractLibrary &lib, Book book);
     void doUndo() override;
 };
 
 class UndoUpdate : public AbstractUndo {
   private:
     Book book;
-    Library &lib;
+    AbstractLibrary &lib;
   public:
     /**
      * Constructs an UndoUpdate object.
      * @param lib Reference to the library where the book was updated.
      * @param book The book's old state.
      */
-    UndoUpdate(Library &lib, Book book);
+    UndoUpdate(AbstractLibrary &lib, Book book);
     void doUndo() override;
 };

@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <random>
 
-Service::Service(Library &lib, ShoppingCart &cart) : library{lib}, shopping_cart{cart} {
+Service::Service(AbstractLibrary &lib, ShoppingCart &cart) : library{lib}, shopping_cart{cart} {
     std::ofstream html("../database/export.html");
     html.close();
 
@@ -16,15 +16,13 @@ Service::Service(Library &lib, ShoppingCart &cart) : library{lib}, shopping_cart
     csv.close();
 }
 
-std::vector<Book> &Service::getAllLib() {
+std::vector<Book> Service::getAllLib() {
     return library.getBooks();
 }
 
 void Service::addBookLib(const std::string &title, const std::string &author,
                          const std::string &genre, int year) {
-    auto position = library.findBook(title);
-
-    if (library.isValid(position)) {
+    if (library.findBook(title)) {
         throw ServiceError("There already exist a book with this title.");
     }
 
@@ -37,27 +35,23 @@ void Service::addBookLib(const std::string &title, const std::string &author,
 
 void Service::updateBookLib(const std::string &title, const std::string &new_author,
                             const std::string &new_genre, int new_year) {
-    auto position = library.findBook(title);
-
-    if (!library.isValid(position)) {
+    if (!library.findBook(title)) {
         throw ServiceError("There are no books with this title.");
     }
 
     Book new_book(title, new_author, new_genre, new_year);
     Validator::validateBook(new_book);
 
-    auto updated_book = library.updateBook(position, new_book);
+    auto updated_book = library.updateBook(title, new_book);
     history.push_back(std::make_unique<UndoUpdate>(library, updated_book));
 }
 
 void Service::deleteBookLib(const std::string &title) {
-    auto position = library.findBook(title);
-
-    if (!library.isValid(position)) {
+    if (!library.findBook(title)) {
         throw ServiceError("There are no books with this title.");
     }
 
-    auto deleted_book = library.deleteBook(position);
+    auto deleted_book = library.deleteBook(title);
     history.push_back(std::make_unique<UndoDelete>(library, deleted_book));
 }
 
@@ -98,13 +92,15 @@ std::vector<Book> &Service::getShoppingCart() {
 }
 
 void Service::addBookCart(const std::string &title) {
-    auto position = library.findBook(title);
-
-    if (!library.isValid(position)) {
+    if (!library.findBook(title)) {
         throw ServiceError("There is not book with this title to add in the shopping cart.");
     }
 
-    shopping_cart.addBook(*position);
+    auto it = std::find_if(library.getBooks().begin(), library.getBooks().end(), [&title](const Book &book) {
+        return book.getTitle() == title;
+    });
+
+    shopping_cart.addBook(*it);
 }
 
 void Service::deleteCart() {
