@@ -7,7 +7,6 @@
 #include <fstream>
 #include <utility>
 #include <sstream>
-#include <algorithm>
 #include <random>
 
 /*
@@ -58,57 +57,31 @@ bool LibraryVector::findBook(const std::string &title) {
  * LIBRARY DICT
  */
 
-LibraryDict::LibraryDict() : probability{0.2} {
-}
+LibraryDict::LibraryDict(double probability) : probability{probability} {}
 
 std::vector<Book> LibraryDict::getBooks() {
-    std::mt19937 gen(std::random_device{}());
-    std::uniform_real_distribution<> distribution(0, 1);
-
-    double random_number = distribution(gen);
-    if (random_number < probability) {
-        throw RepositoryError("The random prob is " + std::to_string(random_number));
-    }
+    throwError();
 
     std::vector<Book> output;
 
-    for (const auto &book : items) {
-        output.push_back(book.second);
+    for (const auto &pair : items) {
+        output.push_back(pair.second);
     }
 
     return output;
 }
 
 size_t LibraryDict::getLen() const {
-    std::mt19937 gen(std::random_device{}());
-    std::uniform_real_distribution<> distribution(0, 1);
-
-    double random_number = distribution(gen);
-    if (random_number < probability) {
-        throw RepositoryError("The random prob is " + std::to_string(random_number));
-    }
     return items.size();
 }
 
 void LibraryDict::addBook(const Book &book) {
-    std::mt19937 gen(std::random_device{}());
-    std::uniform_real_distribution<> distribution(0, 1);
-
-    double random_number = distribution(gen);
-    if (random_number < probability) {
-        throw RepositoryError("The random prob is " + std::to_string(random_number));
-    }
+    throwError();
     items[book.getTitle()] = book;
 }
 
 Book LibraryDict::deleteBook(const std::string &title) {
-    std::mt19937 gen(std::random_device{}());
-    std::uniform_real_distribution<> distribution(0, 1);
-
-    double random_number = distribution(gen);
-    if (random_number < probability) {
-        throw RepositoryError("The random prob is " + std::to_string(random_number));
-    }
+    throwError();
     auto it = items.find(title);
 
     Book deleted_book = it->second;
@@ -117,13 +90,7 @@ Book LibraryDict::deleteBook(const std::string &title) {
 }
 
 Book LibraryDict::updateBook(const std::string &title, const Book &new_book) {
-    std::mt19937 gen(std::random_device{}());
-    std::uniform_real_distribution<> distribution(0, 1);
-
-    double random_number = distribution(gen);
-    if (random_number < probability) {
-        throw RepositoryError("The random prob is " + std::to_string(random_number));
-    }
+    throwError();
     auto it = items.find(title);
 
     Book previous_book = it->second;
@@ -132,6 +99,11 @@ Book LibraryDict::updateBook(const std::string &title, const Book &new_book) {
 }
 
 bool LibraryDict::findBook(const std::string &title) {
+    throwError();
+    return items.find(title) != items.end();
+}
+
+void LibraryDict::throwError() const {
     std::mt19937 gen(std::random_device{}());
     std::uniform_real_distribution<> distribution(0, 1);
 
@@ -139,7 +111,6 @@ bool LibraryDict::findBook(const std::string &title) {
     if (random_number < probability) {
         throw RepositoryError("The random prob is " + std::to_string(random_number));
     }
-    return items.find(title) != items.end();
 }
 
 /*

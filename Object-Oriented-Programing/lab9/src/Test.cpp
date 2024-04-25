@@ -128,7 +128,19 @@ void Test::testRepository() {
     library_file.updateBook(other_title, new_book);
     assert(library_file.getLen() == 1);
 
+    LibraryFile new_repo("../database/test.txt");
     std::remove("../database/test.txt");
+
+    // TEST RANDOM EXCEPTION
+
+    LibraryDict library_dict{1};
+
+    try {
+        library_dict.addBook(new_book);
+        assert(false);
+    } catch (const std::exception &e) {
+        assert(library_dict.getLen() == 0);
+    }
 
     std::cout << "Repository tests ran successfully.\n";
 }
@@ -159,7 +171,7 @@ void Test::testValidator() {
 }
 
 void Test::testService() {
-    LibraryDict repo;
+    LibraryDict repo{0};
     ShoppingCart cart;
     Service service(repo, cart);
 

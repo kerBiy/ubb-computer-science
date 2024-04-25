@@ -125,7 +125,8 @@ class LibraryDict : public AbstractLibrary {
     double probability;
 
   public:
-    LibraryDict();
+    explicit LibraryDict(double probability);
+
     ~LibraryDict() override = default;
     /**
      * Retrieves all books stored in the repository.
@@ -163,6 +164,8 @@ class LibraryDict : public AbstractLibrary {
      * @return Iterator pointing to the found book or end iterator if not found.
      */
     bool findBook(const std::string &title) override;
+
+    void throwError() const;
 };
 
 /*

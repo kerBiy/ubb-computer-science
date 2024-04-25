@@ -2,10 +2,10 @@
 #include "Console.hpp"
 
 int main() {
-//    Test tests;
-//    tests.runAll();
+    Test tests;
+    tests.runAll();
 
-    LibraryDict lib;
+    LibraryFile lib{"../database/stock.txt"};
     ShoppingCart cart;
 
     Service service{lib, cart};
