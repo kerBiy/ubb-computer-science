@@ -1,0 +1,14 @@
+# ninja log v5
+1	46	1714338984336802994	CMakeFiles/RareMatrix.dir/src/Matrice.cpp.o	3ee3a8f3dccc8e1a
+2	42	1714338984332378952	CMakeFiles/RareMatrix.dir/tests/TestScurt.cpp.o	3b0203d83825e16e
+2	52	1714338984342457127	CMakeFiles/RareMatrix.dir/tests/TestExtins.cpp.o	ab7bfec75cc1d21b
+0	298	1714337094523320554	CMakeFiles/RareMatrix.dir/src/App.cpp.o	85b76dcd63a49c1
+52	82	1714338984371994588	RareMatrix	453acfba7b6639dc
+6	233	1714853854386188794	CMakeFiles/RareMatrix.dir/tests/TestScurt.cpp.o	3b0203d83825e16e
+6	234	1714853854387622059	CMakeFiles/RareMatrix.dir/tests/TestExtins.cpp.o	ab7bfec75cc1d21b
+4	234	1714853854387939636	CMakeFiles/RareMatrix.dir/src/Matrice.cpp.o	3ee3a8f3dccc8e1a
+234	1884	1714853856037169423	RareMatrix	453acfba7b6639dc
+6	211	1714929564388275404	CMakeFiles/RareMatrix.dir/tests/TestScurt.cpp.o	3b0203d83825e16e
+6	211	1714929564389851612	CMakeFiles/RareMatrix.dir/tests/TestExtins.cpp.o	ab7bfec75cc1d21b
+5	212	1714929564389692491	CMakeFiles/RareMatrix.dir/src/Matrice.cpp.o	3ee3a8f3dccc8e1a
+212	327	1714929564504333012	RareMatrix	453acfba7b6639dc

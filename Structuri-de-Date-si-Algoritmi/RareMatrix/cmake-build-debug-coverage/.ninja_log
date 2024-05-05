@@ -1,0 +1,6 @@
+# ninja log v5
+1	56	1714339018268250332	CMakeFiles/RareMatrix.dir/tests/TestScurt.cpp.o	3df703d47ded6214
+1	65	1714339018278599791	CMakeFiles/RareMatrix.dir/src/Matrice.cpp.o	abc0dc51deefe393
+2	66	1714339018281348922	CMakeFiles/RareMatrix.dir/tests/TestExtins.cpp.o	ecc247228a9ab69f
+0	338	1714339018552665664	CMakeFiles/RareMatrix.dir/src/App.cpp.o	9b44dd61531f9245
+338	367	1714339018582738401	RareMatrix	f0ca60cf893f95f7
