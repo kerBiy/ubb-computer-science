@@ -1,0 +1,5 @@
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/qt/cmake-build-debug/CMakeFiles/qt.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/qt/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/qt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/qt/cmake-build-debug/CMakeFiles/qt_autogen_timestamp_deps.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/qt/cmake-build-debug/CMakeFiles/qt_autogen.dir

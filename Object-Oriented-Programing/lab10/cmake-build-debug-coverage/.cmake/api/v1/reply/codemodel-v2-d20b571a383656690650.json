@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lab10",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "lab10::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab10-Debug-fa8c9c8d564d9f63b294.json",
+					"name" : "lab10",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab10_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab10_autogen-Debug-f46782ff222bec2add5d.json",
+					"name" : "lab10_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab10_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab10_autogen_timestamp_deps-Debug-cadcecd41bd44f5aeb99.json",
+					"name" : "lab10_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab10/cmake-build-debug-coverage",
+		"source" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab10"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
