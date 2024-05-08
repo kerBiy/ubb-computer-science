@@ -11,20 +11,20 @@ GUI::GUI(Service &service) : service{service} {
 }
 
 void GUI::componentsInit() {
-    auto *forms_widget = new QWidget;
+    auto *forms_widget = new QWidget{this};
     form_layout = new QFormLayout;
 
     title_text = new QLabel("The title is:");
-    title_input_box = new QLineEdit;
+    title_input_box = new QLineEdit(forms_widget);
 
     author_text = new QLabel("The author is:");
-    author_input_box = new QLineEdit;
+    author_input_box = new QLineEdit(forms_widget);
 
     genre_text = new QLabel("The genre is:");
-    genre_input_box = new QLineEdit;
+    genre_input_box = new QLineEdit(forms_widget);
 
     year_text = new QLabel("The year is:");
-    year_input_box = new QLineEdit;
+    year_input_box = new QLineEdit(forms_widget);
 
     form_layout->addRow(title_text, title_input_box);
     form_layout->addRow(author_text, author_input_box);
@@ -35,7 +35,7 @@ void GUI::componentsInit() {
     delete_btn = new QPushButton{"Delete"};
     update_btn = new QPushButton{"Update"};
 
-    search_btn = new QPushButton{"Search"};
+    search_btn = new QPushButton{"Search by title"};
     filter_year_btn = new QPushButton{"Filter by year"};
 
     sort_title_btn = new QPushButton{"Sort by title"};
@@ -155,7 +155,7 @@ void GUI::signalsInit() {
     QObject::connect(sort_title_btn, &QPushButton::clicked, [&]() {
         auto sorted_title = service.sortBooksLib(
             [&](const Book &a, const Book &b) {
-                return a.getTitle() > b.getTitle();
+                return a.getTitle() <= b.getTitle();
             });
 
         item_list->clear();
@@ -168,7 +168,7 @@ void GUI::signalsInit() {
     QObject::connect(sort_year_btn, &QPushButton::clicked, [&]() {
         auto sorted_title = service.sortBooksLib(
             [&](const Book &a, const Book &b) {
-                return a.getYear() > b.getYear();
+                return a.getYear() <= b.getYear();
             });
 
         item_list->clear();
@@ -195,6 +195,7 @@ void GUI::refreshItemList() {
         QString bookQString = toQString(book);
         item_list->addItem(bookQString);
     }
+    updateGenreButtons();
 }
 
 QString GUI::toQString(const Book &book) {
@@ -205,4 +206,45 @@ QString GUI::toQString(const Book &book) {
 
     QString bookQString = title + " " + author + " " + genre + " " + year;
     return bookQString;
+}
+
+// New function
+
+void GUI::updateGenreButtons() {
+    std::unordered_map<std::string, int> raport = service.getRaport();
+
+    for (const auto &entry : raport) {
+        const std::string &genre = entry.first;
+
+        auto it = genreButtons.find(genre);
+
+        if (it != genreButtons.end()) {
+            it->second->setText(QString::fromStdString(genre));
+        } else {
+            auto *genreButton = new QPushButton(QString::fromStdString(genre));
+            form_layout->addRow(genreButton);
+
+            QObject::connect(genreButton, &QPushButton::clicked, [&, genre]() {
+                int count = service.getRaport()[genre];
+                QMessageBox::information(this, "Report", QString("%1 books of genre %2").arg(count).arg(genre.c_str()));
+            });
+
+            genreButtons[genre] = genreButton;
+        }
+    }
+
+    for (auto it = genreButtons.begin(); it != genreButtons.end();) {
+        const std::string &genre = it->first;
+
+        if (raport.find(genre) == raport.end()) {
+            delete it->second;
+            it = genreButtons.erase(it);
+        } else {
+            ++it;
+        }
+    }
+}
+
+GUI::~GUI() {
+    delete item_list;
 }

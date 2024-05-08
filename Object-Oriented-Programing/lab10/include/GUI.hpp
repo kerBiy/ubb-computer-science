@@ -35,6 +35,8 @@ class GUI : public QWidget {
     QPushButton *undo_btn;
     QPushButton *close_btn;
 
+    std::unordered_map<std::string, QPushButton *> genreButtons;
+
     // Labels
 
     QLabel *title_text;
@@ -75,10 +77,16 @@ class GUI : public QWidget {
      * @return the QString containing all of the books information.
      */
     static QString toQString(const Book &book);
+
+    /*
+     * Add method to create genre buttons
+     */
+    void updateGenreButtons();
   public:
     /**
      * The constructor for the GUI class.
      * @param service the service reference that the class is gonna use.
      */
     explicit GUI(Service &service);
+    ~GUI();
 };
