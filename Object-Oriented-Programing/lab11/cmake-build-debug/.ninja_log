@@ -1,0 +1,23 @@
+# ninja log v5
+2	118	1715664286936602752	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug/lab11_autogen/mocs_compilation.cpp	b87d66b2cfe7e320
+13	41	1715664122558769618	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab10/cmake-build-debug/lab10_autogen/timestamp	d91e38bd4a5a6461
+118	911	1715664287730405370	CMakeFiles/lab11.dir/src/Test.cpp.o	1035524af0fef2d2
+119	965	1715664287784029379	CMakeFiles/lab11.dir/src/Repository.cpp.o	2c5915c2408a95db
+2	273	1715664555976337721	build.ninja	35f022aa4e23d94d
+797	1192	1715664288012976582	CMakeFiles/lab11.dir/src/Undo.cpp.o	ab3a1fd867551099
+13	41	1715664122558769618	lab10_autogen/timestamp	d91e38bd4a5a6461
+13	41	1715664122558769618	lab10_autogen/mocs_compilation.cpp	d91e38bd4a5a6461
+1352	1525	1715664124039485451	lab10	9fd0654518bb0e6a
+2	118	1715664286936602752	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug/lab11_autogen/timestamp	b87d66b2cfe7e320
+911	1302	1715664288123417702	CMakeFiles/lab11.dir/src/ConsoleSC.cpp.o	69d0ad30101dfe81
+2	118	1715664286936602752	lab11_autogen/timestamp	b87d66b2cfe7e320
+118	150	1715664286972957388	CMakeFiles/lab11.dir/lab11_autogen/mocs_compilation.cpp.o	ce254f7af1158d58
+1955	2108	1715664288929894213	lab11	b3fdd90bf64e4b8f
+13	41	1715664122558769618	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab10/cmake-build-debug/lab10_autogen/mocs_compilation.cpp	d91e38bd4a5a6461
+2	118	1715664286936602752	lab11_autogen/mocs_compilation.cpp	b87d66b2cfe7e320
+119	971	1715664287790983598	CMakeFiles/lab11.dir/src/Service.cpp.o	855cddd9422a155a
+118	1401	1715664288220197577	CMakeFiles/lab11.dir/src/main.cpp.o	632d0e73c30fbf40
+554	975	1715664287795877306	CMakeFiles/lab11.dir/src/Validator.cpp.o	cedce7add4555a34
+965	1954	1715664288773864312	CMakeFiles/lab11.dir/src/GUI.cpp.o	8d4b03f20df1cbfd
+150	796	1715664287616016235	CMakeFiles/lab11.dir/src/Console.cpp.o	a27007e13328f3c3
+119	550	1715664287370186347	CMakeFiles/lab11.dir/src/Book.cpp.o	5cd6664c109c6ac9

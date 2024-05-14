@@ -1,6 +1,7 @@
 Ciprian,Darie,roman,2000
-Balan,Darius,self-help,2010
 Claudiu,Balta,literature,1890
 Alex,Balta,roman,1920
 Timu,Iustin,literature,1900
 David,Aneci,crime,1950
+Cozma,Alex,roman,1900
+Balan,Darius,self-help,2010
