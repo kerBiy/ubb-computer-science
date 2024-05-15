@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> PruferDecode(std ::vector<int>& code, int n) {
+std::vector<int> PruferDecode(std::vector<int>& code, int n) {
     n++;
     std::vector<int> parent(n, -1);
     std::vector<int> degree(n, 1);
@@ -39,7 +39,7 @@ int main() {
     int n;
     in >> n;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; ++i) {
         int x;
         in >> x;
         v.push_back(x);
@@ -51,5 +51,6 @@ int main() {
     for (auto t : tree) {
         std::cout << t << " ";
     }
+    std::cout << "\n";
     return 0;
 }

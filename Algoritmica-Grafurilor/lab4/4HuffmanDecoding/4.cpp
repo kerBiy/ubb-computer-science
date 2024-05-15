@@ -64,7 +64,7 @@ int main() {
     std::map<char, int> frequencies;
     char ch;
     int freq;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; ++i) {
         in >> ch >> freq;
         frequencies[ch] = freq;
     }
