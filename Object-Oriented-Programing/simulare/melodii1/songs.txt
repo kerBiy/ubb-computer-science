@@ -1,0 +1,2 @@
+1,alex,balta,2
+5,ciprian,darie,10

@@ -1,0 +1,5 @@
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii1/cmake-build-debug/CMakeFiles/melodii1.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii1/cmake-build-debug/CMakeFiles/melodii1_autogen_timestamp_deps.dir
+/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii1/cmake-build-debug/CMakeFiles/melodii1_autogen.dir
