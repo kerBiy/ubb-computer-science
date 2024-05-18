@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <time.h>
 
 // 5. Write a C program that implements the boltz game. Exactly N 
 // processes (numbered 1 to N, where N is given) take turns incrementing 
@@ -30,17 +31,84 @@ int isBoltzNumber(int number) {
     return 0;
 }
 
-void boltz(int pipes[][2], int process, int nr) {
+void boltz(int pipes[][2], int index, int n) {
+    int number = 1;
+
+    int read_index = index % n;
+    int write_index = (index + 1) % n;
+
+    for (int i = 0; i < n; ++i) {
+        if (i != read_index) {
+            close(pipes[i][0]);
+        } 
+        if (i != write_index) {
+            close(pipes[i][1]);
+        }
+    }
+
+    if (index == 0) {
+        printf("The game has started!\n");
+        write(pipes[write_index][1], &number, sizeof(int));
+    }
     
+    while (1) {
+        read(pipes[read_index][0], &number, sizeof(int));
+
+        if (number == 0) {
+            write(pipes[write_index][1], &number, sizeof(int));
+            break;
+        }
+        
+        number++;
+
+        if (isBoltzNumber(number)) {
+            int success = rand() % 3;
+            
+            if (success) {
+                printf("The player %d said Boltz!!!\n", index + 1);
+            } else {
+                printf("%d faild!\n", number);
+                number = 0;
+            }
+        } else {
+            printf("The player %d said %d\n", index + 1, number);
+        }
+        
+        write(pipes[write_index][1], &number, sizeof(int));
+    }
+    wait(0);
+    close(pipes[read_index][0]);
+    close(pipes[write_index][1]);
 }
 
 int main() {
-    int pipes[10][2];
     int n = 10;
+    int pipes[n][2];
 
     for (int i = 0; i < n; ++i) {
-        pipe(pipes[i]);
+        if (pipe(pipes[i]) < 0) {
+            perror("The pipe %d is bloked.\n");
+            exit(1);
+        }
     }
-    boltz(pipes, 0, n);
+
+    srand(time(NULL));
+
+    int i;
+    for (i = 0; i < n; ++i) {
+        int f = fork();
+
+        if (f == -1) {
+            perror("The fork has faild\n");
+            exit(1);
+        } else if (f != 0) {
+            break;
+        } 
+    }
+    
+    if (i < n) {
+        boltz(pipes, i, n);
+    }
+
     return 0;
 }
