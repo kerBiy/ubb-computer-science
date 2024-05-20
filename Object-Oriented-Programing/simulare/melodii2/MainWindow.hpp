@@ -34,6 +34,7 @@ class MainWindow : public QMainWindow {
 
     QPushButton *btnAdd;
     QPushButton *btnDelete;
+    QPushButton *btnUpdate;
 
     void setupLayout();
     void setupSignals();

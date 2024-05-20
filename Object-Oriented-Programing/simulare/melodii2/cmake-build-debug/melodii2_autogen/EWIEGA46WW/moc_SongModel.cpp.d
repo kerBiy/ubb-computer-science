@@ -841,9 +841,9 @@
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/xlocale/_time.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdarg.h \
+  /Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/Entity.hpp \
   /Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/Repository.hpp \
   /Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/Service.hpp \
-  /Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/Song.hpp \
   /opt/homebrew/Cellar/qt/6.7.0_1/lib/QtCore.framework/Versions/A/Headers/QAbstractTableModel \
   /opt/homebrew/Cellar/qt/6.7.0_1/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /opt/homebrew/Cellar/qt/6.7.0_1/lib/QtCore.framework/Versions/A/Headers/q20memory.h \

@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "Song.hpp"
+#include "Entity.hpp"
 #include <utility>
 #include <vector>
 
@@ -16,7 +16,7 @@ class Repository {
     void loadFromFile();
     void writeToFile();
   public:
-    Repository(std::string file_name) : file_name(std::move(file_name)) {
+    explicit Repository(std::string file_name) : file_name(std::move(file_name)) {
         loadFromFile();
     }
 
@@ -24,5 +24,6 @@ class Repository {
 
     void addSong(const Song &song);
     void deleteSong(int id);
+    void updateSong(int id, const Song &new_song);
     bool findSong(int id);
 };

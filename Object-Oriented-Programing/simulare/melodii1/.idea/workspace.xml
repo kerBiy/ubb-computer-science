@@ -21,52 +21,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="775c705a-3dfe-4906-87c1-f1161e244fab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/melodii1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entity.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entity.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainWindow.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainWindow.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repository.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repository.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Service.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SongModel.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SongModel.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/songs.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/MainWindow.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/MainWindow.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/Repository.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/Repository.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/Service.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/Service.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/Song.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/SongModel.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/SongModel.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../melodii2/songs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab10/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab10/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/.cmake/api/v1/reply/cache-v2-534c3ab28fc784247dc6.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/.cmake/api/v1/reply/codemodel-v2-2e3de843030aba1e1daa.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/.cmake/api/v1/reply/index-2024-05-14T05-29-15-0987.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/CMakeFiles/clion-Debug-Coverage-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/CMakeFiles/clion-Debug-Coverage-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/CMakeFiles/rules.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug-coverage/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/.cmake/api/v1/reply/cache-v2-ad861381b068f39311c1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-bb85dc1640bb7c3f83b7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/.cmake/api/v1/reply/index-2024-05-14T05-29-15-0994.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/.cmake/api/v1/reply/target-lab11-Debug-42fc276ebe104943155d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../lab11/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../../lab11/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Sisteme-de-Operare/processes/site/5" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Sisteme-de-Operare/processes/site/5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Sisteme-de-Operare/processes/site/5.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Sisteme-de-Operare/processes/site/5.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/MainWindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/MainWindow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/MainWindow.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/MainWindow.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/Repository.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Repository.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/Repository.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Repository.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/Service.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Service.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/Service.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Service.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/Song.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Entity.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e4057d73e047b35076a1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.cmake/api/v1/reply/index-2024-05-18T12-58-33-0848.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.cmake/api/v1/reply/target-melodii2-Debug-534827fcf56c51af49c2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/d/8004858bf8570278ce1da9e37ef7fddbf08f21ec2f054698e57777ca30d83e53.d" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/d/8004858bf8570278ce1da9e37ef7fddbf08f21ec2f054698e57777ca30d83e53.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/MainWindow.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/MainWindow.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Repository.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Repository.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Service.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Service.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/SongModel.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/SongModel.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/melodii2_autogen/mocs_compilation.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/melodii2_autogen/mocs_compilation.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/AutogenInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/AutogenInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/ParseCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_MainWindow.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_MainWindow.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_SongModel.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_SongModel.cpp.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/deps" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../melodii2/songs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/songs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +138,8 @@
       <workItem from="1716021431489" duration="971000" />
       <workItem from="1716022410619" duration="5602000" />
       <workItem from="1716033448151" duration="7303000" />
+      <workItem from="1716120958373" duration="619000" />
+      <workItem from="1716126798968" duration="714000" />
     </task>
     <servers />
   </component>

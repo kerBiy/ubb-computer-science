@@ -18,7 +18,7 @@ class Service {
 
     int generateUniqId();
   public:
-    Service(Repository &repo) : repo(repo) {}
+    explicit Service(Repository &repo) : repo(repo) {}
 
     int getLen() { return repo.getAll().size(); }
 
@@ -27,6 +27,8 @@ class Service {
     void addSong(const std::string &title, const std::string &artist, const std::string &genre);
 
     void deleteSong(int id);
+
+    void updateSong(int id, const std::string &title, const std::string &artist, const std::string &genre);
 
     std::map<std::string, int> raportArtist();
 

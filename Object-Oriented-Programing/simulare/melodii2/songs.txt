@@ -1,5 +1,2 @@
-1,alex,balta,folk
-4,balan,darius,pop
-6,david,timu,disco
-7,ciprian,darie,rock
-8,iustin,timu,rock
+2,lksadgjlk,lksajgl,rock
+3,lksadgjlk,lksajgl,rock

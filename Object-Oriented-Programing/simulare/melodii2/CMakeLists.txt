@@ -14,7 +14,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable(melodii2 main.cpp
-        Song.hpp
+        Entity.hpp
         Repository.cpp
         Repository.hpp
         Service.cpp

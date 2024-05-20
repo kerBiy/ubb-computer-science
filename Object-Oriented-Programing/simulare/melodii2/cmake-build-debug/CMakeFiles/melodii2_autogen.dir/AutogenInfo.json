@@ -314,6 +314,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/Entity.hpp",
+			"MU",
+			"EWIEGA46WW/moc_Entity.cpp",
+			null
+		],
+		[
 			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/MainWindow.hpp",
 			"MU",
 			"EWIEGA46WW/moc_MainWindow.cpp",
@@ -329,12 +335,6 @@
 			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/Service.hpp",
 			"MU",
 			"EWIEGA46WW/moc_Service.cpp",
-			null
-		],
-		[
-			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/melodii2/Song.hpp",
-			"MU",
-			"EWIEGA46WW/moc_Song.cpp",
 			null
 		],
 		[

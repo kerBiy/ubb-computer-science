@@ -35,6 +35,22 @@ void Service::deleteSong(int id) {
     repo.deleteSong(id);
 }
 
+void Service::updateSong(int id, const std::string &title,
+                         const std::string &artist, const std::string &genre) {
+    if (!repo.findSong(id)) {
+        throw ServiceException("The song doesn't exist");
+    }
+    if (title.empty() || artist.empty() || genre.empty()) {
+        throw ServiceException("You cannot enter a empty string.");
+    }
+    if (!(genre == "pop" || genre == "rock" || genre == "folk" || genre == "disco")) {
+        throw ServiceException("The genre should be pop, rock, folk or disco.");
+    }
+
+    Song new_song(id, title, artist, genre);
+    repo.updateSong(id, new_song);
+}
+
 std::map<std::string, int> Service::raportArtist() {
     std::map<std::string, int> res;
 

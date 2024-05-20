@@ -29,9 +29,11 @@ void MainWindow::setupLayout() {
 
     btnAdd = new QPushButton("Add", this);
     btnDelete = new QPushButton("Delete", this);
+    btnUpdate = new QPushButton("Update", this);
 
     formLayout->addWidget(btnAdd);
     formLayout->addWidget(btnDelete);
+    formLayout->addWidget(btnUpdate);
 
     mainLayout->addWidget(tableView);
     mainLayout->addLayout(formLayout);
@@ -40,6 +42,17 @@ void MainWindow::setupLayout() {
 }
 
 void MainWindow::setupSignals() {
+    connect(tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this]() {
+        const auto selected = tableView->selectionModel()->selectedRows();
+
+        if (selected.isEmpty()) return;
+
+        const auto index = selected.first();
+        inputTitle->setText(model->data(model->index(index.row(), 1)).toString());
+        inputArtist->setText(model->data(model->index(index.row(), 2)).toString());
+        inputGenre->setText(model->data(model->index(index.row(), 3)).toString());
+    });
+
     connect(btnAdd, &QPushButton::clicked, this, [this]() {
         QString title = inputTitle->text();
         QString artist = inputArtist->text();
@@ -59,11 +72,38 @@ void MainWindow::setupSignals() {
 
         if (selected.isEmpty()) return;
 
+        try {
+            std::vector<int> ids;
+            for (const auto index : selected) {
+                const auto id = model->data(model->index(index.row(), 0)).toInt();
+                ids.push_back(id);
+            }
+
+            for (const auto id : ids) {
+                service.deleteSong(id);
+            }
+
+            model->updateModel();
+            update();
+        } catch (const ServiceException &e) {
+            QMessageBox::warning(this, "Warning", e.what());
+        }
+    });
+
+    connect(btnUpdate, &QPushButton::clicked, this, [this] {
+        const auto selected = tableView->selectionModel()->selectedRows();
+
+        if (selected.isEmpty()) return;
+
         const auto index = selected.first();
         const auto id = model->data(model->index(index.row(), 0)).toInt();
 
+        QString title = inputTitle->text();
+        QString artist = inputArtist->text();
+        QString genre = inputGenre->text();
+
         try {
-            service.deleteSong(id);
+            service.updateSong(id, title.toStdString(), artist.toStdString(), genre.toStdString());
             model->updateModel();
             update();
         } catch (const ServiceException &e) {

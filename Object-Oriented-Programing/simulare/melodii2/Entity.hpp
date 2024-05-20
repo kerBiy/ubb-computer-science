@@ -21,4 +21,8 @@ class Song {
     std::string getTitle() const { return title; }
     std::string getArtist() const { return artist; }
     std::string getGenre() const { return genre; }
+
+    void setTitle(const std::string &new_title) { title = new_title; }
+    void setArtist(const std::string &new_artist) { artist = new_artist; }
+    void setGenre(const std::string &new_genre) { genre = new_genre; }
 };

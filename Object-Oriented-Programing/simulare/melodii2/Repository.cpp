@@ -58,18 +58,30 @@ void Repository::addSong(const Song &song) {
 }
 
 void Repository::deleteSong(int id) {
-    auto it = std::find_if(items.begin(), items.end(), [id](const Song &s) {
-        return s.getId() == id;
-    });
+    auto it = std::find_if(items.begin(), items.end(),
+                           [id](const Song &s) {
+                               return s.getId() == id;
+                           });
 
     items.erase(it);
     writeToFile();
 }
 
+void Repository::updateSong(int id, const Song &new_song) {
+    auto it = std::find_if(items.begin(), items.end(),
+                           [id](const Song &s) {
+                               return s.getId() == id;
+                           });
+
+    *it = new_song;
+    writeToFile();
+}
+
 bool Repository::findSong(int id) {
-    auto it = std::find_if(items.begin(), items.end(), [id](const Song &s) {
-        return s.getId() == id;
-    });
+    auto it = std::find_if(items.begin(), items.end(),
+                           [id](const Song &s) {
+                               return s.getId() == id;
+                           });
 
     return it != items.end();
 }
