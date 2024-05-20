@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "tasks",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "tasks::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tasks-Debug-35cf97aa8ff5066eb36b.json",
+					"name" : "tasks",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tasks_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tasks_autogen-Debug-4b911b72cf65532d2271.json",
+					"name" : "tasks_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tasks_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tasks_autogen_timestamp_deps-Debug-93fb23a3b334318e3e30.json",
+					"name" : "tasks_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug",
+		"source" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

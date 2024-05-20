@@ -1,0 +1,5 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -G Ninja -S /Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks -B /Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug
+-- Could NOT find WrapVulkanHeaders (missing: Vulkan_INCLUDE_DIR) 
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug

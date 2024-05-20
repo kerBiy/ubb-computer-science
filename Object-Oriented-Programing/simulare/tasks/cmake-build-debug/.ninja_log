@@ -1,0 +1,11 @@
+# ninja log v5
+11	41	1716200206734324528	tasks_autogen/timestamp	6806d697ca785bf0
+42	492	1716199745461869143	CMakeFiles/tasks.dir/Repository.cpp.o	9fc91cfce6a14d27
+11	41	1716200206734324528	tasks_autogen/mocs_compilation.cpp	6806d697ca785bf0
+11	41	1716200206734324528	/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug/tasks_autogen/mocs_compilation.cpp	6806d697ca785bf0
+42	605	1716200207294514304	CMakeFiles/tasks.dir/Test.cpp.o	c083d53c0922a397
+11	41	1716200206734324528	/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug/tasks_autogen/timestamp	6806d697ca785bf0
+605	765	1716200207454775399	tasks	437999a77ccb3727
+58	87	1716194899671096840	CMakeFiles/tasks.dir/tasks_autogen/mocs_compilation.cpp.o	40b40bd634b17559
+44	623	1716199988637466321	CMakeFiles/tasks.dir/Service.cpp.o	1af9d30d8dc33c50
+42	848	1716199745815525328	CMakeFiles/tasks.dir/main.cpp.o	e2645b4f1391162e
