@@ -1,6 +1,7 @@
 #include "Matrice.h"
 
 #include <stdexcept>
+#include <iostream>
 
 /*
  * TABELA DE DISPERSIE
@@ -10,7 +11,11 @@ int HashMap::hashFunction(int line, int column) const {
     return (line * 31 + column) % capacity;
 }
 
-HashMap::HashMap(int capacity) : capacity{capacity}, size{0}, buckets{new Node *[capacity]} {}
+HashMap::HashMap(int capacity) : capacity{capacity}, size{0}, buckets{new Node *[capacity]} {
+    for (int i = 0; i < capacity; ++i) {
+        buckets[i] = nullptr;
+    }
+}
 
 HashMap::~HashMap() {
     for (int i = 0; i < capacity; ++i) {
@@ -49,6 +54,30 @@ int HashMap::getValue(int linie, int coloana) const {
     return 0;
 }
 
+HashMap &HashMap::operator=(HashMap &&other) noexcept {
+    if (this == &other) return *this;
+
+    for (int i = 0; i < capacity; ++i) {
+        Node *current = buckets[i];
+        while (current != nullptr) {
+            Node *temp = current;
+            current = current->next;
+            delete temp;
+        }
+    }
+    delete[] buckets;
+
+    capacity = other.capacity;
+    size = other.size;
+    buckets = other.buckets;
+
+    other.capacity = 0;
+    other.size = 0;
+    other.buckets = nullptr;
+
+    return *this;
+}
+
 /*
  * MATRICE RARA
  */
@@ -85,4 +114,21 @@ TElem Matrice::modifica(int i, int j, TElem new_value) {
     table.insert(Triplet(i, j, new_value));
 
     return old_value;
+}
+
+void Matrice::transpusa() {
+    HashMap newTable(column_count * line_count);
+
+    for (int i = 0; i < table.getCapacity(); ++i) {
+        Node *current = table.getBuckets()[i];
+        while (current != nullptr) {
+            Triplet triplet = current->triplet;
+
+            newTable.insert(Triplet(triplet.column, triplet.line, triplet.value));
+            current = current->next;
+        }
+    }
+
+    std::swap(line_count, column_count);
+    table = std::move(newTable);
 }

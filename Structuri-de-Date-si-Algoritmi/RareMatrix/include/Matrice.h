@@ -38,6 +38,8 @@ class HashMap {
     int hashFunction(int line, int column) const;
 
   public:
+    int getCapacity() { return capacity; }
+    Node **getBuckets() { return buckets; }
     /**
      * The constructor for the hash map.
      * @param capacity the max size for the hashmap array.
@@ -65,6 +67,9 @@ class HashMap {
      * @complexity O(n), where n is the number of elements with the same hash.
      */
     int getValue(int linie, int coloana) const;
+
+    // Move assignment operator
+    HashMap &operator=(HashMap &&other) noexcept;
 };
 
 class Matrice {
@@ -121,4 +126,10 @@ class Matrice {
      * @complexity O(n), where n is the number of elements with the same hash.
      */
     TElem modifica(int i, int j, TElem new_value);
+
+    /**
+     * Modifies the matrix into it's transposition
+     * @complexity O(n), where n is all of the not null elements
+     */
+    void transpusa();
 };

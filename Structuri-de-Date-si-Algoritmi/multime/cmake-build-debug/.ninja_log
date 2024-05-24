@@ -1,56 +1,7 @@
 # ninja log v5
-3	138	1710855449309579812	CMakeFiles/multime.dir/src/IteratorMultime.cpp.o	bdec1ec68044b1ac
-1	160	1710855308613892612	CMakeFiles/multime.dir/tests/TestScurt.cpp.o	1734f6b9bea48994
-1	165	1710855308618649960	CMakeFiles/multime.dir/tests/TestExtins.cpp.o	18a8da48d835ece6
-2	409	1710855449579601374	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-1	159	1710855308612453395	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-409	503	1710855449672987705	multime	1246fc121893587b
-5	148	1710855624182142344	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-148	243	1710855624275816957	multime	1246fc121893587b
-6	142	1710855890925019375	CMakeFiles/multime.dir/src/IteratorMultime.cpp.o	bdec1ec68044b1ac
-6	143	1710855890926397885	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-143	236	1710855891018068381	multime	1246fc121893587b
-<<<<<<< HEAD
-1	2897	1710961352723192018	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-2897	4497	1710961354321966945	multime	1246fc121893587b
-3	144	1711002318943208297	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-5	144	1711002318942233447	CMakeFiles/multime.dir/src/IteratorMultime.cpp.o	bdec1ec68044b1ac
-5	144	1711002318943618911	CMakeFiles/multime.dir/tests/TestScurt.cpp.o	1734f6b9bea48994
-5	148	1711002318948160168	CMakeFiles/multime.dir/tests/TestExtins.cpp.o	18a8da48d835ece6
-148	257	1711002319055267684	multime	1246fc121893587b
-1	39	1711002424786239018	CMakeFiles/multime.dir/src/IteratorMultime.cpp.o	bdec1ec68044b1ac
-1	44	1711002424789199316	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-2	51	1711002424798597156	CMakeFiles/multime.dir/tests/TestScurt.cpp.o	1734f6b9bea48994
-2	54	1711002424801545496	CMakeFiles/multime.dir/tests/TestExtins.cpp.o	18a8da48d835ece6
-54	87	1711002424833591833	multime	1246fc121893587b
-2	30	1711003506353458062	CMakeFiles/multime.dir/src/IteratorMultime.cpp.o	bdec1ec68044b1ac
-2	47	1711003506370570518	CMakeFiles/multime.dir/tests/TestScurt.cpp.o	1734f6b9bea48994
-3	51	1711003506374802113	CMakeFiles/multime.dir/tests/TestExtins.cpp.o	18a8da48d835ece6
-1	316	1711003506638086196	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-2	28	1711003520508797289	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-28	60	1711003520539806246	multime	1246fc121893587b
-1	277	1711003535117517111	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-277	307	1711003535147724923	multime	1246fc121893587b
-2	239	1711003543347150212	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-239	267	1711003543375642487	multime	1246fc121893587b
-6	186	1711004005218726020	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
-5	468	1711004005499050645	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-468	575	1711004005607978714	multime	1246fc121893587b
 2	34	1711004106367986050	CMakeFiles/multime.dir/src/IteratorMultime.cpp.o	bdec1ec68044b1ac
-2	40	1711004106373554500	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
 2	53	1711004106387433795	CMakeFiles/multime.dir/tests/TestScurt.cpp.o	1734f6b9bea48994
 2	57	1711004106391050476	CMakeFiles/multime.dir/tests/TestExtins.cpp.o	18a8da48d835ece6
-1	291	1711004106625222716	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-291	324	1711004106657419818	multime	1246fc121893587b
-1	302	1711004216210183663	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-302	333	1711004216240773298	multime	1246fc121893587b
-2	292	1711004223253835531	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-292	322	1711004223283655855	multime	1246fc121893587b
-1	256	1711004230308815355	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-256	286	1711004230340174009	multime	1246fc121893587b
-2	289	1711004243108759352	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
-289	321	1711004243140553493	multime	1246fc121893587b
 1	464	1711008259690454080	CMakeFiles/multime.dir/src/App.cpp.o	9f482544af962182
+2	40	1711004106373554500	CMakeFiles/multime.dir/src/Multime.cpp.o	a1f97156ec57a241
 464	586	1711008259812244608	multime	1246fc121893587b
-=======
->>>>>>> origin/main

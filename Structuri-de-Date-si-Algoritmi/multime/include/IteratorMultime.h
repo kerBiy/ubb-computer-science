@@ -10,7 +10,6 @@
 class IteratorMultime {
     friend class Multime;
 
-<<<<<<< HEAD
 private:
     // TO(1)
     IteratorMultime(const Multime &m);

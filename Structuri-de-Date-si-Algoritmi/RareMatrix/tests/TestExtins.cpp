@@ -89,9 +89,37 @@ void testExceptii() {
     }
 }
 
+void testTranspusa() {
+    Matrice mat(3, 3);
+    mat.modifica(0, 0, 1);
+    mat.modifica(0, 1, 2);
+    mat.modifica(0, 2, 3);
+    mat.modifica(1, 0, 4);
+    mat.modifica(1, 1, 5);
+    mat.modifica(1, 2, 6);
+    mat.modifica(2, 0, 7);
+    mat.modifica(2, 1, 8);
+    mat.modifica(2, 2, 9);
+
+    mat.transpusa();
+
+    assert(mat.nrLinii() == 3);
+    assert(mat.nrColoane() == 3);
+    assert(mat.element(0, 0) == 1);
+    assert(mat.element(1, 0) == 2);
+    assert(mat.element(2, 0) == 3);
+    assert(mat.element(0, 1) == 4);
+    assert(mat.element(1, 1) == 5);
+    assert(mat.element(2, 1) == 6);
+    assert(mat.element(0, 2) == 7);
+    assert(mat.element(1, 2) == 8);
+    assert(mat.element(2, 2) == 9);
+}
+
 void testAllExtins() {
     testCreeaza();
     testAdauga();
     testQuantity();
     testExceptii();
+    testTranspusa();
 }
