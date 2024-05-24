@@ -1,0 +1,10 @@
+1,rochie 1,S,9000,True
+2,rochie 2,M,4000,True
+3,rochie 3,XL,2000,False
+4,rochie 4,L,10000,True
+5,rochie 5,S,100,False
+6,rochie 6,S,100,True
+7,rochie 7,M,100,False
+8,rochie 8,XXL,100,True
+9,rochie 9,L,100,True
+10,rochie 10,S,100,False

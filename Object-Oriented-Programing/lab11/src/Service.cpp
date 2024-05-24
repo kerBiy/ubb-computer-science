@@ -96,9 +96,12 @@ void Service::addBookCart(const std::string &title) {
         throw ServiceError("There is not book with this title to add in the shopping cart.");
     }
 
-    auto it = std::find_if(library.getBooks().begin(), library.getBooks().end(), [&title](const Book &book) {
-        return book.getTitle() == title;
-    });
+    auto books = library.getBooks();
+    
+    auto it = std::find_if(books.begin(), books.end(),
+                           [&title](const Book &book) {
+                               return book.getTitle() == title;
+                           });
 
     shopping_cart.addBook(*it);
 }

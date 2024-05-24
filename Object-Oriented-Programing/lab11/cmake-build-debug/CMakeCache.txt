@@ -323,15 +323,6 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 WrapOpenGL_AGL:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/AGL.framework
 
 //Value Computed by CMake
-lab10_BINARY_DIR:STATIC=/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug
-
-//Value Computed by CMake
-lab10_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-lab10_SOURCE_DIR:STATIC=/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11
-
-//Value Computed by CMake
 lab11_BINARY_DIR:STATIC=/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug
 
 //Value Computed by CMake

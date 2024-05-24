@@ -4,32 +4,27 @@
 
 #include "GUI.hpp"
 
-GUI::GUI(Service &service) : service{service} {
-    componentsInit();
-    signalsInit();
-    refreshItemList();
+GUI::GUI(Service &service, QWidget *parent) : QMainWindow(parent), service{service} {
+    initLayout();
+    connectSignals();
+    updateGenreButtons();
 }
 
-void GUI::componentsInit() {
-    auto *forms_widget = new QWidget{this};
+void GUI::initLayout() {
+    main_widget = new QWidget(this);
+    main_layout = new QHBoxLayout(main_widget);
+
     form_layout = new QFormLayout;
 
-    title_text = new QLabel("The title is:");
-    title_input_box = new QLineEdit(forms_widget);
+    input_title = new QLineEdit(this);
+    input_author = new QLineEdit(this);
+    input_genre = new QLineEdit(this);
+    input_year = new QLineEdit(this);
 
-    author_text = new QLabel("The author is:");
-    author_input_box = new QLineEdit(forms_widget);
-
-    genre_text = new QLabel("The genre is:");
-    genre_input_box = new QLineEdit(forms_widget);
-
-    year_text = new QLabel("The year is:");
-    year_input_box = new QLineEdit(forms_widget);
-
-    form_layout->addRow(title_text, title_input_box);
-    form_layout->addRow(author_text, author_input_box);
-    form_layout->addRow(genre_text, genre_input_box);
-    form_layout->addRow(year_text, year_input_box);
+    form_layout->addRow(new QLabel("The title is:"), input_title);
+    form_layout->addRow(new QLabel("The author is:"), input_author);
+    form_layout->addRow(new QLabel("The genre is:"), input_genre);
+    form_layout->addRow(new QLabel("The year is:"), input_year);
 
     add_btn = new QPushButton{"Add"};
     delete_btn = new QPushButton{"Delete"};
@@ -43,7 +38,7 @@ void GUI::componentsInit() {
 
     undo_btn = new QPushButton{"Undo"};
     refresh_btn = new QPushButton{"Refresh"};
-    close_btn = new QPushButton{"Close"};
+    close_btn = new QPushButton{"Shopping Cart"};
 
     auto *button_widget_crud = new QHBoxLayout;
     button_widget_crud->addWidget(add_btn);
@@ -67,146 +62,136 @@ void GUI::componentsInit() {
     form_layout->addRow(button_widget_filter);
     form_layout->addRow(button_widget_sort);
 
-    forms_widget->setLayout(form_layout);
+    table_view = new QTableView(this);
+    model = new TableModel(service, this);
+    table_view->setModel(model);
+    table_view->setMinimumWidth(400);
 
-    auto *list_widget = new QWidget;
-    item_list = new QListWidget;
+    auto *table_layout = new QVBoxLayout;
+    table_layout->addWidget(table_view);
+    table_layout->addLayout(button_widget_options);
 
-    auto *layoutList = new QVBoxLayout;
-    layoutList->addWidget(item_list);
-    layoutList->addItem(button_widget_options);
+    main_layout->addLayout(form_layout);
+    main_layout->addLayout(table_layout);
 
-    list_widget->setLayout(layoutList);
-
-    auto *main_layout = new QHBoxLayout;
-    main_layout->addWidget(forms_widget);
-    main_layout->addWidget(list_widget);
-
-    this->setLayout(main_layout);
+    this->setCentralWidget(main_widget);
 }
 
-void GUI::signalsInit() {
-    QObject::connect(add_btn, &QPushButton::clicked, [&]() {
+void GUI::connectSignals() {
+    connect(table_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this]() {
+        const auto selected = table_view->selectionModel()->selectedRows();
+
+        if (selected.isEmpty()) return;
+
+        const auto index = selected.first();
+        input_title->setText(model->data(model->index(index.row(), 0)).toString());
+        input_author->setText(model->data(model->index(index.row(), 1)).toString());
+        input_genre->setText(model->data(model->index(index.row(), 2)).toString());
+        input_year->setText(model->data(model->index(index.row(), 3)).toString());
+    });
+
+    QObject::connect(add_btn, &QPushButton::clicked, [this]() {
         try {
-            service.addBookLib(title_input_box->text().toStdString(), author_input_box->text().toStdString(),
-                               genre_input_box->text().toStdString(), year_input_box->text().toInt());
-            refreshItemList();
+            service.addBookLib(input_title->text().toStdString(), input_author->text().toStdString(),
+                               input_genre->text().toStdString(), input_year->text().toInt());
+            model->refreshModel();
+            updateGenreButtons();
+
             QMessageBox::information(this, "Succes", "The element was added");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
     });
 
-    QObject::connect(delete_btn, &QPushButton::clicked, [&]() {
+    QObject::connect(delete_btn, &QPushButton::clicked, [this]() {
+        const auto selected = table_view->selectionModel()->selectedRows();
+
+        if (selected.isEmpty()) return;
+
+        const auto index = selected.first();
+        const auto Qname = model->data(model->index(index.row(), 0)).toString();
+
         try {
-            service.deleteBookLib(title_input_box->text().toStdString());
-            refreshItemList();
+            service.deleteBookLib(Qname.toStdString());
+            model->refreshModel();
+            updateGenreButtons();
+
             QMessageBox::information(this, "Succes", "The element was deleted");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
     });
 
-    QObject::connect(update_btn, &QPushButton::clicked, [&]() {
+    QObject::connect(update_btn, &QPushButton::clicked, [this]() {
         try {
-            service.updateBookLib(title_input_box->text().toStdString(), author_input_box->text().toStdString(),
-                                  genre_input_box->text().toStdString(), year_input_box->text().toInt());
-            refreshItemList();
+            service.updateBookLib(input_title->text().toStdString(), input_author->text().toStdString(),
+                                  input_genre->text().toStdString(), input_year->text().toInt());
+            model->refreshModel();
+            updateGenreButtons();
+
             QMessageBox::information(this, "Succes", "The element was updated");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
     });
 
-    QObject::connect(close_btn, &QPushButton::clicked, [&]() {
-        QApplication::quit();
-    });
-
-    QObject::connect(search_btn, &QPushButton::clicked, [&]() {
+    QObject::connect(search_btn, &QPushButton::clicked, [this]() {
         try {
-            auto books = service.findBooksLib(title_input_box->text().toStdString());
-            item_list->clear();
-
-            for (const auto &book : books) {
-                QString bookQString = toQString(book);
-                item_list->addItem(bookQString);
-            }
+            auto books = service.findBooksLib(input_title->text().toStdString());
+            model->setRecords(books);
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
     });
 
-    QObject::connect(refresh_btn, &QPushButton::clicked, [&]() {
-        refreshItemList();
-    });
-
-    QObject::connect(filter_year_btn, &QPushButton::clicked, [&]() {
+    QObject::connect(filter_year_btn, &QPushButton::clicked, [this]() {
         try {
-            auto filter_year = service.filterBooksLib(year_input_box->text().toInt());
-            item_list->clear();
-            for (const auto &book : filter_year) {
-                QString bookQString = toQString(book);
-                item_list->addItem(bookQString);
-            }
+            auto filter_year = service.filterBooksLib(input_year->text().toInt());
+            model->setRecords(filter_year);
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
     });
 
-    QObject::connect(sort_title_btn, &QPushButton::clicked, [&]() {
+    QObject::connect(sort_title_btn, &QPushButton::clicked, [this]() {
         auto sorted_title = service.sortBooksLib(
             [&](const Book &a, const Book &b) {
                 return a.getTitle() <= b.getTitle();
             });
 
-        item_list->clear();
-        for (const auto &book : sorted_title) {
-            QString bookQString = toQString(book);
-            item_list->addItem(bookQString);
-        }
+        model->setRecords(sorted_title);
     });
 
-    QObject::connect(sort_year_btn, &QPushButton::clicked, [&]() {
-        auto sorted_title = service.sortBooksLib(
+    QObject::connect(sort_year_btn, &QPushButton::clicked, [this]() {
+        auto sorted_year = service.sortBooksLib(
             [&](const Book &a, const Book &b) {
                 return a.getYear() <= b.getYear();
             });
 
-        item_list->clear();
-        for (const auto &book : sorted_title) {
-            QString bookQString = toQString(book);
-            item_list->addItem(bookQString);
-        }
+        model->setRecords(sorted_year);
     });
 
-    QObject::connect(undo_btn, &QPushButton::clicked, [&]() {
+    QObject::connect(close_btn, &QPushButton::clicked, [this]() {
+        auto *window = new ShoppingCartWindow(service);
+        window->show();
+    });
+
+    QObject::connect(refresh_btn, &QPushButton::clicked, [this]() {
+        model->refreshModel();
+        updateGenreButtons();
+    });
+
+    QObject::connect(undo_btn, &QPushButton::clicked, [this]() {
         try {
             service.undo();
-            refreshItemList();
+            model->refreshModel();
+            updateGenreButtons();
+
             QMessageBox::information(this, "Succes", "The last operation was undone");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
     });
-}
-
-void GUI::refreshItemList() {
-    item_list->clear();
-    for (const Book &book : service.getAllLib()) {
-        QString bookQString = toQString(book);
-        item_list->addItem(bookQString);
-    }
-    updateGenreButtons();
-}
-
-QString GUI::toQString(const Book &book) {
-    auto title = QString::fromStdString(book.getTitle());
-    auto author = QString::fromStdString(book.getAuthor());
-    auto genre = QString::fromStdString(book.getGenre());
-    auto year = QString::number(book.getYear());
-
-    QString bookQString = title + " " + author + " " + genre + " " + year;
-    return bookQString;
 }
 
 // New function
@@ -246,36 +231,4 @@ void GUI::updateGenreButtons() {
             ++it;
         }
     }
-}
-
-GUI::~GUI() {
-    delete item_list;
-
-    for (auto &entry : genreButtons) {
-        delete entry.second;
-    }
-
-    genreButtons.clear();
-
-    delete add_btn;
-    delete delete_btn;
-    delete update_btn;
-    delete search_btn;
-    delete filter_year_btn;
-    delete sort_title_btn;
-    delete sort_year_btn;
-    delete undo_btn;
-    delete refresh_btn;
-    delete close_btn;
-
-    delete title_text;
-    delete title_input_box;
-    delete author_text;
-    delete author_input_box;
-    delete genre_text;
-    delete genre_input_box;
-    delete year_text;
-    delete year_input_box;
-
-    delete form_layout;
 }

@@ -1,5 +1,4 @@
 #include "Test.hpp"
-#include "Console.hpp"
 #include "GUI.hpp"
 
 #include <QApplication>
@@ -14,10 +13,8 @@ int main(int argc, char **argv) {
     ShoppingCart cart;
 
     Service service{lib, cart};
-//    Console ui{service};
-//    ui.run();
 
-    GUI gui{service};
+    GUI gui(service);
     gui.setWindowTitle("Library");
     gui.show();
 

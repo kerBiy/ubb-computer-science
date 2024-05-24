@@ -314,9 +314,9 @@
 	"HEADERS" : 
 	[
 		[
-			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include/GUIShoppingCart.hpp",
+			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include/ShoppingCartWindow.hpp",
 			"MU",
-			"6YEA5652QU/moc_GUIShoppingCart.cpp",
+			"6YEA5652QU/moc_ShoppingCartWindow.cpp",
 			null
 		]
 	],
@@ -383,17 +383,7 @@
 			null
 		],
 		[
-			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/ConsoleSC.cpp",
-			"MU",
-			null
-		],
-		[
 			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/GUI.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/GUIShoppingCart.cpp",
 			"MU",
 			null
 		],
@@ -404,6 +394,16 @@
 		],
 		[
 			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Service.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/ShoppingCartWindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/TableModel.cpp",
 			"MU",
 			null
 		],

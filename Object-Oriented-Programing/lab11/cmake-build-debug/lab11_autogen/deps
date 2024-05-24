@@ -41,12 +41,14 @@ lab11_autogen/timestamp: \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug/CMakeFiles/3.28.1/CMakeCCompiler.cmake \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug/CMakeFiles/3.28.1/CMakeSystem.cmake \
+	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include/ShoppingCartWindow.hpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Book.cpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Console.cpp \
-	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/ConsoleSC.cpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/GUI.cpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Repository.cpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Service.cpp \
+	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/ShoppingCartWindow.cpp \
+	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/TableModel.cpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Test.cpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Undo.cpp \
 	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Validator.cpp \

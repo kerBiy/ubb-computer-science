@@ -6,8 +6,6 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
-
 set(SOURCES
         src/main.cpp
         src/Test.cpp
@@ -17,10 +15,10 @@ set(SOURCES
         src/Console.cpp
         src/Validator.cpp
         src/Undo.cpp
-        src/ConsoleSC.cpp
+        src/TableModel.cpp
         src/GUI.cpp
-        src/GUIShoppingCart.cpp
-        include/GUIShoppingCart.hpp
+        src/ShoppingCartWindow.cpp
+        include/ShoppingCartWindow.hpp
 )
 
 add_executable(lab11 ${SOURCES})
@@ -33,10 +31,11 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
-        REQUIRED)
+        REQUIRED
+)
 
 target_link_libraries(lab11
-        Qt::Core
-        Qt::Gui
-        Qt::Widgets
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Widgets
 )

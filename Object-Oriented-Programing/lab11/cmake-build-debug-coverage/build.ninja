@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_lab11: phony || lab11_autogen lab11_auto
 build CMakeFiles/lab11.dir/lab11_autogen/mocs_compilation.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/lab11_autogen/mocs_compilation.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/lab11_autogen
@@ -60,7 +60,7 @@ build CMakeFiles/lab11.dir/lab11_autogen/mocs_compilation.cpp.o: CXX_COMPILER__l
 build CMakeFiles/lab11.dir/src/main.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/main.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/main.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -68,7 +68,7 @@ build CMakeFiles/lab11.dir/src/main.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /
 build CMakeFiles/lab11.dir/src/Test.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Test.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/Test.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -76,7 +76,7 @@ build CMakeFiles/lab11.dir/src/Test.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /
 build CMakeFiles/lab11.dir/src/Book.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Book.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/Book.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -84,7 +84,7 @@ build CMakeFiles/lab11.dir/src/Book.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /
 build CMakeFiles/lab11.dir/src/Repository.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Repository.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/Repository.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -92,7 +92,7 @@ build CMakeFiles/lab11.dir/src/Repository.cpp.o: CXX_COMPILER__lab11_unscanned_D
 build CMakeFiles/lab11.dir/src/Service.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Service.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/Service.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -100,7 +100,7 @@ build CMakeFiles/lab11.dir/src/Service.cpp.o: CXX_COMPILER__lab11_unscanned_Debu
 build CMakeFiles/lab11.dir/src/Console.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Console.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/Console.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -108,7 +108,7 @@ build CMakeFiles/lab11.dir/src/Console.cpp.o: CXX_COMPILER__lab11_unscanned_Debu
 build CMakeFiles/lab11.dir/src/Validator.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Validator.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/Validator.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -116,15 +116,15 @@ build CMakeFiles/lab11.dir/src/Validator.cpp.o: CXX_COMPILER__lab11_unscanned_De
 build CMakeFiles/lab11.dir/src/Undo.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/Undo.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/Undo.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
 
-build CMakeFiles/lab11.dir/src/ConsoleSC.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/ConsoleSC.cpp || cmake_object_order_depends_target_lab11
+build CMakeFiles/lab11.dir/src/TableModel.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/TableModel.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/lab11.dir/src/ConsoleSC.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  DEP_FILE = CMakeFiles/lab11.dir/src/TableModel.cpp.o.d
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -132,15 +132,15 @@ build CMakeFiles/lab11.dir/src/ConsoleSC.cpp.o: CXX_COMPILER__lab11_unscanned_De
 build CMakeFiles/lab11.dir/src/GUI.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/GUI.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/lab11.dir/src/GUI.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
 
-build CMakeFiles/lab11.dir/src/GUIShoppingCart.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/GUIShoppingCart.cpp || cmake_object_order_depends_target_lab11
+build CMakeFiles/lab11.dir/src/ShoppingCartWindow.cpp.o: CXX_COMPILER__lab11_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/src/ShoppingCartWindow.cpp || cmake_object_order_depends_target_lab11
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
-  DEP_FILE = CMakeFiles/lab11.dir/src/GUIShoppingCart.cpp.o.d
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  DEP_FILE = CMakeFiles/lab11.dir/src/ShoppingCartWindow.cpp.o.d
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
   INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab11/cmake-build-debug-coverage/lab11_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
   OBJECT_DIR = CMakeFiles/lab11.dir
   OBJECT_FILE_DIR = CMakeFiles/lab11.dir/src
@@ -153,8 +153,8 @@ build CMakeFiles/lab11.dir/src/GUIShoppingCart.cpp.o: CXX_COMPILER__lab11_unscan
 #############################################
 # Link the executable lab11
 
-build lab11: CXX_EXECUTABLE_LINKER__lab11_Debug CMakeFiles/lab11.dir/lab11_autogen/mocs_compilation.cpp.o CMakeFiles/lab11.dir/src/main.cpp.o CMakeFiles/lab11.dir/src/Test.cpp.o CMakeFiles/lab11.dir/src/Book.cpp.o CMakeFiles/lab11.dir/src/Repository.cpp.o CMakeFiles/lab11.dir/src/Service.cpp.o CMakeFiles/lab11.dir/src/Console.cpp.o CMakeFiles/lab11.dir/src/Validator.cpp.o CMakeFiles/lab11.dir/src/Undo.cpp.o CMakeFiles/lab11.dir/src/ConsoleSC.cpp.o CMakeFiles/lab11.dir/src/GUI.cpp.o CMakeFiles/lab11.dir/src/GUIShoppingCart.cpp.o | /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore || lab11_autogen lab11_autogen_timestamp_deps
-  FLAGS = -fcoverage-mapping -fprofile-instr-generate -Wall -Wextra -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk
+build lab11: CXX_EXECUTABLE_LINKER__lab11_Debug CMakeFiles/lab11.dir/lab11_autogen/mocs_compilation.cpp.o CMakeFiles/lab11.dir/src/main.cpp.o CMakeFiles/lab11.dir/src/Test.cpp.o CMakeFiles/lab11.dir/src/Book.cpp.o CMakeFiles/lab11.dir/src/Repository.cpp.o CMakeFiles/lab11.dir/src/Service.cpp.o CMakeFiles/lab11.dir/src/Console.cpp.o CMakeFiles/lab11.dir/src/Validator.cpp.o CMakeFiles/lab11.dir/src/Undo.cpp.o CMakeFiles/lab11.dir/src/TableModel.cpp.o CMakeFiles/lab11.dir/src/GUI.cpp.o CMakeFiles/lab11.dir/src/ShoppingCartWindow.cpp.o | /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore || lab11_autogen lab11_autogen_timestamp_deps
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets  /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui  /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore  -framework IOKit  -framework DiskArbitration  -framework OpenGL  -framework AGL  -framework AppKit  -framework ImageIO  -framework Metal
   LINK_PATH = -F/opt/homebrew/lib
   OBJECT_DIR = CMakeFiles/lab11.dir
@@ -212,7 +212,7 @@ build lab11_autogen/timestamp lab11_autogen/mocs_compilation.cpp | ${cmake_ninja
 #############################################
 # Phony custom command for CMakeFiles/lab11_autogen_timestamp_deps
 
-build CMakeFiles/lab11_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/lab11_autogen_timestamp_deps: phony /opt/homebrew/share/qt/libexec/moc /opt/homebrew/share/qt/libexec/uic
+build CMakeFiles/lab11_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/lab11_autogen_timestamp_deps: phony /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/share/qt/libexec/uic /opt/homebrew/share/qt/libexec/moc
 
 
 #############################################

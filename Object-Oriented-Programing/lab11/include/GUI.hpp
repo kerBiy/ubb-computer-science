@@ -4,7 +4,8 @@
 
 #pragma once
 
-#include "Service.hpp"
+#include "TableModel.hpp"
+#include "ShoppingCartWindow.hpp"
 
 #include <QApplication>
 #include <QPushButton>
@@ -16,10 +17,12 @@
 #include <QMessageBox>
 #include <QDialog>
 #include <QTableWidget>
+#include <QMainWindow>
 
-class GUI : public QWidget {
+class GUI : public QMainWindow {
   private:
     Service &service;
+    TableModel *model;
 
     // Buttons
 
@@ -38,46 +41,32 @@ class GUI : public QWidget {
 
     std::unordered_map<std::string, QPushButton *> genreButtons;
 
-    // Labels
-
-    QLabel *title_text;
-    QLabel *author_text;
-    QLabel *genre_text;
-    QLabel *year_text;
-
     // Input Boxes
 
-    QLineEdit *title_input_box;
-    QLineEdit *author_input_box;
-    QLineEdit *genre_input_box;
-    QLineEdit *year_input_box;
+    QLineEdit *input_title;
+    QLineEdit *input_author;
+    QLineEdit *input_genre;
+    QLineEdit *input_year;
 
     // Layout and Widget
 
     QFormLayout *form_layout;
-    QListWidget *item_list;
+    QTableView *table_view;
+
+    // Main shit
+
+    QWidget *main_widget;
+    QHBoxLayout *main_layout;
 
     /**
      * Allocates the components and constructs the layout of the GUI.
      */
-    void componentsInit();
+    void initLayout();
 
     /**
      * Gives functionality to the buttons.
      */
-    void signalsInit();
-
-    /**
-     * Refreshes the list of books.
-     */
-    void refreshItemList();
-
-    /**
-     * Converts from a book to a QString.
-     * @param book the book you want to convert.
-     * @return the QString containing all of the books information.
-     */
-    static QString toQString(const Book &book);
+    void connectSignals();
 
     /*
      * Add method to create genre buttons
@@ -88,7 +77,5 @@ class GUI : public QWidget {
      * The constructor for the GUI class.
      * @param service the service reference that the class is gonna use.
      */
-    explicit GUI(Service &service);
-
-    ~GUI() override;
+    explicit GUI(Service &service, QWidget *parent = nullptr);
 };
