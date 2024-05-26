@@ -6,6 +6,7 @@
 
 #include "TableModel.hpp"
 #include "ShoppingCartWindow.hpp"
+#include "ShoppingCartDrawing.hpp"
 
 #include <QApplication>
 #include <QHeaderView>
@@ -36,11 +37,16 @@ class GUI : public QMainWindow {
     QPushButton *sort_title_btn;
     QPushButton *sort_year_btn;
 
+    QPushButton *add_cart_btn;
+    QPushButton *delete_cart_btn;
+    QPushButton *populate_cart_btn;
+
     QPushButton *refresh_btn;
     QPushButton *undo_btn;
-    QPushButton *close_btn;
+    QPushButton *cart_window_btn;
+    QPushButton *cart_drawing_btn;
 
-    std::unordered_map<std::string, QPushButton *> genreButtons;
+    std::unordered_map<std::string, QPushButton *> genre_buttons;
 
     // Input Boxes
 
@@ -48,6 +54,7 @@ class GUI : public QMainWindow {
     QLineEdit *input_author;
     QLineEdit *input_genre;
     QLineEdit *input_year;
+    QSlider *input_count;
 
     // Layout and Widget
 

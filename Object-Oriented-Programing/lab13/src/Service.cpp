@@ -97,13 +97,14 @@ void Service::addBookCart(const std::string &title) {
     }
 
     auto books = library.getBooks();
-    
+
     auto it = std::find_if(books.begin(), books.end(),
                            [&title](const Book &book) {
                                return book.getTitle() == title;
                            });
 
     shopping_cart.addBook(*it);
+    notify();
 }
 
 void Service::deleteCart() {
@@ -112,6 +113,7 @@ void Service::deleteCart() {
     }
 
     shopping_cart.deleteAllBooks();
+    notify();
 }
 
 void Service::populateRandomCart(size_t book_count) {
@@ -126,6 +128,7 @@ void Service::populateRandomCart(size_t book_count) {
         int random_number = distribution(gen);
         shopping_cart.addBook(library.getBooks()[random_number]);
     }
+    notify();
 }
 
 void Service::exportHTML(const std::string &filename) {

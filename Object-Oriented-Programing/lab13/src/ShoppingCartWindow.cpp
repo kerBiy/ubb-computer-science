@@ -4,13 +4,6 @@
 
 #include "ShoppingCartWindow.hpp"
 
-ShoppingCartWindow::ShoppingCartWindow(Service &service, QWidget *parent)
-    : QWidget(parent), service(service) {
-    initLayout();
-    connectSignals();
-    refreshList();
-}
-
 void ShoppingCartWindow::initLayout() {
     main_layout = new QVBoxLayout(this);
     list_widget = new QListWidget(this);
@@ -40,6 +33,8 @@ void ShoppingCartWindow::initLayout() {
 }
 
 void ShoppingCartWindow::connectSignals() {
+    service.addListener(this);
+
     connect(btn_add, &QPushButton::clicked, [this]() {
         std::string title = input_name->text().toStdString();
 

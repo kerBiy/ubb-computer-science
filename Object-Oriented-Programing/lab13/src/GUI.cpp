@@ -20,11 +20,14 @@ void GUI::initLayout() {
     input_author = new QLineEdit(this);
     input_genre = new QLineEdit(this);
     input_year = new QLineEdit(this);
+    input_count = new QSlider(Qt::Horizontal, this);
+    input_count->setRange(1, 10);
 
     form_layout->addRow(new QLabel("The title is:"), input_title);
     form_layout->addRow(new QLabel("The author is:"), input_author);
     form_layout->addRow(new QLabel("The genre is:"), input_genre);
     form_layout->addRow(new QLabel("The year is:"), input_year);
+    form_layout->addRow(new QLabel("The count is:"), input_count);
 
     add_btn = new QPushButton{"Add"};
     delete_btn = new QPushButton{"Delete"};
@@ -36,9 +39,14 @@ void GUI::initLayout() {
     sort_title_btn = new QPushButton{"Sort by title"};
     sort_year_btn = new QPushButton{"Sort by year"};
 
+    add_cart_btn = new QPushButton{"Add to Cart"};
+    delete_cart_btn = new QPushButton{"Delete Cart"};
+    populate_cart_btn = new QPushButton{"Populate Cart"};
+
     undo_btn = new QPushButton{"Undo"};
     refresh_btn = new QPushButton{"Refresh"};
-    close_btn = new QPushButton{"Shopping Cart"};
+    cart_window_btn = new QPushButton{"Shopping Cart"};
+    cart_drawing_btn = new QPushButton{"Cart Drawing"};
 
     auto *button_widget_crud = new QHBoxLayout;
     button_widget_crud->addWidget(add_btn);
@@ -49,18 +57,25 @@ void GUI::initLayout() {
     button_widget_filter->addWidget(search_btn);
     button_widget_filter->addWidget(filter_year_btn);
 
+    auto *button_widget_cart = new QHBoxLayout;
+    button_widget_cart->addWidget(add_cart_btn);
+    button_widget_cart->addWidget(delete_cart_btn);
+    button_widget_cart->addWidget(populate_cart_btn);
+
     auto *button_widget_sort = new QHBoxLayout;
     button_widget_sort->addWidget(sort_title_btn);
     button_widget_sort->addWidget(sort_year_btn);
 
     auto *button_widget_options = new QHBoxLayout;
-    button_widget_options->addWidget(close_btn);
+    button_widget_options->addWidget(cart_window_btn);
+    button_widget_options->addWidget(cart_drawing_btn);
     button_widget_options->addWidget(refresh_btn);
     button_widget_options->addWidget(undo_btn);
 
     form_layout->addRow(button_widget_crud);
     form_layout->addRow(button_widget_filter);
     form_layout->addRow(button_widget_sort);
+    form_layout->addRow(button_widget_cart);
 
     table_view = new QTableView(this);
     model = new TableModel(service, this);
@@ -79,7 +94,7 @@ void GUI::initLayout() {
 }
 
 void GUI::connectSignals() {
-    connect(table_view->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this]() {
+    connect(table_view->selectionModel(), &QItemSelectionModel::selectionChanged, [this]() {
         const auto selected = table_view->selectionModel()->selectedRows();
 
         if (selected.isEmpty()) return;
@@ -169,8 +184,52 @@ void GUI::connectSignals() {
         model->setRecords(sorted_year);
     });
 
-    QObject::connect(close_btn, &QPushButton::clicked, [this]() {
+    QObject::connect(add_cart_btn, &QPushButton::clicked, [this]() {
+        const auto selected = table_view->selectionModel()->selectedRows();
+
+        if (selected.isEmpty()) return;
+
+        const auto index = selected.first();
+        const auto Qname = model->data(model->index(index.row(), 0)).toString();
+
+        try {
+            service.addBookCart(Qname.toStdString());
+
+            QMessageBox::information(this, "Succes", "The element was added to cart");
+        } catch (const std::exception &error) {
+            QMessageBox::warning(this, "Error", error.what());
+        }
+    });
+
+    QObject::connect(delete_cart_btn, &QPushButton::clicked, [this]() {
+        try {
+            service.deleteCart();
+
+            QMessageBox::information(this, "Succes", "The element was added to cart");
+        } catch (const std::exception &error) {
+            QMessageBox::warning(this, "Error", error.what());
+        }
+    });
+
+    QObject::connect(populate_cart_btn, &QPushButton::clicked, [this]() {
+        int count = input_count->value();
+
+        try {
+            service.populateRandomCart(count);
+
+            QMessageBox::information(this, "Succes", "The element was added to cart");
+        } catch (const std::exception &error) {
+            QMessageBox::warning(this, "Error", error.what());
+        }
+    });
+
+    QObject::connect(cart_window_btn, &QPushButton::clicked, [this]() {
         auto *window = new ShoppingCartWindow(service);
+        window->show();
+    });
+
+    QObject::connect(cart_drawing_btn, &QPushButton::clicked, [this]() {
+        auto *window = new ShoppingCartDrawing(service);
         window->show();
     });
 
@@ -196,20 +255,14 @@ void GUI::generateGenreButtons() {
     for (const auto &entry : raport) {
         const std::string &genre = entry.first;
 
-        auto it = genreButtons.find(genre);
+        auto *genreButton = new QPushButton(QString::fromStdString(genre));
+        form_layout->addRow(genreButton);
 
-        if (it != genreButtons.end()) {
-            it->second->setText(QString::fromStdString(genre));
-        } else {
-            auto *genreButton = new QPushButton(QString::fromStdString(genre));
-            form_layout->addRow(genreButton);
+        QObject::connect(genreButton, &QPushButton::clicked, [&, genre]() {
+            int count = service.getRaport()[genre];
+            QMessageBox::information(this, "Report", QString("%1 books of genre %2").arg(count).arg(genre.c_str()));
+        });
 
-            QObject::connect(genreButton, &QPushButton::clicked, [&, genre]() {
-                int count = service.getRaport()[genre];
-                QMessageBox::information(this, "Report", QString("%1 books of genre %2").arg(count).arg(genre.c_str()));
-            });
-
-            genreButtons[genre] = genreButton;
-        }
+        genre_buttons[genre] = genreButton;
     }
 }

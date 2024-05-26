@@ -5,16 +5,18 @@
 
 #include "Undo.hpp"
 #include "Validator.hpp"
+#include "Observer.hpp"
 
 #include <functional>
 #include <unordered_map>
+#include <random>
 
 class ServiceError : public std::runtime_error {
   public:
     explicit ServiceError(const std::string &message) : std::runtime_error(message) {}
 };
 
-class Service {
+class Service : public Subject {
   private:
     AbstractLibrary &library; // Reference to a Repository object
     ShoppingCart &shopping_cart; // Reference to a Shopping Cart object

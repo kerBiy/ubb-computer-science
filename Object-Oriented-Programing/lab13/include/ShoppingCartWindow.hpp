@@ -5,6 +5,7 @@
 #pragma once
 
 #include "Service.hpp"
+
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QLineEdit>
@@ -16,7 +17,7 @@
 #include <QTableWidget>
 #include <QMainWindow>
 
-class ShoppingCartWindow : public QWidget {
+class ShoppingCartWindow : public QWidget, public Observer {
   private:
     Service &service;
 
@@ -25,7 +26,6 @@ class ShoppingCartWindow : public QWidget {
     QVBoxLayout *main_layout;
 
     QLineEdit *input_name;
-//    QLineEdit *input_count;
     QSlider *input_count;
 
     QPushButton *btn_add;
@@ -38,5 +38,19 @@ class ShoppingCartWindow : public QWidget {
     void connectSignals();
     void refreshList();
   public:
-    explicit ShoppingCartWindow(Service &service, QWidget *parent = nullptr);
+    explicit ShoppingCartWindow(Service &service, QWidget *parent = nullptr)
+        : QWidget(parent), service(service) {
+        initLayout();
+        connectSignals();
+        refreshList();
+    }
+
+    void update() override {
+        refreshList();
+    }
+
+  protected:
+    void closeEvent(QCloseEvent *event) override {
+        service.deleteListener(this);
+    }
 };
