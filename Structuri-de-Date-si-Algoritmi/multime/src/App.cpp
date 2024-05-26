@@ -3,17 +3,13 @@
 #include "TestExtins.h"
 #include "TestScurt.h"
 
-<<<<<<< HEAD
-#include "Multime.h"
-#include "IteratorMultime.h"
+//#include "Multime.h"
+//#include "IteratorMultime.h"
 
-=======
->>>>>>> origin/main
 int main() {
     testAll();
     testAllExtins();
 
-<<<<<<< HEAD
 //    Multime mult;
 //    mult.adauga(1);
 //    mult.adauga(2);
@@ -33,9 +29,6 @@ int main() {
 //        iter.urmator();
 //    }
 
-
-=======
->>>>>>> origin/main
     std::cout << "All tests ran successfully.\n";
     return 0;
 }

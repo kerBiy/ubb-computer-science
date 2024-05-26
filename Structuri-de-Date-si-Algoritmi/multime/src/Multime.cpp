@@ -109,7 +109,6 @@ bool Multime::vida() const {
 IteratorMultime Multime::iterator() const {
     return IteratorMultime(*this);
 }
-<<<<<<< HEAD
 
 Multime Multime::intersection(Multime &other) {
     Multime output;
@@ -124,5 +123,3 @@ Multime Multime::intersection(Multime &other) {
 
     return output;
 }
-=======
->>>>>>> origin/main
