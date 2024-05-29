@@ -77,6 +77,7 @@ int main() {
 
     std::stringstream ss;
     ss << in.rdbuf();
+    
     std::string text = ss.str();
     in.close();
 

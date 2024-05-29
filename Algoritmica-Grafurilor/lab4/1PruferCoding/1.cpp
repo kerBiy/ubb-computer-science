@@ -13,6 +13,7 @@ std::vector<int> PruferCode(std::vector<int>& parent, int n) {
             degree[parent[i]]++;
         }
     }
+
     for (int i = 0; i < n; ++i) {
         if (degree[i] == 0 && parent[i] != -1) {
             leaves.insert(i);
@@ -26,7 +27,8 @@ std::vector<int> PruferCode(std::vector<int>& parent, int n) {
         int p = parent[leaf];
         code.push_back(p);
 
-        if (--degree[p] == 0 && parent[p] != -1) {
+        degree[p]--;
+        if (degree[p] == 0 && parent[p] != -1) {
             leaves.insert(p);
         }
     }
@@ -48,6 +50,7 @@ int main() {
         in >> x;
         parent.push_back(x);
     }
+    in.close();
 
     code = PruferCode(parent, n);
 
@@ -55,7 +58,7 @@ int main() {
     for (const auto& x : code) {
         std::cout << x << " ";
     }
+    std::cout << "\n";
 
-    in.close();
     return 0;
 }

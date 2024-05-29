@@ -23,8 +23,9 @@ std::vector<int> PruferDecode(std::vector<int>& code, int n) {
         if (degree[node] == 1 && node < ptr) {
             leaf = node;
         } else {
-            ptr++;
-            while (degree[ptr] != 1) ptr++;
+            do {
+                ptr++;
+            } while (degree[ptr] != 1);
             leaf = ptr;
         }
     }
@@ -44,6 +45,7 @@ int main() {
         in >> x;
         v.push_back(x);
     }
+    in.close();
 
     auto tree = PruferDecode(v, n);
 
@@ -52,5 +54,6 @@ int main() {
         std::cout << t << " ";
     }
     std::cout << "\n";
+
     return 0;
 }

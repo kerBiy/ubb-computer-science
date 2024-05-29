@@ -14,6 +14,7 @@ class UnionFind {
             parent[i] = i;
         }
     };
+
     int findNode(int node) {
         int root = node;
 
@@ -29,6 +30,7 @@ class UnionFind {
 
         return root;
     }
+
     void unionBetweenNodes(int nod1, int nod2) {
         int rad1 = findNode(nod1);
         int rad2 = findNode(nod2);
@@ -86,6 +88,7 @@ int main() {
         auto element = make_pair(pair, w);
         tree.push_back(element);
     }
+    in.close();
 
     auto tr = tree_sort(tree);
     auto T = Kruskal(tr, v);
@@ -101,6 +104,5 @@ int main() {
         std::cout << t.first.first << " " << t.first.second << " " << "\n";
     }
 
-    in.close();
     return 0;
 }
