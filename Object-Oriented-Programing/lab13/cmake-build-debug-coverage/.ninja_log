@@ -1,0 +1,19 @@
+# ninja log v5
+11	41	1716827745025526842	lab13_autogen/timestamp	42faec332d4109f
+42	1233	1716827746208198915	CMakeFiles/lab13.dir/src/main.cpp.o	72fd38d59939d20f
+11	41	1716827745025526842	lab13_autogen/mocs_compilation.cpp	42faec332d4109f
+11	41	1716827745025526842	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/lab13_autogen/mocs_compilation.cpp	42faec332d4109f
+145	1105	1716827198688151662	CMakeFiles/lab13.dir/src/Console.cpp.o	9fdec9a87afd66e
+79	1160	1716827198743942769	CMakeFiles/lab13.dir/src/Test.cpp.o	4faf2d935d4227eb
+1105	1600	1716827199185534274	CMakeFiles/lab13.dir/src/Undo.cpp.o	755c63e91dac27f5
+1455	1640	1716827746621572663	lab13	8396647f4d8342ba
+1160	2146	1716827199730536933	CMakeFiles/lab13.dir/src/TableModel.cpp.o	ceb54dc28be6244b
+78	145	1716827197731588232	CMakeFiles/lab13.dir/lab13_autogen/mocs_compilation.cpp.o	3b2f2910be16158
+43	1454	1716827746432234418	CMakeFiles/lab13.dir/src/GUI.cpp.o	dc4a0a33562a4180
+11	41	1716827745025526842	/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/lab13_autogen/timestamp	42faec332d4109f
+79	729	1716827198308910762	CMakeFiles/lab13.dir/src/Book.cpp.o	877ee9bfc84c3989
+79	1302	1716827198885094308	CMakeFiles/lab13.dir/src/Repository.cpp.o	4a3d0db7fbfd9ab5
+1352	2278	1716827199862227428	CMakeFiles/lab13.dir/src/ListModel.cpp.o	be890654a0e4ad1f
+79	1351	1716827198935541152	CMakeFiles/lab13.dir/src/Service.cpp.o	f3d8758928b5b465
+732	1222	1716827198806234084	CMakeFiles/lab13.dir/src/Validator.cpp.o	5a98d79443b9cb0
+1302	2521	1716827200102070141	CMakeFiles/lab13.dir/src/ShoppingCartWindow.cpp.o	86d4317d9a281d89

@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "Service.hpp"
+#include "ListModel.hpp"
 
 #include <QPushButton>
 #include <QHBoxLayout>
@@ -20,8 +20,9 @@
 class ShoppingCartWindow : public QWidget, public Observer {
   private:
     Service &service;
+    ListModel *list_model;
+    QListView *list_view;
 
-    QListWidget *list_widget;
     QFormLayout *form_layout;
     QVBoxLayout *main_layout;
 

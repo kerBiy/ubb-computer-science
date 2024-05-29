@@ -18,7 +18,8 @@ set(SOURCES
         src/TableModel.cpp
         src/GUI.cpp
         src/ShoppingCartWindow.cpp
-        include/ShoppingCartDrawing.hpp
+        src/ListModel.cpp
+        src/ShoppingCartDrawing.cpp
 )
 
 add_executable(lab13 ${SOURCES})

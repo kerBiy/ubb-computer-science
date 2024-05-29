@@ -179,7 +179,7 @@ void Vector<TElem>::push_back(const TElem &element) {
     if (len == capacity) {
         resizeList();
     }
-    
+
     items[len++] = element;
 }
 

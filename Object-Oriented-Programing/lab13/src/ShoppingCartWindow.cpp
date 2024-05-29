@@ -6,7 +6,10 @@
 
 void ShoppingCartWindow::initLayout() {
     main_layout = new QVBoxLayout(this);
-    list_widget = new QListWidget(this);
+
+    list_model = new ListModel(service, this);
+    list_view = new QListView(this);
+    list_view->setModel(list_model);
 
     form_layout = new QFormLayout;
     input_name = new QLineEdit(this);
@@ -28,7 +31,7 @@ void ShoppingCartWindow::initLayout() {
     form_layout->addRow(btn_export_html);
     form_layout->addRow(btn_export_csv);
 
-    main_layout->addWidget(list_widget);
+    main_layout->addWidget(list_view);
     main_layout->addLayout(form_layout);
 }
 
@@ -41,7 +44,7 @@ void ShoppingCartWindow::connectSignals() {
         try {
             service.addBookCart(title);
             refreshList();
-            QMessageBox::information(this, "Succes", "The element was added in the Shopping Cart");
+            QMessageBox::information(this, "Succes", "The element was added in the cart");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
@@ -51,7 +54,7 @@ void ShoppingCartWindow::connectSignals() {
         try {
             service.deleteCart();
             refreshList();
-            QMessageBox::information(this, "Succes", "The element was added in the Shopping Cart");
+            QMessageBox::information(this, "Succes", "All items were deleted from the cart");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
@@ -63,7 +66,7 @@ void ShoppingCartWindow::connectSignals() {
         try {
             service.populateRandomCart(count);
             refreshList();
-            QMessageBox::information(this, "Succes", "The element was added in the Shopping Cart");
+            QMessageBox::information(this, "Succes", "The items were added to the cart");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
@@ -72,7 +75,7 @@ void ShoppingCartWindow::connectSignals() {
     connect(btn_export_html, &QPushButton::clicked, [this]() {
         try {
             service.exportHTML("../database/export.html");
-            QMessageBox::information(this, "Succes", "The element was added in the Shopping Cart");
+            QMessageBox::information(this, "Succes", "The shopping cart was exported");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
@@ -81,7 +84,7 @@ void ShoppingCartWindow::connectSignals() {
     connect(btn_export_csv, &QPushButton::clicked, [this]() {
         try {
             service.exportCSV("../database/export.csv");
-            QMessageBox::information(this, "Succes", "The element was added in the Shopping Cart");
+            QMessageBox::information(this, "Succes", "The shopping cart was exported");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
@@ -89,9 +92,5 @@ void ShoppingCartWindow::connectSignals() {
 }
 
 void ShoppingCartWindow::refreshList() {
-    list_widget->clear();
-    for (const auto &item : service.getShoppingCart()) {
-        QString q_string = QString::fromStdString(item.intoString());
-        list_widget->addItem(q_string);
-    }
+    list_model->setRecords(service.getShoppingCart());
 }

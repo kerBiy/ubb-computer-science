@@ -46,8 +46,6 @@ class GUI : public QMainWindow {
     QPushButton *cart_window_btn;
     QPushButton *cart_drawing_btn;
 
-    std::unordered_map<std::string, QPushButton *> genre_buttons;
-
     // Input Boxes
 
     QLineEdit *input_title;

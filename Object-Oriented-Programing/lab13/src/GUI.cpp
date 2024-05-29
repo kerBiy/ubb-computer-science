@@ -205,7 +205,7 @@ void GUI::connectSignals() {
         try {
             service.deleteCart();
 
-            QMessageBox::information(this, "Succes", "The element was added to cart");
+            QMessageBox::information(this, "Succes", "All items were deleted from the cart");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
@@ -217,7 +217,7 @@ void GUI::connectSignals() {
         try {
             service.populateRandomCart(count);
 
-            QMessageBox::information(this, "Succes", "The element was added to cart");
+            QMessageBox::information(this, "Succes", "The items were added to the cart");
         } catch (const std::exception &error) {
             QMessageBox::warning(this, "Error", error.what());
         }
@@ -258,11 +258,12 @@ void GUI::generateGenreButtons() {
         auto *genreButton = new QPushButton(QString::fromStdString(genre));
         form_layout->addRow(genreButton);
 
-        QObject::connect(genreButton, &QPushButton::clicked, [&, genre]() {
+        QObject::connect(genreButton, &QPushButton::clicked, [this, raport, genre]() {
             int count = service.getRaport()[genre];
-            QMessageBox::information(this, "Report", QString("%1 books of genre %2").arg(count).arg(genre.c_str()));
-        });
 
-        genre_buttons[genre] = genreButton;
+            QMessageBox::information(this, "Report", QString::fromStdString(
+                std::to_string(count) + " books of genre " + genre)
+            );
+        });
     }
 }

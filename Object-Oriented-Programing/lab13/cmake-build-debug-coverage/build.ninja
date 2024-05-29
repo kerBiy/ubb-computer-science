@@ -145,6 +145,22 @@ build CMakeFiles/lab13.dir/src/ShoppingCartWindow.cpp.o: CXX_COMPILER__lab13_uns
   OBJECT_DIR = CMakeFiles/lab13.dir
   OBJECT_FILE_DIR = CMakeFiles/lab13.dir/src
 
+build CMakeFiles/lab13.dir/src/ListModel.cpp.o: CXX_COMPILER__lab13_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/src/ListModel.cpp || cmake_object_order_depends_target_lab13
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/lab13.dir/src/ListModel.cpp.o.d
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/lab13_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
+  OBJECT_DIR = CMakeFiles/lab13.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab13.dir/src
+
+build CMakeFiles/lab13.dir/src/ShoppingCartDrawing.cpp.o: CXX_COMPILER__lab13_unscanned_Debug /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/src/ShoppingCartDrawing.cpp || cmake_object_order_depends_target_lab13
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/lab13.dir/src/ShoppingCartDrawing.cpp.o.d
+  FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  INCLUDES = -I/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/include -isystem /Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/lab13_autogen/include -isystem /opt/homebrew/lib/QtCore.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/include -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers
+  OBJECT_DIR = CMakeFiles/lab13.dir
+  OBJECT_FILE_DIR = CMakeFiles/lab13.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target lab13
@@ -153,7 +169,7 @@ build CMakeFiles/lab13.dir/src/ShoppingCartWindow.cpp.o: CXX_COMPILER__lab13_uns
 #############################################
 # Link the executable lab13
 
-build lab13: CXX_EXECUTABLE_LINKER__lab13_Debug CMakeFiles/lab13.dir/lab13_autogen/mocs_compilation.cpp.o CMakeFiles/lab13.dir/src/main.cpp.o CMakeFiles/lab13.dir/src/Test.cpp.o CMakeFiles/lab13.dir/src/Book.cpp.o CMakeFiles/lab13.dir/src/Repository.cpp.o CMakeFiles/lab13.dir/src/Service.cpp.o CMakeFiles/lab13.dir/src/Console.cpp.o CMakeFiles/lab13.dir/src/Validator.cpp.o CMakeFiles/lab13.dir/src/Undo.cpp.o CMakeFiles/lab13.dir/src/TableModel.cpp.o CMakeFiles/lab13.dir/src/GUI.cpp.o CMakeFiles/lab13.dir/src/ShoppingCartWindow.cpp.o | /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore || lab13_autogen lab13_autogen_timestamp_deps
+build lab13: CXX_EXECUTABLE_LINKER__lab13_Debug CMakeFiles/lab13.dir/lab13_autogen/mocs_compilation.cpp.o CMakeFiles/lab13.dir/src/main.cpp.o CMakeFiles/lab13.dir/src/Test.cpp.o CMakeFiles/lab13.dir/src/Book.cpp.o CMakeFiles/lab13.dir/src/Repository.cpp.o CMakeFiles/lab13.dir/src/Service.cpp.o CMakeFiles/lab13.dir/src/Console.cpp.o CMakeFiles/lab13.dir/src/Validator.cpp.o CMakeFiles/lab13.dir/src/Undo.cpp.o CMakeFiles/lab13.dir/src/TableModel.cpp.o CMakeFiles/lab13.dir/src/GUI.cpp.o CMakeFiles/lab13.dir/src/ShoppingCartWindow.cpp.o CMakeFiles/lab13.dir/src/ListModel.cpp.o CMakeFiles/lab13.dir/src/ShoppingCartDrawing.cpp.o | /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore || lab13_autogen lab13_autogen_timestamp_deps
   FLAGS = -fcoverage-mapping -fprofile-instr-generate -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets  /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui  /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore  -framework IOKit  -framework DiskArbitration  -framework OpenGL  -framework AGL  -framework AppKit  -framework ImageIO  -framework Metal
   LINK_PATH = -F/opt/homebrew/lib
@@ -212,7 +228,7 @@ build lab13_autogen/timestamp lab13_autogen/mocs_compilation.cpp | ${cmake_ninja
 #############################################
 # Phony custom command for CMakeFiles/lab13_autogen_timestamp_deps
 
-build CMakeFiles/lab13_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/lab13_autogen_timestamp_deps: phony /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore /opt/homebrew/share/qt/libexec/moc /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/share/qt/libexec/uic /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets
+build CMakeFiles/lab13_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/lab13_autogen_timestamp_deps: phony /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui /opt/homebrew/share/qt/libexec/uic /opt/homebrew/share/qt/libexec/moc /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
 
 
 #############################################

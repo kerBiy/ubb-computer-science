@@ -311,15 +311,7 @@
 	"CMAKE_SOURCE_DIR" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13",
 	"DEP_FILE" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/lab13_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "lab13_autogen/timestamp",
-	"HEADERS" : 
-	[
-		[
-			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/include/ShoppingCartDrawing.hpp",
-			"MU",
-			"6YEA5652QU/moc_ShoppingCartDrawing.cpp",
-			null
-		]
-	],
+	"HEADERS" : [],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/lab13_autogen/include",
 	"MOC_COMPILATION_FILE" : "/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/lab13_autogen/mocs_compilation.cpp",
@@ -388,12 +380,22 @@
 			null
 		],
 		[
+			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/src/ListModel.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/src/Repository.cpp",
 			"MU",
 			null
 		],
 		[
 			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/src/Service.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/src/ShoppingCartDrawing.cpp",
 			"MU",
 			null
 		],
