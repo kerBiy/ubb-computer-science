@@ -1,42 +1,44 @@
 #include <fstream>
-#include <functional>
 #include <iostream>
 #include <queue>
 #include <utility>
 #include <vector>
 
 typedef std::pair<int, int> Edge;
+typedef std::vector<std::vector<Edge>> Graph;
 
-int Prim(const std::vector<std::vector<Edge>> &graph, int src) {
-    int v = graph.size();
-    std::vector<bool> visited(v, false);
-    std::priority_queue<Edge, std::vector<Edge>, std::greater<>> pq;
+int Prim(const Graph& graph, int src, int v, std::vector<Edge>& mst_edges) {
+    std::priority_queue<Edge, std::vector<Edge>, std::greater<Edge>> pq;
+    std::vector<bool> inMST(v, false);
+    std::vector<int> parent(v, -1);
+    int mst_cost = 0;
 
     pq.push({0, src});
-    int cost = 0;
-    int tree_edges = 0;
 
-    while (!pq.empty() && tree_edges < v - 1) {
+    while (!pq.empty()) {
         int weight = pq.top().first;
-        int u = pq.top().second;
+        int vertex = pq.top().second;
         pq.pop();
 
-        if (visited[u]) continue;
+        if (inMST[vertex]) continue;
 
-        visited[u] = true;
-        cost += weight;
-        tree_edges++;
+        mst_cost += weight;
+        inMST[vertex] = true;
 
-        for (const auto &edge : graph[u]) {
+        if (parent[vertex] != -1) {
+            mst_edges.push_back({parent[vertex], vertex});
+        }
+
+        for (const auto& edge : graph[vertex]) {
+            int next_vertex = edge.second;
             int next_weight = edge.first;
-            int v = edge.second;
-            if (!visited[v]) {
-                pq.push({next_weight, v});
+            if (!inMST[next_vertex]) {
+                pq.push({next_weight, next_vertex});
+                parent[next_vertex] = vertex;
             }
         }
     }
-
-    return cost;
+    return mst_cost;
 }
 
 int main() {
@@ -44,7 +46,7 @@ int main() {
 
     int v, e;
     in >> v >> e;
-    std::vector<std::vector<Edge>> graph(v);
+    Graph graph(v);
 
     for (int i = 0; i < e; ++i) {
         int x, y, w;
@@ -52,13 +54,16 @@ int main() {
         graph[x].push_back({w, y});
         graph[y].push_back({w, x});
     }
-
     in.close();
 
-    int src = 0;
-    int cost = Prim(graph, src);
+    std::vector<Edge> mst_edges;
+    int total_weight = Prim(graph, 0, v, mst_edges);
 
-    std::cout << cost << "\n";
+    std::cout << total_weight << "\n";
+    std::cout << mst_edges.size() << "\n";
+    for (const auto& edge : mst_edges) {
+        std::cout << edge.first << " " << edge.second << "\n";
+    }
 
     return 0;
 }
