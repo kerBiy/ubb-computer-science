@@ -6,7 +6,7 @@
 
 class EulerianCycle {
    public:
-    EulerianCycle(int n) : n(n), adj(n) {}
+    EulerianCycle(int n) : adj(n) {}
 
     void addEdge(int u, int v) {
         adj[u].push_back(v);
@@ -49,7 +49,6 @@ class EulerianCycle {
     }
 
    private:
-    int n;
     std::vector<std::list<int>> adj;
 };
 
