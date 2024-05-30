@@ -1,5 +1,0 @@
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug/CMakeFiles/tasks.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug/CMakeFiles/tasks_autogen_timestamp_deps.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/simulare/tasks/cmake-build-debug/CMakeFiles/tasks_autogen.dir
