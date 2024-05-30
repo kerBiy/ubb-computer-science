@@ -1,5 +1,0 @@
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/CMakeFiles/lab13.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/CMakeFiles/lab13_autogen_timestamp_deps.dir
-/Users/alexbalta/Developer/School/Object-Oriented-Programing/lab13/cmake-build-debug-coverage/CMakeFiles/lab13_autogen.dir

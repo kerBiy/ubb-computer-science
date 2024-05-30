@@ -1,3 +1,0 @@
-/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/cmake-build-debug-coverage/CMakeFiles/MDO.dir
-/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
-/Users/alexbalta/Developer/School/Structuri-de-Date-si-Algoritmi/MDO/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir
