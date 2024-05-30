@@ -1,3 +1,4 @@
 # This shit is anoying as fuck man
 **/.DS_Store
 .vscode
+cmake-build-*/
