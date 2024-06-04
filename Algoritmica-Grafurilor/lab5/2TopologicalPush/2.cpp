@@ -11,11 +11,11 @@ class TopologicalPush {
    public:
     TopologicalPush(int n)
         : n(n),
-          excess(n, 0),
-          height(n, 0),
-          capacity(n, std::vector<int>(n, 0)),
-          flow(n, std::vector<int>(n, 0)),
-          active(n, false) {}
+        excess(n, 0),
+        height(n, 0),
+        capacity(n, std::vector<int>(n, 0)),
+        flow(n, std::vector<int>(n, 0)),
+        active(n, false) {}
 
     void addEdge(int u, int v, int c) { capacity[u][v] = c; }
 
