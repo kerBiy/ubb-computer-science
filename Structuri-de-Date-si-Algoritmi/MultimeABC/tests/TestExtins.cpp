@@ -227,6 +227,42 @@ void testQuantity() {//scopul value sa adaugam multe date
     assert(m.dim() == 0);
 }
 
+void testNewFunction() {
+    Multime m;
+
+    // Basic Case
+    m.adauga(1);
+    m.adauga(2);
+    m.adauga(3);
+    m.adauga(4);
+    m.adauga(5);
+    assert(m.eliminaInterval(2, 4) == 3); // Elements 2, 3, 4 should be removed
+    assert(m.dim() == 2); // Remaining elements are 1, 5
+
+    // Edge Case: Range contains no elements present in the set
+    m.adauga(6);
+    m.adauga(7);
+    assert(m.eliminaInterval(8, 10) == 0); // No elements in the range [8, 10]
+    assert(m.dim() == 4); // Remaining elements are 1, 5, 6, 7
+
+    // Empty Multiset
+    Multime m2;
+    assert(m2.eliminaInterval(1, 5) == 0); // No elements to remove
+    assert(m2.dim() == 0); // Multime is still empty
+
+    // Single Element
+    m2.adauga(3);
+    assert(m2.eliminaInterval(3, 3) == 1); // Element 3 should be removed
+    assert(m2.dim() == 0); // Multime is empty again
+
+    // Non-overlapping Ranges
+    m.adauga(10);
+    m.adauga(20);
+    m.adauga(30);
+    assert(m.eliminaInterval(15, 25) == 1); // Only element 20 should be removed
+    assert(m.dim() == 6); // Remaining elements are 1, 5, 6, 7, 10, 30
+}
+
 // nu stim reprezentarea multimii, putem testa doar anumite lucruri generale, nu stim in ce ordine vor fi afisate elementele.
 void testAllExtins() {
 
@@ -235,7 +271,7 @@ void testAllExtins() {
     testSterge();
     testIterator();
     testQuantity();
-
+    testNewFunction();
 }
 
 

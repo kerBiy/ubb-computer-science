@@ -133,3 +133,17 @@ TreeNode *Multime::deleteMinim(TreeNode *node) {
     node->left = deleteMinim(node->left);
     return node;
 }
+
+int Multime::eliminaInterval(int a, int b) {
+    int count = 0;
+
+    for (int i = a; i <= b; ++i) {
+        bool isFound = sterge(i);
+
+        if (isFound) {
+            count++;
+        }
+    }
+
+    return count;
+}
