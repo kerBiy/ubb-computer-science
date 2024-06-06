@@ -69,6 +69,7 @@ void* handler(void* arg) {
     }
    
     printf("Thread %d has finished\n", d->id);
+    free(d);
     return NULL;
 }
 
@@ -108,6 +109,7 @@ int main(int argc, char **argv) {
     for (int i = 0; i < m; ++i) {
         pthread_mutex_destroy(&mutexes[i]);
     }
+    free(mutexes);
 
     return 0;
 }
