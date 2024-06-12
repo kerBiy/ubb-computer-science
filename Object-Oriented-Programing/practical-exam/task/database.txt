@@ -1,0 +1,7 @@
+1,A fullstack e-comers app.,Alex;Iustin;David;inprogress
+2,A frontend social media app.,Darius;Ciprian;Alex;open
+3,Fullstack app.,Alex;Darius;David;closed
+4,Nigger,Iustin;inprogress
+5,Build a minecraft server.,David;Ciprian;Indianul;closed
+10,Fuck your mom,Nigger;Alex;inprogress
+30,Idk,Alex;closed

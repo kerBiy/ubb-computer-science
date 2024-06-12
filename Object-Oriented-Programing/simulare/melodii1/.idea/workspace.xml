@@ -21,38 +21,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="775c705a-3dfe-4906-87c1-f1161e244fab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/MainWindow.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/MainWindow.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Model.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Model.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Service.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Service.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/database.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/MainWindow.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/MainWindow.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Model.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Model.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Observer.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Repository.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Repository.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Service.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Service.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/StatusWindow.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/StatusWindow.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Task.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Test.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/Test.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../practical-exam/task/database.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/.idea/nush.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../nush/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/.idea/qt.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../qt/main.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/MainWindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/MainWindow.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/MainWindow.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/MainWindow.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/Repository.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Repository.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/Repository.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Repository.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/Service.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Service.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/Service.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Service.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/Song.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/Entity.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e4057d73e047b35076a1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.cmake/api/v1/reply/index-2024-05-18T12-58-33-0848.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.cmake/api/v1/reply/target-melodii2-Debug-534827fcf56c51af49c2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/d/8004858bf8570278ce1da9e37ef7fddbf08f21ec2f054698e57777ca30d83e53.d" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/d/8004858bf8570278ce1da9e37ef7fddbf08f21ec2f054698e57777ca30d83e53.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/MainWindow.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/MainWindow.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Repository.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Repository.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Service.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/Service.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/SongModel.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/SongModel.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/melodii2_autogen/mocs_compilation.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2.dir/melodii2_autogen/mocs_compilation.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/AutogenInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/AutogenInfo.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/CMakeFiles/melodii2_autogen.dir/ParseCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_MainWindow.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_MainWindow.cpp.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_SongModel.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/EWIEGA46WW/moc_SongModel.cpp.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/deps" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/cmake-build-debug/melodii2_autogen/deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../melodii2/songs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../melodii2/songs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +147,7 @@
       <workItem from="1716033448151" duration="7303000" />
       <workItem from="1716120958373" duration="619000" />
       <workItem from="1716126798968" duration="714000" />
+      <workItem from="1718202767866" duration="19000" />
     </task>
     <servers />
   </component>

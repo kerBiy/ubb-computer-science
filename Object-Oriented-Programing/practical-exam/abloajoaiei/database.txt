@@ -1,0 +1,11 @@
+1,Alex1,Nush,90
+2,Alex2,Da,3
+3,Alex3,Nush,20
+4,Alex4,Nu,69
+5,Alex5,Da,85
+6,Razvan,Nush,10
+10,nush,Nu,90
+11,nush,Nu,90
+12,nush,Nu,90
+14,nush,Nu,90
+15,nush,Da,90
