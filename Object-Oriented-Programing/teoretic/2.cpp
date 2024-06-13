@@ -1,15 +1,40 @@
-// test 2
+#include <algorithm>
 #include <iostream>
 #include <string>
+#include <vector>
 
 class Meniu {
-   private:
+   protected:
     int pret;
 
    public:
-    Meniu(int pret) : pret(pret) {}
-    virtual std::string descriere() = 0;
-    virtual int getPret() { return pret; }
+    virtual ~Meniu() {}
+    virtual std::string descriere() const = 0;
+    int getPret() const { return pret; }
+};
+
+class CuRacoritoare : public Meniu {
+   private:
+    Meniu* meniu;
+
+   public:
+    CuRacoritoare(Meniu* m) : meniu(m) { pret = meniu->getPret() + 4; }
+    ~CuRacoritoare() { delete meniu; }
+    std::string descriere() const override {
+        return meniu->descriere() + " cu racoritoare";
+    }
+};
+
+class CuCafea : public Meniu {
+   private:
+    Meniu* meniu;
+
+   public:
+    CuCafea(Meniu* m) : meniu(m) { pret = meniu->getPret() + 5; }
+    ~CuCafea() { delete meniu; }
+    std::string descriere() const override {
+        return meniu->descriere() + " cu cafea";
+    }
 };
 
 class MicDejun : public Meniu {
@@ -17,39 +42,34 @@ class MicDejun : public Meniu {
     std::string denumire;
 
    public:
-    MicDejun(const std::string &denumire)
-        : Meniu(!(denumire == "Ochiuri" || denumire == "Omleta") ? -99999
-                : denumire == "Ochiuri"                          ? 10
-                                                                 : 15),
-          denumire(denumire) {}
-
-    std::string descriere() override { return denumire; }
+    MicDejun(const std::string& den, int p) : denumire(den) { pret = p; }
+    std::string descriere() const override { return denumire; }
 };
 
-class CuRacoritoare : public Meniu {
-   private:
-    Meniu *m;
+std::vector<Meniu*> createMenus() {
+    std::vector<Meniu*> menus;
 
-   public:
-    CuRacoritoare(Meniu *m) : Meniu(0), m(m) {}
-    std::string descriere() { return m->descriere() + " cu recoritoare"; }
-    int getPret() { return m->getPret() + 4; }
-};
+    menus.push_back(new CuCafea(new CuRacoritoare(new MicDejun("Omleta", 15))));
+    menus.push_back(new CuCafea(new MicDejun("Ochiuri", 10)));
+    menus.push_back(new MicDejun("Omleta", 15));
 
-class CuCafea : public Meniu {
-   private:
-    Meniu *m;
-
-   public:
-    CuCafea(Meniu *m) : Meniu(0), m(m) {}
-    std::string descriere() { return m->descriere() + " cu cafea"; }
-    int getPret() { return m->getPret() + 5; }
-};
+    return menus;
+}
 
 int main() {
-    Meniu *m = new CuCafea(new CuRacoritoare(new MicDejun("ush")));
-    std::cout << m->descriere() << m->getPret();
+    std::vector<Meniu*> menus = createMenus();
 
-    delete m;
+    std::sort(menus.begin(), menus.end(),
+              [](Meniu* a, Meniu* b) { return a->getPret() > b->getPret(); });
+
+    for (const auto& menu : menus) {
+        std::cout << menu->descriere() << " - Pret: " << menu->getPret()
+                  << " RON" << std::endl;
+    }
+
+    for (auto& menu : menus) {
+        delete menu;
+    }
+
     return 0;
 }
