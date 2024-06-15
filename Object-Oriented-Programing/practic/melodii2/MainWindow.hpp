@@ -5,7 +5,7 @@
 #pragma once
 
 #include "Service.hpp"
-#include "SongModel.hpp"
+#include "Model.hpp"
 
 #include <QMainWindow>
 #include <QTableView>
@@ -20,11 +20,11 @@
 #include <QMessageBox>
 #include <QPainter>
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow, public Observer {
   Q_OBJECT
   private:
     Service &service;
-    SongModel *model;
+    Model *model;
 
     QTableView *tableView;
 
@@ -36,6 +36,10 @@ class MainWindow : public QMainWindow {
     QPushButton *btnDelete;
     QPushButton *btnUpdate;
 
+    QHBoxLayout *formLayout;
+    QVBoxLayout *mainLayout;
+    QWidget *mainWidget;
+
     void setupLayout();
     void setupSignals();
   public:
@@ -44,6 +48,12 @@ class MainWindow : public QMainWindow {
         setupLayout();
         setupSignals();
     }
+
+    void update() override {
+        model->updateModel();
+        QWidget::update();
+    }
+
   protected:
     void paintEvent(QPaintEvent *event) override;
 };

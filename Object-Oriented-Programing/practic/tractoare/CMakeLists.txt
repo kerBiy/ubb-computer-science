@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(melodii2)
+project(tractoare)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
@@ -13,21 +13,18 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(melodii2 main.cpp
-        Song.hpp
+add_executable(tractoare main.cpp
+        Track.hpp
         Repository.cpp
         Repository.hpp
         Service.cpp
         Service.hpp
+        Observer.hpp
         MainWindow.cpp
         MainWindow.hpp
         Model.cpp
-        Model.hpp
-        Observer.hpp
-        Test.cpp
-        Test.hpp)
-
-target_link_libraries(melodii2
+        Model.hpp)
+target_link_libraries(tractoare
         Qt::Core
         Qt::Gui
         Qt::Widgets

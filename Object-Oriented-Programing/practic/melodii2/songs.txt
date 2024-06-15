@@ -1,2 +1,8 @@
 2,lksadgjlk,lksajgl,rock
 3,lksadgjlk,lksajgl,rock
+4,lksadgjlk,lksajgl,disco
+5,lksadgjlk,lksajgl,disco
+6,lksadgjlk,lksajgl,rock
+7,lksadgjlk,lksajgl,pop
+8,lksadgjlk,lksajgl,pop
+9,lksadgjlk,lksajgl,pop

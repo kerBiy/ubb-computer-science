@@ -2,9 +2,9 @@
 // Created by Alex Balta on 18.05.2024.
 //
 
-#include "SongModel.hpp"
+#include "Model.hpp"
 
-QVariant SongModel::data(const QModelIndex &index, int role) const {
+QVariant Model::data(const QModelIndex &index, int role) const {
     if (!index.isValid() || role != Qt::DisplayRole) {
         return {};
     }
@@ -24,7 +24,7 @@ QVariant SongModel::data(const QModelIndex &index, int role) const {
     }
 }
 
-QVariant SongModel::headerData(int section, Qt::Orientation orientation, int role) const {
+QVariant Model::headerData(int section, Qt::Orientation orientation, int role) const {
     if (role != Qt::DisplayRole) {
         return {};
     }
@@ -44,7 +44,7 @@ QVariant SongModel::headerData(int section, Qt::Orientation orientation, int rol
     return {};
 }
 
-void SongModel::updateModel() {
+void Model::updateModel() {
     beginResetModel();
     endResetModel();
 }

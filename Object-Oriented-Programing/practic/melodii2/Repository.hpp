@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "Entity.hpp"
+#include "Song.hpp"
 #include <utility>
 #include <vector>
 

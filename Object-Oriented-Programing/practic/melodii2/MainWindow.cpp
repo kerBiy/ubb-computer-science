@@ -5,15 +5,15 @@
 #include "MainWindow.hpp"
 
 void MainWindow::setupLayout() {
-    auto *centralWidget = new QWidget(this);
-    auto *mainLayout = new QVBoxLayout(centralWidget);
+    mainWidget = new QWidget(this);
+    mainLayout = new QVBoxLayout(mainWidget);
 
-    model = new SongModel(service, this);
+    model = new Model(service, this);
     tableView = new QTableView(this);
     tableView->setModel(model);
     tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    auto *formLayout = new QHBoxLayout;
+    formLayout = new QHBoxLayout;
 
     inputTitle = new QLineEdit(this);
     formLayout->addWidget(new QLabel("Title:"));
@@ -38,10 +38,12 @@ void MainWindow::setupLayout() {
     mainLayout->addWidget(tableView);
     mainLayout->addLayout(formLayout);
 
-    setCentralWidget(centralWidget);
+    setCentralWidget(mainWidget);
 }
 
 void MainWindow::setupSignals() {
+    service.addListener(this);
+
     connect(tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this]() {
         const auto selected = tableView->selectionModel()->selectedRows();
 
@@ -54,14 +56,12 @@ void MainWindow::setupSignals() {
     });
 
     connect(btnAdd, &QPushButton::clicked, this, [this]() {
-        QString title = inputTitle->text();
-        QString artist = inputArtist->text();
-        QString genre = inputGenre->text();
+        auto title = inputTitle->text().toStdString();
+        auto artist = inputArtist->text().toStdString();
+        auto genre = inputGenre->text().toStdString();
 
         try {
-            service.addSong(title.toStdString(), artist.toStdString(), genre.toStdString());
-            model->updateModel();
-            update();
+            service.addSong(title, artist, genre);
         } catch (const ServiceException &e) {
             QMessageBox::warning(this, "Warning", e.what());
         }
@@ -82,9 +82,6 @@ void MainWindow::setupSignals() {
             for (const auto id : ids) {
                 service.deleteSong(id);
             }
-
-            model->updateModel();
-            update();
         } catch (const ServiceException &e) {
             QMessageBox::warning(this, "Warning", e.what());
         }
@@ -104,8 +101,6 @@ void MainWindow::setupSignals() {
 
         try {
             service.updateSong(id, title.toStdString(), artist.toStdString(), genre.toStdString());
-            model->updateModel();
-            update();
         } catch (const ServiceException &e) {
             QMessageBox::warning(this, "Warning", e.what());
         }
@@ -116,7 +111,6 @@ void MainWindow::paintEvent(QPaintEvent *event) {
     QMainWindow::paintEvent(event);
 
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
 
     const auto genreCounts = service.raportGenre();
     const int circleSpacing = 10;
@@ -125,8 +119,8 @@ void MainWindow::paintEvent(QPaintEvent *event) {
     std::map<std::string, QColor> genreColors{
         {"pop", Qt::red},
         {"rock", Qt::green},
-        {"folk", Qt::blue},
-        {"disco", Qt::yellow}
+        {"folk", Qt::yellow},
+        {"disco", Qt::blue}
     };
 
     for (const auto &[genre, count] : genreCounts) {

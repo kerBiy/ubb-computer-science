@@ -7,12 +7,12 @@
 #include <QAbstractTableModel>
 #include "Service.hpp"
 
-class SongModel : public QAbstractTableModel {
+class Model : public QAbstractTableModel {
   Q_OBJECT
   private:
     Service &service;
   public:
-    SongModel(Service &service, QObject *parent = nullptr)
+    Model(Service &service, QObject *parent = nullptr)
         : QAbstractTableModel(parent), service(service) {}
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override {
