@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="melodii1" targetName="melodii1" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="775c705a-3dfe-4906-87c1-f1161e244fab" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/abloajoaiei.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/MainWindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/MainWindow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Model.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Model.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Observer.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Product.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Repository.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Repository.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Service.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/SideWindow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/database.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/task.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/MainWindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/MainWindow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Model.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Model.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Observer.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Repository.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Repository.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Service.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/StatusWindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/StatusWindow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Task.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Test.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/database.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/melodii1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Entity.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Entity.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/MainWindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/MainWindow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Repository.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Repository.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Service.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/SongModel.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/SongModel.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Test.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/songs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/melodii2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Entity.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/MainWindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/MainWindow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Repository.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Repository.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Service.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/SongModel.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/SongModel.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/songs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/produse.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/GUI.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/GUI.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Model.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Model.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Product.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Repository.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Repository.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Service.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/database.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/produse/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/tasks.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/GUI.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/GUI.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Model.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Model.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Repository.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Repository.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Service.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/StatusWindow.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/StatusWindow.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Task.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Test.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/database.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/QtSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/Dress.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/GUI.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/GUI.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/Repository.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/Repository.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/Service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/Service.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/Test.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/Test.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../simulare/test/rochie.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kerBiy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kerBiy/School.git&quot;,
+    &quot;accountId&quot;: &quot;203c41eb-d41d-436c-bbcc-a8b04b68252a&quot;
+  }
+}</component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="1.1" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2gauPTtkHI82LZLVpnnlFA0e70A" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "CMake Application.melodii1.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/alexbalta/Developer/School/Object-Oriented-Programing/practic/melodii1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="melodii1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="melodii1" TARGET_NAME="melodii1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="melodii1" RUN_TARGET_NAME="melodii1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="775c705a-3dfe-4906-87c1-f1161e244fab" name="Changes" comment="" />
+      <created>1715947986302</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715947986302</updated>
+      <workItem from="1715947988836" duration="11689000" />
+      <workItem from="1716021431489" duration="971000" />
+      <workItem from="1716022410619" duration="5602000" />
+      <workItem from="1716033448151" duration="7303000" />
+      <workItem from="1716120958373" duration="619000" />
+      <workItem from="1716126798968" duration="714000" />
+      <workItem from="1718202767866" duration="19000" />
+      <workItem from="1718438984437" duration="2000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+</project>
