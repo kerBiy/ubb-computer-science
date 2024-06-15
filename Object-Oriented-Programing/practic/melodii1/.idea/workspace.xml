@@ -21,151 +21,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="775c705a-3dfe-4906-87c1-f1161e244fab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/QtSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/abloajoaiei.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/MainWindow.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/MainWindow.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Model.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Model.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Observer.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Product.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Repository.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Repository.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Service.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/Service.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/SideWindow.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/database.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/abloajoaiei/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/QtSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/task.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/MainWindow.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/MainWindow.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Model.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Model.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Observer.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Repository.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Repository.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Service.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Service.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/StatusWindow.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/StatusWindow.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Task.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Test.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/Test.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/database.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../practical-exam/task/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/QtSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/melodii1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Entity.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Entity.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/MainWindow.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/MainWindow.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Repository.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Repository.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Service.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Service.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/SongModel.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/SongModel.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Test.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/Test.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii1/songs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/QtSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/melodii2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Entity.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/MainWindow.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/MainWindow.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Repository.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Repository.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Service.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/Service.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/SongModel.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/SongModel.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/melodii2/songs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/QtSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/produse.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/GUI.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/GUI.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Model.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Model.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Product.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Repository.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Repository.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Service.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/Service.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/database.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/produse/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/QtSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/tasks.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/GUI.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/GUI.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Model.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Model.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Repository.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Repository.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Service.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Service.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/StatusWindow.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/StatusWindow.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Task.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Test.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/Test.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/database.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/tasks/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/QtSettings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/Dress.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/GUI.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/GUI.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/Repository.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/Repository.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/Service.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/Service.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/Test.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/Test.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../simulare/test/rochie.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Observer.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainWindow.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainWindow.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Repository.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repository.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Repository.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Service.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Service.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Service.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SongModel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Model.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SongModel.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/Model.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/songs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/songs.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +127,7 @@
       <workItem from="1716120958373" duration="619000" />
       <workItem from="1716126798968" duration="714000" />
       <workItem from="1718202767866" duration="19000" />
-      <workItem from="1718438984437" duration="2000" />
+      <workItem from="1718438984437" duration="4773000" />
     </task>
     <servers />
   </component>

@@ -1,2 +1,4 @@
-1,alex,balta,3
-5,ciprian,darie,10
+1,alex,balta,8
+2,ciprian,darie,1
+4,darius,darie,4
+5,nigger,timu,2

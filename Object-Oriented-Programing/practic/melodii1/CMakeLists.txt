@@ -25,8 +25,9 @@ add_executable(melodii1 main.cpp
         Test.hpp
         MainWindow.cpp
         MainWindow.hpp
-        SongModel.cpp
-        SongModel.hpp
+        Model.cpp
+        Model.hpp
+        Observer.hpp
 )
 
 target_link_libraries(melodii1

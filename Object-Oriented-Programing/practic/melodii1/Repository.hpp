@@ -36,12 +36,6 @@ class Repository {
     std::vector<Song> getAll();
 
     /**
-     * Gets the number of songs
-     * @return the length of the items vector
-     */
-    int getLen();
-
-    /**
      * Deletes a song
      * @param id the id of the song you want to delete
      */

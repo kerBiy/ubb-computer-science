@@ -33,8 +33,7 @@ void Repository::loadFromFile() {
             std::string author = split[2];
             int rank = stoi(split[3]);
 
-            Song tmp{id, title, author, rank};
-            items.push_back(tmp);
+            items.push_back({id, title, author, rank});
         }
     }
 
@@ -60,10 +59,6 @@ Repository::Repository(std::string file_name) : file_name{std::move(file_name)} 
 
 std::vector<Song> Repository::getAll() {
     return items;
-}
-
-int Repository::getLen() {
-    return items.size();
 }
 
 void Repository::updateSong(int id, const std::string &new_title, int new_rank) {

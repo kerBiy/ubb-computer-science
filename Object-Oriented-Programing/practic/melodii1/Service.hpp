@@ -5,13 +5,16 @@
 #pragma once
 
 #include "Repository.hpp"
+#include "Observer.hpp"
 
-class ServiceException : std::runtime_error {
+#include <unordered_map>
+
+class ServiceException : public std::runtime_error {
   public:
     explicit ServiceException(const std::string &msg) : std::runtime_error(msg) {}
 };
 
-class Service {
+class Service : public Subject {
   private:
     Repository &repo;
   public:
@@ -25,13 +28,13 @@ class Service {
      * Gets all the songs from the repo
      * @return all songs
      */
-    std::vector<Song> getSongs();
+    std::vector<Song> getSongs() const;
 
     /**
      * Gets the length of the repo list
      * @return the length of the list
      */
-    int getLen();
+    int getLen() const;
 
     /**
      * Deletes a song based on an id
@@ -53,5 +56,11 @@ class Service {
      * Gets a raport
      * @return a raport of rank : count
      */
-    std::vector<int> raportRanks();
+    std::vector<int> raportRanks() const;
+
+    /**
+     * Gets all of the artists and the number of songs they have
+     * @return a raport artist : count
+     */
+    std::unordered_map<std::string, int> raportArtists();
 };

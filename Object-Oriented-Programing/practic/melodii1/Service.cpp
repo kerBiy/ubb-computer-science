@@ -6,7 +6,7 @@
 
 Service::Service(Repository &repo) : repo{repo} {}
 
-std::vector<Song> Service::getSongs() {
+std::vector<Song> Service::getSongs() const {
     std::vector<Song> res{repo.getAll()};
 
     std::sort(res.begin(), res.end(),
@@ -17,8 +17,8 @@ std::vector<Song> Service::getSongs() {
     return res;
 }
 
-int Service::getLen() {
-    return repo.getLen();
+int Service::getLen() const {
+    return (int) repo.getAll().size();
 }
 
 void Service::deleteSong(int id) {
@@ -26,7 +26,18 @@ void Service::deleteSong(int id) {
         throw ServiceException{"The song was not found."};
     }
 
+    auto items = repo.getAll();
+    auto it = std::find_if(items.begin(), items.end(),
+                           [id](const Song &s) {
+                               return s.getId() == id;
+                           });
+
+    if (raportArtists()[it->getAuthor()] == 1) {
+        throw ServiceException("Cannot delete the last song of the artist!");
+    }
+
     repo.deleteSong(id);
+    notify();
 }
 
 void Service::updateSong(int id, const std::string &new_title, int new_rank) {
@@ -35,13 +46,24 @@ void Service::updateSong(int id, const std::string &new_title, int new_rank) {
     }
 
     repo.updateSong(id, new_title, new_rank);
+    notify();
 }
 
-std::vector<int> Service::raportRanks() {
+std::vector<int> Service::raportRanks() const {
     std::vector<int> res(11, 0);
 
     for (const Song &song : repo.getAll()) {
         res[song.getRank()] += 1;
+    }
+
+    return res;
+}
+
+std::unordered_map<std::string, int> Service::raportArtists() {
+    std::unordered_map<std::string, int> res;
+
+    for (const Song &song : repo.getAll()) {
+        res[song.getAuthor()] += 1;
     }
 
     return res;

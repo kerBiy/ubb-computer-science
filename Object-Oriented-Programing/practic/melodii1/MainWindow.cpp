@@ -5,32 +5,31 @@
 #include "MainWindow.hpp"
 
 MainWindow::MainWindow(Service &service, QWidget *parent) : QMainWindow(parent), service(service) {
-    setupUI();
-    setupConnections();
+    initLayout();
+    initSignals();
     updateChart();
 }
 
-void MainWindow::setupUI() {
-    auto *centralWidget = new QWidget(this);
-    auto *mainLayout = new QVBoxLayout(centralWidget);
+void MainWindow::initLayout() {
+    mainWidget = new QWidget(this);
+    mainLayout = new QVBoxLayout(mainWidget);
 
     tableView = new QTableView(this);
     tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    model = new SongModel(service, this);
+    model = new Model(service, this);
     tableView->setModel(model);
-    mainLayout->addWidget(tableView);
 
-    auto *formLayout = new QHBoxLayout();
+    formLayout = new QHBoxLayout();
 
-    titleEdit = new QLineEdit(this);
+    inputTitle = new QLineEdit(this);
     formLayout->addWidget(new QLabel("Title:", this));
-    formLayout->addWidget(titleEdit);
+    formLayout->addWidget(inputTitle);
 
-    rankSlider = new QSlider(Qt::Horizontal, this);
-    rankSlider->setRange(0, 10);
+    sliderRank = new QSlider(Qt::Horizontal, this);
+    sliderRank->setRange(0, 10);
     formLayout->addWidget(new QLabel("Rank:", this));
-    formLayout->addWidget(rankSlider);
+    formLayout->addWidget(sliderRank);
 
     updateButton = new QPushButton("Update", this);
     formLayout->addWidget(updateButton);
@@ -38,73 +37,85 @@ void MainWindow::setupUI() {
     deleteButton = new QPushButton("Delete", this);
     formLayout->addWidget(deleteButton);
 
+    mainLayout->addWidget(tableView);
     mainLayout->addLayout(formLayout);
 
     chartLayout = new QVBoxLayout();
     mainLayout->addLayout(chartLayout);
 
-    setCentralWidget(centralWidget);
+    setCentralWidget(mainWidget);
 }
 
-void MainWindow::setupConnections() {
-    connect(model, &QAbstractItemModel::dataChanged, this, [this]() {
-        updateChart();
-    });
+void MainWindow::initSignals() {
+    service.addListener(this);
 
-    connect(tableView->selectionModel(), &QItemSelectionModel::selectionChanged, this, [this]() {
-        const auto selected = tableView->selectionModel()->selectedRows();
+    connect(tableView->selectionModel(), &QItemSelectionModel::selectionChanged, [this]() {
+        auto selected = tableView->selectionModel()->selectedRows();
+
         if (selected.isEmpty()) return;
 
-        const auto index = selected.first();
-        titleEdit->setText(model->data(model->index(index.row(), 1)).toString());
-        rankSlider->setValue(model->data(model->index(index.row(), 3)).toInt());
+        auto index = selected.first();
+        inputTitle->setText(model->data(index.siblingAtColumn(1)).toString());
+        sliderRank->setValue(model->data(index.siblingAtColumn(3)).toInt());
     });
 
-    connect(updateButton, &QPushButton::clicked, this, [this]() {
-        const auto selected = tableView->selectionModel()->selectedRows();
+    connect(updateButton, &QPushButton::clicked, [this]() {
+        auto selected = tableView->selectionModel()->selectedRows();
+
         if (selected.isEmpty()) return;
 
-        const auto index = selected.first();
-        const auto id = model->data(model->index(index.row(), 0)).toInt();
-        const auto newTitle = titleEdit->text();
-        const auto newRank = rankSlider->value();
+        auto index = selected.first();
 
-        service.updateSong(id, newTitle.toStdString(), newRank);
-        model->setData(index, newTitle, Qt::EditRole);
-        model->setData(model->index(index.row(), 3), newRank, Qt::EditRole);
-        updateChart();
-    });
+        auto id = model->data(index.siblingAtColumn(0)).toInt();
+        auto newTitle = inputTitle->text().toStdString();
+        auto newRank = sliderRank->value();
 
-    connect(deleteButton, &QPushButton::clicked, this, [this]() {
-        const auto selected = tableView->selectionModel()->selectedRows();
-        if (selected.isEmpty()) return;
-
-        const auto index = selected.first();
-        const auto id = model->data(model->index(index.row(), 0)).toInt();
-
-        if (service.getSongs().size() == 1) {
-            QMessageBox::warning(this, "Warning", "Cannot delete the last song of the artist!");
-            return;
+        try {
+            service.updateSong(id, newTitle, newRank);
+        } catch (const ServiceException &e) {
+            QMessageBox::warning(this, "Warning", e.what());
         }
+    });
 
-        service.deleteSong(id);
-        model->removeRow(index.row());
-        updateChart();
+    connect(deleteButton, &QPushButton::clicked, [this]() {
+        auto selected = tableView->selectionModel()->selectedRows();
+
+        if (selected.isEmpty()) return;
+
+        auto index = selected.first();
+        auto id = model->data(index.siblingAtColumn(0)).toInt();
+
+        try {
+            service.deleteSong(id);
+        } catch (const ServiceException &e) {
+            QMessageBox::warning(this, "Warning", e.what());
+        }
     });
 }
 
 void MainWindow::updateChart() {
-    QLayoutItem *child;
-    while ((child = chartLayout->takeAt(0)) != nullptr) {
+    QLayoutItem *child = chartLayout->takeAt(0);
+
+    while (child != nullptr) {
         delete child->widget();
         delete child;
+        child = chartLayout->takeAt(0);
     }
 
-    const auto counts = service.raportRanks();
-    for (auto count : counts) {
-        auto *bar = new QLabel(QString::number(count), this);
-        bar->setFixedHeight(count * 10);
-        bar->setStyleSheet("background-color: blue; color: white; text-align: center;");
+    auto counts = service.raportRanks();
+    for (size_t i = 0; i < counts.size(); ++i) {
+        auto *bar = new QLabel(QString::number(i), this);
+        bar->setFixedHeight(counts[i] * 20);
+        bar->setStyleSheet("background-color: blue; color: white;");
         chartLayout->addWidget(bar);
     }
+}
+
+void MainWindow::update() {
+    model->updateModel();
+    updateChart();
+}
+
+MainWindow::~MainWindow() {
+    service.deleteListener(this);
 }

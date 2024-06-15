@@ -13,28 +13,36 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QHeaderView>
-#include "Service.hpp"
-#include "SongModel.hpp"
+#include "Model.hpp"
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow, public Observer {
   Q_OBJECT
   private:
     Service &service;
-    SongModel *model;
+    Model *model;
 
     QTableView *tableView;
 
-    QLineEdit *titleEdit;
-    QSlider *rankSlider;
+    QLineEdit *inputTitle;
+    QSlider *sliderRank;
 
     QPushButton *updateButton;
     QPushButton *deleteButton;
     QVBoxLayout *chartLayout;
 
-    void setupUI();
-    void setupConnections();
+    QHBoxLayout *formLayout;
+
+    QWidget *mainWidget;
+    QVBoxLayout *mainLayout;
+
+    void initLayout();
+    void initSignals();
     void updateChart();
 
   public:
     explicit MainWindow(Service &service, QWidget *parent = nullptr);
+
+    void update() override;
+
+    ~MainWindow() override;
 };
