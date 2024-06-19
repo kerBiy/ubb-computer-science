@@ -1,0 +1,11 @@
+1,description1,alex,david,iustin,inprogress
+2,description2,david,iustin,closed
+3,description3,david,alex,inprogress
+4,description4,iustin,closed
+5,description5,iustin,ciprian,closed
+6,description5,alex,closed
+7,description7,ciprian,open
+8,description8,darius,open
+9,description9,darius,alex,closed
+10,description10,david,ciprian,iustin,alex,open
+11,djfkls,alex,inprogress
