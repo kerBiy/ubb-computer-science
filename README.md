@@ -10,7 +10,7 @@ Welcome to my UBB Computer Science repository! This repository contains all my w
 
 ## How to Use
 
-1. **Clone the Repository**: Start by cloning this repository to your local machine using `git clone https://github.com/kerBiy/UBB-Computer-Science.git`.
+1. **Clone the Repository**: Start by cloning this repository to your local machine using `git clone https://github.com/kerBiy/ubb-computer-science.git`.
 2. **Navigate**: Browse through the folders to find the course or material you need.
 
 ## Contact
