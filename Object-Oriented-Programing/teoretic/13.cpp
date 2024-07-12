@@ -3,85 +3,6 @@
 #include <iostream>
 #include <string>
 
-// Test
-
-// 1 Specs
-/// @brief Functia oglindeste un numar natural
-/// @param x un numar intreg
-/// @return returneaza oglinditul numarului x t...
-/// @raises arunca std::exception daca numarul nu este strict pozitiv
-// int f(int x) {
-//     if (x <= 0) throw std::exception();
-
-//     int rez = 0;
-//     while (x) {
-//         rez = rez * 10 + x % 10;
-//         x /= 10;
-//     }
-//     return rez;
-// }
-
-// void testF() {
-//     try {
-//         f(-1);
-//         assert(false);
-//     } catch (const std::exception e) {
-//     }
-
-//     assert(f(1) == 1);
-//     assert(f(21) == 12);
-//     assert(f(121) == 121);
-//     assert(f(123) == 321);
-
-// }
-
-// int main() {
-//     testF();
-//     std::cout << "All tests passed\n";
-
-//     return 0;
-// }
-
-// #include <iostream>
-// using namespace std;
-
-// int except(bool thrEx) {
-//     if (thrEx) {
-//         throw 2;
-//     }
-//     return 3;
-// }
-// int main() {
-//     try {
-//         cout << except(1 < 1);
-//         cout << except(true);
-//         cout << except(false);
-//     } catch (int ex) {
-//         cout << ex;
-//     }
-//     cout << 4;
-//     return 0;
-// }
-
-// 2 b)
-
-// #include <iostream>
-// using namespace std;
-// class A {
-//    public:
-//     A() { cout << "A" << endl; }
-//     ~A() { cout << "~A" << endl; }
-//     void print() { cout << "print" << endl; }
-// };
-// void f() {
-//     A a[2];
-//     a[1].print();
-// }
-// int main() {
-//     f();
-//     return 0;
-// }
-
 class Smoothy {
    private:
     int pret;
@@ -104,7 +25,7 @@ class BasicSmoothy : public Smoothy {
 };
 
 class DecoratorSmoothy : public Smoothy {
-   protected:
+   private:
     Smoothy *sm;
 
    public:
@@ -133,11 +54,9 @@ class SmoothyCuUmbreluta : public DecoratorSmoothy {
     }
 };
 
-// std::vector<Smoothy *> func() {}
-
 int main() {
     Smoothy *sm = new SmoothyCuFrisca(
         new SmoothyCuUmbreluta(new BasicSmoothy(3, "nigger")));
-    std::cout << sm->getPret() << sm->descriere();
+    std::cout << sm->getPret() << ' ' << sm->descriere();
     delete sm;
 }
