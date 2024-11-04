@@ -1,0 +1,33 @@
+Problema 1:
+
+a. Sa se scrie un predicat care intoarce diferenta a doua multimi.
+b. Sa se scrie un predicat care adauga intr-o lista dupa fiecare element par valoarea 1.
+
+a:  diferenta(a1a2...an, b1b2...bn) = 
+        vid,    n = 0
+        diferenta(a2...an, b1...bn),    apare(b1...bn, a1) = Adevarat 
+        a1 U diferenta(a2...an, b1...bn),   altfel 
+
+    apare(l1...ln, e) =     
+        Fals,   n = 0
+        Adevarat,   e = l1
+        apare(l2...ln, e),  altfel
+
+b: adauga_dupa_par(l1l2...ln) =
+        vid,    n = 0
+        l1 U 1 U adauga_dupa_par(l2...ln),   l1 % 2 == 0
+        l1 U adauga_dupa_par(l2...ln),   altfel
+
+Teste
+
+a: diferenta([1, 2, 3, 4], [2, 4, 6]) == [1, 3]
+    diferenta([1, 2, 3, 4], [1, 2, 3, 4]) == []
+    diferenta([1, 2, 3, 4], [5, 6, 7]) == [1, 2, 3, 4]
+
+b: adauga_dupa_par([1, 2, 3, 4]) == [1, 2, 1, 3, 4, 1]
+    adauga_dupa_par([1, 3, 5]) == [1, 3, 5]
+    adauga_dupa_par([2, 4, 6]) == [2, 1, 4, 1, 6, 1]
+                            
+
+
+
