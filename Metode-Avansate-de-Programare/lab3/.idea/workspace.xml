@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="55a5c788-745b-4934-a0eb-b0b4d5af8006" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../VehicleManagement/VehicleManagement.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/VehicleManagement.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/VehicleManagement.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../inClassLab3/lab3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../inClassLab4/inClassLab4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/ActionMovie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/cuvinte.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/fisier.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab1/lab1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab2/out/production/sem1_2/sem1_2/sem1_2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../lab2/sem1_2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sem4/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sem4/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sem4/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/Seminar 1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Seminar 1/src/domain/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programare-Logica-si-Functionala/.p1.swp" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Exception" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kerBiy&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kerBiy/ubb-computer-science.git&quot;,
+    &quot;accountId&quot;: &quot;203c41eb-d41d-436c-bbcc-a8b04b68252a&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2nZFu4W2A5gipCFaaf9ZZ0F7O71" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Run with test.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.FriendshipRepositoryFileTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRepositoryFileTest.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab3&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab3/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;swagger&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="lab3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FriendshipRepositoryFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.FriendshipRepositoryFileTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.ServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRepositoryFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lab3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.UserRepositoryFileTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.FriendshipRepositoryFileTest" />
+        <item itemvalue="JUnit.UserRepositoryFileTest" />
+        <item itemvalue="JUnit.ServiceTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55a5c788-745b-4934-a0eb-b0b4d5af8006" name="Changes" comment="" />
+      <created>1729172914587</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729172914587</updated>
+      <workItem from="1729172915722" duration="2492000" />
+      <workItem from="1729175516683" duration="13961000" />
+      <workItem from="1729506654107" duration="6101000" />
+      <workItem from="1729523004838" duration="601000" />
+      <workItem from="1729524312731" duration="805000" />
+      <workItem from="1729761725796" duration="50000" />
+      <workItem from="1729761783421" duration="1677000" />
+      <workItem from="1729854538271" duration="2231000" />
+      <workItem from="1729863136693" duration="7275000" />
+      <workItem from="1730125917503" duration="30000" />
+      <workItem from="1730127305556" duration="58000" />
+      <workItem from="1730132073550" duration="9000" />
+      <workItem from="1730132118868" duration="2000" />
+      <workItem from="1730132141924" duration="2000" />
+      <workItem from="1730132193678" duration="2000" />
+      <workItem from="1730132411538" duration="18000" />
+      <workItem from="1730132489132" duration="13000" />
+      <workItem from="1730134855710" duration="222000" />
+      <workItem from="1730721384662" duration="1536000" />
+      <workItem from="1730724044109" duration="86000" />
+      <workItem from="1730724136748" duration="3943000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
