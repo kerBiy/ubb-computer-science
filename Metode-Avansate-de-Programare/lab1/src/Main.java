@@ -147,7 +147,7 @@ public class Main {
     public static class ExpressionParser {
         public static ComplexExpression parse(String[] args) throws IllegalArgumentException {
             if (args.length < 3 || args.length % 2 == 0) {
-                throw new IllegalArgumentException("Invalid expression format");
+                throw new IllegalArgumentException("Invalid expression format: Must have at least one number and one operator");
             }
 
             ComplexNumber[] complexNumbers = new ComplexNumber[(args.length + 1) / 2];
@@ -158,6 +158,18 @@ public class Main {
                     complexNumbers[j++] = parseComplex(args[i]);
                 } else {
                     operations[(i - 1) / 2] = parseOperation(args[i]);
+                }
+            }
+
+            for (ComplexNumber number : complexNumbers) {
+                if (number == null) {
+                    throw new IllegalArgumentException("Invalid complex number format");
+                }
+            }
+
+            for (Operation operation : operations) {
+                if (operation == null) {
+                    throw new IllegalArgumentException("Invalid operator format");
                 }
             }
 
@@ -201,6 +213,7 @@ public class Main {
 
             return new ComplexNumber(re, im);
         }
+
         private static Operation parseOperation(String str) {
             switch (str.trim()) {
                 case "+":
