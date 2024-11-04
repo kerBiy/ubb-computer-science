@@ -177,26 +177,30 @@ public class Main {
 
         private static ComplexNumber parseComplex(String str) {
             str = str.replaceAll(" ", ""); // Remove spaces
-            str = str.replace("i", ""); // Remove the 'i' for parsing
-            String[] parts;
+
             double re = 0.0;
             double im = 0.0;
 
-            if (str.contains("+")) {
-                parts = str.split("\\+");
-                re = Double.parseDouble(parts[0]);
-                im = Double.parseDouble(parts[1]);
-            } else if (str.contains("-")) {
-                parts = str.split("(?=-)"); // Split at '-' while keeping the negative sign
-                re = Double.parseDouble(parts[0]);
-                im = parts.length > 1 ? Double.parseDouble(parts[1]) : 0.0;
+            if (str.contains("*i")) {
+                String[] parts;
+
+                if (str.contains("+")) {
+                    parts = str.split("\\+");
+                    re = Double.parseDouble(parts[0]);
+                    im = Double.parseDouble(parts[1].replace("*i", ""));
+                } else if (str.contains("-")) {
+                    parts = str.split("(?=-)", 2);
+                    re = Double.parseDouble(parts[0]);
+                    im = Double.parseDouble(parts[1].replace("*i", ""));
+                } else {
+                    im = Double.parseDouble(str.replace("*i", ""));
+                }
             } else {
                 re = Double.parseDouble(str);
             }
 
             return new ComplexNumber(re, im);
         }
-
         private static Operation parseOperation(String str) {
             switch (str.trim()) {
                 case "+":

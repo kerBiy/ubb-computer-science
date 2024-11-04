@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55a5c788-745b-4934-a0eb-b0b4d5af8006" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../VehicleManagement/VehicleManagement.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/VehicleManagement.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/VehicleManagement.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../inClassLab3/lab3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../inClassLab4/inClassLab4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/ActionMovie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/Movie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/cuvinte.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../inClassLab4/src/fisier.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab1/lab1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2/out/production/sem1_2/sem1_2/sem1_2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../lab2/sem1_2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem4/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem4/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem4/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/Seminar 1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Seminar 1/src/domain/Task.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Programare-Logica-si-Functionala/.p1.swp" beforeDir="false" />
-    </list>
+    <list default="true" id="55a5c788-745b-4934-a0eb-b0b4d5af8006" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +35,9 @@
     &quot;accountId&quot;: &quot;203c41eb-d41d-436c-bbcc-a8b04b68252a&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -212,7 +188,7 @@
       <workItem from="1730134855710" duration="222000" />
       <workItem from="1730721384662" duration="1536000" />
       <workItem from="1730724044109" duration="86000" />
-      <workItem from="1730724136748" duration="3943000" />
+      <workItem from="1730724136748" duration="4581000" />
     </task>
     <servers />
   </component>
