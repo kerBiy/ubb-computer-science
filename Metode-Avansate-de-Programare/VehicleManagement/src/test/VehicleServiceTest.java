@@ -12,11 +12,12 @@ import repository.VehicleRepository;
 import repository.VehicleRepositoryImpl;
 import service.VehicleService;
 import service.VehicleServiceImpl;
-import utils.MileageUnit;
+
 
 public class VehicleServiceTest {
 	
 	private static final String LICENSE_PLATE="CJ09RMN";
+	private static final String PROPERTY_TO_LOAD_DATA="vehicleTestLoadFile";
 	
 	private VehicleService vehicleService;
 	private VehicleRepository vehicleRepository;
@@ -25,9 +26,7 @@ public class VehicleServiceTest {
 	public void setUp(){
 		vehicleRepository = new VehicleRepositoryImpl();
 		vehicleService = new VehicleServiceImpl(vehicleRepository);
-		
-		//given
-		prepareDataForTest();
+		vehicleRepository.initialLoadOfVehicles(PROPERTY_TO_LOAD_DATA);
 	}
 	
 	@Test
@@ -48,12 +47,5 @@ public class VehicleServiceTest {
 		//then
 		assertNull(noVehicle);
 	}
-	
-	private void prepareDataForTest(){
-		Vehicle vehicle = new Vehicle(LICENSE_PLATE,255.5,2012,MileageUnit.MILE);
-		Vehicle vehicle2 = new Vehicle("SJ10DNR",300.0,2019,MileageUnit.KM);
-		
-		vehicleRepository.addVehicle(vehicle);
-		vehicleRepository.addVehicle(vehicle2);
-	}
+
 }

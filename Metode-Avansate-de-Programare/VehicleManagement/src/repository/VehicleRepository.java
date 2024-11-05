@@ -1,5 +1,7 @@
 package repository;
 
+import java.util.List;
+
 import domain.Vehicle;
 
 /**
@@ -9,22 +11,15 @@ import domain.Vehicle;
  *
  */
 public interface VehicleRepository {
-
 	/**
-	 * Add a new vehicle into the stock if it respects the following condition:
-	 * -there is enough space into the stock -vehicle is not already inactive
-	 * (made more than 30 years ago)
+	 * Load all vehicle data from a path given in a property file
 	 * 
-	 * @param newVehicle
-	 *            to be added
+	 * @param property
+	 *            the path to the data file
 	 */
-	void addVehicle(Vehicle newVehicle);
+	public void initialLoadOfVehicles(String property);
 
-	Vehicle getVehicleAtPosition(int position);
-
-	int getNumberOfVehicles();
-
-	Vehicle[] getVehicles();
+	List<Vehicle> getVehicles();
 
 	/**
 	 * Vehicle will be marked as being inactive, if the fabrication year is more

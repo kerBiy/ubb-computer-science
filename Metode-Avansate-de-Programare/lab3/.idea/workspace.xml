@@ -4,7 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55a5c788-745b-4934-a0eb-b0b4d5af8006" name="Changes" comment="" />
+    <list default="true" id="55a5c788-745b-4934-a0eb-b0b4d5af8006" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../inclassLab6/inclassLab6.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/VehicleManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/VehicleManagement.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/VehicleManagement.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/VehicleManagement.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/domain/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/repository/VehicleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/repository/VehicleRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/service/VehicleService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/service/VehicleServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/test/VehicleRepositoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/test/VehicleServiceTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/utils/MileageUnit.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleServiceTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,6 +217,7 @@
       <workItem from="1730721384662" duration="1536000" />
       <workItem from="1730724044109" duration="86000" />
       <workItem from="1730724136748" duration="4581000" />
+      <workItem from="1730738523663" duration="256000" />
     </task>
     <servers />
   </component>
