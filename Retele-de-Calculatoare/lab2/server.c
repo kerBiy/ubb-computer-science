@@ -11,14 +11,12 @@ int main() {
     int s, c, l;
     struct sockaddr_in server, client;
 
-    // Crearea socketului de server
     s = socket(AF_INET, SOCK_STREAM, 0);
     if (s < 0) {
         perror("Eroare la crearea socketului server");
         return 1;
     }
 
-    // Configurarea serverului
     memset(&server, 0, sizeof(server));
     server.sin_family = AF_INET;
     server.sin_port = htons(1234);
@@ -32,9 +30,8 @@ int main() {
 
     listen(s, 5);
 
-    printf("Serverul ascultă pe portul 1234...\n");
+    printf("Serverul asculta pe portul 1234...\n");
 
-    // Loop de acceptare a conexiunilor
     while (1) {
         l = sizeof(client);
         memset(&client, 0, sizeof(client));
@@ -47,26 +44,23 @@ int main() {
 
         printf("S-a conectat un client.\n");
 
-        if (fork() == 0) {  // Proces copil
-            close(s);       // Închidem socketul de ascultare în copil
+        if (fork() == 0) {  
+            close(s);    
             char string[100], reversed[100];
 
-            // Primim șirul de la client
             recv(c, string, sizeof(string), 0);
 
-            // Inversăm șirul
             int len = strlen(string);
             for (int i = 0; i < len; i++) {
                 reversed[i] = string[len - i - 1];
             }
             reversed[len] = '\0';
 
-            // Trimitem șirul inversat înapoi la client
             send(c, reversed, strlen(reversed) + 1, 0);
-            close(c);  // Închidem conexiunea cu clientul
-            exit(0);   // Ieșim din procesul copil
+            close(c);  
+            exit(0);   
         }
-        close(c);  // Închidem conexiunea cu clientul în procesul părinte
+        close(c);  
     }
 
     close(s);

@@ -17,37 +17,31 @@ int main(int argc, char *argv[]) {
     struct sockaddr_in server;
     char string[100], reversed[100];
 
-    // Crearea socketului
     c = socket(AF_INET, SOCK_STREAM, 0);
     if (c < 0) {
         perror("Eroare la crearea socketului client");
         return 1;
     }
 
-    // Configurarea structurii serverului
     memset(&server, 0, sizeof(server));
     server.sin_family = AF_INET;
-    server.sin_port = htons(atoi(argv[2]));  // Portul preluat din argumente
-    server.sin_addr.s_addr =
-        inet_addr(argv[1]);  // Adresa IP preluată din argumente
+    server.sin_port = htons(atoi(argv[2]));  
+    server.sin_addr.s_addr = inet_addr(argv[1]);  
 
-    // Conectarea la server
     if (connect(c, (struct sockaddr *)&server, sizeof(server)) < 0) {
         perror("Eroare la conectarea la server");
         close(c);
         return 1;
     }
 
-    // Trimitem mesajul la server
-    printf("Introduceți șirul: ");
+    printf("Enter the string: ");
     fgets(string, sizeof(string), stdin);
     string[strcspn(string, "\n")] = 0;
 
     send(c, string, strlen(string) + 1, 0);
 
-    // Primim răspunsul
     recv(c, reversed, sizeof(reversed), 0);
-    printf("Șirul inversat este: %s\n", reversed);
+    printf("The reversed is: %s\n", reversed);
 
     close(c);
     return 0;
