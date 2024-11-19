@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da70f881-2c17-4411-b908-0bf6a89014c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../inclassLab6/inclassLab6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/VehicleManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/VehicleManagement.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleManagement/out/production/VehicleManagement/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleManagement/out/production/VehicleManagement/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleManagement/out/production/VehicleManagement/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VehicleManagement/out/production/VehicleManagement/VehicleManagement.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/VehicleManagement.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/domain/Vehicle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/repository/VehicleRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/repository/VehicleRepositoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/service/VehicleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/service/VehicleServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/test/VehicleRepositoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/test/VehicleServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/out/production/VehicleManagement/utils/MileageUnit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/VehicleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/repository/VehicleRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/VehicleRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/VehicleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/VehicleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/VehicleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/VehicleRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/VehicleRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/VehicleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/VehicleServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Retele-de-Calculatoare/lab3/client.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../Retele-de-Calculatoare/lab3/client.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Retele-de-Calculatoare/lab3/server.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../Retele-de-Calculatoare/lab3/server.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +118,7 @@
       <updated>1730737574637</updated>
       <workItem from="1730737575662" duration="714000" />
       <workItem from="1730738519170" duration="307000" />
+      <workItem from="1730802046926" duration="39000" />
     </task>
     <servers />
   </component>
