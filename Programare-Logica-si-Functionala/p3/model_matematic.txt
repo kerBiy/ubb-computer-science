@@ -1,0 +1,31 @@
+13. "Colorarea hartilor". Se dau n tari. Se cer toate modalitatile de colorarea celor n tari cu m culori, astfel inca doua tari vecine sa nu fie colorate la fel.
+
+assign_colors(t1t2...tn, c1c2...cm) = 
+  1  vid, n = 0
+  2 (t1, c) U assign_colors(t2...tn, c1c2...cm), c = member(c1..cm)
+
+member(c1..cn) =
+    1 c1 
+    2 member(c2..cn)
+
+
+valid_coloring(tc1tc2...tcn) =
+    true, n = 0
+    valid_coloring(tc2...tcn), (neighbor(t1), c1) ne este in tc2...tcn
+    false, altfel
+
+color_map(Countries, Colors) =
+    assign_colors(Countries, Colors)
+    valid_coloring(Colors)
+
+teste:
+
+colors([red, green, blue])
+color_map([country1, country2, country3, country4], Coloring) = [
+    [(country1, red), (country2, green), (country3, blue), (country4, green)] ;
+    [(country1, red), (country2, blue), (country3, green), (country4, blue)] ;
+    [(country1, green), (country2, red), (country3, blue), (country4, red)] ;
+    [(country1, green), (country2, blue), (country3, red), (country4, blue)] ;
+    [(country1, blue), (country2, red), (country3, green), (country4, red)] ;
+    [(country1, blue), (country2, green), (country3, red), (country4, green)] ;
+]
