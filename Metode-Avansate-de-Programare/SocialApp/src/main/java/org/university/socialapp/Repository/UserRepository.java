@@ -1,7 +1,7 @@
-package repository;
+package org.university.socialapp.Repository;
 
-import domain.User;
-import validation.Validator;
+import org.university.socialapp.Domain.User;
+import org.university.socialapp.Validation.Validator;
 
 import java.sql.*;
 import java.util.Optional;

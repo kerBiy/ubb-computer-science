@@ -1,20 +1,22 @@
-package repository;
+package org.university.socialapp.Repository;
 
-import domain.Friendship;
-import validation.Validator;
+import org.university.socialapp.Domain.Friendship;
+import org.university.socialapp.Validation.Validator;
 
 import java.sql.*;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FriendshipRepositoryDB extends FriendshipRepository {
+public class FriendshipRepositoryDB implements Repository<String, Friendship>{
+    private List<Friendship> friendships;
+    private Validator validator;
+
     private final String url;
     private final String user;
     private final String password;
 
     public FriendshipRepositoryDB(Validator validator, String url, String user, String password) {
-        super(validator);
         this.url = url;
         this.user = user;
         this.password = password;
