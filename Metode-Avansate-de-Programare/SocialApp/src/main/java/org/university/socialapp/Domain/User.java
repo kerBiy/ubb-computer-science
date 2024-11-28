@@ -1,14 +1,14 @@
-package domain;
+package org.university.socialapp.Domain;
 
 public class User implements Entity<Long> {
     private Long id;
     private String name;
-    private String email;
+    private String password;
 
-    public User(Long id, String name, String email) {
+    public User(Long id, String name, String password) {
         this.id = id;
         this.name = name;
-        this.email = email;
+        this.password = password;
     }
 
     @Override
@@ -25,12 +25,20 @@ public class User implements Entity<Long> {
         return name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
-        return id + "," + name + "," + email;
+        return id + ": " + name;
     }
 }

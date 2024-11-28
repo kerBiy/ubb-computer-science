@@ -8,18 +8,17 @@ import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FriendshipRepositoryDB implements Repository<String, Friendship>{
-    private List<Friendship> friendships;
-    private Validator validator;
-
+public class FriendshipRepository implements Repository<String, Friendship>{
     private final String url;
     private final String user;
     private final String password;
+    private Validator validator;
 
-    public FriendshipRepositoryDB(Validator validator, String url, String user, String password) {
+    public FriendshipRepository(Validator validator, String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
+        this.validator = validator;
     }
 
     private Connection getConnection() throws SQLException {

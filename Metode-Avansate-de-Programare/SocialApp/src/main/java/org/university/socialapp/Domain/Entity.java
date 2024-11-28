@@ -1,4 +1,4 @@
-package domain;
+package org.university.socialapp.Domain;
 
 public interface Entity<ID> {
     ID getId();

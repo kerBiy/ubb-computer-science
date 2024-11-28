@@ -1,6 +1,6 @@
-package validation;
+package org.university.socialapp.Validation;
 
-import domain.User;
+import org.university.socialapp.Domain.User;
 
 public class Validator {
     public void validateUser(User user) {
@@ -11,9 +11,6 @@ public class Validator {
         }
         if (user.getName().length() > 32) {
             errorMessage += "User name must be less than 32 characters!\n";
-        }
-        if (!user.getEmail().contains("@")) {
-            errorMessage += "Email address must be a valid email address!\n";
         }
 
         if (!errorMessage.isEmpty()) {

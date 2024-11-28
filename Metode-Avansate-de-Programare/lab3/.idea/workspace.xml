@@ -5,33 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55a5c788-745b-4934-a0eb-b0b4d5af8006" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../inclassLab6/inclassLab6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/VehicleManagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/VehicleManagement.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/out/production/VehicleManagement/out/production/VehicleManagement/VehicleManagement.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/Application.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/VehicleManagement.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/domain/Vehicle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/repository/VehicleRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/repository/VehicleRepositoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/service/VehicleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/service/VehicleServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/test/VehicleRepositoryTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/test/VehicleServiceTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/out/production/VehicleManagement/utils/MileageUnit.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/repository/VehicleRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/service/VehicleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleManagement/src/test/VehicleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/org/example/demo/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/java/org/example/demo/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/src/main/resources/org/example/demo/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javafxwithjdk/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Friendship.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/Friendship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/FriendshipRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/FriendshipRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/FriendshipRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/FriendshipRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/FriendshipRepositoryFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/FriendshipRepositoryFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/UserRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/UserRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/UserRepositoryFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/UserRepositoryFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Service/ServiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/FriendshipRepositoryFileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/ServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/UserRepositoryFileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/ConsoleUI/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validation/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Validation/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validation/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Validation/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programare-Logica-si-Functionala/nush/razvan.pl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +77,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -183,8 +198,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
       </set>
     </attachedChunks>
   </component>
@@ -218,11 +233,35 @@
       <workItem from="1730724044109" duration="86000" />
       <workItem from="1730724136748" duration="4581000" />
       <workItem from="1730738523663" duration="256000" />
+      <workItem from="1732118026598" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

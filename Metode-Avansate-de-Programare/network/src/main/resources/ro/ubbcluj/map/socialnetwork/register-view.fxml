@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.ubbcluj.map.socialnetwork.RegisterController">
+    <SplitPane dividerPositions="0.8313758389261744" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="291.0" prefWidth="597.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" layoutY="24.0" prefHeight="25.0" prefWidth="155.0" text="Create account">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="76.0" layoutY="83.0" prefHeight="25.0" prefWidth="69.0" text="Username" />
+            <Label layoutX="76.0" layoutY="134.0" text="Prenume" />
+            <Label layoutX="76.0" layoutY="184.0" text="Nume" />
+            <TextField fx:id="textFieldUsername" layoutX="158.0" layoutY="83.0" prefHeight="25.0" prefWidth="341.0" />
+            <TextField fx:id="textFieldPrenume" layoutX="158.0" layoutY="130.0" prefHeight="25.0" prefWidth="341.0" />
+            <TextField fx:id="textFieldNume" layoutX="158.0" layoutY="180.0" prefHeight="25.0" prefWidth="341.0" />
+         <Label layoutX="78.0" layoutY="232.0" text="Parola" />
+         <TextField  fx:id="textFieldPassword" layoutX="158.0" layoutY="228.0" prefHeight="25.0" prefWidth="341.0" />
+        </AnchorPane>
+
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="289.0" prefWidth="584.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#handleCreate" text="Create">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#handleCancel" text="Cancel">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </HBox.margin>
+                </Button>
+            </HBox>
+        </AnchorPane>
+
+    </SplitPane>
+</AnchorPane>

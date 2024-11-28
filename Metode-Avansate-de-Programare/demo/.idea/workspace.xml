@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="833e31e2-3654-4929-8686-18ea81e34aec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/demo/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../javafxwithjdk/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/domain/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/domain/Friendship.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/Friendship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/domain/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/repository/FriendshipRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/FriendshipRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/repository/FriendshipRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/FriendshipRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/repository/FriendshipRepositoryFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/FriendshipRepositoryFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/repository/UserRepositoryDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/UserRepositoryDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/repository/UserRepositoryFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Repository/UserRepositoryFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Service/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/service/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Service/ServiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/test/FriendshipRepositoryFileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/test/ServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/test/UserRepositoryFileTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/ui/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/ConsoleUI/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/validation/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Validation/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/validation/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SocialApp/src/main/java/org/university/socialapp/Validation/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Programare-Logica-si-Functionala/nush/razvan.pl" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "kerBiy"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/kerBiy/ubb-computer-science.git",
+    "accountId": "203c41eb-d41d-436c-bbcc-a8b04b68252a"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2p7YMM4ILscrQaqbF7kJJf4Bi3T" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="833e31e2-3654-4929-8686-18ea81e34aec" name="Changes" comment="" />
+      <created>1732118532832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732118532832</updated>
+      <workItem from="1732118533827" duration="37000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

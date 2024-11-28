@@ -1,10 +1,10 @@
-package service;
+package org.university.socialapp.Service;
 
-import domain.Graph;
-import domain.User;
-import domain.Friendship;
-import repository.UserRepository;
-import repository.FriendshipRepository;
+import org.university.socialapp.Domain.Graph;
+import org.university.socialapp.Domain.User;
+import org.university.socialapp.Domain.Friendship;
+import org.university.socialapp.Repository.UserRepository;
+import org.university.socialapp.Repository.FriendshipRepository;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -23,8 +23,8 @@ public class Service {
         return userRepo.findAll();
     }
 
-    public User addUser(Long id, String name, String email) {
-        User user = new User(id, name, email);
+    public User addUser(Long id, String name, String password) {
+        User user = new User(id, name, password);
 
         Optional<User> savedUser = userRepo.save(user);
         if (savedUser.isPresent()) {

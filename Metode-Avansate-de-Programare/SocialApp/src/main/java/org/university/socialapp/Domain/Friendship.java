@@ -1,4 +1,4 @@
-package domain;
+package org.university.socialapp.Domain;
 
 public class Friendship implements Entity<String> {
     private Long user1;

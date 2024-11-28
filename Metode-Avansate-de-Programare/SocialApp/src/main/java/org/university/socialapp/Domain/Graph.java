@@ -1,4 +1,4 @@
-package domain;
+package org.university.socialapp.Domain;
 
 import java.util.*;
 
@@ -15,8 +15,8 @@ public class Graph {
 
     private void buildAdjacencyList() {
         for (Friendship friendship : friendships) {
-            adjList.computeIfAbsent(friendship.getUser1(), _ -> new ArrayList<>()).add(friendship.getUser2());
-            adjList.computeIfAbsent(friendship.getUser2(), _ -> new ArrayList<>()).add(friendship.getUser1());
+            adjList.computeIfAbsent(friendship.getUser1(), key -> new ArrayList<>()).add(friendship.getUser2());
+            adjList.computeIfAbsent(friendship.getUser2(), key -> new ArrayList<>()).add(friendship.getUser1());
         }
     }
 

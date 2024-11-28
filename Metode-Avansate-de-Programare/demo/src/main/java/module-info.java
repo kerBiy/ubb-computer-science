@@ -1,8 +1,8 @@
-module org.example.demo {
+module org.university.demo {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens org.example.demo to javafx.fxml;
-    exports org.example.demo;
+    opens org.university.demo to javafx.fxml;
+    exports org.university.demo;
 }

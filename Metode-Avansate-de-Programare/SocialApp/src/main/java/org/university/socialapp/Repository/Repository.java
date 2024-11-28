@@ -1,6 +1,6 @@
-package repository;
-import domain.Entity;
-import validation.ValidationException;
+package org.university.socialapp.Repository;
+import org.university.socialapp.Domain.Entity;
+import org.university.socialapp.Validation.ValidationException;
 
 import java.util.Optional;
 

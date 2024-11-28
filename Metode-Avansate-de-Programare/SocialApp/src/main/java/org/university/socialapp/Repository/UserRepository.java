@@ -8,16 +8,17 @@ import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepositoryDB extends UserRepository {
+public class UserRepository implements Repository<Long, User> {
     private final String url;
     private final String user;
     private final String password;
+    private Validator validator;
 
-    public UserRepositoryDB(Validator validator, String url, String user, String password) {
-        super(validator);
+    public UserRepository(Validator validator, String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
+        this.validator = validator;
     }
 
     private Connection getConnection() throws SQLException {
@@ -34,8 +35,8 @@ public class UserRepositoryDB extends UserRepository {
             if (resultSet.next()) {
                 Long userId = resultSet.getLong("id");
                 String name = resultSet.getString("name");
-                String email = resultSet.getString("email");
-                User user = new User(userId, name, email);
+                String password = resultSet.getString("password");
+                User user = new User(userId, name, password);
                 return Optional.of(user);
             }
         } catch (SQLException e) {
@@ -54,8 +55,8 @@ public class UserRepositoryDB extends UserRepository {
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
-                String email = resultSet.getString("email");
-                users.add(new User(id, name, email));
+                String password = resultSet.getString("password");
+                users.add(new User(id, name, password));
             }
         } catch (SQLException e) {
             System.out.println("Error fetching all users: " + e.getMessage());
@@ -76,12 +77,12 @@ public class UserRepositoryDB extends UserRepository {
 
         validator.validateUser(user);
 
-        String query = "INSERT INTO Users (id, name, email) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Users (id, name, password) VALUES (?, ?, ?)";
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(1, user.getId());
             statement.setString(2, user.getName());
-            statement.setString(3, user.getEmail());
+            statement.setString(3, user.getPassword());
             statement.executeUpdate();
             return Optional.empty();
         } catch (SQLException e) {
@@ -112,11 +113,11 @@ public class UserRepositoryDB extends UserRepository {
 
     @Override
     public Optional<User> update(User user) {
-        String query = "UPDATE Users SET name = ?, email = ? WHERE id = ?";
+        String query = "UPDATE Users SET name = ?, password = ? WHERE id = ?";
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, user.getName());
-            statement.setString(2, user.getEmail());
+            statement.setString(2, user.getPassword());
             statement.setLong(3, user.getId());
             int rowsUpdated = statement.executeUpdate();
             if (rowsUpdated > 0) {
