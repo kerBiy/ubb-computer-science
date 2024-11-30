@@ -1,9 +1,10 @@
-package org.university.socialapp.Validation;
+package org.university.socialapp.Domain.Validation;
 
 import org.university.socialapp.Domain.User;
 
-public class Validator {
-    public void validateUser(User user) {
+public class UserValidator implements Validator<User> {
+    @Override
+    public void validate(User user) {
         String errorMessage = "";
 
         if (user.getId() <= 0) {

@@ -6,37 +6,29 @@
 
 <VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.university.socialapp.Controller.LoginController">
-    <children>
-        <HBox alignment="CENTER" spacing="10">
-            <children>
-                <AnchorPane prefHeight="400.0" prefWidth="600.0">
-                    <children>
-                        <Label alignment="CENTER" layoutX="196.0" layoutY="43.0" prefHeight="58.0" prefWidth="207.0"
-                               text="Login" textAlignment="CENTER" textFill="#201ad2">
-                            <font>
-                                <Font name="System Bold" size="24.0"/>
-                            </font>
-                        </Label>
-                        <Label layoutX="268.0" layoutY="132.0" text="Username">
-                            <font>
-                                <Font size="14.0"/>
-                            </font>
-                        </Label>
-                        <Label layoutX="271.0" layoutY="200.0" text="Password">
-                            <font>
-                                <Font size="14.0"/>
-                            </font>
-                        </Label>
-                        <TextField fx:id="textUsername" layoutX="225.0" layoutY="152.0"/>
-                        <Button fx:id="bttnLogin" layoutX="275.0" layoutY="260.0" mnemonicParsing="false"
-                                onAction="#handleLogin"
-                                text="Login"/>
-                        <Hyperlink fx:id="linkNewAcc" layoutX="245.0" layoutY="362.0" onAction="#handleNewAcc"
-                                   text="Create an Account"/>
-                        <PasswordField fx:id="textPassword" layoutX="226.0" layoutY="220.0"/>
-                    </children>
-                </AnchorPane>
-            </children>
-        </HBox>
-    </children>
+    <HBox alignment="CENTER" spacing="10">
+        <AnchorPane prefHeight="400.0" prefWidth="600.0">
+            <Label alignment="CENTER" layoutX="196.0" layoutY="43.0" prefHeight="58.0" prefWidth="207.0"
+                   text="Login" textAlignment="CENTER" textFill="#201ad2">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+            <Label layoutX="268.0" layoutY="132.0" text="Username">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <Label layoutX="271.0" layoutY="200.0" text="Password">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="textUsername" layoutX="225.0" layoutY="152.0"/>
+            <Button fx:id="bttnLogin" layoutX="275.0" layoutY="260.0" mnemonicParsing="false"
+                    onAction="#handleLogin"
+                    text="Login"/>
+            <PasswordField fx:id="textPassword" layoutX="226.0" layoutY="220.0"/>
+        </AnchorPane>
+    </HBox>
 </VBox>

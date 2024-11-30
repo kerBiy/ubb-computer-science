@@ -1,46 +1,42 @@
 package org.university.socialapp.Controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.example.network.controller.MessageAlert;
-import org.example.network.controller.RegisterController;
-import org.example.network.domain.Utilizator;
-import org.example.network.service.UtilizatorService;
+//import org.university.socialapp.Controller.RegisterController;
+import org.university.socialapp.Domain.User;
+import org.university.socialapp.Service.Service;
+import org.university.socialapp.GUI;
 
-import java.sql.SQLException;
+import java.util.Optional;
+
 
 public class LoginController {
 
-    private UtilizatorService utilizatorService;
+    private Service service;
     private Stage stage;
-    private Main main;
+    private GUI main;
 
     @FXML
     private TextField textUsername;
     @FXML
     private TextField textPassword;
 
-    public void setService(UtilizatorService utilizatorService, Stage stage) {
-        this.utilizatorService = utilizatorService;
+    public void setService(Service service, Stage stage) {
+        this.service = service;
         this.stage = stage;
     }
 
-    public void handleLogin() throws SQLException {
+    public void handleLogin() {
         if (textUsername.getText().isEmpty()) {
-            MessageAlert.showErrorMessage(null, "Introdu un username");
+            MessageAlert.showErrorMessage(null, "Enter the username");
         } else if (textPassword.getText().isEmpty()) {
-            MessageAlert.showErrorMessage(null, "Introdu parola");
+            MessageAlert.showErrorMessage(null, "Enter the password");
         } else {
-            if (utilizatorService.verifyLogin(textUsername.getText(), textPassword.getText())) {
+            if (service.verifyLogin(textUsername.getText(), textPassword.getText())) {
                 try {
-                    Utilizator user = utilizatorService.findUser(textUsername.getText());
-                    main.openUserStage(user);
-                    //stage.close();
+                    Optional<User> user = service.findUser(textUsername.getText());
+                    main.openUserStage(user.get());
                 } catch (Exception e) {
                     e.printStackTrace();
                     MessageAlert.showErrorMessage(null, "Eroare: " + e.getMessage());
@@ -51,36 +47,7 @@ public class LoginController {
         }
     }
 
-
-    public void handleNewAcc() {
-        showCreateAccDialog();
-    }
-
-    private void showCreateAccDialog() {
-        try {
-            FXMLLoader loader1 = new FXMLLoader();
-            loader1.setLocation(getClass().getResource("register-view.fxml"));
-
-            AnchorPane root1 = loader1.load();
-
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Create an Account");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.setResizable(true);
-            Scene scene = new Scene(root1, 600, 300);
-            dialogStage.setScene(scene);
-
-            RegisterController registerController = loader1.getController();
-            registerController.setService(utilizatorService, dialogStage);
-
-            dialogStage.show();
-
-        } catch (Exception e) {
-            MessageAlert.showErrorMessage(null, "Eroare: " + e.getMessage());
-        }
-    }
-
-    public void setMain(Main main) {
+    public void setMain(GUI main) {
         this.main = main;
     }
 }

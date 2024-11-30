@@ -1,9 +1,9 @@
-package org.university.socialapp.ConsoleUI;
+package org.university.socialapp.CLI;
 
 import org.university.socialapp.Domain.User;
 import org.university.socialapp.Service.Service;
 import org.university.socialapp.Service.ServiceException;
-import org.university.socialapp.Validation.ValidationException;
+import org.university.socialapp.Domain.Validation.ValidationException;
 
 import java.util.Scanner;
 

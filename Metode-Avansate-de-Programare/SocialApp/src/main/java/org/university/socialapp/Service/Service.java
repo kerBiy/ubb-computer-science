@@ -6,9 +6,7 @@ import org.university.socialapp.Domain.Friendship;
 import org.university.socialapp.Repository.UserRepository;
 import org.university.socialapp.Repository.FriendshipRepository;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
 
 public class Service {
     private UserRepository userRepo;
@@ -21,6 +19,11 @@ public class Service {
 
     public List<User> getUsers() {
         return userRepo.findAll();
+    }
+
+    public Optional<User> findUser(String name) {
+        Long id = findUserIdByName(name);
+        return userRepo.findOne(id);
     }
 
     public User addUser(Long id, String name, String password) {
@@ -42,6 +45,24 @@ public class Service {
 
         userRepo.delete(id);
         return user.get();
+    }
+
+    private Long findUserIdByName(String name) {
+        for (User user : userRepo.findAll()) {
+            if (user.getName().equals(name)) {
+                return user.getId();
+            }
+        }
+
+        return -1L;
+    }
+
+    public boolean verifyLogin(String username, String password) {
+        Long id = findUserIdByName(username);
+
+        Optional<User> user = userRepo.findOne(id);
+        return user.filter(value -> Objects.equals(value.getPassword(), password)).isPresent();
+
     }
 
     public Friendship addFriendship(Long user1Id, Long user2Id) {

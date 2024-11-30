@@ -2,21 +2,16 @@ package org.university.socialapp.Domain;
 
 import java.time.LocalDateTime;
 
-public class Friendship implements Entity<String> {
+public class FriendRequest implements Entity<String> {
     private Long user1;
     private Long user2;
 
+    private String status;
     private LocalDateTime date;
 
-    public Friendship(Long user1, Long user2) {
+    public FriendRequest(Long user1, Long user2) {
         this.user1 = user1;
         this.user2 = user2;
-        this.date = LocalDateTime.now();
-    }
-
-    public Friendship(User user1, User user2) {
-        this.user1 = user1.getId();
-        this.user2 = user2.getId();
         this.date = LocalDateTime.now();
     }
 
@@ -40,16 +35,19 @@ public class Friendship implements Entity<String> {
         return user2;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public LocalDateTime getDate() {
         return date;
     }
 
     public void setDate(LocalDateTime date) {
         this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return user1 + "," + user2;
     }
 }

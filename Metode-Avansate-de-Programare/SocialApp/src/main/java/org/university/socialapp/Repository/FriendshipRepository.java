@@ -1,20 +1,20 @@
 package org.university.socialapp.Repository;
 
 import org.university.socialapp.Domain.Friendship;
-import org.university.socialapp.Validation.Validator;
+import org.university.socialapp.Domain.Validation.FriendshipValidator;
 
 import java.sql.*;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FriendshipRepository implements Repository<String, Friendship>{
+public class FriendshipRepository implements Repository<String, Friendship> {
     private final String url;
     private final String user;
     private final String password;
-    private Validator validator;
+    private FriendshipValidator validator;
 
-    public FriendshipRepository(Validator validator, String url, String user, String password) {
+    public FriendshipRepository(FriendshipValidator validator, String url, String user, String password) {
         this.url = url;
         this.user = user;
         this.password = password;
@@ -68,16 +68,27 @@ public class FriendshipRepository implements Repository<String, Friendship>{
 
     @Override
     public Optional<Friendship> save(Friendship entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Entity cannot be null.");
+        }
+
+        Optional<Friendship> existingFriendship = findOne(entity.getId());
+        if (existingFriendship.isPresent()) {
+            return existingFriendship;
+        }
+
+        validator.validate(entity);
+
         String query = "INSERT INTO Friendships (user1, user2) VALUES (?, ?)";
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(1, entity.getUser1());
             statement.setLong(2, entity.getUser2());
             statement.executeUpdate();
-            return Optional.empty(); // return empty if the friendship is saved successfully
+            return Optional.empty();
         } catch (SQLException e) {
             System.out.println("Error saving friendship: " + e.getMessage());
-            return Optional.of(entity); // return entity if an error occurs
+            return Optional.of(entity);
         }
     }
 
