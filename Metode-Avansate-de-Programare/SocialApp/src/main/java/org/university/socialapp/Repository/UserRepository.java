@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository implements Repository<Long, User> {
+public class UserRepository implements Repository<String, User> {
     private final String url;
     private final String user;
     private final String password;
@@ -26,19 +26,17 @@ public class UserRepository implements Repository<Long, User> {
     }
 
     @Override
-    public Optional<User> findOne(Long id) {
-        String query = "SELECT * FROM Users WHERE id = ?";
+    public Optional<User> findOne(String name) {
+        String query = "SELECT * FROM Users WHERE name = ?";
 
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
 
-            statement.setLong(1, id);
+            statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                Long userId = resultSet.getLong("id");
-                String name = resultSet.getString("name");
                 String password = resultSet.getString("password");
-                User user = new User(userId, name, password);
+                User user = new User(name, password);
                 return Optional.of(user);
             }
         } catch (SQLException e) {
@@ -57,10 +55,9 @@ public class UserRepository implements Repository<Long, User> {
              ResultSet resultSet = statement.executeQuery(query)) {
 
             while (resultSet.next()) {
-                Long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
                 String password = resultSet.getString("password");
-                users.add(new User(id, name, password));
+                users.add(new User(name, password));
             }
         } catch (SQLException e) {
             System.out.println("Error fetching all users: " + e.getMessage());
@@ -81,13 +78,12 @@ public class UserRepository implements Repository<Long, User> {
 
         validator.validate(user);
 
-        String query = "INSERT INTO Users (id, name, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Users (name, password) VALUES (?, ?)";
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
 
-            statement.setLong(1, user.getId());
-            statement.setString(2, user.getName());
-            statement.setString(3, user.getPassword());
+            statement.setString(1, user.getName());
+            statement.setString(2, user.getPassword());
             statement.executeUpdate();
             return Optional.empty();
         } catch (SQLException e) {
@@ -97,18 +93,18 @@ public class UserRepository implements Repository<Long, User> {
     }
 
     @Override
-    public Optional<User> delete(Long id) {
-        if (id == null) {
+    public Optional<User> delete(String name) {
+        if (name == null) {
             throw new IllegalArgumentException("ID cannot be null.");
         }
 
-        Optional<User> user = findOne(id);
+        Optional<User> user = findOne(name);
         if (user.isPresent()) {
-            String query = "DELETE FROM Users WHERE id = ?";
+            String query = "DELETE FROM Users WHERE name = ?";
             try (Connection connection = getConnection();
                  PreparedStatement statement = connection.prepareStatement(query)) {
 
-                statement.setLong(1, id);
+                statement.setString(1, name);
                 statement.executeUpdate();
             } catch (SQLException e) {
                 System.out.println("Error deleting user: " + e.getMessage());

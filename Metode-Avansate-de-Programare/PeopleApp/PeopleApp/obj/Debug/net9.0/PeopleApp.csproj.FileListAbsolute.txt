@@ -1,0 +1,15 @@
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/bin/Debug/net9.0/PeopleApp
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/bin/Debug/net9.0/PeopleApp.deps.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/bin/Debug/net9.0/PeopleApp.runtimeconfig.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/bin/Debug/net9.0/PeopleApp.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/bin/Debug/net9.0/PeopleApp.pdb
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.AssemblyInfoInputs.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.AssemblyInfo.cs
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.csproj.CoreCompileInputs.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.sourcelink.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/refint/PeopleApp.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.pdb
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/PeopleApp.genruntimeconfig.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/PeopleApp/PeopleApp/obj/Debug/net9.0/ref/PeopleApp.dll

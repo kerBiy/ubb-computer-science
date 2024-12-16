@@ -5,15 +5,15 @@ import java.time.LocalDateTime;
 public class Message implements Entity<Long> {
     private Long id;
     private String text;
-    private Long sender;
-    private Conversation perentConversation;
+    private String sender;
+    private Conversation parentConversation;
     private LocalDateTime dateTime;
 
-    public Message(Long id, String text, Long sender, Conversation perentConversation) {
+    public Message(Long id, String text, String sender, Conversation perentConversation, LocalDateTime localDateTime) {
         this.id = id;
         this.text = text;
         this.sender = sender;
-        this.perentConversation = perentConversation;
+        this.parentConversation = perentConversation;
         this.dateTime = LocalDateTime.now();
     }
 
@@ -31,12 +31,12 @@ public class Message implements Entity<Long> {
         return text;
     }
 
-    public Long getSender() {
+    public String getSender() {
         return sender;
     }
 
-    public Conversation getPerentConversation() {
-        return perentConversation;
+    public Conversation getParentConversation() {
+        return parentConversation;
     }
 
     public LocalDateTime getDateTime() {
@@ -47,12 +47,12 @@ public class Message implements Entity<Long> {
         this.text = text;
     }
 
-    public void setSender(Long sender) {
+    public void setSender(String sender) {
         this.sender = sender;
     }
 
-    public void setPerentConversation(Conversation perentConversation) {
-        this.perentConversation = perentConversation;
+    public void setParentConversation(Conversation parentConversation) {
+        this.parentConversation = parentConversation;
     }
 
     public void setDateTime(LocalDateTime dateTime) {
@@ -65,7 +65,7 @@ public class Message implements Entity<Long> {
                 "id=" + id +
                 ", text='" + text + '\'' +
                 ", sender=" + sender +
-                ", perentConversation=" + perentConversation +
+                ", parentConversation=" + parentConversation +
                 '}';
     }
 }

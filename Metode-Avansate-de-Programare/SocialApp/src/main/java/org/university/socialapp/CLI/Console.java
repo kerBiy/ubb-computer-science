@@ -33,11 +33,10 @@ public class Console {
 
     private void addUser() {
         try {
-            Long id = Long.parseLong(input("User id: "));
             String name = input("User name: ");
             String email = input("User email: ");
 
-            User user = service.addUser(id, name, email);
+            User user = service.addUser(name, email);
 
             System.out.println("User created: " + user.getName());
         } catch (ValidationException ex) {
@@ -51,9 +50,8 @@ public class Console {
 
     private void removeUser() {
         try {
-            Long id = Long.parseLong(input("User id: "));
-
-            User user = service.removeUser(id);
+            String name = input("Enter username: ");
+            User user = service.removeUser(name);
 
             System.out.println("User deleted: " + user.getName());
         } catch (ValidationException ex) {
@@ -68,8 +66,8 @@ public class Console {
 
     private void addFriendship() {
         try {
-            Long idUser1 = Long.parseLong(input("First user id: "));
-            Long idUser2 = Long.parseLong(input("Second user id: "));
+            String idUser1 = input("First user id: ");
+            String idUser2 = input("Second user id: ");
 
             service.addFriendship(idUser1, idUser2);
 
@@ -85,8 +83,8 @@ public class Console {
 
     private void removeFriendship() {
         try {
-            Long idUser1 = Long.parseLong(input("First user id: "));
-            Long idUser2 = Long.parseLong(input("Second user id: "));
+            String idUser1 = input("First user id: ");
+            String idUser2 = input("Second user id: ");
 
             service.removeFriendship(idUser1, idUser2);
 

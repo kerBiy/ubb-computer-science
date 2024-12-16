@@ -1,0 +1,82 @@
+/* General styling for the light theme */
+.root {
+    -fx-background-color: #f9f9f9; /* Light background */
+    -fx-font-family: "Arial", sans-serif;
+    -fx-text-fill: #333333; /* Dark gray text for contrast */
+}
+
+/* Title styling */
+#titleLabel {
+    -fx-text-fill: #00bfff; /* Brighter cyan for the title */
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-padding: 20 0 40 0; /* Add padding to create larger gap below title */
+    /* Removed glow effect for a cleaner look */
+}
+
+/* Labels styling */
+.label {
+    -fx-text-fill: #555555; /* Medium gray for labels */
+    -fx-font-size: 14px;
+}
+
+/* Input fields styling */
+.text-field, .password-field {
+    -fx-background-color: #ffffff; /* White input background */
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-border-color: #00bfff; /* Bright cyan border */
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #5cd3ff; /* Softer cyan for focus */
+    -fx-border-width: 2.5;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #00bfff; /* Bright cyan accent */
+    -fx-text-fill: #ffffff; /* White text for contrast */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 12 24; /* Larger button padding */
+    -fx-cursor: hand;
+    /* Removed glow effect for cleaner appearance */
+}
+
+.button:hover {
+    -fx-background-color: #5cd3ff; /* Softer cyan on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #009acb; /* Slightly darker cyan for pressed state */
+}
+
+/* Hyperlink styling */
+.hyperlink {
+    -fx-text-fill: #00bfff; /* Bright cyan accent for hyperlinks */
+    -fx-font-size: 14px;
+    -fx-underline: false;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #5cd3ff; /* Brighter cyan on hover */
+    -fx-underline: true;
+}
+
+/* Layout adjustments */
+.vbox {
+    -fx-spacing: 25; /* Increase spacing between elements */
+}
+
+/* Adjust spacing for title and inputs */
+#titleLabel {
+    -fx-padding: 0 0 30 0; /* Larger gap below title */
+}
+
+.text-field, .password-field, .button {
+    -fx-margin: 0 0 20 0; /* Increase gap between inputs and buttons */
+}

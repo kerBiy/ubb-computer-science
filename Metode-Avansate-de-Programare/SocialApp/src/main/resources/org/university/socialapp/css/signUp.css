@@ -1,0 +1,68 @@
+/* General styling */
+.root {
+    -fx-background-color: #f9f9f9; /* Light gray background */
+    -fx-font-family: "Arial", sans-serif;
+    -fx-text-fill: #333333; /* Dark text for contrast */
+}
+
+/* Title styling */
+#titleLabel {
+    -fx-text-fill: #0088cc; /* Bright blue accent */
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 30 0; /* Add space below title */
+    -fx-effect: null; /* Minimal design without glow */
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #666666; /* Medium gray for labels */
+    -fx-font-size: 14px;
+}
+
+/* Input Fields */
+.text-field {
+    -fx-background-color: #ffffff; /* White background for input fields */
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-border-color: #0088cc; /* Bright blue border */
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+}
+
+.text-field:focused {
+    -fx-border-color: #4db8ff; /* Softer blue for focus */
+    -fx-border-width: 2.5;
+}
+
+/* Button */
+#signUpButton {
+    -fx-background-color: #0088cc; /* Bright blue background */
+    -fx-text-fill: #ffffff; /* White text for contrast */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 12 24;
+    -fx-cursor: hand;
+    -fx-effect: null; /* Minimal design without glow */
+}
+
+#signUpButton:hover {
+    -fx-background-color: #4db8ff; /* Softer blue on hover */
+}
+
+#signUpButton:pressed {
+    -fx-background-color: #005f99; /* Darker blue for pressed state */
+}
+
+/* Hyperlink */
+#loginLink {
+    -fx-text-fill: #0088cc; /* Bright blue accent */
+    -fx-font-size: 14px;
+    -fx-underline: false;
+}
+
+#loginLink:hover {
+    -fx-text-fill: #4db8ff; /* Softer blue on hover */
+    -fx-underline: true;
+}

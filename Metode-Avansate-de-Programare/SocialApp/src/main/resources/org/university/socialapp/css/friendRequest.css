@@ -1,0 +1,57 @@
+/* General Styling */
+.root {
+    -fx-background-color: #f9f9f9; /* Light gray background */
+    -fx-font-family: "Arial", sans-serif;
+    -fx-text-fill: #333333; /* Dark text */
+}
+
+/* Label Styling */
+.label {
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-font-size: 16px;
+}
+
+/* TextField Styling */
+.text-field {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-prompt-text-fill: #b0bec5; /* Light gray for placeholder text */
+    -fx-border-color: #0088cc; /* Bright blue border */
+    -fx-border-width: 2;
+    -fx-background-radius: 5; /* Rounded corners */
+    -fx-border-radius: 5; /* Rounded corners */
+    -fx-padding: 5 10; /* Inner padding */
+}
+
+.text-field:focused {
+    -fx-border-color: #4db8ff; /* Brighter blue on focus */
+}
+
+/* Button Styling */
+.button {
+    -fx-background-color: #0088cc; /* Bright blue background */
+    -fx-text-fill: #ffffff; /* White text for contrast */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10; /* Rounded corners */
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 136, 204, 0.2), 8, 0.3, 0, 2); /* Subtle shadow */
+    -fx-border-color: transparent; /* Remove unnecessary borders */
+    -fx-border-width: 0;
+}
+
+.button:hover {
+    -fx-background-color: #4db8ff; /* Brighter blue on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #005f99; /* Darker blue */
+}
+
+/* Label for Result */
+#resultLabel {
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-font-size: 16px;
+    -fx-alignment: center; /* Center the text */
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="326.0"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.university.socialapp.Controller.FriendRequestsController">
+
+    <!-- Request Options Menu -->
+    <MenuButton layoutX="6.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="314.0"
+                text="Request Options">
+        <items>
+            <MenuItem mnemonicParsing="false" onAction="#handleAcceptFriendship" text="Accept"/>
+            <MenuItem mnemonicParsing="false" onAction="#handleRejectFriendship" text="Reject"/>
+        </items>
+    </MenuButton>
+
+    <!-- Requests Table -->
+    <TableView fx:id="requestsTable" layoutX="6.0" layoutY="60.0" prefHeight="320.0" prefWidth="314.0">
+        <columns>
+            <TableColumn fx:id="requestsUsernameColumn" prefWidth="120.0" text="Username"/>
+            <TableColumn fx:id="requestsSinceColumn" prefWidth="180.0" text="Request From"/>
+        </columns>
+    </TableView>
+
+</AnchorPane>

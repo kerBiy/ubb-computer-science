@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.university.socialapp.Controller.ChatController">
+    <!-- ScrollPane for chat messages -->
+    <ScrollPane fx:id="scrollPane" fitToWidth="true" prefHeight="433.0" prefWidth="800.0">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        <!-- Content of the ScrollPane -->
+        <VBox fx:id="messageContainer" spacing="10.0">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+    </ScrollPane>
+
+    <!-- Message Input Area -->
+    <TextArea fx:id="messageTextArea" layoutX="14.0" layoutY="446.0" prefHeight="40.0" prefWidth="717.0"
+              promptText="Type your message here..."/>
+
+    <!-- Send Button -->
+    <Button fx:id="sendButton" layoutX="746.0" layoutY="453.0" mnemonicParsing="false" onAction="#handleSend"
+            prefHeight="26.0" prefWidth="34.0" text="Send"/>
+</AnchorPane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="230.0" prefWidth="327.0"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.university.socialapp.Controller.FriendRequestController">
+
+    <!-- Username Label -->
+    <Label layoutX="83.0" layoutY="50.0" text="Username:">
+        <font>
+            <Font size="16.0"/>
+        </font>
+    </Label>
+
+    <!-- Username Input -->
+    <TextField fx:id="usernameTextField" layoutX="83.0" layoutY="80.0" onAction="#handleAdd"
+               promptText="Enter username"/>
+
+    <!-- Send Request Button -->
+    <Button layoutX="83.0" layoutY="130.0" mnemonicParsing="false" onAction="#handleAdd"
+            text="Send Request"/>
+
+    <!-- Result Label -->
+    <Label fx:id="resultLabel" layoutX="46.0" layoutY="180.0" prefHeight="34.0" prefWidth="241.0">
+        <font>
+            <Font size="16.0"/>
+        </font>
+    </Label>
+</AnchorPane>

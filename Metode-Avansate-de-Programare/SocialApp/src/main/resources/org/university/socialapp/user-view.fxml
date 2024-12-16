@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="456.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.university.socialapp.Controller.UserController">
+    <SplitPane dividerPositions="0.8" orientation="VERTICAL" prefHeight="456.0" prefWidth="663.0">
+        <!-- Table Section -->
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="395.0" prefWidth="661.0">
+            <TableView fx:id="friendsTable" prefHeight="376.0" prefWidth="663.0">
+                <columns>
+                    <TableColumn fx:id="friendsUsernameColumn" prefWidth="200.0" text="Username"/>
+                    <TableColumn fx:id="friendsSinceColumn" prefWidth="200.0" text="Friends Since"/>
+                    <TableColumn fx:id="friendsDeleteColumn" prefWidth="263.0" text="Actions"/>
+                </columns>
+            </TableView>
+        </AnchorPane>
+
+        <!-- Button Section -->
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <HBox alignment="CENTER" spacing="15" layoutX="50.0" layoutY="25.0">
+                <Button fx:id="friendshipsRequestsButton" text="Friend Requests" onAction="#handleFriendRequests"/>
+                <Button text="Add New Friend" onAction="#handleAddFriendship"/>
+                <Button text="Update Profile" onAction="#handleUpdateUser"/>
+                <Button text="Logout" onAction="#handleLogout"/>
+            </HBox>
+        </AnchorPane>
+    </SplitPane>
+</AnchorPane>

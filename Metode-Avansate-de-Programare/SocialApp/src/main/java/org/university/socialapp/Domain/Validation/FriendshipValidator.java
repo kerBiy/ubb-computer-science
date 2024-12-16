@@ -12,6 +12,9 @@ public class FriendshipValidator implements Validator<Friendship> {
         if (Objects.equals(friendship.getUser1(), friendship.getUser2())) {
             errorMessage += "You are already friends!\n";
         }
+//        if (!friendship.getStatus().equals("pending") && !friendship.getStatus().equals("accepted")) {
+//            errorMessage += "Invalid status!\n";
+//        }
 
         if (!errorMessage.isEmpty()) {
             throw new ValidationException(errorMessage);

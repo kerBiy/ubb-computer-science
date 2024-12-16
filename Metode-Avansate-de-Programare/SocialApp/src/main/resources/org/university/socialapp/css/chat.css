@@ -1,0 +1,73 @@
+/* General styling for the root layout */
+.root {
+    -fx-background-color: #ffffff; /* Light background */
+    -fx-font-family: "Arial", sans-serif;
+    -fx-text-fill: #2b2b2b; /* Dark text for contrast */
+}
+
+/* ScrollPane styling */
+#scrollPane {
+    -fx-background-color: transparent; /* No background for the scrollable area */
+}
+
+/* Message TextArea styling */
+#messageTextArea {
+    -fx-background-color: #f0f0f0; /* Light gray background for input */
+    -fx-text-fill: #2b2b2b; /* Dark text for input */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray for placeholder text */
+    -fx-border-color: #00bcd4; /* Cyan border for input */
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+/* Button styling */
+#sendButton {
+    -fx-background-color: #00bcd4; /* Cyan background for the button */
+    -fx-text-fill: #ffffff; /* White text for contrast */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 188, 212, 0.3), 8, 0.3, 0, 2); /* Subtle glow */
+}
+
+#sendButton:hover {
+    -fx-background-color: #4dd0e1; /* Lighter cyan on hover */
+}
+
+#sendButton:pressed {
+    -fx-background-color: #0097a7; /* Darker cyan for pressed state */
+}
+
+/* Message Container styling */
+#messageContainer {
+    -fx-background-color: #ffffff; /* White background for chat messages */
+    -fx-spacing: 10px; /* Space between messages */
+    -fx-padding: 10px;
+}
+
+/* Styling for messages */
+.message {
+    -fx-background-color: #e1f5fe; /* Light blue background for messages */
+    -fx-text-fill: #2b2b2b; /* Dark text for messages */
+    -fx-border-radius: 10;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-max-width: 80%; /* Limit message width */
+    -fx-word-wrap: break-word;
+}
+
+/* Alternate message styling (for messages from the user) */
+.message.user {
+    -fx-background-color: #b2ebf2; /* Slightly different shade for user messages */
+    -fx-alignment: center-right; /* Align to the right */
+}
+
+/* Styling for received messages */
+.message.other {
+    -fx-background-color: #e1f5fe; /* Lighter background for received messages */
+    -fx-alignment: center-left; /* Align to the left */
+}

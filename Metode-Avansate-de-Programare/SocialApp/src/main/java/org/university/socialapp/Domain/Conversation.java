@@ -2,24 +2,36 @@ package org.university.socialapp.Domain;
 
 import java.util.List;
 
-public class Conversation {
-    private List<Long> members;
+public class Conversation implements Entity<Long> {
+    private Long id;
+    private List<String> members;
     private List<Message> messages;
 
-    public Conversation(List<Long> members, List<Message> messages) {
+    public Conversation(Long id, List<String> members, List<Message> messages) {
+        this.id = id;
         this.members = members;
         this.messages = messages;
     }
 
-    public List<Long> getMembers() {
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<String> getMembers() {
         return members;
     }
 
-    public void addMember(Long userId) {
+    public void addMember(String userId) {
         members.add(userId);
     }
 
-    public void removeMember(Long userId) {
+    public void removeMember(String userId) {
         members.remove(userId);
     }
 

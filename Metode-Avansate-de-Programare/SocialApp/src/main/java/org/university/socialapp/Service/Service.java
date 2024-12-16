@@ -1,71 +1,81 @@
 package org.university.socialapp.Service;
 
-import org.university.socialapp.Domain.Graph;
-import org.university.socialapp.Domain.User;
-import org.university.socialapp.Domain.Friendship;
+import org.university.socialapp.Domain.*;
+import org.university.socialapp.Repository.ConversationRepository;
 import org.university.socialapp.Repository.UserRepository;
 import org.university.socialapp.Repository.FriendshipRepository;
+import org.university.socialapp.Utils.Observable;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
-public class Service {
+public class Service extends Observable {
     private UserRepository userRepo;
     private FriendshipRepository friendshipRepo;
+    private ConversationRepository conversationRepo;
 
-    public Service(UserRepository userRepository, FriendshipRepository friendshipRepository) {
+    public Service(UserRepository userRepository, FriendshipRepository friendshipRepository,
+                   ConversationRepository conversationRepository) {
         this.userRepo = userRepository;
         this.friendshipRepo = friendshipRepository;
+        this.conversationRepo = conversationRepository;
     }
 
     public List<User> getUsers() {
         return userRepo.findAll();
     }
 
-    public Optional<User> findUser(String name) {
-        Long id = findUserIdByName(name);
-        return userRepo.findOne(id);
+    public User getUser(String name) {
+        return userRepo.findOne(name).get();
     }
 
-    public User addUser(Long id, String name, String password) {
-        User user = new User(id, name, password);
+    public User addUser(String name, String password) {
+        User user = new User(name, password);
 
         Optional<User> savedUser = userRepo.save(user);
         if (savedUser.isPresent()) {
             throw new ServiceException("User with this ID already exists");
         }
 
+        notifyObservers();
         return user;
     }
 
-    public User removeUser(Long id) {
-        Optional<User> user = userRepo.findOne(id);
+    public User removeUser(String name) {
+        Optional<User> user = userRepo.findOne(name);
         if (user.isEmpty()) {
             throw new ServiceException("User not found");
         }
 
-        userRepo.delete(id);
+        userRepo.delete(name);
+        notifyObservers();
         return user.get();
     }
 
-    private Long findUserIdByName(String name) {
-        for (User user : userRepo.findAll()) {
-            if (user.getName().equals(name)) {
-                return user.getId();
+    public boolean verifyLogin(String username, String password) {
+        Optional<User> user = userRepo.findOne(username);
+        return user.filter(value -> Objects.equals(value.getPassword(), password)).isPresent();
+    }
+
+    public List<User> getFriendships(String username, String status) {
+        var friendships = friendshipRepo.findAll();
+        List<User> output = new ArrayList<>();
+
+        for (var friendship : friendships) {
+            if (Objects.equals(friendship.getUser1(), username) && friendship.getStatus().equals(status)) {
+                output.add(userRepo.findOne(friendship.getUser2()).get());
             }
         }
 
-        return -1L;
+        return output;
     }
 
-    public boolean verifyLogin(String username, String password) {
-        Long id = findUserIdByName(username);
-
-        Optional<User> user = userRepo.findOne(id);
-        return user.filter(value -> Objects.equals(value.getPassword(), password)).isPresent();
+    public Friendship getFriendship(String user1, String user2) {
+        return friendshipRepo.findOne(user1 + "-" + user2).orElse(null);
 
     }
 
-    public Friendship addFriendship(Long user1Id, Long user2Id) {
+    public Friendship addFriendship(String user1Id, String user2Id) {
         Optional<User> user1 = userRepo.findOne(user1Id);
         Optional<User> user2 = userRepo.findOne(user2Id);
 
@@ -80,12 +90,13 @@ public class Service {
             throw new ServiceException("Friendship already exists");
         }
 
-        Friendship friendship = new Friendship(user1.get(), user2.get());
+        Friendship friendship = new Friendship(user1.get(), user2.get(), "pending", LocalDateTime.now());
         friendshipRepo.save(friendship);
+        notifyObservers();
         return friendship;
     }
 
-    public Friendship removeFriendship(Long user1Id, Long user2Id) {
+    public Friendship removeFriendship(String user1Id, String user2Id) {
         String friendshipId = user1Id + "-" + user2Id;
         Optional<Friendship> friendship = friendshipRepo.findOne(friendshipId);
 
@@ -94,6 +105,7 @@ public class Service {
         }
 
         friendshipRepo.delete(friendshipId);
+        notifyObservers();
         return friendship.get();
     }
 
@@ -111,11 +123,69 @@ public class Service {
 
         Graph graph = new Graph(users.size(), friendships);
 
-        List<Long> longestPathIds = graph.findLongestPathInLargestComponent();
+        List<String> LongestPathIds = graph.findLongestPathInLargestComponent();
         List<User> largestCommunity = new ArrayList<>();
 
-        longestPathIds.forEach(userId -> userRepo.findOne(userId).ifPresent(largestCommunity::add));
+        LongestPathIds.forEach(userId -> userRepo.findOne(userId).ifPresent(largestCommunity::add));
 
         return largestCommunity;
+    }
+
+    public boolean userExists(String name) {
+        Optional<User> user = userRepo.findOne(name);
+        return user.isPresent();
+    }
+
+    public List<User> getReceivedFriendRequests(String username) {
+        var friendships = friendshipRepo.findAll();
+        List<User> output = new ArrayList<>();
+
+        for (var friendship : friendships) {
+            if (Objects.equals(friendship.getUser2(), username) && friendship.getStatus().equals("pending")) {
+                output.add(userRepo.findOne(friendship.getUser1()).get());
+            }
+        }
+
+        return output;
+    }
+
+    public void respondToFriendship(String user1, String user2) {
+        friendshipRepo.delete(user2 + "-" + user1);
+        friendshipRepo.save(new Friendship(user1, user2, "accepted", LocalDateTime.now()));
+        friendshipRepo.save(new Friendship(user2, user1, "accepted", LocalDateTime.now()));
+        notifyObservers();
+    }
+
+    public void sendMessage(Long conversationId, String sender, String text) {
+        Optional<Conversation> conversationOpt = conversationRepo.findOne(conversationId);
+        if (conversationOpt.isEmpty()) {
+            throw new IllegalArgumentException("Conversation not found with ID: " + conversationId);
+        }
+
+        Conversation conversation = conversationOpt.get();
+
+        Message message = new Message(null, text, sender, conversation, LocalDateTime.now());
+        conversation.addMessage(message);
+
+        conversationRepo.save(conversation);
+        notifyObservers();
+    }
+
+    public Conversation getOrCreateConversation(String user1, String user2) {
+        List<Conversation> conversations = conversationRepo.findAll();
+
+        for (Conversation conversation : conversations) {
+            List<String> members = conversation.getMembers();
+            if (members.contains(user1) && members.contains(user2) && members.size() == 2) {
+                return conversation;
+            }
+        }
+
+        List<String> members = new ArrayList<>();
+        members.add(user1);
+        members.add(user2);
+
+        Conversation newConversation = new Conversation(null, members, new ArrayList<>());
+        return conversationRepo.save(newConversation).orElseThrow(() -> new RuntimeException("Failed to create new conversation"));
     }
 }

@@ -1,0 +1,67 @@
+/* General Styling */
+.root {
+    -fx-background-color: #f9f9f9; /* Light gray background */
+    -fx-font-family: "Arial", sans-serif;
+    -fx-text-fill: #333333; /* Dark text */
+}
+
+/* Table Styling */
+.table-view {
+    -fx-background-color: #ffffff; /* White table background */
+    -fx-text-fill: #333333; /* Dark text for table content */
+    -fx-border-color: #dddddd; /* Light gray border */
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-table-cell-border-color: #eaeaea; /* Subtle cell border */
+}
+
+.table-column-header {
+    -fx-background-color: #0088cc; /* Bright blue for column headers */
+    -fx-text-fill: #ffffff; /* White text for headers */
+    -fx-font-weight: bold;
+}
+
+.table-cell {
+    -fx-text-fill: #333333; /* Dark text for table cells */
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #cceeff; /* Light blue for selected row */
+    -fx-text-fill: #333333; /* Maintain dark text */
+}
+
+/* Button Styling */
+.button {
+    -fx-background-color: #0088cc; /* Bright blue background */
+    -fx-text-fill: #ffffff; /* White text for buttons */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #4db8ff; /* Lighter blue on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #005f99; /* Darker blue on press */
+}
+
+/* HBox Styling */
+.hbox {
+    -fx-alignment: center;
+    -fx-spacing: 15; /* Consistent spacing between buttons */
+}
+
+/* SplitPane Styling */
+.split-pane {
+    -fx-divider-color: #cccccc; /* Light gray divider */
+}
+
+/* AnchorPane (Bottom Section) */
+.anchor-pane {
+    -fx-padding: 10; /* Add padding for a clean layout */
+}

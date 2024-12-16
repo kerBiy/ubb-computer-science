@@ -2,6 +2,7 @@ module org.university.socialapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires java.desktop;
 
 
     opens org.university.socialapp to javafx.fxml;

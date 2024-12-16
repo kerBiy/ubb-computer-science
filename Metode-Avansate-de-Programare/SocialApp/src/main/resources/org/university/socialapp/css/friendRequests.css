@@ -1,0 +1,72 @@
+/* General styling */
+.root {
+    -fx-background-color: #f9f9f9; /* Light gray background */
+    -fx-font-family: "Arial", sans-serif;
+    -fx-text-fill: #333333; /* Dark text */
+}
+
+/* Table Styling */
+.table-view {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-color: #0088cc; /* Bright blue border */
+    -fx-border-radius: 5; /* Rounded corners */
+    -fx-background-radius: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f0f0f0; /* Light gray header */
+}
+
+.table-view .column-header, .table-view .cell {
+    -fx-text-fill: #333333; /* Dark text for header and cells */
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-cell {
+    -fx-text-fill: #666666; /* Medium-dark gray text */
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #ffffff; /* White for odd rows */
+}
+
+.table-row-cell:even {
+    -fx-background-color: #f4f4f4; /* Light gray for even rows */
+}
+
+.table-view:focused {
+    -fx-border-color: #4db8ff; /* Brighter blue on focus */
+}
+
+/* MenuButton Styling */
+.menu-button {
+    -fx-background-color: #0088cc; /* Bright blue background */
+    -fx-text-fill: #ffffff; /* White text */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10; /* Rounded corners */
+    -fx-padding: 8 16;
+    -fx-cursor: hand;
+}
+
+.menu-button:hover {
+    -fx-background-color: #4db8ff; /* Brighter blue on hover */
+}
+
+.menu-button:pressed {
+    -fx-background-color: #005f99; /* Darker blue */
+}
+
+/* MenuItem Styling */
+.menu-item {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-font-size: 14px;
+    -fx-padding: 5 10;
+}
+
+.menu-item:hover {
+    -fx-background-color: #4db8ff; /* Blue highlight on hover */
+    -fx-text-fill: #ffffff; /* White text on hover */
+}

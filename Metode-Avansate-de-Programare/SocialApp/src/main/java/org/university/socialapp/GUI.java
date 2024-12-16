@@ -3,79 +3,99 @@ package org.university.socialapp;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.university.socialapp.Controller.LoginController;
+import javafx.util.Pair;
+import org.university.socialapp.Controller.GenericController;
 import org.university.socialapp.Domain.User;
-import org.university.socialapp.Repository.FriendshipRepository;
-import org.university.socialapp.Repository.UserRepository;
 import org.university.socialapp.Service.Service;
-import org.university.socialapp.Domain.Validation.FriendshipValidator;
-import org.university.socialapp.Domain.Validation.UserValidator;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.Optional;
 
 public class GUI extends Application {
-    private final String url = "jdbc:postgresql://localhost:5432/SocialApp";
-    private final String user = "postgres";
-    private final String password = "nush";
+    private static Service service;
+    private static Stage stage;
 
-    UserValidator userValidator = new UserValidator();
-    FriendshipValidator friendshipValidator = new FriendshipValidator();
-    UserRepository userRepo = new UserRepository(userValidator, url, user, password);
-    FriendshipRepository friendshipRepo = new FriendshipRepository(friendshipValidator, url, user, password);
-
-    Service service = new Service(userRepo, friendshipRepo);
-
-    public void loginStage(Stage primaryStage) throws Exception {
-        FXMLLoader loginLoader = new FXMLLoader();
-        loginLoader.setLocation(getClass().getResource("login-view.fxml"));
-
-        VBox loginVBox = loginLoader.load();
-        LoginController loginController = loginLoader.getController();
-        loginController.setMain(this);
-
-        Scene scene = new Scene(loginVBox);
-
-        primaryStage.setTitle("SocialApp");
-        primaryStage.setScene(scene);
-
-        loginController.setService(service, primaryStage);
-
-        primaryStage.show();
+    public static void setService(Service service) {
+        GUI.service = service;
     }
 
+    @Override
+    public void start(Stage primaryStage) {
+        GUI.stage = primaryStage;
+        loginView();
+        stage.setResizable(false);
+        stage.show();
+    }
 
-    public void openUserStage(User user) {
+    public static void loginView() {
+        stage.setScene(createScene("login-view.fxml", "css/login.css", Optional.empty()));
+        stage.setTitle("SocialApp - Login View");
+        stage.show();
+    }
+
+    public static void signUpView() {
+        stage.setScene(createScene("signUp-view.fxml", "css/signUp.css", Optional.empty()));
+        stage.setTitle("SocialApp - Sign Up");
+        stage.show();
+    }
+
+    public static void loggedUserView(String username) {
+        stage.setScene(createScene("user-view.fxml", "css/user.css", Optional.of(service.getUser(username))));
+        stage.setTitle("SocialApp - " + username);
+        stage.show();
+    }
+
+    public static void chatView(Pair<User, User> users) {
+        Stage stage = new Stage();
+        stage.setScene(createScene("chat-view.fxml", "css/chat.css", Optional.of(users)));
+        stage.setTitle("SocialApp - Chat");
+        stage.show();
+    }
+
+    public static void friendRequestView(String username) {
+        Stage stage = new Stage();
+        stage.setScene(createScene("friendRequest-view.fxml", "css/friendRequest.css", Optional.of(username)));
+        stage.setTitle("Send a friend Request");
+        stage.show();
+    }
+
+    public static void friendRequestsView(User user) {
+        Stage stage = new Stage();
+        stage.setScene(createScene("friendRequests-view.fxml", "css/friendRequests.css", Optional.of(user)));
+        stage.setTitle("SocialApp - Friend Requests");
+        stage.show();
+    }
+
+    private static Scene createScene(String fxml, String css, Optional<Object> parameter) {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(GUI.class.getResource(fxml));
+
         try {
-            FXMLLoader userLoader = new FXMLLoader();
-            userLoader.setLocation(getClass().getResource("user-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
 
+            GenericController controller = fxmlLoader.getController();
 
-            Stage userStage = new Stage();
-            Scene userScene = new Scene(userLoader.load());
+            controller.setSomething(parameter);
+            controller.setService(service);
 
+            if (css != null && !css.isEmpty()) {
+                URL cssUrl = GUI.class.getResource(css);
+                if (cssUrl != null) {
+                    scene.getStylesheets().add(cssUrl.toExternalForm());
+                } else {
+                    System.err.println("CSS file not found: " + css);
+                }
+            }
 
-            userStage.setTitle("User dashboard");
-            userStage.setScene(userScene);
-
-//            UserController userController = userLoader.getController();
-//            userController.setService(user, serv, cerereService, prietenieService, conversationService, userStage);
-
-            userStage.show();
+            return scene;
         } catch (IOException e) {
-            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
 
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        loginStage(primaryStage);
-    }
-
-    public static void main(String[] args) {
-        launch();
+    public static void launch() {
+        Application.launch();
     }
 }
