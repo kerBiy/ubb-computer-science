@@ -1,0 +1,15 @@
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/bin/Debug/net9.0/workInLab
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/bin/Debug/net9.0/workInLab.deps.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/bin/Debug/net9.0/workInLab.runtimeconfig.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/bin/Debug/net9.0/workInLab.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/bin/Debug/net9.0/workInLab.pdb
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.AssemblyInfoInputs.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.AssemblyInfo.cs
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.csproj.CoreCompileInputs.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.sourcelink.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/refint/workInLab.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.pdb
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/workInLab.genruntimeconfig.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/workInLab/workInLab/obj/Debug/net9.0/ref/workInLab.dll

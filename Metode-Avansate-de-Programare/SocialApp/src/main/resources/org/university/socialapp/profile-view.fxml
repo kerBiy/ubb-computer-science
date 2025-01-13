@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" spacing="20"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.university.socialapp.Controller.ProfileController">
+
+    <!-- User's Name and Remove Friend Button -->
+    <HBox alignment="CENTER" spacing="10">
+        <Label fx:id="usernameLabel" styleClass="profile-username"/>
+        <Button text="Remove Friend" onAction="#handleRemoveFriend" styleClass="remove-friend-button"/>
+    </HBox>
+
+    <!-- User Details Section -->
+    <HBox alignment="CENTER" spacing="10">
+        <Label text="Friends:" styleClass="profile-section-title"/>
+        <Label fx:id="friendsCountLabel" styleClass="profile-info"/>
+    </HBox>
+
+    <!-- Close Button -->
+    <Button text="Close" onAction="#handleClose" styleClass="profile-close-button"/>
+</VBox>

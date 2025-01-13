@@ -1,0 +1,15 @@
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/bin/Debug/net9.0/lab12
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/bin/Debug/net9.0/lab12.deps.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/bin/Debug/net9.0/lab12.runtimeconfig.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/bin/Debug/net9.0/lab12.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/bin/Debug/net9.0/lab12.pdb
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.AssemblyInfoInputs.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.AssemblyInfo.cs
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.csproj.CoreCompileInputs.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.sourcelink.json
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/refint/lab12.dll
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.pdb
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/lab12.genruntimeconfig.cache
+/Users/alexbalta/Developer/ubb-computer-science/Metode-Avansate-de-Programare/lab12/lab12/obj/Debug/net9.0/ref/lab12.dll

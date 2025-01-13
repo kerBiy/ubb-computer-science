@@ -141,7 +141,7 @@ public class UserController extends GenericController implements Observer {
     }
 
     public void handleUpdateUser() {
-//        GUI.updateUserView(user);
+        
     }
 
     public void handleFriendRequests() {

@@ -1,7 +1,12 @@
 package org.university.socialapp.Controller;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import org.university.socialapp.Domain.User;
 import org.university.socialapp.Domain.Conversation;
+import org.university.socialapp.GUI;
 import org.university.socialapp.Service.Service;
 import org.university.socialapp.Utils.Observer;
 
@@ -28,6 +33,9 @@ public class ChatController extends GenericController implements Observer {
 
     @FXML
     TextArea messageTextArea;
+
+    @FXML
+    private Hyperlink userNameLink;
 
     VBox vbox = new VBox();
 
@@ -58,6 +66,9 @@ public class ChatController extends GenericController implements Observer {
     @Override
     public void setSomething(Optional<Object> parameter) {
         users = (Pair<User, User>) parameter.get();
+
+        userNameLink.setText(users.getValue().getName());
+        userNameLink.setOnAction(event -> GUI.showProfileView(users));
     }
 
     public void showMessages() {
@@ -79,26 +90,22 @@ public class ChatController extends GenericController implements Observer {
         }
     }
 
-    private HBox createBubble(String message_content, boolean isSender) {
-        Label label = new Label(message_content);
-        if (isSender)
-            label.setStyle("-fx-background-color: #448ed8");
-        else
-            label.setStyle("-fx-background-color: #74d410");
-
-        label.getStyleClass().add("chat_label");
+    private HBox createBubble(String messageContent, boolean isSender) {
+        Label label = new Label(messageContent);
+        label.setWrapText(true); // Ensure text wraps within the bubble
+        label.getStyleClass().add(isSender ? "chat-bubble-sender" : "chat-bubble-receiver");
         label.setMaxWidth(scrollPane.getScene().getWindow().getWidth() / 2 - 20);
 
         HBox hbox = new HBox();
+        hbox.getStyleClass().add("chat-bubble-container");
 
-        hbox.getStyleClass().add("chat_bubble");
-
-        if (isSender)
+        // Align the bubble based on sender/receiver
+        if (isSender) {
             hbox.setAlignment(Pos.CENTER_RIGHT);
-        else
+        } else {
             hbox.setAlignment(Pos.CENTER_LEFT);
+        }
 
-        hbox.setMaxWidth(Double.MAX_VALUE);
         hbox.getChildren().add(label);
         return hbox;
     }

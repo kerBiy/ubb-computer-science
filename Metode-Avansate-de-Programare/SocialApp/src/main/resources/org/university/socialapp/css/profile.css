@@ -1,0 +1,84 @@
+/* Root Styling */
+.root {
+    -fx-background-color: #ffffff; /* White background */
+}
+
+/* Username Label */
+.profile-username {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2b2b2b; /* Dark gray text */
+}
+
+/* Section Title */
+.profile-section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00bcd4; /* Cyan text */
+    -fx-underline: true;
+}
+
+/* Information Text */
+.profile-info {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2b2b2b; /* Dark gray text */
+}
+
+/* Recent Activity List */
+.profile-activity-list {
+    -fx-spacing: 5;
+    -fx-padding: 10;
+    -fx-background-color: #f0f0f0; /* Light gray background */
+    -fx-border-color: #00bcd4;
+    -fx-border-radius: 5;
+}
+
+/* Close Button */
+.profile-close-button {
+    -fx-background-color: #00bcd4; /* Cyan background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5;
+    -fx-padding: 5 15;
+}
+
+.profile-close-button:hover {
+    -fx-background-color: #4dd0e1; /* Lighter cyan on hover */
+}
+
+.profile-close-button:pressed {
+    -fx-background-color: #0097a7; /* Darker cyan when pressed */
+}
+
+/* Remove Friend Button */
+.remove-friend-button {
+    -fx-background-color: #ff5252; /* Vibrant red for attention */
+    -fx-text-fill: white; /* White text for contrast */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 20; /* Rounded button for modern look */
+    -fx-padding: 5 15;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(255, 82, 82, 0.5), 10, 0.3, 0, 2); /* Subtle shadow effect */
+}
+
+.remove-friend-button:hover {
+    -fx-background-color: #ff867f; /* Lighter red on hover */
+}
+
+.remove-friend-button:pressed {
+    -fx-background-color: #d32f2f; /* Darker red for pressed state */
+}
+
+/* Section Title and Info */
+.profile-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00bcd4; /* Cyan text for consistency */
+}
+
+.profile-info {
+    -fx-font-size: 16px;
+    -fx-text-fill: #2b2b2b; /* Neutral dark text */
+}

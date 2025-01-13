@@ -6,6 +6,8 @@ import org.university.socialapp.Repository.UserRepository;
 import org.university.socialapp.Repository.FriendshipRepository;
 import org.university.socialapp.Utils.Observable;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -30,7 +32,7 @@ public class Service extends Observable {
     }
 
     public User addUser(String name, String password) {
-        User user = new User(name, password);
+        User user = new User(name, hashPassword(password));
 
         Optional<User> savedUser = userRepo.save(user);
         if (savedUser.isPresent()) {
@@ -54,7 +56,7 @@ public class Service extends Observable {
 
     public boolean verifyLogin(String username, String password) {
         Optional<User> user = userRepo.findOne(username);
-        return user.filter(value -> Objects.equals(value.getPassword(), password)).isPresent();
+        return user.filter(value -> Objects.equals(value.getPassword(), hashPassword(password))).isPresent();
     }
 
     public List<User> getFriendships(String username, String status) {
@@ -187,5 +189,16 @@ public class Service extends Observable {
 
         Conversation newConversation = new Conversation(null, members, new ArrayList<>());
         return conversationRepo.save(newConversation).orElseThrow(() -> new RuntimeException("Failed to create new conversation"));
+    }
+
+    public static String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(password.getBytes());
+            byte[] digest = md.digest();
+            return Base64.getEncoder().encodeToString(digest);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

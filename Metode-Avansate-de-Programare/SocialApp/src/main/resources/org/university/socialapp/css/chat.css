@@ -71,3 +71,30 @@
     -fx-background-color: #e1f5fe; /* Lighter background for received messages */
     -fx-alignment: center-left; /* Align to the left */
 }
+
+/* Chat Bubble Container */
+.chat-bubble-container {
+    -fx-padding: 10; /* Space between bubbles */
+}
+
+/* Sender Bubble Styling */
+.chat-bubble-sender {
+    -fx-background-color: #448ed8; /* Blue for sender */
+    -fx-text-fill: white; /* White text for contrast */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 10 15; /* Padding inside the bubble */
+    -fx-border-radius: 20; /* Rounder corners */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.2, 0, 2); /* Subtle shadow */
+    -fx-alignment: center-right; /* Align to the right */
+}
+
+/* Receiver Bubble Styling */
+.chat-bubble-receiver {
+    -fx-background-color: #74d410; /* Green for receiver */
+    -fx-text-fill: white; /* White text for contrast */
+    -fx-font-size: 14px; /* Font size */
+    -fx-padding: 10 15; /* Padding inside the bubble */
+    -fx-border-radius: 20; /* Rounder corners */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.2, 0, 2); /* Subtle shadow */
+    -fx-alignment: center-left; /* Align to the left */
+}

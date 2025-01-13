@@ -68,6 +68,13 @@ public class GUI extends Application {
         stage.show();
     }
 
+    public static void showProfileView(Pair<User, User> users) {
+        Stage stage = new Stage();
+        stage.setScene(createScene("profile-view.fxml", "css/profile.css", Optional.of(users)));
+        stage.setTitle("SocialApp - Profile");
+        stage.show();
+    }
+
     private static Scene createScene(String fxml, String css, Optional<Object> parameter) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(GUI.class.getResource(fxml));
