@@ -13,11 +13,18 @@
         ((findElem (cdr lst) (car lst)) (makeSet (cdr lst)))
         (t (cons (car lst) (makeSet (cdr lst))))))
 
-(defun findAtoms (lst) 
-    (cond 
-        ((null lst) nil)
-        ((atom (car lst)) (cons (car lst) (findAtoms (cdr lst))))
-        (t (append (findAtoms (car lst)) (findAtoms (cdr lst))))))
+; (defun findAtoms (lst) 
+;     (cond 
+;         ((null lst) nil)
+;         ((atom (car lst)) (cons (car lst) (findAtoms (cdr lst))))
+;         (t (append (findAtoms (car lst)) (findAtoms (cdr lst))))))
+
+(defun findAtoms (lst)
+    (cond
+        ((atom lst) (list lst))
+        (t (mapcan (lambda (sub-lst) (findAtoms sub-lst)) lst))    
+    )
+)
 
 (defun main (lst) 
     (makeSet (findAtoms lst)))
