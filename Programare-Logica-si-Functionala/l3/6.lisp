@@ -7,7 +7,7 @@
 ; product (x) =
 ;     x, daca x este numar
 ;     1, daca x aste atom, dar nu este numar
-;     U (x E 1, n) product xi, unde x = (x1x2...xn)
+;     * (x E 1, n) product (xi), unde x = (x1x2...xn)
 
 (defun product (x)
   (cond
