@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ro.map.practic1.controller.StaffController" spacing="10" alignment="TOP_CENTER">
+    <children>
+        <Label text="Placed Orders" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <TableView fx:id="ordersTable" style="-fx-pref-height: 400px;">
+            <columns>
+                <TableColumn fx:id="tableIdColumn" text="Table ID"/>
+                <TableColumn fx:id="dateColumn" text="Date"/>
+                <TableColumn fx:id="itemsColumn" text="Items"/>
+            </columns>
+        </TableView>
+    </children>
+</VBox>

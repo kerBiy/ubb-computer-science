@@ -1,0 +1,4 @@
+1,Antreuri,Bruschete cu rosii,15,RON
+2,Antreuri,Salata Caprese,20,RON
+3,Fel Principal,Paste cu sos pesto,25,RON
+4,Fel Principal,Vinete parmigiana,25,RON

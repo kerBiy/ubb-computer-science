@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ro.map.practic1.controller.TableController" spacing="10" alignment="TOP_CENTER">
+    <children>
+        <Label text="Menu" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <ScrollPane fitToWidth="true">
+            <VBox fx:id="menuContainer" spacing="10"/>
+        </ScrollPane>
+        <Button fx:id="placeOrderButton" text="Place Order" style="-fx-font-size: 14px; -fx-padding: 10px;"/>
+    </children>
+</VBox>
