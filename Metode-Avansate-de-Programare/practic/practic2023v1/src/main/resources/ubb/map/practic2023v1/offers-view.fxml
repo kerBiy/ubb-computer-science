@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.practic2023v1.controller.OffersController">
+    <top>
+        <HBox alignment="CENTER" spacing="10" BorderPane.alignment="CENTER">
+            <Label text="Start Date:" />
+            <DatePicker fx:id="startDatePicker" />
+            <Label text="End Date:" />
+            <DatePicker fx:id="endDatePicker" />
+            <Button text="Search Offers" onAction="#onSearchOffersClick" />
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="offersTableView">
+            <columns>
+                <TableColumn fx:id="startDateColumn" text="Start Date" />
+                <TableColumn fx:id="endDateColumn" text="End Date" />
+                <TableColumn fx:id="discountColumn" text="Discount (%)" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

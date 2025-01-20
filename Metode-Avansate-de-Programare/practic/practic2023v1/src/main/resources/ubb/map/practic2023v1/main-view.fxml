@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.practic2023v1.controller.MainController">
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <Label fx:id="titleLabel" text="Hotel Finder" />
+            <ComboBox fx:id="locationComboBox" promptText="Select a location" onAction="#onLocationSelected" />
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="hotelTableView">
+            <columns>
+                <TableColumn fx:id="hotelNameColumn" text="Hotel Name" />
+                <TableColumn fx:id="hotelRoomsColumn" text="Number of Rooms" />
+                <TableColumn fx:id="hotelPriceColumn" text="Price per Night" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
