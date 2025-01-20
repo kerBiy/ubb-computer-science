@@ -2,92 +2,110 @@ package ro.map.practic1.repository;
 
 import ro.map.practic1.domain.MenuItem;
 
-import java.io.*;
+import java.sql.*;
 import java.util.*;
 
 public class MenuItemRepository implements IRepository<Integer, MenuItem> {
-    private final String fileName;
+    private final Connection connection;
 
-    public MenuItemRepository(String fileName) {
-        this.fileName = fileName;
-    }
-
-    private List<MenuItem> loadFromFile() {
-        List<MenuItem> items = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 5) {
-                    Integer id = Integer.parseInt(parts[0].trim());
-                    String category = parts[1].trim();
-                    String item = parts[2].trim();
-                    Float price = Float.parseFloat(parts[3].trim());
-                    String currency = parts[4].trim();
-                    items.add(new MenuItem(id, category, item, price, currency));
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error loading data from file: " + e.getMessage());
-        }
-        return items;
-    }
-
-    private void saveToFile(List<MenuItem> items) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            for (MenuItem item : items) {
-                writer.write(item.toString());
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            System.err.println("Error saving data to file: " + e.getMessage());
-        }
+    public MenuItemRepository(Connection connection) {
+        this.connection = connection;
     }
 
     @Override
     public Optional<MenuItem> findOne(Integer id) {
-        return loadFromFile().stream()
-                .filter(item -> item.getId().equals(id))
-                .findFirst();
+        String query = "SELECT * FROM menu_items WHERE id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return Optional.of(new MenuItem(
+                        resultSet.getInt("id"),
+                        resultSet.getString("category"),
+                        resultSet.getString("item"),
+                        resultSet.getFloat("price"),
+                        resultSet.getString("currency")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.empty();
     }
 
     @Override
     public Iterable<MenuItem> findAll() {
-        return loadFromFile();
+        List<MenuItem> menuItems = new ArrayList<>();
+        String query = "SELECT * FROM menu_items";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                menuItems.add(new MenuItem(
+                        resultSet.getInt("id"),
+                        resultSet.getString("category"),
+                        resultSet.getString("item"),
+                        resultSet.getFloat("price"),
+                        resultSet.getString("currency")
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return menuItems;
     }
 
     @Override
     public Optional<MenuItem> save(MenuItem entity) {
-        List<MenuItem> items = loadFromFile();
-        if (items.stream().anyMatch(item -> item.getId().equals(entity.getId()))) {
-            return Optional.of(entity);
+        String query = "INSERT INTO menu_items (category, item, price, currency) VALUES (?, ?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setString(1, entity.getCategory());
+            statement.setString(2, entity.getItem());
+            statement.setFloat(3, entity.getPrice());
+            statement.setString(4, entity.getCurrency());
+            statement.executeUpdate();
+
+            ResultSet keys = statement.getGeneratedKeys();
+            if (keys.next()) {
+                entity.setId(keys.getInt(1));
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        items.add(entity);
-        saveToFile(items);
-        return Optional.empty();
+        return Optional.of(entity);
     }
 
     @Override
     public Optional<MenuItem> delete(Integer id) {
-        List<MenuItem> items = loadFromFile();
-        Optional<MenuItem> toRemove = items.stream()
-                .filter(item -> item.getId().equals(id))
-                .findFirst();
-        toRemove.ifPresent(items::remove);
-        saveToFile(items);
-        return toRemove;
+        Optional<MenuItem> menuItem = findOne(id);
+        if (menuItem.isPresent()) {
+            String query = "DELETE FROM menu_items WHERE id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, id);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return menuItem;
     }
 
     @Override
     public Optional<MenuItem> update(MenuItem entity) {
-        List<MenuItem> items = loadFromFile();
-        for (int i = 0; i < items.size(); i++) {
-            if (items.get(i).getId().equals(entity.getId())) {
-                items.set(i, entity);
-                saveToFile(items);
-                return Optional.of(entity);
+        String query = "UPDATE menu_items SET category = ?, item = ?, price = ?, currency = ? WHERE id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, entity.getCategory());
+            statement.setString(2, entity.getItem());
+            statement.setFloat(3, entity.getPrice());
+            statement.setString(4, entity.getCurrency());
+            statement.setInt(5, entity.getId());
+            int rows = statement.executeUpdate();
+            if (rows > 0) {
+                return Optional.empty();
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return Optional.empty();
+        return Optional.of(entity);
     }
 }

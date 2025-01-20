@@ -39,7 +39,6 @@ public class TableController extends GenericController {
 
             TableView<MenuItem> tableView = new TableView<>();
             tableView.setPrefHeight(100);
-            tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
             TableColumn<MenuItem, String> itemColumn = new TableColumn<>("Item");
             itemColumn.setCellValueFactory(new PropertyValueFactory<>("item"));

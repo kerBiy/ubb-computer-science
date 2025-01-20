@@ -4,13 +4,12 @@ import ro.map.practic1.service.Service;
 
 import java.util.Optional;
 
-public class GenericController {
+public abstract class GenericController {
     protected Service service;
 
     public void setService(Service service) {
         this.service = service;
     }
 
-    public void setSomething(Optional<Object> parameter) {
-    }
+    public abstract void setSomething(Optional<Object> parameter);
 }

@@ -2,81 +2,87 @@ package ro.map.practic1.repository;
 
 import ro.map.practic1.domain.Table;
 
-import java.io.*;
+import java.sql.*;
 import java.util.*;
 
 public class TableRepository implements IRepository<Integer, Table> {
-    private final String fileName;
-    private final Map<Integer, Table> tableMap;
+    private final Connection connection;
 
-    public TableRepository(String fileName) {
-        this.fileName = fileName;
-        this.tableMap = new HashMap<>();
-        loadFromFile();
-    }
-
-    private void loadFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 1) {
-                    Integer id = Integer.parseInt(parts[0].trim());
-                    tableMap.put(id, new Table(id));
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error loading data from file: " + e.getMessage());
-        }
-    }
-
-    private void saveToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-            for (Table table : tableMap.values()) {
-                writer.write(table.getId().toString());
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            System.err.println("Error saving data to file: " + e.getMessage());
-        }
+    public TableRepository(Connection connection) {
+        this.connection = connection;
     }
 
     @Override
     public Optional<Table> findOne(Integer id) {
-        return Optional.ofNullable(tableMap.get(id));
-    }
-
-    @Override
-    public Iterable<Table> findAll() {
-        return tableMap.values();
-    }
-
-    @Override
-    public Optional<Table> save(Table entity) {
-        if (tableMap.containsKey(entity.getId())) {
-            return Optional.of(entity);
+        String query = "SELECT * FROM tables WHERE id = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return Optional.of(new Table(resultSet.getInt("id")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        tableMap.put(entity.getId(), entity);
-        saveToFile();
         return Optional.empty();
     }
 
     @Override
-    public Optional<Table> delete(Integer id) {
-        Table removed = tableMap.remove(id);
-        if (removed != null) {
-            saveToFile();
+    public Iterable<Table> findAll() {
+        List<Table> tables = new ArrayList<>();
+        String query = "SELECT * FROM tables";
+        try (PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                tables.add(new Table(resultSet.getInt("id")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return Optional.ofNullable(removed);
+        return tables;
+    }
+
+    @Override
+    public Optional<Table> save(Table entity) {
+        String query = "INSERT INTO tables (id) VALUES (?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, entity.getId());
+            statement.executeUpdate();
+            return Optional.empty();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Optional.of(entity);
+    }
+
+    @Override
+    public Optional<Table> delete(Integer id) {
+        Optional<Table> table = findOne(id);
+        if (table.isPresent()) {
+            String query = "DELETE FROM tables WHERE id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, id);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return table;
     }
 
     @Override
     public Optional<Table> update(Table entity) {
-        if (!tableMap.containsKey(entity.getId())) {
-            return Optional.empty();
+        if (findOne(entity.getId()).isPresent()) {
+            String query = "UPDATE tables SET id = ? WHERE id = ?";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, entity.getId());
+                statement.setInt(2, entity.getId());
+                statement.executeUpdate();
+                return Optional.empty();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
-        tableMap.put(entity.getId(), entity);
-        saveToFile();
         return Optional.of(entity);
     }
 }

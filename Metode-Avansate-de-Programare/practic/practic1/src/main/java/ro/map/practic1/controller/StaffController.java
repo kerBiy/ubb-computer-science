@@ -12,6 +12,7 @@ import ro.map.practic1.service.Service;
 import ro.map.practic1.utils.Observer;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StaffController extends GenericController implements Observer {
@@ -34,7 +35,10 @@ public class StaffController extends GenericController implements Observer {
     public void setService(Service service) {
         super.setService(service);
         service.addObserver(this);
+    }
 
+    @Override
+    public void setSomething(Optional<Object> parameter) {
         tableIdColumn.setCellValueFactory(new PropertyValueFactory<>("tableId"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
         itemsColumn.setCellValueFactory(new PropertyValueFactory<>("items"));
