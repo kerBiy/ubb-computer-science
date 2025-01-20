@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.practic2023v1.controller.ReservationController" spacing="10" alignment="CENTER">
+    <Label fx:id="hotelNameLabel" text="Hotel: " />
+    <Label fx:id="locationNameLabel" text="Location: " />
+    <HBox spacing="10">
+        <Label text="Start Date:" />
+        <DatePicker fx:id="startDatePicker" />
+    </HBox>
+    <HBox spacing="10">
+        <Label text="Number of Nights:" />
+        <TextField fx:id="numberOfNightsField" promptText="Enter number of nights" />
+    </HBox>
+    <Button fx:id="confirmReservationButton" text="Confirm Reservation" />
+</VBox>

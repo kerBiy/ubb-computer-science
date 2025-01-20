@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.practic2023v1.controller.ClientController">
+    <center>
+        <TableView fx:id="offersTableView">
+            <columns>
+                <TableColumn fx:id="hotelNameColumn" text="Hotel Name" />
+                <TableColumn fx:id="locationNameColumn" text="Location Name" />
+                <TableColumn fx:id="startDateColumn" text="Start Date" />
+                <TableColumn fx:id="endDateColumn" text="End Date" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

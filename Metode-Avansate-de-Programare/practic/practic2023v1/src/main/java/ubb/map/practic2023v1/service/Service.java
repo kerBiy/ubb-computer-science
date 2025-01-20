@@ -1,8 +1,6 @@
 package ubb.map.practic2023v1.service;
 
-import ubb.map.practic2023v1.domain.Hotel;
-import ubb.map.practic2023v1.domain.Location;
-import ubb.map.practic2023v1.domain.SpecialOffer;
+import ubb.map.practic2023v1.domain.*;
 import ubb.map.practic2023v1.repository.*;
 
 import java.time.LocalDate;
@@ -50,5 +48,29 @@ public class Service {
                         && (offer.getStartDate().equals(start) || offer.getStartDate().after(start))
                         && (offer.getEndDate().equals(end) || offer.getEndDate().before(end)))
                 .collect(Collectors.toList());
+    }
+
+    public Hotel getHotelById(Double hotelId) {
+        return hotelRepository.findOne(hotelId).orElseThrow(() -> new RuntimeException("Hotel not found!"));
+    }
+
+    public Location getLocationById(Double locationId) {
+        return locationRepository.findOne(locationId).orElseThrow(() -> new RuntimeException("Location not found!"));
+    }
+
+    public List<SpecialOffer> getAllSpecialOffers() {
+        return (List<SpecialOffer>) specialOfferRepository.findAll();
+    }
+
+    public List<Client> getAllClients() {
+        return (List<Client>) clientRepository.findAll();
+    }
+
+    public void addReservation(Reservation reservation) {
+        reservationRepository.save(reservation);
+    }
+
+    public Double generateNewReservationId() {
+        return reservationRepository.getLastReservationId() + 1;
     }
 }

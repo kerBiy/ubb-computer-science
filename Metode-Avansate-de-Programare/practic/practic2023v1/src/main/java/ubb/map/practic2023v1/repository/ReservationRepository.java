@@ -105,4 +105,17 @@ public class ReservationRepository implements IRepository<Double, Reservation> {
         }
         return Optional.of(entity);
     }
+
+    public Double getLastReservationId() {
+        String sql = "SELECT MAX(reservation_id) FROM reservation";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getDouble(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0; // Dacă nu există nicio rezervare, începe de la 0
+    }
 }
