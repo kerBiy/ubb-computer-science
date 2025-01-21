@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.practicajutor.controller.MainController" spacing="10" alignment="CENTER">
+    <Label fx:id="welcomeLabel" text="Bun venit!" style="-fx-font-size: 16px;" />
+    <TabPane fx:id="mainTabPane">
+        <Tab fx:id="helpTab" text="Doresc să ajut!">
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Nevoi disponibile pentru ajutor:" />
+                <TableView fx:id="availableNeedsTable" prefHeight="200" prefWidth="400" />
+                <Button fx:id="resolveNeedButton" text="Rezolvă nevoie" />
+                <Label text="Faptele mele bune:" />
+                <TableView fx:id="myGoodDeedsTable" prefHeight="200" prefWidth="400" />
+            </VBox>
+        </Tab>
+        <Tab text="Doresc să fiu ajutat!">
+            <VBox spacing="10" alignment="CENTER">
+                <Label text="Adaugă o nevoie proprie:" style="-fx-font-size: 14px;" />
+                <TextField fx:id="titleField" promptText="Titlu" />
+                <TextField fx:id="descriptionField" promptText="Descriere" />
+                <DatePicker fx:id="deadlinePicker" promptText="Alege un deadline" />
+                <Button text="Adaugă Nevoie" onAction="#handleAddNeed" />
+                <Label fx:id="feedbackLabel" text="" textFill="green" />
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

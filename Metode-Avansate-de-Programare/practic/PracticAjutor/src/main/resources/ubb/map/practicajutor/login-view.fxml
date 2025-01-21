@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.practicajutor.controller.LoginController" spacing="10" alignment="CENTER">
+    <Label text="Autentificare" />
+    <ComboBox fx:id="usernameComboBox" promptText="Alege un utilizator" />
+    <PasswordField fx:id="passwordField" promptText="Parolă" />
+    <Button text="Log In" onAction="#handleLogin" />
+    <Label fx:id="errorLabel" textFill="red" />
+    <Label fx:id="switchToRegisterLabel" text="Nu ai cont? Register" style="-fx-text-fill: blue; -fx-cursor: hand;" />
+</VBox>

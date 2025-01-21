@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.practicajutor.controller.RegisterController" spacing="10" alignment="CENTER">
+    <Label text="Înregistrare" />
+    <TextField fx:id="numeField" promptText="Nume" />
+    <TextField fx:id="prenumeField" promptText="Prenume" />
+    <TextField fx:id="usernameField" promptText="Username" />
+    <TextField fx:id="parolaField" promptText="Parolă" />
+    <ComboBox fx:id="orasComboBox" promptText="Alege Orașul" />
+    <Button text="Register" onAction="#handleRegister" />
+    <Label fx:id="switchToLoginLabel" text="Deja ești înregistrat? Log In" style="-fx-text-fill: blue; -fx-cursor: hand;" />
+</VBox>
