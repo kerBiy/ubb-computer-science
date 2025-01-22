@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ubb.map.examenpractic.controller.ClientController" spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+    <ComboBox fx:id="departureCityComboBox" promptText="Select Departure City" />
+    <ComboBox fx:id="destinationCityComboBox" promptText="Select Destination City" />
+    <CheckBox fx:id="directRoutesOnlyCheckBox" text="Direct Routes Only" />
+    <Button text="Search" onAction="#handleSearch" />
+    <TextArea fx:id="resultTextArea" editable="false" wrapText="true" promptText="Results will appear here..." />
+    <Label fx:id="notificationLabel" text="" style="-fx-font-weight: bold; -fx-text-fill: red;" />
+</VBox>
