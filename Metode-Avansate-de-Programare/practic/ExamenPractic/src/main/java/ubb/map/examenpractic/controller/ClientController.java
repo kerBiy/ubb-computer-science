@@ -82,6 +82,12 @@ public class ClientController extends GenericController implements Observer {
     private void handleSearch(ActionEvent event) {
         String departureCity = departureCityComboBox.getValue();
         String destinationCity = destinationCityComboBox.getValue();
+
+        if (departureCity == null || destinationCity == null) {
+            resultTextArea.setText("Error: Please select both departure and destination cities.");
+            return;
+        }
+
         boolean directRoutesOnly = directRoutesOnlyCheckBox.isSelected();
 
         List<String> routes = service.searchRoutes(departureCity, destinationCity, directRoutesOnly);
@@ -97,4 +103,5 @@ public class ClientController extends GenericController implements Observer {
             resultTextArea.setText(result.toString());
         }
     }
+
 }

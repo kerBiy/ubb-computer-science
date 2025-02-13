@@ -42,49 +42,4 @@ public class CityRepository implements IRepository<String, City> {
         }
         return cities;
     }
-
-    @Override
-    public Optional<City> save(City entity) {
-        String query = "INSERT INTO City (id, name) VALUES (?, ?)";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, entity.getId());
-            stmt.setString(2, entity.getName());
-            stmt.executeUpdate();
-            return Optional.empty();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Optional.of(entity);
-    }
-
-    @Override
-    public Optional<City> delete(String id) {
-        Optional<City> city = findOne(id);
-        if (city.isPresent()) {
-            String query = "DELETE FROM City WHERE id = ?";
-            try (PreparedStatement stmt = connection.prepareStatement(query)) {
-                stmt.setString(1, id);
-                stmt.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        return city;
-    }
-
-    @Override
-    public Optional<City> update(City entity) {
-        String query = "UPDATE City SET name = ? WHERE id = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setString(1, entity.getName());
-            stmt.setString(2, entity.getId());
-            int rowsUpdated = stmt.executeUpdate();
-            if (rowsUpdated > 0) {
-                return Optional.empty();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return Optional.of(entity);
-    }
 }
