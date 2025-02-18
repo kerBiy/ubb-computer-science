@@ -2,7 +2,7 @@
     (cond 
         ((atom tree) 
          (if (oddp level)
-            (list nil)
+            nil
             (list tree)))
 
         (t (list (mapcan (lambda (subtree) 

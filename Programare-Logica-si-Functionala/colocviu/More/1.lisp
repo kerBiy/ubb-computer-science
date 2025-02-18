@@ -1,4 +1,4 @@
+; (SETQ F 10)
 (defun F(L) (Max (CAR L) (CADDR L)))
-(SETQ F 10)
 (SETQ G F)
-(print G)
+(print (funcall G '(1 2 3)))
