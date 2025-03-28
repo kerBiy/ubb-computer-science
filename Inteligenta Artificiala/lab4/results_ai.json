@@ -1,0 +1,154 @@
+{
+  "bike08.jpg": {
+    "has_bike": false,
+    "objects": [
+      {
+        "type": "person",
+        "rectangle": {
+          "x": 64,
+          "y": 3,
+          "w": 304,
+          "h": 352
+        }
+      }
+    ]
+  },
+  "bike09.jpg": {
+    "has_bike": true,
+    "objects": [
+      {
+        "type": "bicycle",
+        "rectangle": {
+          "x": 4,
+          "y": 14,
+          "w": 367,
+          "h": 388
+        }
+      }
+    ]
+  },
+  "bike07.jpg": {
+    "has_bike": true,
+    "objects": [
+      {
+        "type": "person",
+        "rectangle": {
+          "x": 102,
+          "y": 6,
+          "w": 135,
+          "h": 410
+        }
+      },
+      {
+        "type": "bicycle",
+        "rectangle": {
+          "x": 51,
+          "y": 206,
+          "w": 257,
+          "h": 210
+        }
+      }
+    ]
+  },
+  "bike10.jpg": {
+    "has_bike": true,
+    "objects": [
+      {
+        "type": "Gondola",
+        "rectangle": {
+          "x": 336,
+          "y": 68,
+          "w": 79,
+          "h": 74
+        }
+      },
+      {
+        "type": "bicycle",
+        "rectangle": {
+          "x": 138,
+          "y": 135,
+          "w": 253,
+          "h": 269
+        }
+      }
+    ]
+  },
+  "bike05.jpg": {
+    "has_bike": true,
+    "objects": [
+      {
+        "type": "bicycle",
+        "rectangle": {
+          "x": 66,
+          "y": 36,
+          "w": 283,
+          "h": 299
+        }
+      }
+    ]
+  },
+  "bike02.jpg": {
+    "has_bike": true,
+    "objects": [
+      {
+        "type": "Wheel",
+        "rectangle": {
+          "x": 21,
+          "y": 176,
+          "w": 140,
+          "h": 142
+        }
+      },
+      {
+        "type": "bicycle",
+        "rectangle": {
+          "x": 9,
+          "y": 90,
+          "w": 357,
+          "h": 231
+        }
+      }
+    ]
+  },
+  "bike03.jpg": {
+    "has_bike": true,
+    "objects": [
+      {
+        "type": "car",
+        "rectangle": {
+          "x": 1,
+          "y": 1,
+          "w": 138,
+          "h": 154
+        }
+      },
+      {
+        "type": "person",
+        "rectangle": {
+          "x": 88,
+          "y": 8,
+          "w": 93,
+          "h": 348
+        }
+      },
+      {
+        "type": "person",
+        "rectangle": {
+          "x": 225,
+          "y": 21,
+          "w": 95,
+          "h": 373
+        }
+      },
+      {
+        "type": "bicycle",
+        "rectangle": {
+          "x": 155,
+          "y": 153,
+          "w": 183,
+          "h": 252
+        }
+      }
+    ]
+  }
+}
