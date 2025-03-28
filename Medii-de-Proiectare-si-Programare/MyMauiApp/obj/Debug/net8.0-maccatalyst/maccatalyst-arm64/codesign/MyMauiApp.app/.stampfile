@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/alexbalta/Developer/ubb-computer-science/Medii-de-Proiectare-si-Programare/MyMauiApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/alexbalta/Developer/ubb-computer-science/Medii-de-Proiectare-si-Programare/MyMauiApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/MyMauiApp.app

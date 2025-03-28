@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "t5RoTtluhn0=",
+  "success": true,
+  "projectFilePath": "/Users/alexbalta/Developer/ubb-computer-science/Medii-de-Proiectare-si-Programare/MyMauiApp/MyMauiApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.configuration/8.0.0/microsoft.extensions.configuration.8.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.0/microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.0/microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.logging/9.0.0/microsoft.extensions.logging.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.logging.abstractions/9.0.0/microsoft.extensions.logging.abstractions.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.logging.debug/9.0.0/microsoft.extensions.logging.debug.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.options/9.0.0/microsoft.extensions.options.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.extensions.primitives/9.0.0/microsoft.extensions.primitives.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.controls/8.0.100/microsoft.maui.controls.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.controls.build.tasks/8.0.100/microsoft.maui.controls.build.tasks.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.controls.compatibility/8.0.100/microsoft.maui.controls.compatibility.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.controls.core/8.0.100/microsoft.maui.controls.core.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.controls.xaml/8.0.100/microsoft.maui.controls.xaml.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.core/8.0.100/microsoft.maui.core.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.essentials/8.0.100/microsoft.maui.essentials.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.graphics/8.0.100/microsoft.maui.graphics.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maui.resizetizer/8.0.100/microsoft.maui.resizetizer.8.0.100.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.net.illink.tasks/8.0.13/microsoft.net.illink.tasks.8.0.13.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/system.diagnostics.diagnosticsource/9.0.0/system.diagnostics.diagnosticsource.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maccatalyst.ref.net8.0_18.0/18.0.8319/microsoft.maccatalyst.ref.net8.0_18.0.18.0.8319.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maccatalyst.runtime.maccatalyst-arm64.net8.0_18.0/18.0.8319/microsoft.maccatalyst.runtime.maccatalyst-arm64.net8.0_18.0.18.0.8319.nupkg.sha512"
+  ],
+  "logs": []
+}
