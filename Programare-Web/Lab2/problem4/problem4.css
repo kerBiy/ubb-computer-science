@@ -1,0 +1,49 @@
+body {
+    background: #333;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.social-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.icon {
+    width: 84px;
+    height: 84px;
+    background-image: url("sprite-social.png");
+    background-repeat: no-repeat;
+    transition: background-position 0.3s;
+}
+
+/* Iconițele pe linie: 0, 84, 168, ... până la 840 */
+.facebook   { background-position: 0       0; }
+.flickr     { background-position: -84px   0; }
+.dribbble   { background-position: -168px  0; }
+.google     { background-position: -252px  0; }
+.linkedin   { background-position: -336px  0; }
+.rss        { background-position: -420px  0; }
+.skype      { background-position: -504px  0; }
+.twitter    { background-position: -588px  0; }
+.vimeo      { background-position: -672px  0; }
+.youtube    { background-position: -756px  0; }
+.reddit     { background-position: -840px  0; } /* presupunem o a 11-a iconiță */
+
+/* Hover (colorate) – Y se schimbă la -84px */
+.icon:hover.facebook   { background-position: 0       -84px; }
+.icon:hover.flickr     { background-position: -84px   -84px; }
+.icon:hover.dribbble   { background-position: -168px  -84px; }
+.icon:hover.google     { background-position: -252px  -84px; }
+.icon:hover.linkedin   { background-position: -336px  -84px; }
+.icon:hover.rss        { background-position: -420px  -84px; }
+.icon:hover.skype      { background-position: -504px  -84px; }
+.icon:hover.twitter    { background-position: -588px  -84px; }
+.icon:hover.vimeo      { background-position: -672px  -84px; }
+.icon:hover.youtube    { background-position: -756px  -84px; }
+.icon:hover.reddit     { background-position: -840px  -84px; }

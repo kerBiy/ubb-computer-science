@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu {
+    background-color: yellow;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    padding: 10px 20px;
+    border-right: 1px solid black;
+}
+
+.menu li:last-child {
+    border-right: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.main {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    height: 300px;
+}
+
+.footer {
+    background-color: pink;
+    padding: 20px;
+    text-align: center;
+}

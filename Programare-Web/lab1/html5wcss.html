@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazin Online de Parfumuri</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 70%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .half-width {
+            width: 50%;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .contact-table {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+<h1>Parfumuri Exclusiviste</h1>
+<p><strong>Bun venit în magazinul nostru online!</strong> Alege parfumurile preferate și bucură-te de arome unice.</p>
+<img src="parfum.jpg" alt="Imagine Parfum" width="200" height="200" title="Parfum Premium">
+
+<table>
+    <tr>
+        <td colspan="2"><h2>Formular de comandă</h2></td>
+    </tr>
+    <tr>
+        <td class="half-width">
+            <form action="order.php" method="post">
+                <fieldset>
+                    <legend><b>Informații Client</b></legend>
+                    <label for="nume"><strong>Nume:</strong></label>
+                    <input type="text" id="nume" name="nume" maxlength="50" size="30"><br>
+                    <label for="prenume"><strong>Prenume:</strong></label>
+                    <input type="text" id="prenume" name="prenume" maxlength="50" size="30"><br>
+                    <label for="telefon"><strong>Telefon:</strong></label>
+                    <input type="tel" id="telefon" name="telefon" maxlength="15" size="15"><br>
+                    <label for="email"><strong>Email:</strong></label>
+                    <input type="email" id="email" name="email" maxlength="100" size="30"><br>
+                    <label for="adresa"><strong>Adresă de livrare:</strong></label>
+                    <textarea id="adresa" name="adresa" rows="3" cols="30"></textarea><br>
+                    <label for="observatii"><strong>Observații:</strong></label>
+                    <textarea id="observatii" name="observatii" rows="2" cols="30"></textarea><br>
+                    <label for="tara"><strong>Țară:</strong></label>
+                    <select id="tara" name="tara">
+                        <option value="ro" selected>România</option>
+                        <option value="bg">Bulgaria</option>
+                        <option value="hu">Ungaria</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend><b>Metodă de Plată</b></legend>
+                    <input type="radio" name="plata" value="card"> Card Bancar
+                    <input type="radio" name="plata" value="ramburs"> Plata la livrare
+                </fieldset>
+                <br>
+                <input type="submit" value="Plasează Comanda">
+                <input type="reset" value="Resetează">
+            </form>
+        </td>
+        <td class="half-width">
+            <fieldset>
+                <legend><b>Produse Disponibile</b></legend>
+                <table class="full-width">
+                    <tr>
+                        <th>Nume Parfum</th>
+                        <th>Brand</th>
+                        <th>Preț</th>
+                        <th>Selectează</th>
+                    </tr>
+                    <tr>
+                        <td>Dior Sauvage</td>
+                        <td>Dior</td>
+                        <td>480 RON</td>
+                        <td><input type="checkbox" name="parfum" value="Dior Sauvage"></td>
+                    </tr>
+                    <tr>
+                        <td>Armani Code</td>
+                        <td>Giorgio Armani</td>
+                        <td>420 RON</td>
+                        <td><input type="checkbox" name="parfum" value="Armani Code"></td>
+                    </tr>
+                    <tr>
+                        <td>YSL La Nuit</td>
+                        <td>Yves Saint Laurent</td>
+                        <td>460 RON</td>
+                        <td><input type="checkbox" name="parfum" value="YSL La Nuit"></td>
+                    </tr>
+                    <tr>
+                        <td>Tom Ford Ombre Leather</td>
+                        <td>Tom Ford</td>
+                        <td>650 RON</td>
+                        <td><input type="checkbox" name="parfum" value="Tom Ford Ombre Leather"></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+
+<h3>Detalii Suplimentare</h3>
+<ol>
+    <li>Garanție 12 luni</li>
+    <li>Retur gratuit în 14 zile</li>
+    <li>Livrare rapidă</li>
+    <li>Ambalaj premium</li>
+</ol>
+<ul>
+    <li>Servicii Extra:
+        <ul>
+            <li>Împachetare cadou</li>
+            <li>Mostre gratuite</li>
+        </ul>
+    </li>
+</ul>
+
+<table class="contact-table">
+    <tr>
+        <th>Contact</th>
+        <th>Program</th>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li><a href="mailto:contact@parfumuri.ro">Email: contact@parfumuri.ro</a></li>
+                <li>Telefon: 0723 456 789</li>
+            </ul>
+        </td>
+        <td>
+            <ul>
+                <li>Luni-Vineri: 09:00 - 18:00</li>
+                <li>Sâmbătă: 10:00 - 14:00</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

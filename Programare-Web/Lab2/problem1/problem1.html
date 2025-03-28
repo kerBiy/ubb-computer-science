@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Divuri cu text și imagine</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            border: 2px solid black;
+            width: fit-content;
+            margin: 20px auto;
+        }
+
+        .text-container, .image-container {
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .text-container {
+            background-color: #f0f0f0;
+        }
+
+        .image-container {
+            background-color: #fff0f0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="text-container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+    </div>
+    <div class="image-container">
+        <img src="pizza-mare.png" alt="Pizza mare">
+    </div>
+</div>
+
+<div class="container">
+    <div class="text-container">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+    </div>
+    <div class="image-container">
+        <img src="pizza-mica.png" alt="Pizza mică">
+    </div>
+</div>
+
+</body>
+</html>

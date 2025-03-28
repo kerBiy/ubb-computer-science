@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Problema 3 - Layout Flexibil</title>
+  <!-- Schimbi aici între orizontal și vertical -->
+  <link rel="stylesheet" href="horizontal.css">
+</head>
+<body>
+<div class="site-wrapper">
+  <header>Header</header>
+
+  <!-- Pentru vertical, nav + main trebuie grupate -->
+  <div class="content-wrapper">
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Meniu 1</a></li>
+        <li><a href="#">Meniu 2</a></li>
+        <li><a href="#">Meniu 3</a></li>
+        <li><a href="#">Meniu 4</a></li>
+        <li><a href="#">Meniu 5</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Main View</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at metus semper tortor scelerisque feugiat ac eget massa. Nulla dictum lacus erat, quis dignissim felis finibus ut. Sed luctus magna ut urna hendrerit ultricies. Proin sed accumsan augue. Phasellus eros elit, consectetur nec dolor sed, dictum ornare tellus. Sed turpis libero, mattis ac mauris nec, consequat iaculis purus. Pellentesque ut massa pulvinar, sollicitudin nulla ut, tincidunt ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer non vulputate tellus. Sed id magna nisl. Etiam ac ullamcorper augue. Nullam venenatis nisi justo, at rutrum est malesuada nec.
+
+        Cras vitae augue neque. In tincidunt erat ex, et interdum lectus interdum egestas. Aliquam tempus id neque malesuada imperdiet. Quisque sit amet dolor egestas, ultricies lectus ac, fringilla orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus arcu urna, condimentum eu fringilla quis, facilisis sed libero. Vestibulum lobortis egestas commodo. Cras ut tempor diam. Maecenas faucibus semper dictum. Praesent convallis pulvinar mauris, sit amet imperdiet justo lobortis at. Quisque maximus risus non metus mattis porta. Praesent gravida ornare mauris eget pulvinar. Proin ac imperdiet ante. Nullam metus massa, convallis eu ornare ornare, sagittis in odio.
+
+        Donec lacinia ultricies lorem vel blandit. Vivamus auctor sapien dictum sem consequat, nec interdum eros consequat. Donec dapibus dui id urna pulvinar, quis eleifend nisl accumsan. Nam eget vulputate massa. In a nunc et turpis rhoncus elementum. Etiam vel lorem viverra, ultrices velit a, sollicitudin magna. Vivamus sit amet aliquet sapien. Suspendisse vitae diam ipsum. Fusce quis est mi. Donec tellus purus, pharetra in venenatis eu, efficitur ac mauris. Curabitur ex nibh, aliquet elementum tortor a, commodo consectetur augue. Donec euismod odio et porta varius. Nunc tristique rhoncus molestie. Etiam varius, risus a tincidunt fermentum, purus mauris molestie mi, nec tincidunt dui mi quis eros.
+
+        Quisque vitae ultricies nulla. Ut nibh tellus, blandit et blandit aliquam, lobortis sit amet dolor. Donec ac sodales metus. Proin at leo vitae eros sagittis gravida. Aliquam sagittis vestibulum libero, et fermentum dui interdum a. Nulla malesuada, mi sed mollis sollicitudin, nisi est feugiat arcu, in euismod magna odio iaculis massa. Sed eleifend ac ex in tristique. Fusce at placerat turpis. Mauris et porttitor leo. In at fermentum lectus. Sed eu fermentum erat. Phasellus molestie enim eget enim sollicitudin, id porttitor nulla mollis.
+
+        Proin suscipit mauris metus, sit amet ultricies purus dictum ut. In hac habitasse platea dictumst. Quisque turpis lectus, faucibus eu lacus a, sodales condimentum leo. Suspendisse sit amet sem sollicitudin, tincidunt est congue, tincidunt mauris. Pellentesque tristique magna in nisl sollicitudin tempus. Nunc feugiat sed neque sit amet varius. Aenean eget sagittis ipsum, et sagittis purus. Suspendisse eu fermentum lorem. In quis eleifend magna. Sed rhoncus leo sed felis imperdiet scelerisque sit amet sed justo. Vestibulum tincidunt, nibh id porta vulputate, nisi metus mattis neque, non condimentum odio neque at est. Proin hendrerit convallis massa, ut vestibulum neque viverra vitae. Pellentesque blandit mauris in finibus finibus. Proin non placerat nisi. Ut.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at metus semper tortor scelerisque feugiat ac eget massa. Nulla dictum lacus erat, quis dignissim felis finibus ut. Sed luctus magna ut urna hendrerit ultricies. Proin sed accumsan augue. Phasellus eros elit, consectetur nec dolor sed, dictum ornare tellus. Sed turpis libero, mattis ac mauris nec, consequat iaculis purus. Pellentesque ut massa pulvinar, sollicitudin nulla ut, tincidunt ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer non vulputate tellus. Sed id magna nisl. Etiam ac ullamcorper augue. Nullam venenatis nisi justo, at rutrum est malesuada nec.
+
+        Cras vitae augue neque. In tincidunt erat ex, et interdum lectus interdum egestas. Aliquam tempus id neque malesuada imperdiet. Quisque sit amet dolor egestas, ultricies lectus ac, fringilla orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus arcu urna, condimentum eu fringilla quis, facilisis sed libero. Vestibulum lobortis egestas commodo. Cras ut tempor diam. Maecenas faucibus semper dictum. Praesent convallis pulvinar mauris, sit amet imperdiet justo lobortis at. Quisque maximus risus non metus mattis porta. Praesent gravida ornare mauris eget pulvinar. Proin ac imperdiet ante. Nullam metus massa, convallis eu ornare ornare, sagittis in odio.
+
+        Donec lacinia ultricies lorem vel blandit. Vivamus auctor sapien dictum sem consequat, nec interdum eros consequat. Donec dapibus dui id urna pulvinar, quis eleifend nisl accumsan. Nam eget vulputate massa. In a nunc et turpis rhoncus elementum. Etiam vel lorem viverra, ultrices velit a, sollicitudin magna. Vivamus sit amet aliquet sapien. Suspendisse vitae diam ipsum. Fusce quis est mi. Donec tellus purus, pharetra in venenatis eu, efficitur ac mauris. Curabitur ex nibh, aliquet elementum tortor a, commodo consectetur augue. Donec euismod odio et porta varius. Nunc tristique rhoncus molestie. Etiam varius, risus a tincidunt fermentum, purus mauris molestie mi, nec tincidunt dui mi quis eros.
+
+        Quisque vitae ultricies nulla. Ut nibh tellus, blandit et blandit aliquam, lobortis sit amet dolor. Donec ac sodales metus. Proin at leo vitae eros sagittis gravida. Aliquam sagittis vestibulum libero, et fermentum dui interdum a. Nulla malesuada, mi sed mollis sollicitudin, nisi est feugiat arcu, in euismod magna odio iaculis massa. Sed eleifend ac ex in tristique. Fusce at placerat turpis. Mauris et porttitor leo. In at fermentum lectus. Sed eu fermentum erat. Phasellus molestie enim eget enim sollicitudin, id porttitor nulla mollis.
+
+        Proin suscipit mauris metus, sit amet ultricies purus dictum ut. In hac habitasse platea dictumst. Quisque turpis lectus, faucibus eu lacus a, sodales condimentum leo. Suspendisse sit amet sem sollicitudin, tincidunt est congue, tincidunt mauris. Pellentesque tristique magna in nisl sollicitudin tempus. Nunc feugiat sed neque sit amet varius. Aenean eget sagittis ipsum, et sagittis purus. Suspendisse eu fermentum lorem. In quis eleifend magna. Sed rhoncus leo sed felis imperdiet scelerisque sit amet sed justo. Vestibulum tincidunt, nibh id porta vulputate, nisi metus mattis neque, non condimentum odio neque at est. Proin hendrerit convallis massa, ut vestibulum neque viverra vitae. Pellentesque blandit mauris in finibus finibus. Proin non placerat nisi. Ut.
+      </p>
+    </main>
+  </div>
+
+  <footer>Footer</footer>
+</div>
+</body>
+</html>

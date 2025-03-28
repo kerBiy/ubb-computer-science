@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: fit-content;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    width: 100px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.inputs {
+    display: flex;
+    gap: 5px;
+}
+
+.inputs input {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    font-size: 16px;
+    font-family: monospace;
+    border: 2px solid black;
+    border-radius: 2px;
+    padding: 0;
+}
