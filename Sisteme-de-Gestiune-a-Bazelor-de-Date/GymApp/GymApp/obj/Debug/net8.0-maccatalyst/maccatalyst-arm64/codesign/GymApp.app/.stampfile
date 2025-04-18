@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/alexbalta/Developer/ubb-computer-science/Sisteme-de-Gestiune-a-Bazelor-de-Date/GymApp/GymApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/alexbalta/Developer/ubb-computer-science/Sisteme-de-Gestiune-a-Bazelor-de-Date/GymApp/GymApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/GymApp.app

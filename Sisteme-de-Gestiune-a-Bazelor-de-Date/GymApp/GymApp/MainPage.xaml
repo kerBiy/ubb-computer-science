@@ -1,0 +1,66 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GymApp.MainPage"
+             Title="Gym Management">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Membership Plans -->
+            <Label Text="Membership Plans" FontSize="20" />
+
+            <CollectionView x:Name="PlansTable"
+                            SelectionMode="Single"
+                            SelectionChanged="OnPlanSelected"
+                            HeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="5" Padding="10" Margin="0,2">
+                            <StackLayout>
+                                <Label Text="{Binding PlanName}" FontAttributes="Bold" />
+                                <Label Text="{Binding DurationMonths, StringFormat='Duration: {0} months'}" />
+                                <Label Text="{Binding Price, StringFormat='Price: {0:C}'}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Members -->
+            <Label Text="Members" FontSize="20" />
+
+            <CollectionView x:Name="MembersTable"
+                            SelectionMode="Single"
+                            SelectionChanged="OnMemberSelected"
+                            HeightRequest="200">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" CornerRadius="5" Padding="10" Margin="0,2">
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                <Label Text="{Binding Email}" />
+                                <Label Text="{Binding PhoneNumber}" />
+                                <Label Text="{Binding StartDate, StringFormat='Start: {0:yyyy-MM-dd}'}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Form Member Details -->
+            <Label Text="Member Details" FontSize="20" />
+            <Entry x:Name="NameEntry" Placeholder="Name" />
+            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" />
+            <Entry x:Name="PhoneEntry" Placeholder="Phone" Keyboard="Telephone" />
+            <DatePicker x:Name="StartDatePicker" />
+
+            <!-- Buttons -->
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Add" Clicked="OnAddMember" />
+                <Button Text="Update" Clicked="OnUpdateMember" />
+                <Button Text="Delete" Clicked="OnDeleteMember" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
