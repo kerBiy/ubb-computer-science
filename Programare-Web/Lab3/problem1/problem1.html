@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1st Problem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        select {
+            width: 220px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<select id="list1" multiple>
+    <option>HTML</option>
+    <option>CSS</option>
+    <option>JavaScript</option>
+    <option>Python</option>
+    <option>Java</option>
+</select>
+
+<select id="list2" multiple>
+    <option>C++</option>
+    <option>C#</option>
+    <option>PHP</option>
+</select>
+
+<script>
+    const list1 = document.getElementById('list1');
+    const list2 = document.getElementById('list2');
+
+    const moveSelectedOptions = (source, target) => {
+        const selected = Array.from(source.selectedOptions);
+        selected.forEach(option => target.appendChild(option));
+    };
+
+    list1.addEventListener('dblclick', () => moveSelectedOptions(list1, list2));
+    list2.addEventListener('dblclick', () => moveSelectedOptions(list2, list1));
+</script>
+
+</body>
+</html>

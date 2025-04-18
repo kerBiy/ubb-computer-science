@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sortable Table - Horizontal Header</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 30px auto;
+      min-width: 400px;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 10px 15px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    th.asc::after {
+      content: ' ↑';
+      position: absolute;
+      right: 10px;
+    }
+
+    th.desc::after {
+      content: ' ↓';
+      position: absolute;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <table class="sortable-horizontal">
+    <thead>
+      <tr>
+        <th>Fruit</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Apples</td>
+        <td>3</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>Pears</td>
+        <td>4</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>Bananas</td>
+        <td>2</td>
+        <td>12</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const makeHorizontalSortable = (table) => {
+      const headers = table.querySelectorAll('thead th');
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.rows);
+      const directions = Array.from(headers).map(() => true); // true = asc
+
+      headers.forEach((header, index) => {
+        header.addEventListener('click', () => {
+          const asc = directions[index];
+          directions[index] = !asc;
+
+          // remove arrows from all headers
+          headers.forEach(h => h.classList.remove('asc', 'desc'));
+          header.classList.add(asc ? 'asc' : 'desc');
+
+          const sortedRows = [...rows].sort((rowA, rowB) => {
+            const cellA = rowA.cells[index].textContent.trim();
+            const cellB = rowB.cells[index].textContent.trim();
+            const isNumeric = !isNaN(cellA) && !isNaN(cellB);
+
+            return isNumeric
+              ? (asc ? cellA - cellB : cellB - cellA)
+              : (asc ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA));
+          });
+
+          // reattach sorted rows
+          sortedRows.forEach(row => tbody.appendChild(row));
+        });
+      });
+    };
+
+    document.querySelectorAll('.sortable-horizontal').forEach(table => {
+      makeHorizontalSortable(table);
+    });
+  </script>
+
+</body>
+</html>

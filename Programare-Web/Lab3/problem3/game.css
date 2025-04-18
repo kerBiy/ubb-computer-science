@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 15px;
+    justify-content: center;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #444; /* mai închis pentru contrast */
+    border: 2px solid #222;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    max-width: 90%;
+    max-height: 90%;
+    display: none;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.5)); /* efect vizibil pentru imagini transparente */
+}
+
+.card.revealed img {
+    display: block;
+}
+
+.card.revealed {
+    background-color: #fff;
+    transform: scale(1.05); /* un mic efect de zoom la click */
+}
+
+.card.matched {
+    background-color: #1ead26;
+    pointer-events: none;
+}
+
+#restartBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#statusMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}

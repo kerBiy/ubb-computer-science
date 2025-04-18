@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game - Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 80px;
+            height: 80px;
+            font-size: 24px;
+            border: 2px solid #333;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #eee;
+            user-select: none;
+        }
+
+        td.revealed {
+            background-color: #b3e5fc;
+            cursor: default;
+        }
+
+        td.matched {
+            background-color: #c8e6c9;
+        }
+
+        #restartBtn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #statusMessage {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Memory Game - Match the Numbers</h2>
+<table id="gameTable"></table>
+
+<button id="restartBtn">Restart Game</button>
+<p id="statusMessage"></p>
+
+<script>
+    const table = document.getElementById('gameTable');
+    const restartBtn = document.getElementById('restartBtn');
+    const statusMessage = document.getElementById('statusMessage');
+
+    let values = [];
+    let firstCell = null;
+    let secondCell = null;
+    let lockBoard = false;
+    let matchedCount = 0;
+
+    const shuffle = array => array.sort(() => Math.random() - 0.5);
+
+    const generateValues = () => {
+        const base = [...Array(8).keys()]; // 0 to 7
+        return shuffle([...base, ...base]); // 8 pairs = 16 values
+    };
+
+    const createBoard = () => {
+        table.innerHTML = '';
+        const size = 4;
+        values = generateValues();
+        let index = 0;
+
+        for (let i = 0; i < size; i++) {
+            const row = table.insertRow();
+            for (let j = 0; j < size; j++) {
+                const cell = row.insertCell();
+                cell.dataset.value = values[index++];
+                cell.addEventListener('click', () => handleClick(cell));
+            }
+        }
+
+        statusMessage.textContent = '';
+        matchedCount = 0;
+        firstCell = null;
+        secondCell = null;
+        lockBoard = false;
+    };
+
+    const handleClick = cell => {
+        if (lockBoard || cell.classList.contains('revealed') || cell.classList.contains('matched')) return;
+
+        cell.textContent = cell.dataset.value;
+        cell.classList.add('revealed');
+
+        if (!firstCell) {
+            firstCell = cell;
+        } else {
+            secondCell = cell;
+            lockBoard = true;
+
+            if (firstCell.dataset.value === secondCell.dataset.value) {
+                firstCell.classList.add('matched');
+                secondCell.classList.add('matched');
+                matchedCount += 2;
+
+                if (matchedCount === values.length) {
+                    statusMessage.textContent = '🎉 Congratulations! You matched all pairs!';
+                }
+
+                resetTurn();
+            } else {
+                setTimeout(() => {
+                    firstCell.textContent = '';
+                    secondCell.textContent = '';
+                    firstCell.classList.remove('revealed');
+                    secondCell.classList.remove('revealed');
+                    resetTurn();
+                }, 500 + Math.random() * 500);
+            }
+        }
+    };
+
+    const resetTurn = () => {
+        [firstCell, secondCell] = [null, null];
+        lockBoard = false;
+    };
+
+    restartBtn.addEventListener('click', createBoard);
+
+    // Start the game on page load
+    createBoard();
+</script>
+
+</body>
+</html>

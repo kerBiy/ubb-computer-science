@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2nd Problem</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    form {
+      max-width: 400px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    .error {
+      border: 2px solid red;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<form id="userForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name">
+
+  <label for="birthdate">Birth Date:</label>
+  <input type="date" id="birthdate">
+
+  <label for="age">Age:</label>
+  <input type="number" id="age" min="0" max="130">
+
+  <label for="email">Email:</label>
+  <input type="email" id="email">
+
+  <button type="submit">Submit</button>
+  <div id="message"></div>
+</form>
+
+<script>
+  const form = document.getElementById('userForm');
+  const message = document.getElementById('message');
+
+  const fields = {
+    name: document.getElementById('name'),
+    birthdate: document.getElementById('birthdate'),
+    age: document.getElementById('age'),
+    email: document.getElementById('email')
+  };
+
+  const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidAge = age => age >= 0 && age <= 130;
+
+  const calculateAgeFromDate = dateString => {
+    const birthDate = new Date(dateString);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+    const dayDiff = today.getDate() - birthDate.getDate();
+
+    // If birthday hasn't occurred yet this year
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;
+    }
+
+    return age;
+  };
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    message.textContent = '';
+
+    Object.values(fields).forEach(input => input.classList.remove('error'));
+
+    const errors = [];
+
+    const { name, birthdate, age, email } = fields;
+    const ageValue = parseInt(age.value);
+    const calculatedAge = birthdate.value ? calculateAgeFromDate(birthdate.value) : null;
+
+    if (name.value.trim() === '') errors.push('name');
+    if (!birthdate.value) errors.push('birth date');
+
+    if (!age.value || isNaN(ageValue) || !isValidAge(ageValue)) {
+      errors.push('age');
+    } else if (calculatedAge !== null && Math.abs(calculatedAge - ageValue) > 1) {
+      errors.push('age (does not match birth date)');
+    }
+
+    if (!email.value || !isValidEmail(email.value)) errors.push('email');
+
+    if (errors.length > 0) {
+      message.textContent = `The following fields are invalid: ${errors.join(', ')}`;
+      errors.forEach(err => {
+        const fieldId = err.split(' ')[0]; // e.g., "age (does..." => "age"
+        fields[fieldId]?.classList.add('error');
+      });
+    } else {
+      message.textContent = 'All fields are valid.';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sortable Table - Vertical Header</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            border: 1px solid #333;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .header {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            right: 8px;
+            font-size: 14px;
+        }
+
+        .header.asc::after {
+            content: '↑';
+        }
+
+        .header.desc::after {
+            content: '↓';
+        }
+
+        td:not(.header) {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<table class="sortable-vertical">
+    <tr>
+        <td class="header">Fruit</td>
+        <td>Apples</td>
+        <td>Pears</td>
+    </tr>
+    <tr>
+        <td class="header">Price</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td class="header">Quantity</td>
+        <td>8</td>
+        <td>6</td>
+    </tr>
+</table>
+
+<script>
+    const makeVerticalSortable = (table) => {
+        const rows = Array.from(table.rows);
+        const rowCount = rows.length;
+        const colCount = rows[0].cells.length;
+
+        const direction = Array(rowCount).fill(true); // true = asc, false = desc
+
+        rows.forEach((row, rowIndex) => {
+            const headerCell = row.cells[0];
+
+            headerCell.addEventListener('click', () => {
+                const asc = direction[rowIndex];
+                direction[rowIndex] = !asc;
+
+                // Remove old arrows
+                table.querySelectorAll('.header').forEach(cell => {
+                    cell.classList.remove('asc', 'desc');
+                });
+
+                // Set new arrow
+                headerCell.classList.add(asc ? 'asc' : 'desc');
+
+                // Extract data matrix (excluding first column)
+                const data = [];
+                for (let col = 1; col < colCount; col++) {
+                    const columnData = [];
+                    for (let row = 0; row < rowCount; row++) {
+                        columnData.push(rows[row].cells[col].textContent);
+                    }
+                    data.push(columnData);
+                }
+
+                // Sort columns based on selected row
+                data.sort((a, b) => {
+                    const valA = a[rowIndex];
+                    const valB = b[rowIndex];
+                    const isNumber = !isNaN(valA) && !isNaN(valB);
+
+                    return isNumber
+                        ? (asc ? valA - valB : valB - valA)
+                        : (asc ? valA.localeCompare(valB) : valB.localeCompare(valA));
+                });
+
+                // Update table with sorted data
+                for (let col = 1; col < colCount; col++) {
+                    for (let row = 0; row < rowCount; row++) {
+                        rows[row].cells[col].textContent = data[col - 1][row];
+                    }
+                }
+            });
+        });
+    };
+
+    document.querySelectorAll('.sortable-vertical').forEach(table => {
+        makeVerticalSortable(table);
+    });
+</script>
+
+</body>
+</html>

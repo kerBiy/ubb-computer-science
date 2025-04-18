@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Carousel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        ol.carousel {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            height: 100%;
+        }
+
+        .carousel li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        .carousel li.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel a {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .controls {
+            margin-top: 15px;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Image Carousel</h2>
+
+<div class="carousel-container">
+    <ol class="carousel">
+        <li class="active">
+            <img src="../images/lemon.png" alt="Lemon">
+            <a href="#">Lemon</a>
+        </li>
+        <li>
+            <img src="../images/grapes.png" alt="Grapes">
+            <a href="#">Grapes</a>
+        </li>
+        <li>
+            <img src="../images/strawberry.png" alt="Strawberry">
+            <a href="#">Strawberry</a>
+        </li>
+        <li>
+            <img src="../images/watermelon.png" alt="Watermelon">
+            <a href="#">Watermelon</a>
+        </li>
+    </ol>
+</div>
+
+<div class="controls">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+</div>
+
+<script>
+    const items = document.querySelectorAll('.carousel li');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    let current = 0;
+    let interval = null;
+    const nSeconds = 3000;
+
+    const showSlide = index => {
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+    };
+
+    const nextSlide = () => {
+        current = (current + 1) % items.length;
+        showSlide(current);
+    };
+
+    const prevSlide = () => {
+        current = (current - 1 + items.length) % items.length;
+        showSlide(current);
+    };
+
+    const startAutoPlay = () => {
+        clearInterval(interval);
+        interval = setInterval(nextSlide, nSeconds);
+    };
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        startAutoPlay();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        startAutoPlay();
+    });
+
+    // Start automatic slideshow
+    startAutoPlay();
+</script>
+
+</body>
+</html>

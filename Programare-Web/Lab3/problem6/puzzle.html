@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sliding Puzzle</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 40px auto;
+        }
+
+        td {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #333;
+            background-color: #f5f5f5;
+            transition: background-color 0.2s;
+        }
+
+        td.empty {
+            background-color: #ccc;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Sliding Puzzle</h2>
+<table id="puzzle"></table>
+
+<script>
+    const size = 4; // for 4x4
+    const table = document.getElementById('puzzle');
+
+    let grid = []; // 2D array
+    let emptyCell = { row: 0, col: 0 };
+
+    const shuffleArray = array => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    };
+
+    const generatePuzzle = () => {
+        const numbers = [...Array(size * size - 1).keys()].map(x => x + 1);
+        numbers.push(null); // empty cell
+        shuffleArray(numbers);
+
+        // transform to 2D grid
+        grid = [];
+        for (let i = 0; i < size; i++) {
+            grid.push(numbers.slice(i * size, (i + 1) * size));
+        }
+
+        // find empty cell
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                if (grid[i][j] === null) {
+                    emptyCell = { row: i, col: j };
+                }
+            }
+        }
+
+        render();
+    };
+
+    const render = () => {
+        table.innerHTML = '';
+        for (let i = 0; i < size; i++) {
+            const row = document.createElement('tr');
+            for (let j = 0; j < size; j++) {
+                const cell = document.createElement('td');
+                const value = grid[i][j];
+                if (value !== null) {
+                    cell.textContent = value;
+                } else {
+                    cell.classList.add('empty');
+                }
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+    };
+
+    const swap = (r1, c1, r2, c2) => {
+        [grid[r1][c1], grid[r2][c2]] = [grid[r2][c2], grid[r1][c1]];
+    };
+
+    const move = (direction) => {
+        const { row, col } = emptyCell;
+        let newRow = row, newCol = col;
+
+        if (direction === 'ArrowUp') newRow++;
+        else if (direction === 'ArrowDown') newRow--;
+        else if (direction === 'ArrowLeft') newCol++;
+        else if (direction === 'ArrowRight') newCol--;
+
+        if (
+            newRow >= 0 && newRow < size &&
+            newCol >= 0 && newCol < size
+        ) {
+            swap(row, col, newRow, newCol);
+            emptyCell = { row: newRow, col: newCol };
+            render();
+        }
+    };
+
+    document.addEventListener('keydown', (e) => {
+        const arrows = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+        if (arrows.includes(e.key)) {
+            move(e.key);
+        }
+    });
+
+    generatePuzzle();
+</script>
+
+</body>
+</html>
