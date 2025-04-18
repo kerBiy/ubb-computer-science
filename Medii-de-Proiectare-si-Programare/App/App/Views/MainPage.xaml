@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="App.Views.MainPage"
+    Title="Show List">
+
+    <Grid Padding="20" ColumnDefinitions="*, Auto" RowDefinitions="Auto,*">
+        <!-- Username -->
+        <Label 
+            Grid.ColumnSpan="2"
+            Text="{Binding EmployeeUsername}" 
+            FontSize="18" 
+            HorizontalOptions="Center" 
+            Grid.Row="0" />
+
+        <!-- Left side: Shows List -->
+        <CollectionView 
+            Grid.Row="1" Grid.Column="0"
+            ItemsSource="{Binding Shows}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedShow, Mode=TwoWay}"
+            Margin="0,20,20,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="Gray" Padding="10" Margin="0,5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Artist}" FontAttributes="Bold" FontSize="18" />
+                            <Label Text="{Binding Date, StringFormat='Date: {0:yyyy-MM-dd}'}" FontSize="14" />
+                            <Label Text="{Binding Location, StringFormat='Location: {0}'}" FontSize="14" />
+                            <Label Text="{Binding SoldSeats, StringFormat='Sold: {0}'}" FontSize="14" />
+                            <Label Text="{Binding RemainingSeats, StringFormat='Remaining: {0}'}" FontSize="14" TextColor="Green" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Right side: Filter & Buy -->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="15" WidthRequest="250">
+
+            <Label Text="Filter by Date" FontAttributes="Bold" />
+            <DatePicker Date="{Binding FilterDate}" />
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Filter" Command="{Binding FilterByDateCommand}" />
+                <Button Text="Clear" Command="{Binding ClearFilterCommand}" />
+            </HorizontalStackLayout>
+
+            <BoxView HeightRequest="2" Color="Gray" Margin="0,10"/>
+
+            <Label Text="Buy Ticket" FontAttributes="Bold" />
+            <Entry Placeholder="Buyer name" Text="{Binding BuyerName}" />
+            <Entry Placeholder="Number of seats" 
+                   Text="{Binding NumberOfSeats}" 
+                   Keyboard="Numeric" />
+            <Button Text="Buy Ticket" Command="{Binding BuyTicketCommand}" />
+
+            <Label Text="{Binding TicketMessage}" TextColor="DarkGreen" FontAttributes="Italic" />
+
+            <BoxView HeightRequest="2" Color="Gray" Margin="0,10"/>
+
+            <Button 
+                Text="Logout" 
+                Command="{Binding LogoutCommand}" 
+                BackgroundColor="Red" 
+                TextColor="White" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -13,7 +13,6 @@
         "packagesPath": "/Users/alexbalta/.nuget/packages/",
         "outputPath": "/Users/alexbalta/Developer/ubb-computer-science/Medii-de-Proiectare-si-Programare/MyMauiApp/obj/",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/alexbalta/.nuget/NuGet/NuGet.Config"
         ],
@@ -39,12 +38,17 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0-maccatalyst18.0": {
           "targetAlias": "net8.0-maccatalyst",
           "dependencies": {
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
               "version": "[9.0.0, )"
@@ -90,6 +94,10 @@
               "version": "[18.0.8319, 18.0.8319]"
             },
             {
+              "name": "Microsoft.MacCatalyst.Runtime.maccatalyst-x64.net8.0_18.0",
+              "version": "[18.0.8319, 18.0.8319]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[8.0.13, 8.0.13]"
             }
@@ -107,6 +115,9 @@
       },
       "runtimes": {
         "maccatalyst-arm64": {
+          "#import": []
+        },
+        "maccatalyst-x64": {
           "#import": []
         }
       }

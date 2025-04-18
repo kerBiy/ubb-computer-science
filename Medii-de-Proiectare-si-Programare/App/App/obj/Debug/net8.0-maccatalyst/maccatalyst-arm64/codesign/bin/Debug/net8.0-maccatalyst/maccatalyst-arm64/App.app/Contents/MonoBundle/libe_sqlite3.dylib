@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - /Users/alexbalta/Developer/ubb-computer-science/Medii-de-Proiectare-si-Programare/App/App/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/App.app/Contents/MonoBundle/libe_sqlite3.dylib

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:App.ViewModels"
+             x:Class="App.Views.LoginPage"
+             x:DataType="vm:LoginViewModel"
+             Title="Login">
+
+    <VerticalStackLayout Padding="30" Spacing="20">
+        <Label Text="Username" />
+        <Entry Text="{Binding Username}" Placeholder="Enter username" />
+
+        <Label Text="Password" />
+        <Entry Text="{Binding Password}" IsPassword="True" Placeholder="Enter password" />
+
+        <Label Text="{Binding ErrorMessage}" TextColor="Red" />
+
+        <Button Text="Login"
+                Command="{Binding LoginCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

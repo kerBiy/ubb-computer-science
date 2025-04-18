@@ -142,6 +142,13 @@
 			m6GoUrUHSi7983I7Ah3luddsFQxRrYJJW3HRzBCU87U=
 			</data>
 		</dict>
+		<key>MonoBundle/Microsoft.Maui.Controls.HotReload.Forms.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2teYH75AhM2ksxr5mszwEg48Sy51KxVpsv3InkMANfI=
+			</data>
+		</dict>
 		<key>MonoBundle/Microsoft.Maui.Controls.Xaml.dll</key>
 		<dict>
 			<key>hash2</key>
@@ -191,6 +198,27 @@
 			uY8LoGnwYoE6bTQRiOouF6jwApNoMBNfnbvjy3P+YGU=
 			</data>
 		</dict>
+		<key>MonoBundle/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			MdjAqfwosMG26f6ZYI8oF2LCjp3+wy247IPBHRTKQ3c=
+			</data>
+		</dict>
+		<key>MonoBundle/Microsoft.VisualStudio.DesignTools.TapContract.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lG0Nny3wrMfnuvtj2x+kineYEx9uSksBJSikAaONnLg=
+			</data>
+		</dict>
+		<key>MonoBundle/Microsoft.VisualStudio.DesignTools.XamlTapContract.dll</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ENIYYJEN+Nvx+w09/tnl6TTOjHdYgA5CGgHjostycls=
+			</data>
+		</dict>
 		<key>MonoBundle/Microsoft.Win32.Primitives.dll</key>
 		<dict>
 			<key>hash2</key>
@@ -209,14 +237,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			c52SryehlAyYNdnFztcy6sBnsLDi6i3IEsKqVnzbA6E=
+			+BpLzhiOPYVbnUPmHobG90AP5pX8PcsDlcfM6whqPnc=
 			</data>
 		</dict>
 		<key>MonoBundle/MyMauiApp.pdb</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eLyvQUO/170VltYGkW3CeCEMcPHK6KhVoztJBOvpW80=
+			sSluEi1zST5+h3AjG2bhIpXqZCqxyf1hhLm+NFeTJgk=
 			</data>
 		</dict>
 		<key>MonoBundle/System.AppContext.dll</key>

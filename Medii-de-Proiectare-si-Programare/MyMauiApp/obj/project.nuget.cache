@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "t5RoTtluhn0=",
+  "dgSpecHash": "Ap0B6bEufIk=",
   "success": true,
   "projectFilePath": "/Users/alexbalta/Developer/ubb-computer-science/Medii-de-Proiectare-si-Programare/MyMauiApp/MyMauiApp.csproj",
   "expectedPackageFiles": [
+    "/Users/alexbalta/.nuget/packages/microsoft.data.sqlite/7.0.0/microsoft.data.sqlite.7.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.data.sqlite.core/7.0.0/microsoft.data.sqlite.core.7.0.0.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.extensions.configuration/8.0.0/microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.extensions.configuration.abstractions/8.0.0/microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.0/microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
@@ -23,10 +25,16 @@
     "/Users/alexbalta/.nuget/packages/microsoft.maui.graphics/8.0.100/microsoft.maui.graphics.8.0.100.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.maui.resizetizer/8.0.100/microsoft.maui.resizetizer.8.0.100.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.net.illink.tasks/8.0.13/microsoft.net.illink.tasks.8.0.13.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.2/sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/sqlitepclraw.core/2.1.2/sqlitepclraw.core.2.1.2.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.2/sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.2/sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/system.diagnostics.diagnosticsource/9.0.0/system.diagnostics.diagnosticsource.9.0.0.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.maccatalyst.ref.net8.0_18.0/18.0.8319/microsoft.maccatalyst.ref.net8.0_18.0.18.0.8319.nupkg.sha512",
+    "/Users/alexbalta/.nuget/packages/microsoft.maccatalyst.runtime.maccatalyst-x64.net8.0_18.0/18.0.8319/microsoft.maccatalyst.runtime.maccatalyst-x64.net8.0_18.0.18.0.8319.nupkg.sha512",
     "/Users/alexbalta/.nuget/packages/microsoft.maccatalyst.runtime.maccatalyst-arm64.net8.0_18.0/18.0.8319/microsoft.maccatalyst.runtime.maccatalyst-arm64.net8.0_18.0.18.0.8319.nupkg.sha512"
   ],
   "logs": []

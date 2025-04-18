@@ -12,6 +12,8 @@
 		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
 
+        <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers>
+
 		<OutputType>Exe</OutputType>
 		<RootNamespace>MyMauiApp</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -61,6 +63,15 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Database\" />
+	  <Folder Include="Models\" />
+	  <Folder Include="Repositories\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Views\" />
 	</ItemGroup>
 
 </Project>
